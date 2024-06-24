@@ -1,6 +1,7 @@
 " packadd quickscope
 inoremap k gk
 inoremap j gj
+inoremap jk <Esc>
 
 " execute 'luafile ' . stdpath('config') . '/lua/settings.lua'
 function! s:manageEditorSize(...)
