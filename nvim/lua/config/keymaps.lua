@@ -1,8 +1,9 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- jk to exit
+-- jj jk to exit
 keymap.set("i", "jk", "<Esc>", opts)
+keymap.set("i", "jj", "<Esc>", opts)
 
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
