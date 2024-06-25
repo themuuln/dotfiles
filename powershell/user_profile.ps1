@@ -12,6 +12,6 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Import-Module -Name Terminal-Icons
 
 # Fzf
-#Import-Module PSFzf
-#Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+Import-Module PSFzf
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 
