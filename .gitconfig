@@ -3,3 +3,12 @@
 	email = zerone.offical@gmail.com
 [diff]
 	ignoreAllSpace = true
+[safe]
+	directory = P:/mst/mst-scm-front-admin2-web
+	directory = P:/other/xac-shop
+	directory = P:/mst/merchant-app
+	directory = P:/other/zatbot
+	directory = P:/mst/supply
+	directory = P:/other/finance-dashboard
+	directory = P:/other/zatbot-front
+	directory = P:/open-source/xyflow

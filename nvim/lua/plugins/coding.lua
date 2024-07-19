@@ -14,6 +14,13 @@ return {
 		opts = { snippet_engine = "luasnip" },
 	},
 
+	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup({})
+		end,
+	},
+
 	-- Incremental rename
 	{
 		"smjonas/inc-rename.nvim",

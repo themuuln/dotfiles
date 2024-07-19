@@ -1,9 +1,10 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.codeium"
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lang.toml"
   ],
   "news": {
-    "NEWS.md": "6258",
+    "NEWS.md": "6077",
     "doc/news.txt": "24920"
   },
   "version": 6
