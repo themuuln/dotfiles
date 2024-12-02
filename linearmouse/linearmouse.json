@@ -1,0 +1,74 @@
+{
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
+  "schemes" : [
+    {
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "distance" : {
+          "vertical" : 3
+        },
+        "reverse" : {
+          "vertical" : true
+        },
+        "speed" : {
+          "vertical" : 0
+        }
+      },
+      "buttons" : {
+        "universalBackForward" : false
+      },
+      "pointer" : {
+        "speed" : 0.1704,
+        "disableAcceleration" : true,
+        "acceleration" : 1
+      },
+      "if" : {
+        "device" : {
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d",
+          "category" : "mouse",
+          "productID" : "0xc539"
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "productID" : "0x99",
+          "vendorID" : "0x1532",
+          "productName" : "Razer Basilisk V3",
+          "category" : "mouse"
+        }
+      },
+      "pointer" : {
+        "speed" : 0.4,
+        "acceleration" : 1,
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "reverse" : true,
+        "speed" : 0,
+        "distance" : 3,
+        "acceleration" : 1
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "productName" : "Razer DeathAdder V3 Pro",
+          "productID" : "0xb7",
+          "serialNumber" : "000000000000",
+          "category" : "mouse",
+          "vendorID" : "0x1532"
+        }
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : false
+        }
+      }
+    }
+  ]
+}

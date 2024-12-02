@@ -1,0 +1,33 @@
+yabai -m config layout bsp
+
+yabai -m config window_placement second_child
+
+yabai -m config top_padding 8
+yabai -m config bottom_padding 8
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+yabai -m config window_gap 8
+
+yabai -m config mouse_follows_focus_on
+
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m mouse_drop action swap
+
+yabai -m rule --add app"^System Settings$" manage=off
+yabai -m rule --add app="^Calculators$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+
+# yabai -m config mouse_follows_focus on
+# yabai -m config focus_follows_mouse autofocus
+yabai -m config window_placement second_child
+yabai -m config window_shadow off
+yabai -m config mouse_modifier fn
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m rule --add app="^System Preferences$" manage=off
+
+ctrl - alt - 1 : yabai -m space --focus 1
+ctrl - alt - 2 : yabai -m space --focus 2
+ctrl - alt - 3 : yabai -m space --focus 3
+ctrl - alt - 4 : yabai -m space --focus 4
