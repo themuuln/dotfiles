@@ -137,6 +137,29 @@ return {
       ensure_installed = { "stylua", "shellcheck", "shfmt", "flake8" },
     },
   },
-  { "dart-lang/dart-vim-plugin" },
-  { "theHamsta/nvim-dap-virtual-text" },
+
+  {
+    "dart-lang/dart-vim-plugin",
+    config = function()
+      -- Enable Dart specific features with dart-vim-plugin
+      vim.g.dart_format_on_save = 1 -- Auto format Dart code on save
+      vim.g.dart_enable_hover = 1 -- Enable hover documentation for Dart
+      vim.g.dart_sdk_path = "/Users/ict/development/flutter/bin/cache/dart-sdk" -- Set Dart SDK path (adjust accordingly)
+    end,
+  },
+
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap" }, -- Ensure nvim-dap is loaded before this plugin
+    config = function()
+      -- Setup for nvim-dap-virtual-text to display inline variable values during debugging
+      require("nvim-dap-virtual-text").setup({
+        enabled = true, -- Enable virtual text
+        enabled_commands = true, -- Enable DAP commands like `:DapVirtualTextToggle`
+        highlight_changed_variables = true, -- Highlight changed variables with a different color
+        show_stop_reason = true, -- Show why the debugger stopped (e.g., "Breakpoint hit")
+        display_variable_name = true, -- Display variable names next to their values
+      })
+    end,
+  },
 }
