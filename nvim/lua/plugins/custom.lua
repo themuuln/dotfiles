@@ -140,11 +140,12 @@ return {
 
   {
     "dart-lang/dart-vim-plugin",
+    ft = "dart",
     config = function()
-      -- Enable Dart specific features with dart-vim-plugin
-      vim.g.dart_format_on_save = 1 -- Auto format Dart code on save
-      vim.g.dart_enable_hover = 1 -- Enable hover documentation for Dart
-      vim.g.dart_sdk_path = "/Users/ict/development/flutter/bin/cache/dart-sdk" -- Set Dart SDK path (adjust accordingly)
+      vim.g.dart_format_on_save = 1
+      vim.g.dart_enable_hover = 1
+      vim.g.dart_sdk_path = "/Users/ict/development/flutter/bin/cache/dart-sdk"
+      vim.g.dartfmt_options = { "--line-length", "120" }
     end,
   },
 
