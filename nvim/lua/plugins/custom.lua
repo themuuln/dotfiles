@@ -75,8 +75,6 @@ return {
     },
   },
 
-  -- { import = "lazyvim.plugins.extras.lang.typescript" },
-
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -127,40 +125,31 @@ return {
     event = "VeryLazy",
   },
 
-  { import = "lazyvim.plugins.extras.ui.mini-starter" },
-
-  { import = "lazyvim.plugins.extras.lang.json" },
-
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = { "stylua", "shellcheck", "shfmt", "flake8" },
     },
   },
-
-  {
-    "dart-lang/dart-vim-plugin",
-    ft = "dart",
-    config = function()
-      vim.g.dart_format_on_save = 1
-      vim.g.dart_enable_hover = 1
-      vim.g.dart_sdk_path = "/Users/ict/development/flutter/bin/cache/dart-sdk"
-      vim.g.dartfmt_options = { "--line-length", "120" }
-    end,
-  },
-
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    dependencies = { "mfussenegger/nvim-dap" }, -- Ensure nvim-dap is loaded before this plugin
-    config = function()
-      -- Setup for nvim-dap-virtual-text to display inline variable values during debugging
-      require("nvim-dap-virtual-text").setup({
-        enabled = true, -- Enable virtual text
-        enabled_commands = true, -- Enable DAP commands like `:DapVirtualTextToggle`
-        highlight_changed_variables = true, -- Highlight changed variables with a different color
-        show_stop_reason = true, -- Show why the debugger stopped (e.g., "Breakpoint hit")
-        display_variable_name = true, -- Display variable names next to their values
-      })
-    end,
-  },
+  -- {
+  --   "nvim-focus/focus.nvim",
+  --   config = function()
+  --     require("focus").setup({
+  --       autoresize = {
+  --         enable = true,
+  --         width = 0, -- Automatically calculated based on golden ratio
+  --         minwidth = 4, -- Minimum width for unfocused windows
+  --         height = 0, -- Automatically calculated based on golden ratio
+  --         minheight = 1, -- Minimum height for unfocused windows
+  --       },
+  --       ui = {
+  --         number = false, -- Disable line numbers in unfocused windows
+  --         relativenumber = false, -- Disable relative numbers in unfocused windows
+  --         cursorline = true, -- Enable cursorline in focused window only
+  --         signcolumn = false, -- Disable signcolumn in unfocused windows
+  --       },
+  --     })
+  --   end,
+  --   event = "VeryLazy", -- Load the plugin during startup for optimal performance
+  -- },
 }
