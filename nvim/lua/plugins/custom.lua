@@ -93,6 +93,8 @@ return {
         "typescript",
         "vim",
         "yaml",
+        "http",
+        "graphql",
       },
     },
   },
@@ -128,9 +130,24 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = { "stylua", "shellcheck", "shfmt", "flake8" },
+      ensure_installed = { "stylua", "shellcheck", "shfmt", "flake8", "prettier", "gitui" },
     },
   },
+
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      plugins = {
+        gitsigns = true,
+        tmux = true,
+        kitty = { enabled = false, font = "+2" },
+      },
+    },
+    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
+  },
+
+  --
   -- {
   --   "nvim-focus/focus.nvim",
   --   config = function()
