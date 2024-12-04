@@ -1,6 +1,48 @@
 return {
   { "sphamba/smear-cursor.nvim" },
   {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    opts = {
+      options = {
+        mode = "buffers",
+        -- separator_style = "slant",
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+      },
+    },
+  },
+  -- {
+  --   "b0o/incline.nvim",
+  --   dependencies = { "craftzdog/solarized-osaka.nvim" },
+  --   event = "BufReadPre",
+  --   priority = 1200,
+  --   config = function()
+  --     local colors = require("solarized-osaka.colors").setup()
+  --     require("incline").setup({
+  --       highlight = {
+  --         groups = {
+  --           InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
+  --           InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
+  --         },
+  --       },
+  --       window = { margin = { vertical = 0, horizontal = 1 } },
+  --       hide = {
+  --         cursorline = true,
+  --       },
+  --       render = function(props)
+  --         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+  --         if vim.bo[props.buf].modified then
+  --           filename = "[+] " .. filename
+  --         end
+  --
+  --         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+  --         return { { icon, guifg = color }, { " " }, { filename } }
+  --       end,
+  --     })
+  --   end,
+  -- },
+  {
     "echasnovski/mini.starter",
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = "VimEnter",
@@ -71,5 +113,64 @@ return {
         end,
       })
     end,
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    opts = function(_, opts)
+      local highlight = {
+        "RainbowDelimiterRed",
+        "RainbowDelimiterYellow",
+        "RainbowDelimiterBlue",
+        "RainbowDelimiterOrange",
+        "RainbowDelimiterGreen",
+        "RainbowDelimiterViolet",
+        "RainbowDelimiterCyan",
+      }
+
+      opts = vim.tbl_deep_extend("force", opts or {}, {
+        indent = {
+          char = "│",
+          tab_char = "│",
+        },
+        scope = {
+          enabled = true,
+          show_start = true,
+          show_end = false,
+          highlight = highlight,
+          priority = 500,
+        },
+        whitespace = {
+          remove_blankline_trail = true,
+        },
+        filetype_exclude = {
+          "help",
+          "alpha",
+          "dashboard",
+          "Trouble",
+          "lazy",
+          "mason",
+          "notify",
+        },
+        context_patterns = {
+          "class",
+          "function",
+          "method",
+          "^if",
+          "^while",
+          "^for",
+          "^object",
+          "^widget",
+          "^return",
+          "^build",
+          "container",
+        },
+      })
+
+      return opts
+    end,
+    dependencies = {
+      "HiPhish/rainbow-delimiters.nvim",
+    },
   },
 }
