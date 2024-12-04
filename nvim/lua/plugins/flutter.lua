@@ -22,7 +22,6 @@ return {
       { "<leader>dt", "<cmd>FlutterLogToggle<CR>", desc = "Flutter Log Toggle" },
     },
   },
-
   {
     "dart-lang/dart-vim-plugin",
     ft = "dart",

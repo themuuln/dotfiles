@@ -1,33 +1,6 @@
 return {
   { "folke/trouble.nvim", enabled = true },
-  {
-    "Exafunction/codeium.vim",
-    event = "BufEnter",
-  },
-
-  -- {
-  --   "epwalsh/obsidian.nvim",
-  --   version = "*",
-  --   lazy = true,
-  --   ft = "markdown",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  --   opts = {
-  --     workspaces = {
-  --       {
-  --         name = "personal",
-  --         path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/home/notes",
-  --       },
-  --       {
-  --         name = "work",
-  --         path = "~/vaults/work",
-  --       },
-  --     },
-  --
-  --     -- see below for full list of options 👇
-  --   },
-  -- },
+  { "Exafunction/codeium.vim", event = "BufEnter" },
 
   {
     "hrsh7th/nvim-cmp",
@@ -61,17 +34,6 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        pyright = {},
-      },
-    },
-  },
-
-  {
-    "neovim/nvim-lspconfig",
     dependencies = {
       "jose-elias-alvarez/typescript.nvim",
       init = function()
@@ -82,10 +44,13 @@ return {
       end,
     },
     ---@class PluginLspOpts
+    ---
     opts = {
       ---@type lspconfig.options
       servers = {
         tsserver = {},
+        pyright = {},
+        dartls = {},
       },
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
@@ -117,6 +82,7 @@ return {
         "yaml",
         "http",
         "graphql",
+        "dart",
       },
     },
   },
@@ -144,16 +110,11 @@ return {
     end,
   },
 
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-  },
+  { "nvim-lualine/lualine.nvim", event = "VeryLazy" },
 
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = { "stylua", "shellcheck", "shfmt", "flake8", "prettier", "gitui" },
-    },
+    opts = { ensure_installed = { "stylua", "shellcheck", "shfmt", "flake8", "prettier" } },
   },
 
   {
@@ -169,28 +130,6 @@ return {
     keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
 
-  --
-  -- {
-  --   "nvim-focus/focus.nvim",
-  --   config = function()
-  --     require("focus").setup({
-  --       autoresize = {
-  --         enable = true,
-  --         width = 0, -- Automatically calculated based on golden ratio
-  --         minwidth = 4, -- Minimum width for unfocused windows
-  --         height = 0, -- Automatically calculated based on golden ratio
-  --         minheight = 1, -- Minimum height for unfocused windows
-  --       },
-  --       ui = {
-  --         number = false, -- Disable line numbers in unfocused windows
-  --         relativenumber = false, -- Disable relative numbers in unfocused windows
-  --         cursorline = true, -- Enable cursorline in focused window only
-  --         signcolumn = false, -- Disable signcolumn in unfocused windows
-  --       },
-  --     })
-  --   end,
-  --   event = "VeryLazy", -- Load the plugin during startup for optimal performance
-  -- },
   {
     "mistweaverco/kulala.nvim",
     ft = "http",
@@ -225,44 +164,6 @@ return {
 
       -- dev, test, prod, can be anything
       default_env = "test",
-
-      -- additional cURL options
-      -- see: https://curl.se/docs/manpage.html
-      additional_curl_options = {},
-
-      -- TODO: Update default contents based on current environment
-      scratchpad_default_contents = {
-        "@MY_TOKEN_NAME=my_token_value",
-        "",
-        "# @name scratchpad",
-        "POST https://httpbin.org/post HTTP/1.1",
-        "accept: application/json",
-        "content-type: application/json",
-        "",
-        "{",
-        '  "foo": "bar"',
-        "}",
-      },
-
-      -- enable winbar
-      winbar = true,
-
-      -- Specify the panes to be displayed by default
-      default_winbar_panes = { "body", "headers", "headers_body", "script_output" },
-
-      -- enable reading vscode rest client environment variables
-      vscode_rest_client_environmentvars = false,
-
-      -- disable the vim.print output of the scripts
-      -- they will be still written to disk, but not printed immediately
-      disable_script_print_output = false,
-
-      -- set scope for environment and request variables
-      -- possible values: b = buffer, g = global
-      environment_scope = "b",
-
-      -- certificates
-      certificates = {},
     },
   },
 }
