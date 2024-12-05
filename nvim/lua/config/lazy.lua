@@ -24,7 +24,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "solarized-osaka-moon" } },
+  install = { colorscheme = { "everforest" } },
   checker = {
     enabled = true,
     notify = false,
