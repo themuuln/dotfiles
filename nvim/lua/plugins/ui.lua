@@ -1,5 +1,4 @@
 return {
-  { "sphamba/smear-cursor.nvim" },
   {
     "echasnovski/mini.starter",
     version = false, -- wait till new 0.7.0 release to put it back on semver
@@ -90,4 +89,76 @@ return {
       },
     },
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      {
+        "<leader>fp",
+        function()
+          require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
+        end,
+        desc = "Find Plugin File",
+      },
+    },
+    opts = {
+      defaults = {
+        layout_strategy = "horizontal",
+        layout_config = { prompt_position = "top" },
+        sorting_strategy = "ascending",
+        winblend = 0,
+      },
+    },
+  },
+  { "folke/trouble.nvim", enabled = true },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      table.insert(opts.sections.lualine_x, {
+        function()
+          return "💵"
+        end,
+      })
+    end,
+  },
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      plugins = {
+        gitsigns = true,
+        tmux = true,
+        kitty = { enabled = false, font = "+2" },
+      },
+    },
+    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
+  },
+  -- {
+  --   "shellRaining/hlchunk.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   config = function()
+  --     require("hlchunk").setup({
+  --       chunk = {
+  --         enable = true,
+  --         -- ...
+  --       },
+  --       indent = {
+  --         enable = true,
+  --         -- ...
+  --       },
+  --     })
+  --   end,
+  -- },
+  -- colorschemes
+  { "ellisonleao/gruvbox.nvim" },
+  { "olimorris/onedarkpro.nvim" },
+  { "AlexvZyl/nordic.nvim" },
+  { "sainnhe/everforest" },
+  { "neanias/everforest-nvim" },
+  { "navarasu/onedark.nvim" },
+  { "marko-cerovac/material.nvim" },
+  { "Mofiqul/vscode.nvim" },
+  { "sainnhe/sonokai" },
+  { "craftzdog/solarized-osaka.nvim" },
+  { "rebelot/kanagawa.nvim" },
 }
