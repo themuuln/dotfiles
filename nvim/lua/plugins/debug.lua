@@ -9,7 +9,7 @@ return {
     config = function()
       require("flutter-tools").setup({
         flutter_path = nil,
-        opts = { lsp = { settings = { lineLength = 120 } } },
+        lsp = { settings = { lineLength = 120 } },
         fvm = false,
         widget_guides = { enabled = true },
         -- lsp = {
@@ -24,10 +24,6 @@ return {
         --     enablesnippets = false,
         --   },
         -- },
-        outline = {
-          open_cmd = "30vnew", -- command to use to open the outline buffer
-          auto_open = false, -- if true this will open the outline automatically when it is first populated
-        },
       })
       -- require("dap.ext.vscode").load_launchjs()
     end,
