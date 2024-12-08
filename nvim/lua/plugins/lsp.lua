@@ -17,23 +17,28 @@ return {
       "nvim-treesitter/nvim-treesitter",
       opts = {
         ensure_installed = {
-          "bash",
+          -- for web development
           "html",
           "javascript",
-          "json",
+          -- for basic vim configuartion
           "lua",
-          "markdown",
-          "markdown_inline",
-          "python",
-          "query",
+          -- Enable this if you want to use tsx and typescript
           "regex",
-          "tsx",
-          "typescript",
+          -- "tsx",
+          -- "typescript",
           "vim",
           "yaml",
+          -- kulala.nvim requirement
           "http",
           "graphql",
+          "json",
+          -- flutter development
           "dart",
+          -- notetaking
+          "markdown",
+          "markdown_inline",
+          -- "python",
+          -- "query",
         },
       },
     },
@@ -43,15 +48,44 @@ return {
       opts = function(_, opts)
         -- add tsx and treesitter
         vim.list_extend(opts.ensure_installed, {
-          "tsx",
-          "typescript",
+          -- if you'll use typesript uncomment the following
+          -- "tsx",
+          -- "typescript",
+          --
+          -- Flutter Development
+          "dart",
         })
       end,
     },
 
     {
       "williamboman/mason.nvim",
-      opts = { ensure_installed = { "stylua", "shellcheck", "shfmt", "flake8", "prettier", "dart-debug-adapter" } },
+      opts = {
+        ensure_installed = {
+          "stylua",
+          "shellcheck",
+          "shfmt",
+          "flake8",
+          "prettier",
+          -- dart-debug-adapter
+          -- dcm
+          -- json-lsp
+          -- lua-language-server
+          -- markdown-toc
+          -- markdownlint-cli2
+          -- marksman
+          -- prettier
+          -- shfmt
+          -- stylua
+          -- tailwindcss-language-server
+          -- typescript-language-server
+
+          -- flutter development
+          "dart-debug-adapter",
+          -- ast-grep
+          -- flake8
+        },
+      },
     },
   },
 }
