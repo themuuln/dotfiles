@@ -24,4 +24,5 @@ return {
       disable_inline_completion = vim.g.ai_cmp,
     },
   },
+  { "mg979/vim-visual-multi" },
 }
