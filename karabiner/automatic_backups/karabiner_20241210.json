@@ -158,6 +158,15 @@
                             "to": [{ "key_code": "left_command" }]
                         }
                     ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 647,
+                        "vendor_id": 64562
+                    }
                 }
             ],
             "name": "Default profile",
