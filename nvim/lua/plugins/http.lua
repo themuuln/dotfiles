@@ -10,9 +10,6 @@ return {
       },
     },
     opts = {
-      -- split, float
-      -- default_view = "headers_body",
-      -- dev, test, prod, can be anything
       default_env = "test",
     },
   },
