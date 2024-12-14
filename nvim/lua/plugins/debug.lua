@@ -1,5 +1,4 @@
 return {
-  { "stevearc/dressing.nvim" },
   {
     "nvim-flutter/flutter-tools.nvim",
     event = "VeryLazy",
@@ -13,26 +12,15 @@ return {
         flutter_path = nil,
         fvm = false,
         widget_guides = { enabled = true },
-        log = {
-          enabled = true,
-          open_cmd = "tabedit",
-        },
-        dev_log = {
-          enabled = true,
-          open_cmd = "tabedit", -- ensure a valid command
-        },
-        debugger = {
-          enabled = true,
-          run_via_dap = true,
-        },
+        log = { enabled = true, open_cmd = "tabedit" },
+        dev_log = { enabled = true, open_cmd = "tabedit" },
+        debugger = { enabled = true, run_via_dap = true },
         lsp = {
           settings = {
             lineLength = 120,
             showtodos = true,
             completefunctioncalls = true,
-            analysisexcludedfolders = {
-              vim.fn.expand("$Home/.pub-cache"),
-            },
+            analysisexcludedfolders = { vim.fn.expand("$Home/.pub-cache") },
             renamefileswithclasses = "prompt",
             updateimportsonrename = true,
             enablesnippets = true,
@@ -43,22 +31,15 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    dependencies = {
-      "nvim-neotest/nvim-nio",
-      "rcarriga/nvim-dap-ui",
-    },
+    dependencies = { "nvim-neotest/nvim-nio", "rcarriga/nvim-dap-ui" },
     event = "VeryLazy",
     config = function()
       local dap = require("dap")
-
-      -- Define the Dart adapter
       dap.adapters.dart = {
         type = "executable",
         command = "/Users/ict/development/flutter/bin/flutter",
         args = { "debug_adapter" },
       }
-
-      -- Flutter DAP Configurations
       dap.configurations.dart = {
         -- Remove Comoments for Dart Development
         -- {
@@ -78,11 +59,6 @@ return {
           flutterSdkPath = "/Users/ict/development/flutter/bin",
           program = "${workspaceFolder}/lib/main.dart",
           cwd = "${workspaceFolder}",
-          -- toolArgs = {
-          --   "-d",
-          --   "abae108eb0eacccc44374baf2b91a79bd972e5a5", -- Device ID
-          --   "--debug",
-          -- },
         },
       }
     end,
