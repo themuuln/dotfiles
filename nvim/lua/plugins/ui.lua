@@ -107,6 +107,10 @@ return {
     },
     keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
+  {
+    "folke/snacks.nvim",
+    opts = { scroll = { enabled = false } },
+  },
   -- colorschemes
   { "olimorris/onedarkpro.nvim" },
   { "AlexvZyl/nordic.nvim" },

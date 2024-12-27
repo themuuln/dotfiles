@@ -13,9 +13,20 @@ return {
         fvm = false,
         widget_guides = { enabled = true },
         log = { enabled = true, open_cmd = "tabedit" },
-        dev_log = { enabled = true, open_cmd = "tabedit" },
         debugger = { enabled = true, run_via_dap = true },
+        decorations = {
+          -- statusline = { enabled = true },
+        },
+        closing_tags = {
+          highlight = "Comment",
+          prefix = "//",
+        },
         lsp = {
+          color = {
+            enabled = true,
+            background = true,
+            virtual_text = true,
+          },
           settings = {
             lineLength = 120,
             showtodos = true,

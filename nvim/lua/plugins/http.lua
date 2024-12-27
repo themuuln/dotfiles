@@ -9,8 +9,6 @@ return {
         ft = "http",
       },
     },
-    opts = {
-      default_env = "test",
-    },
+    opts = { default_env = "test" },
   },
 }

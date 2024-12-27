@@ -2,72 +2,152 @@
   "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
   "schemes" : [
     {
-      "scrolling" : {
-        "acceleration" : {
-          "vertical" : 1
-        },
-        "distance" : {
-          "vertical" : 3
-        },
-        "reverse" : {
-          "vertical" : true
-        },
-        "speed" : {
-          "vertical" : 0
-        }
-      },
-      "buttons" : {
-        "universalBackForward" : false
-      },
       "pointer" : {
+        "acceleration" : 1,
         "speed" : 0.1704,
-        "disableAcceleration" : true,
-        "acceleration" : 1
+        "disableAcceleration" : true
       },
       "if" : {
         "device" : {
           "productName" : "USB Receiver",
-          "vendorID" : "0x46d",
           "category" : "mouse",
-          "productID" : "0xc539"
+          "productID" : "0xc539",
+          "vendorID" : "0x46d"
         }
+      },
+      "scrolling" : {
+        "distance" : {
+          "vertical" : 3
+        },
+        "speed" : {
+          "vertical" : 0
+        },
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "reverse" : {
+          "vertical" : true
+        }
+      },
+      "buttons" : {
+        "universalBackForward" : false
       }
     },
     {
+      "pointer" : {
+        "acceleration" : 1,
+        "speed" : 0.4,
+        "disableAcceleration" : true
+      },
       "if" : {
         "device" : {
-          "productID" : "0x99",
           "vendorID" : "0x1532",
+          "category" : "mouse",
           "productName" : "Razer Basilisk V3",
-          "category" : "mouse"
+          "productID" : "0x99"
         }
-      },
-      "pointer" : {
-        "speed" : 0.4,
-        "acceleration" : 1,
-        "disableAcceleration" : true
       },
       "scrolling" : {
         "reverse" : true,
-        "speed" : 0,
+        "acceleration" : 1,
         "distance" : 3,
-        "acceleration" : 1
+        "speed" : 0
       }
     },
     {
       "if" : {
         "device" : {
-          "productName" : "Razer DeathAdder V3 Pro",
           "productID" : "0xb7",
+          "vendorID" : "0x1532",
+          "productName" : "Razer DeathAdder V3 Pro",
           "serialNumber" : "000000000000",
-          "category" : "mouse",
-          "vendorID" : "0x1532"
+          "category" : "mouse"
         }
       },
       "scrolling" : {
         "reverse" : {
           "vertical" : false
         }
+      }
+    },
+    {
+      "buttons" : {
+        "universalBackForward" : true
+      },
+      "if" : {
+        "device" : {
+          "vendorID" : "0x46d",
+          "productName" : "MX Master 3S",
+          "serialNumber" : "34C326B3",
+          "category" : "mouse",
+          "productID" : "0xb034"
+        }
+      },
+      "scrolling" : {
+        "modifiers" : {
+          "horizontal" : {
+            "command" : {
+              "type" : "preventDefault"
+            },
+            "control" : {
+              "type" : "preventDefault"
+            }
+          }
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "serialNumber" : "000000000000",
+          "category" : "mouse",
+          "productID" : "0xab",
+          "productName" : "Razer Basilisk V3 Pro",
+          "vendorID" : "0x1532"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1.8,
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "distance" : {
+          "vertical" : 3
+        },
+        "reverse" : {
+          "vertical" : true,
+          "horizontal" : false
+        },
+        "speed" : {
+          "vertical" : 0
+        },
+        "acceleration" : {
+          "vertical" : 1
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xac",
+          "productName" : "BSK V3 PRO",
+          "vendorID" : "0x68e"
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "speed" : 0,
+        "reverse" : {
+          "vertical" : true
+        },
+        "acceleration" : 1,
+        "distance" : 3
       }
     }
   ]
