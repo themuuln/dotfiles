@@ -1,4 +1,4 @@
 return {
   { "preservim/vim-markdown" },
-  { "pomo.nvim" },
+  { "epwalsh/pomo.nvim" },
 }
