@@ -157,7 +157,7 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 # run this command below to see list of app ids
-# osascript -e 'tell application "System Events" to get the bundle identifier of every application process whose visible is true'
+# aerospace list-apps
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = "move-node-to-workspace S"
