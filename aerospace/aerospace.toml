@@ -1,53 +1,3 @@
-# after-login-command = [
-#   'exec-and-forget open -na "Arc"',
-#   'move-node-to-workspace B',
-#   'exec-and-forget open -na "ChatGPT"',
-#   'move-node-to-workspace C',
-#   'exec-and-forget open -na "Windsurf"',
-#   'move-node-to-workspace I',
-#   'exec-and-forget open -na "Obsidian"',
-#   'move-node-to-workspace N',
-#   'exec-and-forget open -na "Spotify"',
-#   'move-node-to-workspace S',
-#   'exec-and-forget open -na "iTerm2"',
-#   'move-node-to-workspace T',
-# ]
-
-# run this command below to see list of app ids
-# aerospace list-apps
-[[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = "move-node-to-workspace S"
-
-[[on-window-detected]]
-if.app-id = 'com.openai.chat'
-run = "move-node-to-workspace C"
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = "move-node-to-workspace N"
-
-[[on-window-detected]]
-if.app-id = 'com.googlecode.iterm2'
-run = "move-node-to-workspace T"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'
-run = "move-node-to-workspace M"
-
-[[on-window-detected]]
-if.app-id = 'com.exafunction.windsurf'
-run = "move-node-to-workspace I"
-
-[[on-window-detected]]
-if.app-id = 'com.thebrowser.Browser'
-run = "move-node-to-workspace I"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = "move-node-to-workspace F"
-
-
 start-at-login = true
 
 enable-normalization-flatten-containers = true
@@ -65,12 +15,12 @@ automatically-unhide-macos-hidden-apps = false
 preset = 'qwerty'
 
 [gaps]
-inner.horizontal = 0
-inner.vertical =   0
-outer.left =       0
-outer.bottom =     0
-outer.top =        0
-outer.right =      0
+inner.horizontal = 8
+inner.vertical =   8
+outer.left =       8
+outer.bottom =     8
+outer.top =        8
+outer.right =      8
 
 [mode.main.binding]
 
@@ -191,3 +141,34 @@ down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = "move-node-to-workspace C"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "move-node-to-workspace N"
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = "move-node-to-workspace T"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = "move-node-to-workspace M"
+
+[[on-window-detected]]
+if.app-id = 'com.exafunction.windsurf'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-id = 'com.thebrowser.Browser'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = "move-node-to-workspace F"
