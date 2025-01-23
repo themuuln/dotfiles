@@ -100,9 +100,9 @@ alt-shift-f = 'move-node-to-workspace F'
 # IDE (Windsurf, VSCode)
 alt-i = 'workspace I'
 alt-shift-i = 'move-node-to-workspace I'
-# Obsidian
-alt-m = 'workspace M'
-alt-shift-m = 'move-node-to-workspace M'
+# # Obsidian
+# alt-m = 'workspace M'
+# alt-shift-m = 'move-node-to-workspace M'
 # Obsidian
 alt-n = 'workspace N'
 alt-shift-n = 'move-node-to-workspace N'
@@ -136,6 +136,8 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+alt-m = 'fullscreen'
 
 down = 'volume down'
 up = 'volume up'
