@@ -5,7 +5,6 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 
 accordion-padding = 0
 
-# Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 # on-focused-monitor-changed = ['move-mTo execute your custom keybindings for opening a terminal in “workspace T” and moving the focused window to “workspace T” at startup on macOS, you can utilize AppleScript in conjunction with Automator to create a startup application. Here’s how to set it up:
@@ -101,9 +100,6 @@ alt-shift-f = 'move-node-to-workspace F'
 alt-i = 'workspace I'
 alt-shift-i = 'move-node-to-workspace I'
 # # Obsidian
-# alt-m = 'workspace M'
-# alt-shift-m = 'move-node-to-workspace M'
-# Obsidian
 alt-n = 'workspace N'
 alt-shift-n = 'move-node-to-workspace N'
 # iTerm2
