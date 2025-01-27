@@ -1,6 +1,6 @@
 return {
   -- Codeium
-  { "Exafunction/codeium.vim", event = "BufEnter" },
+  -- { "Exafunction/codeium.vim", event = "BufEnter" },
 
   -- Copilot
   {

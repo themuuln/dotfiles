@@ -15,7 +15,7 @@ return {
         log = { enabled = true, open_cmd = "tabedit" },
         debugger = { enabled = true, run_via_dap = true },
         decorations = {
-          -- statusline = { enabled = true },
+          statusline = { enabled = true },
         },
         closing_tags = {
           highlight = "Comment",
