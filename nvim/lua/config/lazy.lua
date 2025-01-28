@@ -16,30 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = {
-    { "LazyVim/LazyVim", opts = { colorscheme = "tokyonight-moon" }, import = "lazyvim.plugins" },
-    { import = "plugins" },
-  },
-  defaults = {
-    lazy = false,
-    version = false,
-  },
-  install = { colorscheme = { "tokyonight-moon" } },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        -- "matchparen",
-        -- "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-      },
-    },
-  },
+  spec = { { "LazyVim/LazyVim", import = "lazyvim.plugins" }, { import = "plugins" } },
+  defaults = { lazy = false, version = false },
+  checker = { enabled = true, notify = false },
+  performance = { rtp = { disabled_plugins = { "gzip", "tarPlugin", "tohtml", "tutor", "zipPlugin" } } },
 })

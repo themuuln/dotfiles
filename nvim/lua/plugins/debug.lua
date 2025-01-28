@@ -1,21 +1,49 @@
 return {
   {
     "nvim-flutter/flutter-tools.nvim",
-    event = "VeryLazy",
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "stevearc/dressing.nvim",
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
     },
     ft = "dart",
     config = function()
       require("flutter-tools").setup({
-        flutter_path = nil,
-        fvm = false,
-        widget_guides = { enabled = true },
-        log = { enabled = true, open_cmd = "tabedit" },
-        debugger = { enabled = true, run_via_dap = true },
+        debugger = {
+          enabled = true,
+          run_via_dap = true,
+          register_configurations = function(_)
+            local dap = require("dap")
+            dap.adapters.dart = {
+              type = "executable",
+              command = "/Users/ict/development/flutter/bin/flutter",
+              args = { "debug_adapter" },
+            }
+            dap.configurations.dart = {
+              {
+                type = "dart",
+                request = "launch",
+                name = "Launch Flutter",
+                dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
+                flutterSdkPath = "/Users/ict/development/flutter/bin",
+                program = "${workspaceFolder}/lib/main.dart",
+                cwd = "${workspaceFolder}",
+              },
+            }
+          end,
+        },
         decorations = {
-          statusline = { enabled = true },
+          statusline = {
+            app_version = true,
+            device = true,
+          },
+        },
+
+        flutter_path = "/Users/ict/development/flutter/bin/flutter",
+        widget_guides = {
+          enabled = true,
         },
         closing_tags = {
           highlight = "Comment",
@@ -28,13 +56,11 @@ return {
             virtual_text = true,
           },
           settings = {
-            lineLength = 120,
-            showtodos = true,
-            completefunctioncalls = true,
-            analysisexcludedfolders = { vim.fn.expand("$Home/.pub-cache") },
-            renamefileswithclasses = "prompt",
-            updateimportsonrename = true,
-            enablesnippets = true,
+            showTodos = true,
+            completeFunctionCalls = true,
+            renameFilesWithClasses = "prompt",
+            enableSnippets = true,
+            updateImportsOnRename = true,
           },
         },
       })
@@ -53,23 +79,26 @@ return {
       }
       dap.configurations.dart = {
         -- Remove Comoments for Dart Development
-        -- {
-        --   type = "dart",
-        --   request = "launch",
-        --   name = "Launch Dart",
-        --   dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
-        --   flutterSdkPath = "/Users/ict/development/flutter/bin",
-        --   program = "${workspaceFolder}/lib/main.dart",
-        --   cwd = "${workspaceFolder}",
-        -- },
         {
           type = "dart",
           request = "launch",
           name = "Launch Flutter",
+          program = "${workspaceFolder}/lib/main.dart",
+          cwd = "${workspaceFolder}",
+          flutterSdkPath = "/Users/ict/development/flutter/bin",
+          dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
+          toolArgs = { "--hot-reload" }, -- Add this line
+          args = {}, -- Add any command line arguments here
+        },
+        {
+          type = "dart",
+          request = "attach",
+          name = "Attach Flutter",
           dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
           flutterSdkPath = "/Users/ict/development/flutter/bin",
           program = "${workspaceFolder}/lib/main.dart",
           cwd = "${workspaceFolder}",
+          toolArgs = { "--hot-reload" }, -- Add this line
         },
       }
     end,
