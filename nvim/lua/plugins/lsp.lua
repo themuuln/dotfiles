@@ -14,22 +14,16 @@ return {
         "http",
         "graphql",
         "json",
+        "json5",
         "dart",
         "markdown",
         "markdown_inline",
         "python",
         "query",
+        "astro",
+        "css",
       },
     },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.list_extend(
-        opts.ensure_installed,
-        { "tsx", "typescript", "dart", "javascript", "astro", "css", "html", "http", "json", "json5" }
-      )
-    end,
   },
   {
     "williamboman/mason.nvim",
