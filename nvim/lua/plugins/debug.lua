@@ -1,4 +1,5 @@
 return {
+  { "dart-lang/dart-vim-plugin" },
   {
     "nvim-flutter/flutter-tools.nvim",
     lazy = true,
@@ -87,8 +88,8 @@ return {
           cwd = "${workspaceFolder}",
           flutterSdkPath = "/Users/ict/development/flutter/bin",
           dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
-          toolArgs = { "--hot-reload" }, -- Add this line
-          args = {}, -- Add any command line arguments here
+          toolArgs = { "--hot-reload" },
+          args = {},
         },
         {
           type = "dart",
@@ -98,7 +99,7 @@ return {
           flutterSdkPath = "/Users/ict/development/flutter/bin",
           program = "${workspaceFolder}/lib/main.dart",
           cwd = "${workspaceFolder}",
-          toolArgs = { "--hot-reload" }, -- Add this line
+          toolArgs = { "--hot-reload" },
         },
       }
     end,
