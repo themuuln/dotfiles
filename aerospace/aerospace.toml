@@ -148,6 +148,10 @@ if.app-id = 'com.openai.chat'
 run = "move-node-to-workspace C"
 
 [[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace N"
 
