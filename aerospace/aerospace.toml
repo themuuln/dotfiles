@@ -14,12 +14,12 @@ automatically-unhide-macos-hidden-apps = false
 preset = 'qwerty'
 
 [gaps]
-inner.horizontal = 8
-inner.vertical =   8
-outer.left =       8
-outer.bottom =     8
-outer.top =        8
-outer.right =      8
+inner.horizontal = 4
+inner.vertical =   4
+outer.left =       4
+outer.bottom =     4
+outer.top =        4
+outer.right =      4
 
 [mode.main.binding]
 
@@ -105,9 +105,6 @@ alt-shift-n = 'move-node-to-workspace N'
 # iTerm2
 alt-t = 'workspace T'
 alt-shift-t = 'move-node-to-workspace T'
-# Notes
-alt-r = 'workspace R'
-alt-shift-r = 'move-node-to-workspace R'
 # Spotify
 alt-s = 'workspace S'
 alt-shift-s = 'move-node-to-workspace S'
@@ -133,7 +130,7 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-alt-m = 'fullscreen'
+alt-m = 'fullscreen --no-outer-gaps'
 
 down = 'volume down'
 up = 'volume up'
@@ -149,6 +146,10 @@ run = "move-node-to-workspace C"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.tdesktop.Telegram'
 run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
@@ -168,8 +169,13 @@ if.app-id = 'com.exafunction.windsurf'
 run = "move-node-to-workspace I"
 
 [[on-window-detected]]
-if.app-id = 'com.thebrowser.Browser'
+if.app-id = 'com.microsoft.VSCode'
 run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = "move-node-to-workspace B"
+
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
