@@ -23,9 +23,10 @@ return {
     end,
   },
   -- colorschemes
-  -- { "olimorris/onedarkpro.nvim" },
-  -- { "AlexvZyl/nordic.nvim" },
-  -- { "sainnhe/everforest" },
-  -- { "navarasu/onedark.nvim" },
-  -- { "craftzdog/solarized-osaka.nvim" },
+  { "olimorris/onedarkpro.nvim" },
+  { "AlexvZyl/nordic.nvim" },
+  { "sainnhe/everforest" },
+  { "navarasu/onedark.nvim" },
+  { "craftzdog/solarized-osaka.nvim" },
+  { "rebelot/kanagawa.nvim" },
 }
