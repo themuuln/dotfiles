@@ -1,9 +1,9 @@
 start-at-login = true
 
-enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
+enable-normalization-flatten-containers = true
 
-accordion-padding = 0
+accordion-padding = 12
 
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
@@ -107,7 +107,7 @@ alt-shift-d = 'move-node-to-workspace D'
 # Finder
 alt-f = 'workspace F'
 alt-shift-f = 'move-node-to-workspace F'
-# IDE (Windsurf, VSCode)
+# IDE (Windsurf, VSCode, GoLand)
 alt-i = 'workspace I'
 alt-shift-i = 'move-node-to-workspace I'
 # # Obsidian
@@ -131,11 +131,8 @@ alt-shift-semicolon = 'mode service'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-m = ['fullscreen --no-outer-gaps', 'mode main'] 
+m = ['fullscreen --no-outer-gaps', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
-
-# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-#s = ['layout sticky tiling', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
@@ -187,7 +184,6 @@ run = "move-node-to-workspace I"
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace B"
-
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
