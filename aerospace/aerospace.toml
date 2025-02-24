@@ -7,7 +7,6 @@ accordion-padding = 12
 
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
-# on-focused-monitor-changed = ['move-mTo execute your custom keybindings for opening a terminal in “workspace T” and moving the focused window to “workspace T” at startup on macOS, you can utilize AppleScript in conjunction with Automator to create a startup application. Here’s how to set it up:
 automatically-unhide-macos-hidden-apps = false
 
 [key-mapping]
@@ -56,25 +55,6 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-
-# Uncomment if necessary
-# alt-3 = 'workspace 3'
-# alt-shift-3 = 'move-node-to-workspace 3'
-# alt-shift-7 = 'move-node-to-workspace 7'
-# alt-4 = 'workspace 4'
-# alt-shift-4 = 'move-node-to-workspace 4'
-# alt-5 = 'workspace 5'
-# alt-shift-5 = 'move-node-to-workspace 5'
-# alt-6 = 'workspace 6'
-# alt-shift-6 = 'move-node-to-workspace 6'
-# alt-7 = 'workspace 7'
-# alt-8 = 'workspace 8'
-# alt-shift-8 = 'move-node-to-workspace 8'
-# alt-9 = 'workspace 9'
-# alt-shift-9 = 'move-node-to-workspace 9'
-# alt-a = 'workspace A'
-# alt-shift-a = 'move-node-to-workspace A'
-# Other
 alt-1 = 'workspace 1'
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-2 = 'workspace 2'
@@ -104,13 +84,13 @@ alt-shift-c = 'move-node-to-workspace C'
 # Discord
 alt-d = 'workspace D'
 alt-shift-d = 'move-node-to-workspace D'
-# Finder
+# Finder, Figma
 alt-f = 'workspace F'
 alt-shift-f = 'move-node-to-workspace F'
 # IDE (Windsurf, VSCode, GoLand)
 alt-i = 'workspace I'
 alt-shift-i = 'move-node-to-workspace I'
-# # Obsidian
+# Obsidian, Notion
 alt-n = 'workspace N'
 alt-shift-n = 'move-node-to-workspace N'
 # iTerm2
@@ -154,12 +134,16 @@ if.app-id = 'com.openai.chat'
 run = "move-node-to-workspace C"
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
-run = "move-node-to-workspace 2"
+if.app-id = 'com.philipyoungg.session-direct'
+run = "move-node-to-workspace 0"
 
 [[on-window-detected]]
 if.app-id = 'com.tdesktop.Telegram'
 run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
@@ -184,6 +168,10 @@ run = "move-node-to-workspace I"
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace B"
+
+[[on-window-detected]]
+if.app-id = 'com.figma.Desktop'
+run = "move-node-to-workspace F"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
