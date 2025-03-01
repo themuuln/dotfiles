@@ -1223,7 +1223,7 @@ cursor_trail 1
 
 #: The foreground and background colors.
 
-background_opacity 0.7
+background_opacity 0.80
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -2671,6 +2671,6 @@ bold_italic_font auto
 
 
 # BEGIN_KITTY_THEME
-# Tokyo Night
+# Everforest Dark Hard
 include current-theme.conf
 # END_KITTY_THEME
