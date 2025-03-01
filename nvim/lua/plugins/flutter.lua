@@ -13,7 +13,7 @@ return {
     config = function()
       require("flutter-tools").setup({
         debugger = {
-          enabled = true,
+          enabled = false,
           run_via_dap = true,
           register_configurations = function(_)
             local dap = require("dap")
