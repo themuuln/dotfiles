@@ -14,11 +14,11 @@ preset = 'qwerty'
 
 [gaps]
 inner.horizontal = 8
-inner.vertical =   8
-outer.left =       8
-outer.bottom =     8
-outer.top =        8
-outer.right =      8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
+outer.top = 8
+outer.right = 8
 
 [mode.main.binding]
 
@@ -110,7 +110,10 @@ alt-shift-semicolon = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+  'layout floating tiling',
+  'mode main',
+] # Toggle between floating and tiling layout
 m = ['fullscreen --no-outer-gaps', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
@@ -151,6 +154,10 @@ run = "move-node-to-workspace N"
 
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
+run = "move-node-to-workspace T"
+
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
 run = "move-node-to-workspace T"
 
 [[on-window-detected]]
