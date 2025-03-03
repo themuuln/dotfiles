@@ -6,7 +6,7 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 # font_family      JetBrainsMono Nerd Font
-font_features FiraCode-Bold +zero
+# font_features FiraCode-Bold +zero
 # bold_font        auto
 # italic_font      auto
 # bold_italic_font auto
@@ -20,7 +20,7 @@ font_features FiraCode-Bold +zero
 #: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
 #: syntax>.
 
-font_size 18.0
+font_size 20
 
 #: Font size (in pts).
 
@@ -69,8 +69,6 @@ font_size 18.0
 #: This option can be specified multiple times. The syntax is::
 
 #:     narrow_symbols codepoints [optionally the number of cells]
-
-disable_ligatures never
 
 #: Choose how you want to handle multi-character ligatures. The
 #: default is to always render them. You can tell kitty to not render
@@ -173,7 +171,7 @@ disable_ligatures never
 #: arrive at a pixel value. There must be four values corresponding to
 #: thin, normal, thick, and very thick lines.
 
-# undercurl_style thin-sparse
+undercurl_style thin-sparse
 
 #: The style with which undercurls are rendered. This option takes the
 #: form (thin|thick)-(sparse|dense). Thin and thick control the
@@ -307,7 +305,7 @@ disable_ligatures never
 #: Stop blinking cursor after the specified number of seconds of
 #: keyboard inactivity. Set to zero to never stop blinking.
 
-cursor_trail 1
+cursor_trail 3
 
 #: Set this to a value larger than zero to enable a "cursor trail"
 #: animation. This is an animation that shows a "trail" following the
@@ -1223,7 +1221,8 @@ cursor_trail 1
 
 #: The foreground and background colors.
 
-background_opacity 0.80
+background_opacity 0.90
+background_blur 10
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1247,8 +1246,6 @@ background_opacity 0.80
 #: a performance cost). Changing this option when reloading the config
 #: will only work if dynamic_background_opacity was enabled in the
 #: original config.
-
-background_blur 30
 
 #: Set to a positive value to enable background blur (blurring of the
 #: visuals behind a transparent window) on platforms that support it.
@@ -1846,7 +1843,7 @@ background_blur 30
 #: Dock). Changing this option by reloading the config is not
 #: supported.
 
-# macos_quit_when_last_window_closed no
+macos_quit_when_last_window_closed yes
 
 #: Have kitty quit when all the top-level windows are closed on macOS.
 #: By default, kitty will stay running, even with no open windows, as
@@ -1857,7 +1854,7 @@ background_blur 30
 #: Disable this if you want kitty top-level OS windows to not be
 #: resizable on macOS.
 
-macos_thicken_font 0.75
+# macos_thicken_font 0.75
 
 #: Draw an extra border around the font with the given width, to
 #: increase legibility at small font sizes on macOS. For example, a
@@ -2671,6 +2668,14 @@ bold_italic_font auto
 
 
 # BEGIN_KITTY_THEME
-# Everforest Dark Hard
+# Tokyo Night
 include current-theme.conf
 # END_KITTY_THEME
+
+# Allow remote control for startup-tmux
+allow_remote_control yes
+
+# disable_ligatures never
+hide_window_decorations yes
+window_border_width 0
+draw_minimal_borders yes
