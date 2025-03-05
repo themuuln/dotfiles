@@ -88,6 +88,9 @@ return {
             end, cmds)
           end,
         },
+        animate = {
+          fps = 120,
+        },
       },
     },
   },
