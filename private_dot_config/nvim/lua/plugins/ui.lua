@@ -1,7 +1,11 @@
 return {
+  -- Themes
   { "folke/tokyonight.nvim", opts = { transparent = true } },
   { "AlexvZyl/nordic.nvim", opts = { transparent = { bg = true, float = true } } },
+  { "sainnhe/everforest" },
   { "navarasu/onedark.nvim" },
+  { "craftzdog/solarized-osaka.nvim" },
+  { "rebelot/kanagawa.nvim" },
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
@@ -12,7 +16,8 @@ return {
       vim.cmd("colorscheme github_dark_dimmed")
     end,
   },
-  -- ++git ++projects
+  { "rose-pine/neovim" },
+  { "Mofiqul/vscode.nvim" },
   {
     "folke/snacks.nvim",
     opts = {
@@ -85,9 +90,8 @@ return {
             end, cmds)
           end,
         },
-        animate = {
-          fps = 120,
-        },
+        animate = { fps = 120 },
+        cursor = { enable = false },
       },
     },
   },
