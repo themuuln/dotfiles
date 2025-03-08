@@ -15,4 +15,18 @@ wk.add({
   },
   { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App", group = "Run Flutter App", mode = "n" },
   { "<leader>Fr", "<cmd>FlutterRestart<cr>", desc = "Restart Flutter App", group = "Restart Flutter App", mode = "n" },
+  {
+    "<leader>Fy",
+    "<cmd>FlutterLogToggle<cr>",
+    desc = "Flutter Log Toggle",
+    group = "Flutter Log Toggle",
+    mode = "n",
+  },
+  {
+    "<leader>FY",
+    "<cmd>FlutterLogToggle<cr>",
+    desc = "Flutter Log Toggle",
+    group = "Flutter Log Toggle",
+    mode = "n",
+  },
 })
