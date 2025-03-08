@@ -5,3 +5,4 @@ private_dot_config/kitty/current-theme.conf
 private_dot_config/kitty/kitty.conf.bak
 private_dot_config/kitty/symlink_theme.conf
 private_dot_config/alacritty/themes
+private_dot_config/nvim/lazy-lock.json
