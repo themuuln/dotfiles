@@ -10,4 +10,5 @@ return {
     },
   },
   { "mg979/vim-visual-multi" },
+  { "echasnovski/mini.move", event = "VeryLazy" },
 }

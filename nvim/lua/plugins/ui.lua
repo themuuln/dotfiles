@@ -1,6 +1,6 @@
 return {
+  -- Themes
   { "folke/tokyonight.nvim", opts = { transparent = true } },
-  { "olimorris/onedarkpro.nvim" },
   { "AlexvZyl/nordic.nvim", opts = { transparent = { bg = true, float = true } } },
   { "sainnhe/everforest" },
   { "navarasu/onedark.nvim" },
@@ -16,6 +16,8 @@ return {
       vim.cmd("colorscheme github_dark_dimmed")
     end,
   },
+  { "rose-pine/neovim" },
+  { "Mofiqul/vscode.nvim" },
   {
     "folke/snacks.nvim",
     opts = {
@@ -88,9 +90,8 @@ return {
             end, cmds)
           end,
         },
-        animate = {
-          fps = 120,
-        },
+        animate = { fps = 120 },
+        cursor = { enable = false },
       },
     },
   },
