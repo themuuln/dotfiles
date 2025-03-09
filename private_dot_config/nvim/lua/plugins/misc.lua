@@ -6,4 +6,5 @@ return {
     opts = {},
     cmd = { "Typr", "TyprStats" },
   },
+  { "andweeb/presence.nvim" },
 }
