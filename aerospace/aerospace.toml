@@ -100,6 +100,9 @@ alt-shift-t = 'move-node-to-workspace T'
 # Spotify
 alt-s = 'workspace S'
 alt-shift-s = 'move-node-to-workspace S'
+# Productivity or Postman
+alt-p = 'workspace P'
+alt-shift-p = 'move-node-to-workspace P'
 
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
