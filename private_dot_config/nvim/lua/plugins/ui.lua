@@ -95,4 +95,9 @@ return {
       },
     },
   },
+  { "bluz71/vim-moonfly-colors" },
+  { "bluz71/vim-nightfly-colors" },
+  { "oxfist/night-owl.nvim" },
+  { "ramojus/mellifluous.nvim" },
+  { "atmosuwiryo/vim-winteriscoming" },
 }
