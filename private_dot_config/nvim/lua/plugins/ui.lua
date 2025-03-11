@@ -6,16 +6,7 @@ return {
   { "navarasu/onedark.nvim" },
   { "craftzdog/solarized-osaka.nvim" },
   { "rebelot/kanagawa.nvim" },
-  {
-    "projekt0n/github-nvim-theme",
-    name = "github-theme",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("github-theme").setup({ options = { transparent = true } })
-      vim.cmd("colorscheme github_dark_dimmed")
-    end,
-  },
+  { "projekt0n/github-nvim-theme" },
   { "rose-pine/neovim" },
   { "Mofiqul/vscode.nvim" },
   {
