@@ -1,4 +1,11 @@
 return {
+  -- set default theme here
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight-moon",
+    },
+  },
   -- Themes
   { "folke/tokyonight.nvim", opts = { transparent = true } },
   { "AlexvZyl/nordic.nvim", opts = { transparent = { bg = true, float = true } } },
@@ -6,16 +13,7 @@ return {
   { "navarasu/onedark.nvim" },
   { "craftzdog/solarized-osaka.nvim" },
   { "rebelot/kanagawa.nvim" },
-  {
-    "projekt0n/github-nvim-theme",
-    name = "github-theme",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("github-theme").setup({ options = { transparent = true } })
-      vim.cmd("colorscheme github_dark_dimmed")
-    end,
-  },
+  { "projekt0n/github-nvim-theme" },
   { "rose-pine/neovim" },
   { "Mofiqul/vscode.nvim" },
   {
@@ -95,4 +93,9 @@ return {
       },
     },
   },
+  { "bluz71/vim-moonfly-colors" },
+  { "bluz71/vim-nightfly-colors" },
+  { "oxfist/night-owl.nvim" },
+  { "ramojus/mellifluous.nvim" },
+  { "atmosuwiryo/vim-winteriscoming" },
 }

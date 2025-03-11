@@ -2,6 +2,8 @@ vim.g.snacks_animate = false
 vim.o.scrolloff = 8
 vim.opt.cursorcolumn = true
 vim.opt.smartindent = true
+-- views can only be fully collapsed with the global statusline avante.nvim
+vim.opt.laststatus = 3
 
 ---------------------------------------------------------------
 -- Additional dial.nvim keybinds, conflicts with tmux prefix --

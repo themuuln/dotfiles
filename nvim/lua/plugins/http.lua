@@ -1,5 +1,5 @@
+-- for http requests postman, insomnia alternative
 return {
-  -- for http requests postman, insomnia alternative
   {
     "mistweaverco/kulala.nvim",
     keys = {
@@ -12,12 +12,4 @@ return {
     },
     opts = { default_env = "test" },
   },
-  -- Typr for warm-up
-  {
-    "nvzone/typr",
-    dependencies = "nvzone/volt",
-    opts = {},
-    cmd = { "Typr", "TyprStats" },
-  },
-  { "andweeb/presence.nvim" },
 }

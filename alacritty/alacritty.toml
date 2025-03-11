@@ -1,8 +1,6 @@
-import = [
-    "~/.config/alacritty/themes/themes/coolnight.toml"
-]
+import = ["~/.config/alacritty/themes/themes/coolnight.toml"]
 
-[ env ]
+[env]
 TERM = "xterm-256color"
 
 [window]
@@ -12,7 +10,6 @@ padding.y = 10
 decorations = "Buttonless"
 
 [font]
-normal.family = "FiraCode Nerd Font"
+normal.family = "JetBrainsMono Nerd Font"
 
-size = 24
-
+size = 20
