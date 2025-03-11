@@ -1,4 +1,5 @@
 return {
+  { "Exafunction/codeium.vim", event = "BufEnter" },
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
