@@ -1,4 +1,11 @@
 return {
+  -- set default theme here
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight-moon",
+    },
+  },
   -- Themes
   { "folke/tokyonight.nvim", opts = { transparent = true } },
   { "AlexvZyl/nordic.nvim", opts = { transparent = { bg = true, float = true } } },
