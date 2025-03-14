@@ -2,20 +2,31 @@ return {
   -- set default theme here
   {
     "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-moon",
-    },
+    opts = { colorscheme = "onedark" },
   },
-  -- Themes
+
+  -- Installed Themes
   { "folke/tokyonight.nvim", opts = { transparent = true } },
   { "AlexvZyl/nordic.nvim", opts = { transparent = { bg = true, float = true } } },
-  { "sainnhe/everforest" },
-  { "navarasu/onedark.nvim" },
+  {
+    "navarasu/onedark.nvim",
+    opts = {
+      transparent = true,
+      toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" },
+      code_style = { keywords = "italic" },
+      lualine = { transparent = false },
+    },
+  },
   { "craftzdog/solarized-osaka.nvim" },
   { "rebelot/kanagawa.nvim" },
   { "projekt0n/github-nvim-theme" },
   { "rose-pine/neovim" },
   { "Mofiqul/vscode.nvim" },
+  { "bluz71/vim-moonfly-colors" },
+  { "bluz71/vim-nightfly-colors" },
+  { "oxfist/night-owl.nvim" },
+  { "ramojus/mellifluous.nvim" },
+  { "atmosuwiryo/vim-winteriscoming" },
   {
     "folke/snacks.nvim",
     opts = {
@@ -93,9 +104,4 @@ return {
       },
     },
   },
-  { "bluz71/vim-moonfly-colors" },
-  { "bluz71/vim-nightfly-colors" },
-  { "oxfist/night-owl.nvim" },
-  { "ramojus/mellifluous.nvim" },
-  { "atmosuwiryo/vim-winteriscoming" },
 }
