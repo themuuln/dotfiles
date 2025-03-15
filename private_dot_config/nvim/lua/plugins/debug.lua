@@ -5,7 +5,6 @@ return {
     lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim",
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },

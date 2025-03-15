@@ -5,7 +5,6 @@ vim.keymap.set("n", "U", ":redo<CR>", { noremap = true, silent = true })
 
 wk.add({
   { "<leader>dd", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App", group = "Debug Flutter App", mode = "n" },
-
   {
     "<leader>F",
     group = "flutter",
