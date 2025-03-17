@@ -19,9 +19,9 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = "DartLogMacro",
-  pattern = { "dart" },
+  group = vim.api.nvim_create_augroup("DartLogMacro", { clear = true }),
+  pattern = "dart",
   callback = function()
-    vim.fn.setreg("l", "yoprint('" .. esc .. "pa ${" .. esc .. "la}" .. esc .. "pl")
+    vim.fn.setreg("l", "yoprint('" .. esc .. "pa: ${" .. esc .. "pa}');" .. esc)
   end,
 })

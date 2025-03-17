@@ -1,11 +1,12 @@
 return {
+
+  { "themuuln/crsnip.nvim" },
   { "dart-lang/dart-vim-plugin" },
   {
     "nvim-flutter/flutter-tools.nvim",
     lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim",
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
@@ -13,7 +14,7 @@ return {
     config = function()
       require("flutter-tools").setup({
         debugger = {
-          enabled = false,
+          enabled = true,
           run_via_dap = true,
           register_configurations = function(_)
             local dap = require("dap")
@@ -35,27 +36,11 @@ return {
             }
           end,
         },
-        decorations = {
-          statusline = {
-            app_version = true,
-            device = true,
-          },
-        },
-
         flutter_path = "/Users/ict/development/flutter/bin/flutter",
-        widget_guides = {
-          enabled = true,
-        },
-        closing_tags = {
-          highlight = "Comment",
-          prefix = "//",
-        },
+        widget_guides = { enabled = true },
+        closing_tags = { highlight = "Comment", prefix = "//" },
         lsp = {
-          color = {
-            enabled = true,
-            background = true,
-            virtual_text = true,
-          },
+          color = { enabled = true, background = true, virtual_text = true },
           settings = {
             showTodos = true,
             completeFunctionCalls = true,
@@ -79,7 +64,7 @@ return {
         args = { "debug_adapter" },
       }
       dap.configurations.dart = {
-        -- Remove Comoments for Dart Development
+        -- Remove Comments for Dart Development
         {
           type = "dart",
           request = "launch",
