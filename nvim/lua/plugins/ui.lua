@@ -2,7 +2,17 @@ return {
   -- set default theme here
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "onedark" },
+    -- opts = { colorscheme = "github_dark_dimmed" },
+    -- opts = { colorscheme = "nordic" },
+    opts = { colorscheme = "kanagawa-wave" },
+  },
+
+  {
+    "b0o/incline.nvim",
+    config = function()
+      require("incline").setup()
+    end,
+    event = "VeryLazy",
   },
 
   -- Installed Themes
@@ -102,4 +112,5 @@ return {
       },
     },
   },
+  { "rmehri01/onenord.nvim" },
 }
