@@ -196,3 +196,8 @@ run = "move-node-to-workspace P"
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = "move-node-to-workspace T"
+
+# Ignore
+# [[on-window-detected]]
+# if.app-id = 'com.example.app'
+# run = 'layout floating'
