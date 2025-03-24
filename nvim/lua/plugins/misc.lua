@@ -12,12 +12,12 @@ return {
     },
     opts = { default_env = "test" },
   },
-  -- Typr for warm-up
-  {
-    "nvzone/typr",
-    dependencies = "nvzone/volt",
-    opts = {},
-    cmd = { "Typr", "TyprStats" },
-  },
+  -- -- Typr for warm-up
+  -- {
+  --   "nvzone/typr",
+  --   dependencies = "nvzone/volt",
+  --   opts = {},
+  --   cmd = { "Typr", "TyprStats" },
+  -- },
   { "andweeb/presence.nvim" },
 }
