@@ -3,9 +3,9 @@ return {
   {
     "LazyVim/LazyVim",
     -- opts = { colorscheme = "github_dark_dimmed" },
-    -- opts = { colorscheme = "nordic" },
+    opts = { colorscheme = "nordic" },
     -- opts = { colorscheme = "kanagawa-wave" },
-    opts = { colorscheme = "catppuccin-macchiato" },
+    -- opts = { colorscheme = "catppuccin-macchiato" },
     -- opts = { colorscheme = "catppuccin-frappe" },
   },
 
