@@ -1,6 +1,4 @@
 return {
-
-  { "themuuln/crsnip.nvim" },
   { "dart-lang/dart-vim-plugin" },
   {
     "nvim-flutter/flutter-tools.nvim",
