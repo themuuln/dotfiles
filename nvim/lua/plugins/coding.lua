@@ -134,4 +134,7 @@ return {
       },
     },
   },
+  {
+    "sindrets/diffview.nvim",
+  },
 }
