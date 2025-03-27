@@ -28,6 +28,11 @@ return {
     "saghen/blink.cmp",
     dependencies = { "supermaven-nvim", "saghen/blink.compat" },
     opts = {
+      cmdline = { enabled = false },
+      signature = { enabled = true },
+      -- sources = {
+      --   default = { "lsp", "path", "snippets" },
+      -- },
       sources = {
         compat = { "supermaven" },
         providers = {
@@ -39,16 +44,28 @@ return {
         },
       },
       completion = {
+        keyword = { range = "full" },
+        list = { selection = { preselect = false, auto_insert = true } },
         accept = { auto_brackets = { enabled = true } },
-        menu = { draw = { treesitter = { "lsp" } } },
+        menu = {
+          auto_show = true,
+          draw = {
+
+            treesitter = { "lsp" },
+            columns = {
+              { "label", "label_description", gap = 1 },
+              { "kind_icon", "kind" },
+            },
+          },
+        },
+
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
         ghost_text = { enabled = vim.g.ai_cmp },
       },
-
-      keymap = {
-        preset = "enter",
-        ["<C-y>"] = { "select_and_accept" },
-      },
+      -- keymap = {
+      --   preset = "enter",
+      --   ["<C-y>"] = { "select_and_accept" },
+      -- },
     },
     ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
     config = function(_, opts)
