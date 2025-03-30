@@ -20,7 +20,7 @@
 #: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
 #: syntax>.
 
-font_size 16
+font_size 17
 
 #: Font size (in pts).
 
@@ -305,7 +305,7 @@ cursor_shape block
 #: Stop blinking cursor after the specified number of seconds of
 #: keyboard inactivity. Set to zero to never stop blinking.
 
-cursor_trail 1
+cursor_trail 0
 
 #: Set this to a value larger than zero to enable a "cursor trail"
 #: animation. This is an animation that shows a "trail" following the
@@ -1220,9 +1220,6 @@ cursor_trail 1
 # background #000000
 
 #: The foreground and background colors.
-
-background_opacity 0.87
-background_blur 25
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -2658,16 +2655,19 @@ macos_show_window_title_in all
 
 #: }}}
 
+background_opacity 0.90
+background_blur 25
 
 # BEGIN_KITTY_FONTS
 font_family      family="JetBrainsMono Nerd Font Mono"
 bold_font        auto
-italic_font      family="VictorMono Nerd Font Mono"
+# italic_font      family="VictorMono Nerd Font Mono"
+italic_font      auto
 bold_italic_font auto
 # END_KITTY_FONTS
 
 # BEGIN_KITTY_THEME
-# Tokyo Night Moon
+# One Half Dark
 include current-theme.conf
 # END_KITTY_THEME
 
