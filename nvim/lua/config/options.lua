@@ -4,6 +4,8 @@ vim.opt.cursorcolumn = true
 vim.opt.smartindent = true
 -- views can only be fully collapsed with the global statusline avante.nvim
 vim.opt.laststatus = 3
+-- vim insert mode cursor style is now `block`
+vim.opt.guicursor = ""
 
 ---------------------------------------------------------------
 -- Additional dial.nvim keybinds, conflicts with tmux prefix --

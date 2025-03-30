@@ -1,6 +1,6 @@
 {
   "GetX Binding": {
-    "prefix": "binding",
+    "description": "GetX Binding",
     "body": [
       "import 'package:get/get.dart';",
       "import 'home_controller.dart';",
@@ -13,6 +13,22 @@
       "}",
       ""
     ],
-    "description": "GetX Binding"
+    "prefix": "binding"
+  },
+  "Binding": {
+    "description": "Create Binding",
+    "body": [
+      "import 'package:get/get.dart';",
+      "import 'package:court/screens/create/ms_reason.controller.dart';",
+      "",
+      "class ReasonBinding extends Bindings {",
+      "  @override",
+      "  void dependencies() {",
+      "    Get.lazyPut<ReasonController>(() => ReasonController());",
+      "  }",
+      "}"
+    ],
+    "prefix": "binding"
   }
 }
+
