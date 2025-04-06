@@ -3,11 +3,13 @@ start-at-login = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 enable-normalization-flatten-containers = true
 
-accordion-padding = 12
+accordion-padding = 250
 
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 automatically-unhide-macos-hidden-apps = false
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [key-mapping]
 preset = 'qwerty'
@@ -21,7 +23,6 @@ outer.top = 0
 outer.right = 0
 
 [mode.main.binding]
-
 # All possible keys:
 # - Letters. - Numbers. - Keypad numbers. - Function-keys.
 # - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon, backtick,
@@ -36,6 +37,7 @@ outer.right = 0
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
+
 
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
@@ -88,6 +90,9 @@ alt-shift-d = 'move-node-to-workspace D'
 # Finder, Figma
 alt-f = 'workspace F'
 alt-shift-f = 'move-node-to-workspace F'
+# Ghostty,
+alt-g = 'workspace G'
+alt-shift-g = 'move-node-to-workspace G'
 # IDE (Windsurf, VSCode, GoLand)
 alt-i = 'workspace I'
 alt-shift-i = 'move-node-to-workspace I'
@@ -95,6 +100,7 @@ alt-shift-i = 'move-node-to-workspace I'
 alt-n = 'workspace N'
 alt-shift-n = 'move-node-to-workspace N'
 # iTerm2
+# alt-t = 'exec-and-forget open -a /Applications/Telegram.app'
 alt-t = 'workspace T'
 alt-shift-t = 'move-node-to-workspace T'
 # Spotify
@@ -196,6 +202,20 @@ run = "move-node-to-workspace P"
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = "move-node-to-workspace T"
+
+[[on-window-detected]]
+if.app-id = 'com.trae.app'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = "move-node-to-workspace T"
+# TODO: add move left command
+#
+# NOTE: Ийм байдлаар бас ашиглаж болно, заавал id харах шаардлагагүй
+# [[on-window-detected]]
+# if.app-name-regex-substring = 'telegram'
+# run = 'layout floating'
 
 # Ignore
 # [[on-window-detected]]
