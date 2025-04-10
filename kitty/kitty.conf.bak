@@ -20,7 +20,7 @@
 #: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
 #: syntax>.
 
-font_size 17
+font_size 20
 
 #: Font size (in pts).
 
@@ -305,7 +305,7 @@ cursor_shape block
 #: Stop blinking cursor after the specified number of seconds of
 #: keyboard inactivity. Set to zero to never stop blinking.
 
-cursor_trail 0
+cursor_trail 1
 
 #: Set this to a value larger than zero to enable a "cursor trail"
 #: animation. This is an animation that shows a "trail" following the
@@ -2655,11 +2655,14 @@ macos_show_window_title_in all
 
 #: }}}
 
-background_opacity 0.90
-background_blur 25
+background_opacity 0.9
+# background_opacity 1
+background_blur 20
+# background #000000
 
 # BEGIN_KITTY_FONTS
 font_family      family="JetBrainsMono Nerd Font Mono"
+# font_family      family="FiraCode Nerd Font"
 bold_font        auto
 # italic_font      family="VictorMono Nerd Font Mono"
 italic_font      auto
@@ -2667,8 +2670,9 @@ bold_italic_font auto
 # END_KITTY_FONTS
 
 # BEGIN_KITTY_THEME
-# One Half Dark
-include current-theme.conf
+# Nord
+# include current-theme.conf
+# kitten themes --reload-in=all Catppuccin-Macchiato
 # END_KITTY_THEME
 
 # Allow remote control for startup-tmux
@@ -2678,4 +2682,4 @@ hide_window_decorations yes
 window_border_width 0
 draw_minimal_borders yes
 
-adjust_line_height 120%
+# adjust_line_height 120%
