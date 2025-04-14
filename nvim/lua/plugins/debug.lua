@@ -8,12 +8,13 @@ return {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
-    ft = "dart",
+    ft = { "dart" },
     config = function()
       require("flutter-tools").setup({
         debugger = {
           enabled = true,
           run_via_dap = true,
+          exception_breakpoints = "default",
           evaluate_to_string_in_debug_views = true,
           register_configurations = function(_)
             local dap = require("dap")
@@ -28,28 +29,21 @@ return {
                 request = "launch",
                 name = "Launch Flutter",
                 dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
-                flutterSdkPath = "/Users/ict/development/flutter/bin",
+                flutterSdkPath = "/Users/ict/development/flutter/bin/flutter",
                 program = "${workspaceFolder}/lib/main.dart",
                 cwd = "${workspaceFolder}",
+                args = { "development" },
               },
             }
           end,
         },
         flutter_path = "/Users/ict/development/flutter/bin/flutter",
         widget_guides = { enabled = true },
-        closing_tags = { highlight = "Comment", prefix = "//" },
-        decorations = {
-          statusline = {
-            device = true,
-            project_config = false,
-          },
-        },
+        closing_tags = { highlight = "Comment", prefix = "// " }, -- Added space after //
         dev_log = {
-          enabled = true,
-          filter = nil, -- optional callback to filter the log
-          notify_errors = true, -- if there is an error whilst running then notify the user
-          open_cmd = "15split", -- command to use to open the log buffer
-          focus_on_open = true, -- focus on the newly opened log window
+          enabled = false,
+          open_cmd = "botright 15new",
+          auto_open = false,
         },
         lsp = {
           color = { enabled = true, background = true, virtual_text = true },
@@ -58,7 +52,12 @@ return {
             completeFunctionCalls = true,
             enableSnippets = true,
             updateImportsOnRename = true,
+            renameFilesWithClasses = "prompt", -- Add this
+            enableSdkFormatter = true, -- Add this
           },
+          on_attach = function(client, bufnr)
+            -- Add any custom on_attach logic here
+          end,
         },
       })
     end,
