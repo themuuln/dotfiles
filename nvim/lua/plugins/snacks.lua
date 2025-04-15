@@ -1,14 +1,28 @@
 return {
-
   {
     "folke/snacks.nvim",
-
+    priority = 1000,
+    lazy = false,
     opts = {
+      scroll = {
+        enabled = false,
+        -- opts = {
+        --   animate = {
+        --     duration = { step = 1, total = 1 },
+        --     fps = 100,
+        --   },
+        -- animate_repeat = {
+        --   delay = 0,
+        --   duration = { step = 1, total = 1 },
+        --   easing = "linear",
+        -- },
+        -- },
+      },
       dashboard = {
         sections = {
           { section = "keys", gap = 1, padding = 1 },
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1, pane = 2 },
           {
             pane = 2,
             icon = " ",
@@ -22,38 +36,6 @@ return {
           function()
             local in_git = Snacks.git.get_root() ~= nil
             local cmds = {
-              {
-                title = "Notifications",
-                cmd = "gh notify -s -a -n5",
-                action = function()
-                  vim.ui.open("https://github.com/notifications")
-                end,
-                key = "n",
-                icon = " ",
-                height = 5,
-                enabled = true,
-              },
-              -- FIX: Not integrated with Gitlab
-              -- {
-              --   title = "Open Issues",
-              --   cmd = "gh issue list -L 3",
-              --   key = "i",
-              --   action = function()
-              --     vim.fn.jobstart("gh issue list --web", { detach = true })
-              --   end,
-              --   icon = " ",
-              --   height = 7,
-              -- },
-              -- {
-              --   icon = " ",
-              --   title = "Open PRs",
-              --   cmd = "gh pr list -L 3",
-              --   key = "P",
-              --   action = function()
-              --     vim.fn.jobstart("gh pr list --web", { detach = true })
-              --   end,
-              --   height = 7,
-              -- },
               {
                 icon = " ",
                 title = "Git Status",
@@ -73,8 +55,6 @@ return {
             end, cmds)
           end,
         },
-        animate = { fps = 120 },
-        cursor = { enable = false },
       },
     },
   },
