@@ -84,14 +84,6 @@ return {
   { "ramojus/mellifluous.nvim" },
   { "ayu-theme/ayu-vim" },
   {
-    "nvim-lualine/lualine.nvim",
-    optional = true,
-    event = "VeryLazy",
-    opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, 2, LazyVim.lualine.cmp_source("supermaven"))
-    end,
-  },
-  {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
