@@ -42,7 +42,7 @@ alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 alt-enter = 'fullscreen --no-outer-gaps'
-alt-m = 'fullscreen --no-outer-gaps'
+# alt-m = 'fullscreen --no-outer-gaps'
 
 alt-h = 'focus left'
 alt-j = 'focus down'
