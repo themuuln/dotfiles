@@ -20,7 +20,7 @@ return {
   },
   {
     "saghen/blink.cmp",
-    dependencies = { "supermaven-nvim", "saghen/blink.compat" },
+    -- dependencies = { "supermaven-nvim", "saghen/blink.compat" },
     opts = {
       cmdline = { enabled = false },
       signature = { enabled = true },
