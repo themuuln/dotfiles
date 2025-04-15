@@ -1,6 +1,5 @@
 require("config.lazy")
 
--- c  "l   yoprint('^[pa: ${^[pa}^[A;^[
 ------------------
 -- CUSTOM MACRO --
 ------------------
@@ -10,6 +9,7 @@ local esc = vim.api.nvim_replace_termcodes("<Esc>", true, true, true)
 vim.api.nvim_create_augroup("JSLogMacro", { clear = true })
 vim.api.nvim_create_augroup("DartLogMacro", { clear = true })
 
+-- select variable, `@l` to print that data on the next line
 vim.api.nvim_create_autocmd("FileType", {
   group = "JSLogMacro",
   pattern = { "javascript", "typescript" },
@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- select variable, `@l` to log that data on the next line
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("DartLogMacro", { clear = true }),
   pattern = "dart",
