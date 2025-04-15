@@ -71,4 +71,9 @@ return {
       table.insert(opts.sections.lualine_x, 2, LazyVim.lualine.cmp_source("supermaven"))
     end,
   },
+  require("treesitter-context").setup({
+    -- multiwindow = true, -- Enable multiwindow support.
+    trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+    mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
+  }),
 }
