@@ -4,23 +4,27 @@ return {
     event = "VeryLazy",
     version = false,
     opts = {
-      -- provider = "gemini",
-      provider = "openrouter",
+      provider = "gemini",
       gemini = {
-        -- model = "gemini-2.0-flash",
+        model = "gemini-2.0-flash",
         -- model = "gemini-2.0-flash-thinking-exp-01-21",
-        model = "gemini-2.5-pro-exp-03-25",
+        -- model = "gemini-2.5-pro-exp-03-25",
         api_key_name = "GEMINI_API",
         timeout = 60000,
         temperature = 0,
       },
       vendors = {
-        openrouter = {
+        openroutermistral = {
+          __inherited_from = "openai",
+          endpoint = "https://openrouter.ai/api/v1",
+          api_key_name = "OPENROUTER_API",
+          model = "mistralai/mistral-small-3.1-24b-instruct:free",
+        },
+        openroutergemini = {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
           api_key_name = "OPENROUTER_API",
           model = "google/gemini-2.5-pro-exp-03-25:free",
-          -- model = "mistralai/mistral-small-3.1-24b-instruct:free",
         },
       },
       behaviour = {
@@ -31,7 +35,7 @@ return {
         support_paste_from_clipboard = true,
         minimize_diff = true,
         enable_token_counting = false,
-        enable_cursor_planning_mode = false, -- Whether to enable Cursor Planning Mode. Default to false.
+        enable_cursor_planning_mode = true,
         enable_claude_text_editor_tool_mode = true,
       },
     },
