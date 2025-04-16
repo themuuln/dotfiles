@@ -3,25 +3,30 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "html",
-        "javascript",
+        -- must
         "lua",
         "regex",
-        "tsx",
-        "typescript",
         "vim",
         "yaml",
-        "http",
-        "graphql",
         "json",
-        "json5",
-        "dart",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
+        -- "json5",
+        -- Web Development
+        "html",
+        "javascript",
+        "typescript",
+        "tsx",
         "astro",
         "css",
+        -- flutter development
+        "dart",
+        -- other
+        "http",
+        "graphql",
+        "markdown",
+        -- "markdown_inline",
+        -- optional
+        -- "python",
+        -- "query",
       },
     },
   },
@@ -29,17 +34,23 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "flake8",
-        "prettier",
+        -- flutter development
         "dart-debug-adapter",
-        "json-lsp",
-        "lua-language-server",
+
+        -- web development
         "prettier",
         "tailwindcss-language-server",
         "typescript-language-server",
+
+        -- must
+        "json-lsp",
+        "lua-language-server",
+
+        -- "stylua",
+        -- "shellcheck",
+        -- "shfmt",
+        -- "flake8",
+        -- "prettier",
       },
     },
   },
