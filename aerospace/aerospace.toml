@@ -154,14 +154,6 @@ if.app-name-regex-substring = 'telegram'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'simulator'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'simulator'
-run = 'layout floating'
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'finder'
 run = 'layout floating'
 
