@@ -1,5 +1,4 @@
 return {
-  -- Dart format with 120 as line-length
   {
     "stevearc/conform.nvim",
     opts = {
