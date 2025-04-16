@@ -21,3 +21,5 @@ gh
 .DS_Store
 chezmoi
 zed/prompts/prompts-library-db.0.mdb
+kitty/kitty-themes
+tmux/plugins/tmux-plugins
