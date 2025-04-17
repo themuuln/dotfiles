@@ -77,70 +77,48 @@ alt-9 = 'workspace 9'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-0 = 'workspace 0'
 alt-shift-0 = 'move-node-to-workspace 0'
-# Arc
 alt-a = 'workspace A'
 alt-shift-a = 'move-node-to-workspace B'
-# Arc
 alt-b = 'workspace B'
 alt-shift-b = 'move-node-to-workspace B'
-# ChatGPT
 alt-c = 'workspace C'
 alt-shift-c = 'move-node-to-workspace C'
-# Discord
 alt-d = 'workspace D'
 alt-shift-d = 'move-node-to-workspace D'
-# E
 alt-e = 'workspace E'
 alt-shift-e = 'move-node-to-workspace E'
-# Finder, Figma
 alt-f = 'workspace F'
 alt-shift-f = 'move-node-to-workspace F'
-# G
 alt-g = 'workspace G'
 alt-shift-g = 'move-node-to-workspace G'
-# IDE (Windsurf, VSCode, GoLand)
 alt-i = 'workspace I'
 alt-shift-i = 'move-node-to-workspace I'
-# ...
 alt-m = 'workspace M'
 alt-shift-m = 'move-node-to-workspace M'
-# Obsidian, Notion
 alt-n = 'workspace N'
 alt-shift-n = 'move-node-to-workspace N'
-# Obsidian, Notion
 alt-o = 'workspace o'
 alt-shift-o = 'move-node-to-workspace O'
-# Productivity or Postman
 alt-p = 'workspace P'
 alt-shift-p = 'move-node-to-workspace P'
-# Q
 alt-q = 'workspace Q'
 alt-shift-q = 'move-node-to-workspace Q'
-# R
 alt-r = 'workspace R'
 alt-shift-r = 'move-node-to-workspace R'
-# Spotify
 alt-s = 'workspace S'
 alt-shift-s = 'move-node-to-workspace S'
-# Terminal
 alt-t = 'workspace T'
 alt-shift-t = 'move-node-to-workspace T'
-# U
 alt-u = 'workspace U'
 alt-shift-u = 'move-node-to-workspace U'
-# V
 alt-v = 'workspace V'
 alt-shift-v = 'move-node-to-workspace V'
-# W
 alt-w = 'workspace W'
 alt-shift-w = 'move-node-to-workspace W'
-# X
 alt-x = 'workspace x'
 alt-shift-x = 'move-node-to-workspace X'
-# Y
 alt-y = 'workspace Y'
 alt-shift-y = 'move-node-to-workspace Y'
-# Z
 alt-z = 'workspace Z'
 alt-shift-z = 'move-node-to-workspace Z'
 
@@ -249,11 +227,11 @@ run = "move-node-to-workspace P"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.reminders'
-run = "move-node-to-workspace P"
+run = "move-node-to-workspace R"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
-run = "move-node-to-workspace P"
+run = "move-node-to-workspace C"
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
