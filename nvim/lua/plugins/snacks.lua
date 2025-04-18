@@ -4,20 +4,7 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
-      scroll = {
-        enabled = false,
-        -- opts = {
-        --   animate = {
-        --     duration = { step = 1, total = 1 },
-        --     fps = 100,
-        --   },
-        -- animate_repeat = {
-        --   delay = 0,
-        --   duration = { step = 1, total = 1 },
-        --   easing = "linear",
-        -- },
-        -- },
-      },
+      debug = { enabled = true },
       dashboard = {
         sections = {
           { section = "keys", gap = 1, padding = 1 },
