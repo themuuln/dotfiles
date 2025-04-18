@@ -8,40 +8,10 @@ return {
     -- opts = { colorscheme = "tokyonight" },
     -- opts = { colorscheme = "kanagawa-wave" },
     -- opts = { colorscheme = "solarized-osaka" },
-    -- opts = { colorscheme = "catppuccin-macchiato" },
-    opts = { colorscheme = "catppuccin-frappe" },
+    opts = { colorscheme = "catppuccin-macchiato" },
+    -- opts = { colorscheme = "catppuccin-frappe" },
     -- opts = { colorscheme = "vscode" },
   },
-  {
-    "b0o/incline.nvim",
-    config = function()
-      require("incline").setup(require("incline").setup({
-        window = {
-          padding = 0,
-          margin = { horizontal = 0 },
-        },
-        render = function(props)
-          local helpers = require("incline.helpers")
-          local devicons = require("nvim-web-devicons")
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          if filename == "" then
-            filename = "[No Name]"
-          end
-          local ft_icon, ft_color = devicons.get_icon_color(filename)
-          local modified = vim.bo[props.buf].modified
-          return {
-            ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
-            " ",
-            { filename, gui = modified and "bold,italic" or "bold" },
-            " ",
-            guibg = "#44406e",
-          }
-        end,
-      }))
-    end,
-    event = "VeryLazy",
-  },
-
   -- Installed Themes
   {
     "folke/tokyonight.nvim",
@@ -89,15 +59,21 @@ return {
     priority = 1000,
     opts = {
       transparent_background = true,
-      -- transparent_background = false,
     },
   },
   require("treesitter-context").setup({
-    -- multiwindow = true, -- Enable multiwindow support.
+    multiwindow = true,
     trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
     mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
   }),
 
-  -- turn off inlay hint by default
-  { "neovim/nvim-lspconfig", opts = { inlay_hints = { enabled = false } } },
+  -- -- turn off inlay hint by default
+  -- { "neovim/nvim-lspconfig", opts = { inlay_hints = { enabled = false } } },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      local LazyVim = require("lazyvim.util")
+      opts.sections.lualine_c[1] = {}
+    end,
+  },
 }
