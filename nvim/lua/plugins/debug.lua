@@ -1,13 +1,8 @@
 return {
-  { "dart-lang/dart-vim-plugin" },
   {
     "nvim-flutter/flutter-tools.nvim",
     lazy = true,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
-    },
+    dependencies = { "nvim-lua/plenary.nvim" },
     ft = { "dart" },
     config = function()
       require("flutter-tools").setup({
@@ -37,70 +32,40 @@ return {
             }
           end,
         },
+        root_patterns = { ".git", "pubspec.yaml" },
         flutter_path = "/Users/ict/development/flutter/bin/flutter",
         widget_guides = { enabled = true },
-        closing_tags = { highlight = "Comment", prefix = "// " }, -- Added space after //
+        closing_tags = { highlight = "Comment", prefix = "󰜬 " },
         dev_log = {
-          enabled = false,
+          enabled = true,
           open_cmd = "botright 15new",
+          -- TODO: Test
+          notify_errors = true,
           auto_open = false,
         },
+        dev_tools = {
+          autostart = true,
+          auto_open_browser = true,
+        },
         lsp = {
-          color = { enabled = true, background = true, virtual_text = true },
-          settings = {
-            showTodos = true,
-            completeFunctionCalls = true,
-            enableSnippets = true,
-            updateImportsOnRename = true,
-            renameFilesWithClasses = "prompt", -- Add this
-            enableSdkFormatter = true, -- Add this
+          -- color = { enabled = true, background = true, virtual_text = true },
+          color = {
+            enabled = true,
+            foreground = true,
+            virtual_text = true,
+            virtual_text_str = "■",
           },
-          on_attach = function(client, bufnr)
-            -- Add any custom on_attach logic here
-          end,
+          settings = {
+            showTodos = false,
+            completeFunctionCalls = true,
+            enableSnippets = false,
+            updateImportsOnRename = true,
+            renameFilesWithClasses = "prompt",
+            enableSdkFormatter = false,
+            analysisExcludedFolders = { os.getenv("HOME") .. "/development/flutter/packages" },
+          },
         },
       })
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = { "nvim-neotest/nvim-nio", "rcarriga/nvim-dap-ui" },
-    event = "VeryLazy",
-    config = function()
-      local dap = require("dap")
-      dap.adapters.dart = {
-        type = "executable",
-        command = "/Users/ict/development/flutter/bin/flutter",
-        args = { "debug_adapter" },
-      }
-      dap.configurations.dart = {
-        {
-          type = "dart",
-          request = "launch",
-          name = "Launch Flutter",
-          program = "${workspaceFolder}/lib/main.dart",
-          cwd = "${workspaceFolder}",
-          flutterSdkPath = "/Users/ict/development/flutter/bin",
-          dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
-          args = {},
-        },
-        {
-          type = "dart",
-          request = "attach",
-          name = "Attach Flutter",
-          dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
-          flutterSdkPath = "/Users/ict/development/flutter/bin",
-          program = "${workspaceFolder}/lib/main.dart",
-          cwd = "${workspaceFolder}",
-        },
-      }
-    end,
-  },
-  {
-    "williamboman/mason-nvim-dap.nvim",
-    requires = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
-    config = function()
-      require("mason-nvim-dap").setup()
     end,
   },
 }
