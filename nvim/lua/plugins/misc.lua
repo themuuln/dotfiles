@@ -1,5 +1,4 @@
 return {
-  { "andweeb/presence.nvim" },
   {
     "zhisme/copy_with_context.nvim",
     config = function()
