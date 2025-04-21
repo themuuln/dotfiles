@@ -114,52 +114,44 @@ return {
             end,
           },
         },
-        -- {
-        --   "fileformat",
-        --   symbols = {
-        --     unix = "", -- e712
-        --     dos = "", -- e70f
-        --     mac = "", -- e711
-        --   },
-        -- },
-        -- {
-        --   "branch",
-        --   icon = "",
-        --   cond = function() -- only if not on main or master
-        --     local curBranch = require("lualine.components.branch.git_branch").get_branch()
-        --     return curBranch ~= "main" and curBranch ~= "master" and vim.bo.buftype == ""
-        --   end,
-        -- },
-        -- { -- file name & icon
-        --   function()
-        --     local maxLength = 30
-        --     local name = vim.fs.basename(vim.api.nvim_buf_get_name(0))
-        --     local modified = vim.api.nvim_buf_get_option(0, "modified")
-        --
-        --     if name == "" then
-        --       name = vim.bo.ft
-        --     end
-        --     if name == "" then
-        --       name = "---"
-        --     end
-        --
-        --     local displayName = #name < maxLength and name or vim.trim(name:sub(1, maxLength)) .. "…"
-        --     if modified then
-        --       displayName = displayName .. " ●"
-        --     end
-        --
-        --     local ok, icons = pcall(require, "mini.icons")
-        --     if not ok then
-        --       return displayName
-        --     end
-        --     local icon, _, isDefault = icons.get("file", name)
-        --     if isDefault then
-        --       icon = icons.get("filetype", vim.bo.ft)
-        --     end
-        --
-        --     return icon .. " " .. displayName
-        --   end,
-        -- },
+        {
+          "branch",
+          icon = "",
+          cond = function() -- only if not on main or master
+            local curBranch = require("lualine.components.branch.git_branch").get_branch()
+            return curBranch ~= "main" and curBranch ~= "master" and vim.bo.buftype == ""
+          end,
+        },
+        { -- file name & icon
+          function()
+            local maxLength = 30
+            local name = vim.fs.basename(vim.api.nvim_buf_get_name(0))
+            local modified = vim.api.nvim_buf_get_option(0, "modified")
+
+            if name == "" then
+              name = vim.bo.ft
+            end
+            if name == "" then
+              name = "---"
+            end
+
+            local displayName = #name < maxLength and name or vim.trim(name:sub(1, maxLength)) .. "…"
+            if modified then
+              displayName = displayName .. " ●"
+            end
+
+            local ok, icons = pcall(require, "mini.icons")
+            if not ok then
+              return displayName
+            end
+            local icon, _, isDefault = icons.get("file", name)
+            if isDefault then
+              icon = icons.get("filetype", vim.bo.ft)
+            end
+
+            return icon .. " " .. displayName
+          end,
+        },
       },
       lualine_b = {
         { "buffers" },
