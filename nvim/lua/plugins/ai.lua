@@ -4,38 +4,30 @@ return {
     event = "VeryLazy",
     version = false,
     opts = {
-      provider = "gemini",
-      gemini = {
-        model = "gemini-2.0-flash",
-        -- model = "gemini-2.5-pro-exp-03-25",
-        api_key_name = "GEMINI_API",
-        timeout = 60000,
-        temperature = 0,
-      },
-      windows = {
-        ask = {
-          floating = true,
-        },
-      },
+      provider = "flash_500",
+      windows = { ask = { floating = true } },
       vendors = {
-        -- mistral_small = {
-        --   __inherited_from = "openai",
-        --   endpoint = "https://openrouter.ai/api/v1",
-        --   api_key_name = "OPENROUTER_API",
-        --   model = "mistralai/mistral-small-3.1-24b-instruct:free",
-        -- },
-        gemini_pro = {
-          __inherited_from = "openai",
-          endpoint = "https://openrouter.ai/api/v1",
-          api_key_name = "OPENROUTER_API",
-          model = "google/gemini-2.5-pro-exp-03-25:free",
+        pro = {
+          __inherited_from = "gemini",
+          model = "gemini-2.5-pro-preview-03-25",
+          api_key_name = "GEMINI_API",
+          timeout = 30000,
+          temperature = 0,
         },
-        -- qwen_coder = {
-        --   __inherited_from = "openai",
-        --   endpoint = "https://openrouter.ai/api/v1/",
-        --   api_key_name = "OPENROUTER_API",
-        --   model = "qwen/qwen-2.5-coder-32b-instruct:free",
-        -- },
+        flash_500 = {
+          __inherited_from = "gemini",
+          model = "gemini-2.5-flash-preview-04-17",
+          api_key_name = "GEMINI_API",
+          timeout = 30000,
+          temperature = 0,
+        },
+        flash_1500 = {
+          __inherited_from = "gemini",
+          model = "gemini-2.0-flash",
+          api_key_name = "GEMINI_API",
+          timeout = 30000,
+          temperature = 0,
+        },
       },
       behaviour = {
         auto_suggestions = false,
