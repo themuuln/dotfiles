@@ -37,18 +37,15 @@ return {
         widget_guides = { enabled = true },
         closing_tags = { highlight = "Comment", prefix = "󰜬 " },
         dev_log = {
-          enabled = true,
+          enabled = false,
           open_cmd = "botright 15new",
-          -- TODO: Test
-          notify_errors = true,
           auto_open = false,
         },
         dev_tools = {
           autostart = true,
-          auto_open_browser = true,
+          auto_open_browser = false,
         },
         lsp = {
-          -- color = { enabled = true, background = true, virtual_text = true },
           color = {
             enabled = true,
             foreground = true,
