@@ -11,6 +11,20 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "+", function()
+  require("dial.map").manipulate("increment", "normal")
+end)
+vim.keymap.set("n", "-", function()
+  require("dial.map").manipulate("decrement", "normal")
+end)
+
+-- Optional: Visual Mode Mappings
+vim.keymap.set("v", "+", function()
+  require("dial.map").manipulate("increment", "visual")
+end)
+vim.keymap.set("v", "-", function()
+  require("dial.map").manipulate("decrement", "visual")
+end)
 
 wk.add({
   { "<leader>dd", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App", group = "Debug Flutter App", mode = "n" },
