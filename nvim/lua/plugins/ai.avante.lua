@@ -13,8 +13,8 @@ return {
           api_key_name = "GEMINI_API",
           timeout = 30000,
           temperature = 0,
-          max_completion_tokens = 1048576,
-          reasoning_effort = "high", -- low|medium|high, only used for reasoning models
+          -- max_completion_tokens = 1048576,
+          -- reasoning_effort = "high", -- low|medium|high, only used for reasoning models
         },
         flash_500 = {
           __inherited_from = "gemini",
@@ -49,7 +49,6 @@ return {
     },
     build = "make",
   },
-
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
