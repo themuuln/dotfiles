@@ -1,4 +1,4 @@
-vim.g.snacks_animate = false
+vim.g.snacks_animate = true
 vim.o.scrolloff = 8
 vim.opt.smartindent = true
 -- views can only be fully collapsed with the global statusline avante.nvim
