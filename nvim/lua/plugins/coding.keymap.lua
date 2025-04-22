@@ -8,8 +8,8 @@ return {
       mappings = {
         left = "<A-Left>",
         right = "<A-Right>",
-        down = "<A-Down>",
-        up = "<A-Up>",
+        down = "J",
+        up = "K",
 
         line_left = "<A-Left>",
         line_right = "<A-Right>",
