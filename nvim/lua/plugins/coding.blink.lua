@@ -1,24 +1,67 @@
 return {
   {
     "saghen/blink.cmp",
-    dependencies = { "supermaven-nvim", "saghen/blink.compat" },
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
-      cmdline = { enabled = false },
-      signature = { enabled = true },
+      keymap = { preset = "enter" },
       completion = {
-        keyword = { range = "full" },
-        list = { selection = { preselect = true, auto_insert = true } },
-        accept = { auto_brackets = { enabled = true } },
+        list = {
+          selection = {
+            auto_insert = true,
+            preselect = true,
+          },
+        },
+        accept = {},
+        documentation = { auto_show = false, treesitter_highlighting = false },
+        ghost_text = {
+          enabled = true,
+          show_without_selection = true,
+        },
         menu = {
           auto_show = true,
           draw = {
-            treesitter = { "lsp" },
-            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+            components = {
+              kind_icon = {
+                text = function(ctx)
+                  local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+                  return kind_icon
+                end,
+                -- (optional) use highlights from mini.icons
+                highlight = function(ctx)
+                  local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                  return hl
+                end,
+              },
+              kind = {
+                highlight = function(ctx)
+                  local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                  return hl
+                end,
+              },
+            },
           },
         },
-        documentation = { auto_show = true, auto_show_delay_ms = 0 },
-        ghost_text = { enabled = true },
       },
+      signature = {
+        enabled = true,
+        trigger = {
+          enabled = true,
+          show_on_keyword = true,
+          show_on_insert = true,
+          show_on_insert_on_trigger_character = true,
+        },
+        window = {
+          treesitter_highlighting = true,
+          show_documentation = true,
+        },
+      },
+
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
     },
+    opts_extend = { "sources.default" },
   },
 }
