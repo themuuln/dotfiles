@@ -11,6 +11,7 @@ return {
   },
   { "mg979/vim-visual-multi" },
   { "echasnovski/mini.surround", version = false, opts = { n_lines = 100 } },
+  -- FIX: Extension
   {
     "themuuln/crsnip.nvim",
     config = function()
