@@ -36,15 +36,8 @@ return {
         flutter_path = "/Users/ict/development/flutter/bin/flutter",
         widget_guides = { enabled = true },
         closing_tags = { highlight = "Comment", prefix = "󰜬 " },
-        dev_log = {
-          enabled = false,
-          open_cmd = "botright 15new",
-          auto_open = false,
-        },
-        dev_tools = {
-          autostart = true,
-          auto_open_browser = false,
-        },
+        dev_log = { enabled = false },
+        dev_tools = { autostart = true, auto_open_browser = false },
         lsp = {
           color = {
             enabled = true,
@@ -53,6 +46,7 @@ return {
             virtual_text_str = "■",
           },
           settings = {
+            lineLength = vim.o.textwidth,
             showTodos = false,
             completeFunctionCalls = true,
             enableSnippets = false,
