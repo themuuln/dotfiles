@@ -41,7 +41,7 @@ return {
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = true,
         minimize_diff = true,
-        enable_token_counting = true,
+        enable_token_counting = false,
         -- claude model only
         enable_cursor_planning_mode = false,
         enable_claude_text_editor_tool_mode = false,
