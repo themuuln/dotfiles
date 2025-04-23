@@ -3,7 +3,19 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+    ---@type snacks.Config
     opts = {
+      animate = {
+        fps = 120,
+        easing = "inOutCubic",
+      },
+      scroll = {
+        enabled = false,
+      },
+      bigfile = {
+        enabled = true,
+        notify = true,
+      },
       debug = { enabled = true },
       dashboard = {
         sections = {
