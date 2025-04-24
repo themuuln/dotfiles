@@ -1,8 +1,8 @@
 return {
+  { "nvim-lua/plenary.nvim" },
   {
     "nvim-flutter/flutter-tools.nvim",
     lazy = true,
-    dependencies = { "nvim-lua/plenary.nvim" },
     ft = { "dart" },
     config = function()
       require("flutter-tools").setup({
@@ -10,7 +10,8 @@ return {
           enabled = true,
           run_via_dap = true,
           exception_breakpoints = "default",
-          evaluate_to_string_in_debug_views = true,
+          -- evaluate_to_string_in_debug_views = true,
+          evaluate_to_string_in_debug_views = false,
           register_configurations = function(_)
             local dap = require("dap")
             dap.adapters.dart = {
@@ -29,15 +30,25 @@ return {
                 cwd = "${workspaceFolder}",
                 args = { "development" },
               },
+              {
+                type = "dart",
+                request = "attach",
+                name = "Attach to Flutter",
+                dartSdkPath = "/Users/ict/development/flutter/bin/cache/dart-sdk/bin/dart",
+                flutterSdkPath = "/Users/ict/development/flutter/bin/flutter",
+                program = "${workspaceFolder}/lib/main.dart",
+                cwd = "${workspaceFolder}",
+                args = { "development" },
+              },
             }
           end,
         },
         root_patterns = { ".git", "pubspec.yaml" },
         flutter_path = "/Users/ict/development/flutter/bin/flutter",
-        widget_guides = { enabled = true },
-        closing_tags = { highlight = "Comment", prefix = "󰜬 " },
+        widget_guides = { enabled = false },
+        closing_tags = { highlight = "Comment", prefix = "// " },
         dev_log = { enabled = false },
-        dev_tools = { autostart = true, auto_open_browser = false },
+        dev_tools = { autostart = false, auto_open_browser = false },
         lsp = {
           color = {
             enabled = true,
@@ -46,13 +57,13 @@ return {
             virtual_text_str = "■",
           },
           settings = {
-            lineLength = vim.o.textwidth,
+            lineLength = 120,
             showTodos = false,
             completeFunctionCalls = true,
-            enableSnippets = false,
+            enableSnippets = true,
             updateImportsOnRename = true,
             renameFilesWithClasses = "prompt",
-            enableSdkFormatter = false,
+            enableSdkFormatter = true,
             analysisExcludedFolders = { os.getenv("HOME") .. "/development/flutter/packages" },
           },
         },
