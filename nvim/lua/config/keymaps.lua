@@ -31,6 +31,7 @@ wk.add({
   {
     "<leader>F",
     group = "flutter",
+    icon = "󱗆",
     expand = function()
       return require("which-key.extras").expand.buf()
     end,
