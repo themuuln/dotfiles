@@ -5,7 +5,7 @@ return {
     version = false,
     opts = {
       provider = "flash_500",
-      windows = { ask = { floating = true } },
+      -- windows = { ask = { floating = true } },
       vendors = {
         pro = {
           __inherited_from = "gemini",
