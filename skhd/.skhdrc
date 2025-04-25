@@ -1,0 +1,187 @@
+# skhd configuration
+# See: https://github.com/koekeishiya/skhd
+
+# Define modifiers
+# alt = option
+# cmd = command
+# ctrl = control
+# shift = shift
+
+# --- Main Mode Bindings ---
+
+# layout tiles horizontal vertical -> yabai -m space --layout bsp
+# yabai's bsp layout is the primary tiling layout.
+# Horizontal/Vertical splits are handled automatically based on window insertion.
+alt - slash : yabai -m space --layout bsp
+
+# layout accordion horizontal vertical -> No direct equivalent in yabai's core layouts.
+# Accordion behavior would require custom scripting to mimic.
+# alt - comma : # No direct yabai equivalent
+
+# fullscreen -> yabai -m window --toggle zoom-fullscreen
+# Note: yabai has 'native-fullscreen' (macOS native) and 'zoom-fullscreen' (yabai manages)
+# 'zoom-fullscreen' is generally closer to a tiling WM fullscreen.
+alt - enter : yabai -m window --toggle zoom-fullscreen
+
+# focus left/down/up/right -> yabai -m window --focus {direction}
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# move left/down/up/right -> yabai -m window --swap {direction}
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
+
+# resize smart -50/+50 -> yabai -m window --resize {direction}:{value}:{value}
+# Resizing in yabai's BSP layout adjusts the split ratio.
+# The 'smart' aspect of AeroSpace isn't directly replicated;
+# you resize relative to the split direction.
+# These bindings resize the window by adjusting the bottom-right corner,
+# which can affect width and height depending on the split orientation.
+# You might need to adjust the values or use direction-specific resizes
+# (e.g., --resize left:-50:0) for more granular control.
+alt + shift - minus : yabai -m window --resize bottom_right:-50:-50
+alt + shift - equal : yabai -m window --resize bottom_right:50:50
+
+# workspace {number/letter} -> yabai -m space --focus {index or label}
+alt - 1 : yabai -m space --focus 1
+alt + shift - 1 : yabai -m window --space 1 && yabai -m space --focus 1 # move-node-to-workspace 1 --focus-follows-window
+alt - 2 : yabai -m space --focus 2
+alt + shift - 2 : yabai -m window --space 2 && yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt + shift - 3 : yabai -m window --space 3 && yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt + shift - 4 : yabai -m window --space 4 && yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt + shift - 5 : yabai -m window --space 5 && yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt + shift - 6 : yabai -m window --space 6 && yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt + shift - 7 : yabai -m window --space 7 && yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt + shift - 8 : yabai -m window --space 8 && yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+alt + shift - 9 : yabai -m window --space 9 && yabai -m space --focus 9
+alt - 0 : yabai -m space --focus 10 # Assuming space 0 maps to space 10 in yabai
+alt + shift - 0 : yabai -m window --space 10 && yabai -m space --focus 10
+
+# For letter workspaces, yabai uses labels. You'll need to label your spaces in yabai
+# or use indices if you prefer. Assuming you label spaces A-Z.
+alt - a : yabai -m space --focus a
+alt + shift - a : yabai -m window --space a && yabai -m space --focus a
+alt - b : yabai -m space --focus b
+alt + shift - b : yabai -m window --space b && yabai -m space --focus b
+alt - c : yabai -m space --focus c
+alt + shift - c : yabai -m window --space c && yabai -m space --focus c
+alt - d : yabai -m space --focus d
+alt + shift - d : yabai -m window --space d && yabai -m space --focus d
+alt - e : yabai -m space --focus e
+alt + shift - e : yabai -m window --space e && yabai -m space --focus e
+alt - f : yabai -m space --focus f
+alt + shift - f : yabai -m window --space f && yabai -m space --focus f
+alt - g : yabai -m space --focus g
+alt + shift - g : yabai -m window --space g && yabai -m space --focus g
+alt - i : yabai -m space --focus i
+alt + shift - i : yabai -m window --space i && yabai -m space --focus i
+alt - m : yabai -m space --focus m
+alt + shift - m : yabai -m window --space m && yabai -m space --focus m
+alt - n : yabai -m space --focus n
+alt + shift - n : yabai -m window --space n && yabai -m space --focus n
+alt - o : yabai -m space --focus o
+alt + shift - o : yabai -m window --space o && yabai -m space --focus o
+alt - p : yabai -m space --focus p
+alt + shift - p : yabai -m window --space p && yabai -m space --focus p
+alt - q : yabai -m space --focus q
+alt + shift - q : yabai -m window --space q && yabai -m space --focus q
+alt - r : yabai -m space --focus r
+alt + shift - r : yabai -m window --space r && yabai -m space --focus r
+alt - s : yabai -m space --focus s
+alt + shift - s : yabai -m window --space s && yabai -m space --focus s
+alt - t : yabai -m space --focus t
+alt + shift - t : yabai -m window --space t && yabai -m space --focus t
+alt - u : yabai -m space --focus u
+alt + shift - u : yabai -m window --space u && yabai -m space --focus u
+alt - v : yabai -m space --focus v
+alt + shift - v : yabai -m window --space v && yabai -m space --focus v
+alt - w : yabai -m space --focus w
+alt + shift - w : yabai -m window --space w && yabai -m space --focus w
+alt - x : yabai -m space --focus x
+alt + shift - x : yabai -m window --space x && yabai -m space --focus x
+alt - y : yabai -m space --focus y
+alt + shift - y : yabai -m window --space y && yabai -m space --focus y
+alt - z : yabai -m space --focus z
+alt + shift - z : yabai -m window --space z && yabai -m space --focus z
+
+# workspace-back-and-forth -> yabai -m space --focus recent
+alt - tab : yabai -m space --focus recent
+
+# move-workspace-to-monitor --wrap-around next -> yabai -m display --focus next || yabai -m display --focus first
+# This moves the *focused display's* current space to the next display.
+# Adjust if you want to move a specific space.
+alt + shift - tab : yabai -m display --focus next || yabai -m display --focus first
+
+# --- Service Mode Bindings ---
+# skhd does not have explicit binding modes like AeroSpace.
+# You can simulate this using a conditional binding that checks a state
+# or by using separate skhd files and switching between them,
+# but the simplest approach is often to just define these with modifiers
+# or integrate them into the main bindings if there are no conflicts.
+# I will integrate them here, assuming you won't have conflicting bindings.
+
+# esc = ['reload-config', 'mode main'] -> skhd --reload
+esc : skhd --reload
+
+# r = ['flatten-workspace-tree', 'mode main'] -> yabai -m space --balance
+# yabai's --balance command tries to equalize the size of windows in the current space.
+r : yabai -m space --balance
+
+# f = ['layout floating tiling', 'mode main'] -> yabai -m window --toggle float
+# This toggles the focused window between tiled and floating.
+# To toggle the *space* layout between float and bsp: yabai -m space --toggle layout
+f : yabai -m window --toggle float
+
+# m = ['fullscreen --no-outer-gaps', 'mode main'] -> yabai -m window --toggle zoom-fullscreen
+# The '--no-outer-gaps' part is handled by yabai's fullscreen behavior.
+m : yabai -m window --toggle zoom-fullscreen
+
+# backspace = ['close-all-windows-but-current', 'mode main']
+# This requires a script to query all windows in the space, filter out the focused one, and close the rest.
+# Example script (requires jq and osascript):
+# kill_others.sh:
+# #!/usr/bin/env bash
+# FOCUSED_ID=$(yabai -m query --windows --window | jq '.id')
+# yabai -m query --windows | jq -c '.[] | select(.space == $(yabai -m query --spaces --space | jq '.index')) | select(.id != '"$FOCUSED_ID"')' | while read -r window; do
+#     WIN_ID=$(echo "$window" | jq '.id')
+#     osascript -e "tell application id \"$(echo "$window" | jq -r '.app')\" to quit" > /dev/null 2>&1 || yabai -m window --close $WIN_ID
+# done
+# Make the script executable: chmod +x /path/to/your/script/kill_others.sh
+backspace : /path/to/your/script/kill_others.sh # Replace with the actual path to your script
+
+# alt-shift-h/j/k/l = ['join-with left/down/up/right', 'mode main']
+# Joining windows is part of yabai's BSP tree manipulation.
+# This command warps the focused window in the specified direction, merging it with the neighbor.
+alt + shift - h : yabai -m window --warp west
+alt + shift - j : yabai -m window --warp south
+alt + shift - k : yabai -m window --warp north
+alt + shift - l : yabai -m window --warp east
+
+# down/up = 'volume down/up'
+# Controlling system volume is not a built-in yabai command.
+# You can use osascript or other command-line tools for this.
+# Requires installing a tool like `cli-sound` or using osascript.
+# Example using osascript: osascript -e 'set volume output volume ((get volume settings)'s output volume - 10)'
+# Example using osascript: osascript -e 'set volume output volume ((get volume settings)'s output volume + 10)'
+# Example using cli-sound (install via Homebrew: brew install cli-sound): sound volume --decrease 10, sound volume --increase 10
+down : osascript -e 'set volume output volume ((get volume settings)'s output volume - 5)' # Decrease volume by 5%
+up : osascript -e 'set volume output volume ((get volume settings)'s output volume + 5)' # Increase volume by 5%
+
+# shift-down = ['volume set 0', 'mode main']
+# Example using osascript: osascript -e 'set volume output volume 0'
+shift - down : osascript -e 'set volume output volume 0' # Mute
+
+# Note: The space force assignments commented out in your AeroSpace config
+# would need custom scripting in yabai based on monitor identification.
+# You can get monitor information using `yabai -m query --displays`.
