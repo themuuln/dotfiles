@@ -1,24 +1,17 @@
--- DOCS https://github.com/nvim-lualine/lualine.nvim#default-configuration-----------------------------------------------------------------------------
+local function getPomo()
+  local ok, pomo = pcall(require, "pomo")
+  if not ok then
+    return ""
+  end
 
----Adds a component lualine was already set up. This enables lazy-loading
----plugins that add statusline components.
----(Accessed via `vim.g`, as this file's exports are used by `lazy.nvim`.)
----@param whichBar "tabline"|"winbar"|"inactive_winbar"|"sections"
----@param whichSection "lualine_a"|"lualine_b"|"lualine_c"|"lualine_x"|"lualine_y"|"lualine_z"
----@param component function|table the component forming the lualine
----@param where "after"|"before"? defaults to "after"
-vim.g.lualineAdd = function(whichBar, whichSection, component, where)
-  local componentObj = type(component) == "table" and component or { component }
-  local sectionConfig = require("lualine").get_config()[whichBar][whichSection] or {}
-  local pos = where == "before" and 1 or #sectionConfig + 1
-  table.insert(sectionConfig, pos, componentObj)
-  require("lualine").setup({ [whichBar] = { [whichSection] = sectionConfig } })
+  local timer = pomo.get_first_to_finish()
+  if timer == nil then
+    return ""
+  end
+
+  return "󰄉 " .. tostring(timer)
 end
 
----Asynchronously count LSP references, returns empty string until async is
----done. When done, returns the number of references in the current file, and in
----brackets the number of references in the workspace (if that number is
----different from the references in the current file).
 local function countLspRefs()
   local icon = "󰈿" -- CONFIG
 
@@ -84,6 +77,7 @@ return {
       lualine_b = { { "buffers" } },
       lualine_c = { { countLspRefs } },
       lualine_x = {
+        { getPomo },
         { -- recording status
           function()
             return ("Recording [%s]…"):format(vim.fn.reg_recording())
