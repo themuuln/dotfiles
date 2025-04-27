@@ -1,28 +1,27 @@
 local wk = require("which-key")
+local keymap = vim.keymap
 
-vim.keymap.set("n", "<C-m>", "<C-i>", { noremap = true, silent = true })
-vim.keymap.set("n", "U", ":redo<CR>", { noremap = true, silent = true })
-vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = false })
--- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
--- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "+", function()
+keymap.set("n", "<C-m>", "<C-i>", { noremap = true, silent = true })
+keymap.set("n", "U", ":redo<CR>", { noremap = true, silent = true })
+keymap.set("i", "jk", "<Esc>", { noremap = true, silent = false })
+keymap.set("n", "<leader>pv", vim.cmd.Ex)
+keymap.set("n", "J", "mzJ`z")
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
+
+-- dial
+keymap.set("n", "+", function()
   require("dial.map").manipulate("increment", "normal")
 end)
-vim.keymap.set("n", "-", function()
+keymap.set("n", "-", function()
   require("dial.map").manipulate("decrement", "normal")
 end)
-
--- Optional: Visual Mode Mappings
-vim.keymap.set("v", "+", function()
+keymap.set("v", "+", function()
   require("dial.map").manipulate("increment", "visual")
 end)
-vim.keymap.set("v", "-", function()
+keymap.set("v", "-", function()
   require("dial.map").manipulate("decrement", "visual")
 end)
 
@@ -59,26 +58,17 @@ wk.add({
   },
 })
 
--- vim.api.nvim_set_keymap("n", "<leader>tf", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
-
--- vim.keymap.set("n", "=ap", "ma=ap'a")
--- vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
-
--- vim.keymap.set("n", "<leader>vwm", function()
+-- keymap.set("n", "=ap", "ma=ap'a")
+-- keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
+-- keymap.set("n", "<leader>vwm", function()
 --   require("vim-with-me").StartVimWithMe()
 -- end)
--- vim.keymap.set("n", "<leader>svwm", function()
+-- keymap.set("n", "<leader>svwm", function()
 --   require("vim-with-me").StopVimWithMe()
 -- end)
-
--- vim.keymap.set("x", "<leader>P", [["_dP]])
-
--- vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
-
--- vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
-
--- vim.keymap.set("n", "<leader>ea", 'oassert.NoError(err, "")<Esc>F";a')
-
--- vim.keymap.set("n", "<leader>ef", 'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj')
-
--- vim.keymap.set("n", "<leader>el", 'oif err != nil {<CR>}<Esc>O.logger.Error("error", "error", err)<Esc>F.;i')
+-- keymap.set("x", "<leader>P", [["_dP]])
+-- keymap.set({ "n", "v" }, "<leader>d", '"_d')
+-- keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
+-- keymap.set("n", "<leader>ea", 'oassert.NoError(err, "")<Esc>F";a')
+-- keymap.set("n", "<leader>ef", 'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj')
+-- keymap.set("n", "<leader>el", 'oif err != nil {<CR>}<Esc>O.logger.Error("error", "error", err)<Esc>F.;i')
