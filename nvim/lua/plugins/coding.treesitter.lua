@@ -11,7 +11,6 @@ return {
         "dart",
         "http",
         "markdown",
-        "markdown_inline",
       },
     },
   },
