@@ -2,7 +2,6 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    version = false,
     opts = {
       provider = "flash_500",
       -- windows = { ask = { floating = true } },
