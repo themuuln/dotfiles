@@ -2,10 +2,8 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    version = false,
     opts = {
       provider = "flash_500",
-      windows = { ask = { floating = true } },
       vendors = {
         pro = {
           __inherited_from = "gemini",
@@ -30,7 +28,6 @@ return {
         },
       },
       behaviour = {
-        auto_suggestions = false,
         auto_set_highlight_group = true,
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = true,
@@ -43,7 +40,6 @@ return {
     },
     build = "make",
   },
-
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {

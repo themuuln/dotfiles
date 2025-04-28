@@ -1,1 +1,43 @@
-config
+# FONTS 
+# font-family = Hack Nerd Font 
+# font-family = GeistMono Nerd Font 
+# font-family = FiraCode Nerd Font
+# font-family = CaskaydiaCove Nerd Font
+# font-family-italic = VictorMono Nerd Font Mono 
+font-size = 16
+
+# THEMES
+# theme = OneHalfDark
+# theme = GitHub-Dark-Dimmed
+# theme = nord
+# theme = Kanagawa Wave
+# theme = catppuccin-frappe
+theme = catppuccin-macchiato
+# theme = catppuccin-mocha
+# theme = GitHub-Dark-Default
+# theme = tokyonight_moon
+# theme = Dark+
+# theme = ayu
+# theme = Ayu Mirage
+# theme = Everforest Dark - Hard
+# theme = zenbones_dark
+# theme = Solarized Dark - Patched
+
+# BACKGROUND
+
+# background-opacity = 0.95
+# background-blur = 40
+# background-blur-radius = 20
+
+window-decoration = none
+cursor-style = block
+mouse-hide-while-typing = true
+adjust-cell-height = 10%
+adjust-cursor-height = 10%
+# adjust-cell-height = 15%
+# adjust-cursor-height = 15%
+# adjust-cell-height = 20%
+# adjust-cursor-height = 20%
+
+window-padding-x = 8
+window-padding-y = 8

@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# yabai
+# global settings
+yabai -m config mouse_follows_focus autoraise
+yabai -m config focus_follows_mouse autoraise
+yabai -m config external_bar all:0:0 # Assuming no external bar is used, adjust if needed
+yabai -m config auto_balance off     # Equivalent to flattening containers off by default, adjust if needed
+
+# gaps
+yabai -m config top_padding 8
+yabai -m config bottom_padding 8
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+yabai -m config window_gap 8
+
+# layout
+# yabai defaults to 'bsp' (binary space partitioning) which is similar to AeroSpace's 'tiles'.
+# 'float' is the other main layout. Accordion does not have a direct equivalent in yabai's core layouts.
+yabai -m config layout bsp
+
+# automatically-unhide-macos-hidden-apps has no direct yabai equivalent.
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] has no direct yabai equivalent.
+
+# rules
+# Convert AeroSpace on-window-detected rules to yabai rules
+# Format: yabai -m rule --add label="..." app="..." [title="..."] [properties...]
+
+# Floating windows based on app name substring (less precise than app id or exact name)
+# Consider using exact app names if possible for better reliability.
+yabai -m rule --add app="^Telegram Desktop$" manage=off # Based on app-name-regex-substring 'telegram'
+yabai -m rule --add app="^Finder$" manage=off           # Based on app-name-regex-substring 'finder'
+
+# Assign apps to specific spaces based on app ID
+yabai -m rule --add app="^Spotify$" space=^s$                            # com.spotify.client
+yabai -m rule --add app="^ChatGPT$" space=^c$                            # com.openai.chat - assuming app name
+yabai -m rule --add app="^Session$" space=^0$                            # com.philipyoungg.session-direct - assuming app name
+yabai -m rule --add app="^Telegram Desktop$" space=^1$                   # com.tdesktop.Telegram
+yabai -m rule --add app="^Microsoft Teams \(work or school\)$" space=^2$ # com.microsoft.teams2 - assuming app name
+yabai -m rule --add app="^Discord$" space=^d$                            # com.hnc.Discord
+yabai -m rule --add app="^Mail$" space=^m$                               # com.apple.mail
+yabai -m rule --add app="^Obsidian$" space=^n$                           # md.obsidian
+yabai -m rule --add app="^Notes$" space=^n$                              # com.apple.Notes
+yabai -m rule --add app="^iTerm2$" space=^t$                             # com.googlecode.iterm2
+yabai -m rule --add app="^kitty$" space=^t$                              # net.kovidgoyal.kitty
+yabai -m rule --add app="^Windsurf$" space=^i$                           # com.exafunction.windsurf - assuming app name
+yabai -m rule --add app="^Code$" space=^i$                               # com.microsoft.VSCode
+yabai -m rule --add app="^Trae$" space=^i$                               # com.trae.app - assuming app name (appears twice in original config)
+yabai -m rule --add app="^Browser$" space=^b$                            # company.thebrowser.Browser - assuming app name
+yabai -m rule --add app="^Figma$" space=^f$                              # com.figma.Desktop
+yabai -m rule --add app="^Finder$" space=^f$                             # com.apple.finder (appears twice in original config)
+yabai -m rule --add app="^Todoist$" space=^p$                            # com.todoist.mac.Todoist
+yabai -m rule --add app="^Reminders$" space=^r$                          # com.apple.reminders
+yabai -m rule --add app="^Calendar$" space=^c$                           # com.apple.iCal (appears twice in original config)
+yabai -m rule --add app="^Ghostty$" space=^t$                            # com.mitchellh.ghostty
+yabai -m rule --add app="^Simulator$" space=^t$                          # com.apple.iphonesimulator
+
+# Example of how to handle apps that should always float
+# yabai -m rule --add app="^Calculator$" manage=off sticky=on layer=above
+
+# Example of how to handle workspace-to-monitor force assignment (more complex in yabai)
+# This often requires scripting based on monitor identification (e.g., by serial or space)
+# There isn't a direct config equivalent to AeroSpace's workspace-to-monitor-force-assignment.
