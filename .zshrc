@@ -1,1 +1,0 @@
-/Users/ict/.zshrc
