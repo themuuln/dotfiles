@@ -12,7 +12,7 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"
 vim.opt.formatoptions:append({ "r" })
 vim.g.lazyvim_cmp = "blink.cmp"
 vim.opt.cursorcolumn = false
