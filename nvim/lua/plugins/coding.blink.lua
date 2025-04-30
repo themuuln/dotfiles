@@ -4,7 +4,6 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      keymap = { preset = "enter" },
       completion = {
         list = {
           selection = {
@@ -15,7 +14,8 @@ return {
         accept = {},
         documentation = { auto_show = false, treesitter_highlighting = false },
         ghost_text = {
-          enabled = true,
+          -- enabled = true,
+          enabled = vim.g.ai_cmp,
           show_without_selection = true,
         },
         menu = {
@@ -55,10 +55,6 @@ return {
           treesitter_highlighting = true,
           show_documentation = true,
         },
-      },
-
-      sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
     },

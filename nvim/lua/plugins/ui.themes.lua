@@ -14,18 +14,12 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    priority = 1000,
-    opts = {
-      -- transparent = true,
-    },
+    -- opts = { transparent = true },
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
-    opts = {
-      -- transparent_background = true,
-    },
+    -- opts = { transparent_background = true },
   },
   -- { "AlexvZyl/nordic.nvim", opts = { transparent = { bg = true, float = true } } },
   -- { "projekt0n/github-nvim-theme" },
@@ -41,13 +35,7 @@ return {
   -- { "craftzdog/solarized-osaka.nvim" },
   -- { "rebelot/kanagawa.nvim" },
   -- { "rose-pine/neovim" },
-  -- {
-  --   "Mofiqul/vscode.nvim",
-  --   opts = {
-  --     transparent = false,
-  --     -- transparent = true,
-  --   },
-  -- },
+  -- { "Mofiqul/vscode.nvim", opts = { transparent = true } },
   -- { "oxfist/night-owl.nvim" },
   -- { "ramojus/mellifluous.nvim" },
   -- { "atmosuwiryo/vim-winteriscoming" },

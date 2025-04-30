@@ -1,4 +1,4 @@
-local Plugin = {
+local l = {
   "echasnovski/mini.icons",
   lazy = true,
   opts = function()
@@ -11,4 +11,4 @@ local Plugin = {
   end,
 }
 
-return Plugin
+return l
