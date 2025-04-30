@@ -1,5 +1,5 @@
 local function countLspRefs()
-  local icon = "󰈿" -- CONFIG
+  local icon = "󰈽" -- CONFIG
 
   local client = vim.lsp.get_clients({ method = "textDocument/references", bufnr = 0 })[1]
   if not client then
