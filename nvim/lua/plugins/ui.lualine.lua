@@ -73,7 +73,7 @@ return {
           mode = 2,
 
           use_mode_colors = true,
-          symbols = { alternate_file = " " },
+          symbols = { alternate_file = "" },
         },
       },
       lualine_c = { { countLspRefs } },
