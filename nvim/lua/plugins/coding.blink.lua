@@ -13,11 +13,7 @@ return {
         },
         accept = {},
         documentation = { auto_show = false, treesitter_highlighting = false },
-        ghost_text = {
-          -- enabled = true,
-          enabled = vim.g.ai_cmp,
-          show_without_selection = true,
-        },
+        ghost_text = { enabled = vim.g.ai_cmp },
         menu = {
           auto_show = true,
           draw = {
