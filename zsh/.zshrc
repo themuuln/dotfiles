@@ -24,9 +24,10 @@ alias ll="eza --color=always --long --git --icons=always --no-user"
 alias l="eza -l --icons --git -a"
 alias lt="eza --tree --level=2 --long --icons --git"
 alias ltree="eza --tree --level=2  --icons --git"
+alias v='nvim'
 alias vi='nvim'
-alias cd='z'
 alias vim='nvim'
+alias cd='z'
 alias f='fuck'
 
 export EDITOR="nvim"
