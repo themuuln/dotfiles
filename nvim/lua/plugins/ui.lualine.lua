@@ -76,7 +76,9 @@ return {
           symbols = { alternate_file = "" },
         },
       },
-      lualine_c = { { countLspRefs } },
+      lualine_c = {
+        -- { countLspRefs }
+      },
       lualine_x = {
         { -- recording status
           function()
