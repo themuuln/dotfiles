@@ -60,7 +60,22 @@ return {
           end,
         },
       },
-      lualine_b = { { "buffers" } },
+      lualine_b = {
+        {
+          "buffers",
+          hide_filename_extension = true,
+
+          -- 0: Shows buffer name
+          -- 1: Shows buffer index
+          -- 2: Shows buffer name + buffer index
+          -- 3: Shows buffer number
+          -- 4: Shows buffer name + buffer number
+          mode = 2,
+
+          use_mode_colors = true,
+          symbols = { alternate_file = " " },
+        },
+      },
       lualine_c = { { countLspRefs } },
       lualine_x = {
         { -- recording status
