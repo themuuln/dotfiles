@@ -1,5 +1,7 @@
 start-at-login = true
 
+after-startup-command = ['exec-and-forget borders']
+
 enable-normalization-opposite-orientation-for-nested-containers = true
 enable-normalization-flatten-containers = true
 
