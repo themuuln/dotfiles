@@ -14,9 +14,9 @@ return {
   },
   {
     "folke/tokyonight.nvim",
+    priority = 1000,
     opts = {
       -- transparent = true,
-      transparent = false,
     },
   },
   {
@@ -24,11 +24,11 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
-      transparent_background = true,
+      -- transparent_background = true,
     },
   },
-  { "AlexvZyl/nordic.nvim", opts = { transparent = { bg = true, float = true } } },
-  { "projekt0n/github-nvim-theme" },
+  -- { "AlexvZyl/nordic.nvim", opts = { transparent = { bg = true, float = true } } },
+  -- { "projekt0n/github-nvim-theme" },
   -- {
   --   "navarasu/onedark.nvim",
   --   opts = {
