@@ -4,15 +4,10 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
+      keymap = { preset = "enter" },
       completion = {
-        list = {
-          selection = {
-            auto_insert = true,
-            preselect = true,
-          },
-        },
-        accept = {},
-        documentation = { auto_show = false, treesitter_highlighting = false },
+        list = { selection = { auto_insert = false, preselect = true } },
+        documentation = { auto_show = false, treesitter_highlighting = true },
         ghost_text = { enabled = vim.g.ai_cmp },
         menu = {
           auto_show = true,
@@ -23,7 +18,6 @@ return {
                   local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
                   return kind_icon
                 end,
-                -- (optional) use highlights from mini.icons
                 highlight = function(ctx)
                   local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                   return hl
@@ -52,7 +46,6 @@ return {
           show_documentation = true,
         },
       },
-      fuzzy = { implementation = "prefer_rust_with_warning" },
     },
     opts_extend = { "sources.default" },
   },
