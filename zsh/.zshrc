@@ -27,7 +27,6 @@ alias ltree="eza --tree --level=2  --icons --git"
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias cd='z'
 alias f='fuck'
 
 export EDITOR="nvim"
