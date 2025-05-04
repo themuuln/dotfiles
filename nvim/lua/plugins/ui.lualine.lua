@@ -70,7 +70,7 @@ return {
           -- 2: Shows buffer name + buffer index
           -- 3: Shows buffer number
           -- 4: Shows buffer name + buffer number
-          mode = 2,
+          mode = 0,
 
           use_mode_colors = true,
           symbols = { alternate_file = "" },
