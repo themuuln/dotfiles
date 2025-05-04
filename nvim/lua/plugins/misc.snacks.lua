@@ -9,8 +9,16 @@ return {
         fps = 120,
         easing = "inOutCubic",
       },
+      image = {
+        enabled = true,
+        doc = {
+          inline = false,
+        },
+      },
       scroll = {
-        enabled = false,
+        animate = {
+          duration = { step = 10, total = 150 },
+        },
       },
       bigfile = {
         enabled = true,
@@ -18,12 +26,20 @@ return {
       },
       debug = { enabled = true },
       dashboard = {
+        --                                              
+        --       ████ ██████           █████      ██
+        --      ███████████             █████ 
+        --      █████████ ███████████████████ ███   ███████████
+        --     █████████  ███    █████████████ █████ ██████████████
+        --    █████████ ██████████ █████████ █████ █████ ████ █████
+        --  ███████████ ███    ███ █████████ █████ █████ ████ █████
+        -- ██████  █████████████████████ ████ █████ █████ ████ ██████
         sections = {
-          -- { section = "keys", gap = 1, padding = 1 },
+
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
           {
-            pane = 1,
+            pane = 2,
             icon = " ",
             desc = "Browse Repo",
             padding = 1,
@@ -39,7 +55,7 @@ return {
                 icon = " ",
                 title = "Git Status",
                 cmd = "git --no-pager diff --stat -B -M -C",
-                height = 10,
+                pane = 2,
               },
             }
             return vim.tbl_map(function(cmd)

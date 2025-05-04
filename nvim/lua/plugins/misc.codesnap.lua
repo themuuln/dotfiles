@@ -14,9 +14,6 @@ return {
         bg_color = "#9FB3E7",
       })
       require("codesnap").setup(codesnap_opts)
-
-      -- Or map it directly to a keybinding (example using visual mode)
-      -- vim.keymap.set("v", "<leader>cs", ":Codesnap<CR>", { desc = "Create codesnap" })
     end,
   },
 }
