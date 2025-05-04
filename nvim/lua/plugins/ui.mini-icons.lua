@@ -5,7 +5,7 @@ local l = {
     require("mini.icons").mock_nvim_web_devicons()
     return {
       lsp = {
-        supermaven = { glyph = "", hl = "your_hl_group" },
+        supermaven = { glyph = "", hl = "supermaven" },
       },
     }
   end,
