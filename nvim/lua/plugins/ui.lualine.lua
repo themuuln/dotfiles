@@ -90,6 +90,21 @@ return {
           end,
           color = "ErrorMsg",
         },
+        {
+          function()
+            local ok, pomo = pcall(require, "pomo")
+            if not ok then
+              return ""
+            end
+
+            local timer = pomo.get_first_to_finish()
+            if timer == nil then
+              return ""
+            end
+
+            return "󰄉 " .. tostring(timer)
+          end,
+        },
         { -- Quickfix counter
           function()
             local qf = vim.fn.getqflist({ idx = 0, title = true, items = true })
