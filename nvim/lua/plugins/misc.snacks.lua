@@ -9,6 +9,9 @@ return {
         fps = 120,
         easing = "inOutCubic",
       },
+      explorer = {
+        enabled = false,
+      },
       image = {
         enabled = true,
         doc = {
