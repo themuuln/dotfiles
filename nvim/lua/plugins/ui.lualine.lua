@@ -43,138 +43,181 @@ end
 return {
   "nvim-lualine/lualine.nvim",
   event = "UIEnter",
-  opts = {
-    options = {
-      globalstatus = true,
-      always_divide_middle = false,
-      ignore_focus = { "snacks_input", "snacks_picker_input" },
-    },
-    sections = {
-      lualine_a = {
-        {
-          "branch",
-          icon = "",
-          cond = function() -- only if not on main or master
-            local curBranch = require("lualine.components.branch.git_branch").get_branch()
-            return curBranch ~= "main" and curBranch ~= "master" and vim.bo.buftype == ""
-          end,
+  opts = function()
+    local icons = LazyVim.config.icons
+    local opts = {
+      options = {
+        globalstatus = true,
+        always_divide_middle = false,
+        ignore_focus = { "snacks_input", "snacks_picker_input" },
+      },
+      tabline = {
+        lualine_a = { { "tabs" } },
+        -- lualine_b = { { LazyVim.lualine.pretty_path() } },
+        lualine_c = {
+          LazyVim.lualine.root_dir(),
+          {
+            "diagnostics",
+            symbols = {
+              error = icons.diagnostics.Error,
+              warn = icons.diagnostics.Warn,
+              info = icons.diagnostics.Info,
+              hint = icons.diagnostics.Hint,
+            },
+          },
+          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          { LazyVim.lualine.pretty_path() },
         },
       },
-      lualine_b = {
-        {
-          "buffers",
-          hide_filename_extension = true,
+      sections = {
+        lualine_a = {
+          {
+            "branch",
+            icon = "",
+            cond = function() -- only if not on main or master
+              local curBranch = require("lualine.components.branch.git_branch").get_branch()
+              return curBranch ~= "main" and curBranch ~= "master" and vim.bo.buftype == ""
+            end,
+          },
+        },
+        lualine_b = {
+          {
+            "buffers",
+            hide_filename_extension = true,
 
-          -- 0: Shows buffer name
-          -- 1: Shows buffer index
-          -- 2: Shows buffer name + buffer index
-          -- 3: Shows buffer number
-          -- 4: Shows buffer name + buffer number
-          mode = 0,
+            -- 0: Shows buffer name
+            -- 1: Shows buffer index
+            -- 2: Shows buffer name + buffer index
+            -- 3: Shows buffer number
+            -- 4: Shows buffer name + buffer number
+            mode = 0,
 
-          use_mode_colors = true,
-          symbols = { alternate_file = "" },
+            use_mode_colors = true,
+            symbols = { alternate_file = "" },
+          },
         },
-      },
-      lualine_c = {
-        -- { countLspRefs }
-      },
-      lualine_x = {
-        { -- recording status
-          function()
-            return ("Recording [%s]…"):format(vim.fn.reg_recording())
-          end,
-          icon = "󰑊",
-          cond = function()
-            return vim.fn.reg_recording() ~= ""
-          end,
-          color = "ErrorMsg",
+        lualine_c = {
+          -- { countLspRefs }
         },
-        {
-          function()
-            local ok, pomo = pcall(require, "pomo")
-            if not ok then
-              return ""
-            end
+        lualine_x = {
+          { -- recording status
+            function()
+              return ("Recording [%s]…"):format(vim.fn.reg_recording())
+            end,
+            icon = "󰑊",
+            cond = function()
+              return vim.fn.reg_recording() ~= ""
+            end,
+            color = "ErrorMsg",
+          },
+          {
+            function()
+              local ok, pomo = pcall(require, "pomo")
+              if not ok then
+                return ""
+              end
 
-            local timer = pomo.get_first_to_finish()
-            if timer == nil then
-              return ""
-            end
+              local timer = pomo.get_first_to_finish()
+              if timer == nil then
+                return ""
+              end
 
-            return "󰄉 " .. tostring(timer)
-          end,
-        },
-        { -- Quickfix counter
-          function()
-            local qf = vim.fn.getqflist({ idx = 0, title = true, items = true })
-            if #qf.items == 0 then
-              return ""
-            end
-            return (" %d/%d (%s)"):format(qf.idx, #qf.items, qf.title)
-          end,
-        },
-        {
-          "fileformat",
-          icon = "󰌑",
-          cond = function()
-            return vim.bo.fileformat ~= "unix"
-          end,
-        },
-        {
-          "diagnostics",
-          symbols = { error = "󰅚 ", warn = " ", info = "󰋽 ", hint = "󰘥 " },
-          cond = function()
-            return vim.diagnostic.is_enabled({ bufnr = 0 })
-          end,
-        },
-        {
-          "lsp_status",
-          icon = "",
-          ignore_lsp = { "typos_lsp", "efm" },
-          -- only show component if LSP is active
-          cond = function()
-            if vim.g.lualine_lsp_active ~= nil then
-              return vim.g.lualine_lsp_active
-            end
-            vim.g.lualine_lsp_active = false
-            -- ^ so autocmd is only created once
+              return "󰄉 " .. tostring(timer)
+            end,
+          },
+          { -- Quickfix counter
+            function()
+              local qf = vim.fn.getqflist({ idx = 0, title = true, items = true })
+              if #qf.items == 0 then
+                return ""
+              end
+              return (" %d/%d (%s)"):format(qf.idx, #qf.items, qf.title)
+            end,
+          },
+          {
+            "fileformat",
+            icon = "󰌑",
+            cond = function()
+              return vim.bo.fileformat ~= "unix"
+            end,
+          },
+          {
+            "diagnostics",
+            symbols = { error = "󰅚 ", warn = " ", info = "󰋽 ", hint = "󰘥 " },
+            cond = function()
+              return vim.diagnostic.is_enabled({ bufnr = 0 })
+            end,
+          },
+          {
+            "lsp_status",
+            icon = "",
+            ignore_lsp = { "typos_lsp", "efm" },
+            -- only show component if LSP is active
+            cond = function()
+              if vim.g.lualine_lsp_active ~= nil then
+                return vim.g.lualine_lsp_active
+              end
+              vim.g.lualine_lsp_active = false
+              -- ^ so autocmd is only created once
 
-            vim.api.nvim_create_autocmd("LspProgress", {
-              desc = "User: Hide LSP progress component after 2s",
-              callback = function()
-                vim.g.lualine_lsp_active = true
-                vim.defer_fn(function()
-                  vim.g.lualine_lsp_active = false
-                end, 2000)
-              end,
-            })
-          end,
+              vim.api.nvim_create_autocmd("LspProgress", {
+                desc = "User: Hide LSP progress component after 2s",
+                callback = function()
+                  vim.g.lualine_lsp_active = true
+                  vim.defer_fn(function()
+                    vim.g.lualine_lsp_active = false
+                  end, 2000)
+                end,
+              })
+            end,
+          },
+        },
+        lualine_y = {
+          {
+            function()
+              return vim.api.nvim_buf_line_count(0) .. " "
+            end,
+            cond = function()
+              return vim.bo.buftype == ""
+            end,
+          },
+          {
+            function()
+              return vim.o.foldlevel
+            end,
+            icon = "󰘖",
+            cond = function()
+              return vim.o.foldlevel > 0 and vim.o.foldlevel ~= 99
+            end,
+          },
+        },
+        lualine_z = {
+          { "selectioncount", icon = "󰒆" },
+          { "location" },
         },
       },
-      lualine_y = {
-        {
-          function()
-            return vim.api.nvim_buf_line_count(0) .. " "
-          end,
-          cond = function()
-            return vim.bo.buftype == ""
-          end,
-        },
-        {
-          function()
-            return vim.o.foldlevel
-          end,
-          icon = "󰘖",
-          cond = function()
-            return vim.o.foldlevel > 0 and vim.o.foldlevel ~= 99
-          end,
-        },
-      },
-      lualine_z = {
-        { "selectioncount", icon = "󰒆" },
-        { "location" },
-      },
-    },
-  },
+    }
+
+    if vim.g.trouble_lualine and LazyVim.has("trouble.nvim") then
+      local trouble = require("trouble")
+      local symbols = trouble.statusline({
+        mode = "symbols",
+        groups = {},
+        title = false,
+        filter = { range = true },
+        format = "{kind_icon}{symbol.name:Normal}",
+        hl_group = "lualine_c_normal",
+      })
+
+      table.insert(opts.tabline.lualine_c, {
+
+        symbols and symbols.get,
+        cond = function()
+          return vim.b.trouble_lualine ~= false and symbols.has()
+        end,
+      })
+    end
+
+    return opts
+  end,
 }
