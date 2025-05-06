@@ -13,10 +13,9 @@ return {
         },
         {
           name = "work",
-          path = "~/vaults/work",
+          path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main/Second Brain/Work/ICT",
         },
       },
-
       completion = {
         nvim_cmp = false, -- NOTE: use blink.cmp instead
         blink = true,
