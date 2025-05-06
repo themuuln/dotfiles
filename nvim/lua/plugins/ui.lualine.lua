@@ -56,15 +56,15 @@ return {
         -- lualine_b = { { LazyVim.lualine.pretty_path() } },
         lualine_c = {
           LazyVim.lualine.root_dir(),
-          {
-            "diagnostics",
-            symbols = {
-              error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
-            },
-          },
+          -- {
+          --   "diagnostics",
+          --   symbols = {
+          --     error = icons.diagnostics.Error,
+          --     warn = icons.diagnostics.Warn,
+          --     info = icons.diagnostics.Info,
+          --     hint = icons.diagnostics.Hint,
+          --   },
+          -- },
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           { LazyVim.lualine.pretty_path() },
         },
@@ -143,7 +143,12 @@ return {
           },
           {
             "diagnostics",
-            symbols = { error = "󰅚 ", warn = " ", info = "󰋽 ", hint = "󰘥 " },
+            symbols = {
+              error = icons.diagnostics.Error,
+              warn = icons.diagnostics.Warn,
+              info = icons.diagnostics.Info,
+              hint = icons.diagnostics.Hint,
+            },
             cond = function()
               return vim.diagnostic.is_enabled({ bufnr = 0 })
             end,
