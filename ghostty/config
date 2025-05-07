@@ -42,3 +42,9 @@ adjust-cursor-height = 10%
 
 window-padding-x = 0
 window-padding-y = 0
+
+# custom-shader = "shaders/bloom025.glsl"
+custom-shader = "shaders/bloom05.glsl"
+# custom-shader = "shaders/bloom06.glsl"
+# custom-shader = "shaders/bloom075.glsl"
+# custom-shader = "shaders/bloom.glsl"
