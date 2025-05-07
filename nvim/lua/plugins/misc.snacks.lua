@@ -19,6 +19,7 @@ return {
         },
       },
       scroll = {
+        enabled = false,
         animate = {
           duration = { step = 10, total = 150 },
         },
@@ -38,7 +39,6 @@ return {
         --  ███████████ ███    ███ █████████ █████ █████ ████ █████
         -- ██████  █████████████████████ ████ █████ █████ ████ ██████
         sections = {
-
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
           {

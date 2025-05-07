@@ -52,21 +52,41 @@ return {
         ignore_focus = { "snacks_input", "snacks_picker_input" },
       },
       tabline = {
-        lualine_a = { { "tabs" } },
+        lualine_a = {
+          {
+            "tabs",
+            tab_max_length = 40, -- Maximum width of each tab. The content will be shorten dynamically (example: apple/orange -> a/orange)
+            max_length = vim.o.columns / 3, -- Maximum width of tabs component.
+            mode = 0,
+            -- 0: Shows tab_nr
+            -- 1: Shows tab_name
+            -- 2: Shows tab_nr + tab_name
+
+            path = 0, -- 0: just shows the filename
+            -- 1: shows the relative path and shorten $HOME to ~
+            -- 2: shows the full path
+            -- 3: shows the full path and shorten $HOME to ~
+            use_mode_colors = true,
+            show_modified_status = true,
+            symbols = {
+              modified = " ",
+            },
+            fmt = function(name, context)
+              -- Show + if buffer is modified in tab
+              local buflist = vim.fn.tabpagebuflist(context.tabnr)
+              local winnr = vim.fn.tabpagewinnr(context.tabnr)
+              local bufnr = buflist[winnr]
+              local mod = vim.fn.getbufvar(bufnr, "&mod")
+
+              return name .. (mod == 1 and " +" or "")
+            end,
+          },
+        },
         -- lualine_b = { { LazyVim.lualine.pretty_path() } },
         lualine_c = {
-          LazyVim.lualine.root_dir(),
-          -- {
-          --   "diagnostics",
-          --   symbols = {
-          --     error = icons.diagnostics.Error,
-          --     warn = icons.diagnostics.Warn,
-          --     info = icons.diagnostics.Info,
-          --     hint = icons.diagnostics.Hint,
-          --   },
-          -- },
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { LazyVim.lualine.pretty_path() },
+          -- LazyVim.lualine.root_dir(),
+          -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          -- { LazyVim.lualine.pretty_path() },
         },
       },
       sections = {
