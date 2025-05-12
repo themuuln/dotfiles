@@ -9,9 +9,10 @@ return {
         fps = 120,
         easing = "inOutCubic",
       },
-      explorer = {
-        enabled = false,
-      },
+      -- NOTE: if you prefer yazi, then uncomment this
+      -- explorer = {
+      --   enabled = false,
+      -- },
       image = {
         enabled = true,
         doc = {

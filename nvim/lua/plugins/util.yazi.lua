@@ -2,6 +2,7 @@ return {
   ---@type LazySpec
   {
     "mikavilpas/yazi.nvim",
+    enabled = false,
     event = "VeryLazy",
     keys = {
       { "<leader>e", mode = { "n", "v" }, "<cmd>Yazi<cr>", desc = "Yazi" },
