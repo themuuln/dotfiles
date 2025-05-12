@@ -1,7 +1,7 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "catppuccin-mocha" },
+    opts = { colorscheme = "catppuccin" },
   },
   {
     "folke/tokyonight.nvim",
@@ -10,6 +10,6 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    opts = { transparent_background = true },
+    -- opts = { transparent_background = true },
   },
 }
