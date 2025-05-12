@@ -203,7 +203,7 @@ if.app-id = 'com.apple.finder'
 run = "move-node-to-workspace E"
 
 [[on-window-detected]]
-if.app = 'com.figma.Desktop'
+if.app-id = 'com.figma.Desktop'
 run = "move-node-to-workspace F"
 
 [[on-window-detected]]
