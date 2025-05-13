@@ -5,7 +5,7 @@
 # font-family = CaskaydiaCove Nerd Font
 # font-family-italic = VictorMono Nerd Font Mono
 # font-family-bold-italic = VictorMono Nerd Font Mono
-font-size = 17
+font-size = 18
 
 # THEMES
 # theme = OneHalfDark
@@ -13,8 +13,8 @@ font-size = 17
 # theme = nord
 # theme = Kanagawa Wave
 # theme = catppuccin-frappe
-# theme = catppuccin-macchiato
-theme = catppuccin-mocha
+theme = catppuccin-macchiato
+# theme = catppuccin-mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
 # theme = Dark+
@@ -29,7 +29,7 @@ theme = catppuccin-mocha
 # background-blur = 40
 
 window-decoration = none
-cursor-style = block
+# cursor-style = block
 mouse-hide-while-typing = true
 adjust-cell-height = 10%
 adjust-cursor-height = 10%
@@ -50,3 +50,6 @@ window-padding-y = 0
 # custom-shader = "shaders/bloom06.glsl"
 # custom-shader = "shaders/bloom075.glsl"
 # custom-shader = "shaders/bloom.glsl"
+
+# cursor-invert-fg-bg = true
+cursor-opacity = 0.5
