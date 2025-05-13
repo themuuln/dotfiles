@@ -27,7 +27,8 @@ return {
           settings = {
             lineLength = 120,
             showTodos = false,
-            completeFunctionCalls = true,
+            -- already provided by blink.nvim
+            completeFunctionCalls = false,
             enableSnippets = true,
             updateImportsOnRename = true,
             renameFilesWithClasses = "prompt",

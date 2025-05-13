@@ -4,7 +4,6 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      keymap = { preset = "enter" },
       completion = {
         list = { selection = { auto_insert = false, preselect = true } },
         documentation = { auto_show = false, treesitter_highlighting = true },
@@ -35,16 +34,16 @@ return {
       },
       signature = {
         enabled = true,
-        trigger = {
-          enabled = true,
-          show_on_keyword = true,
-          show_on_insert = true,
-          show_on_insert_on_trigger_character = true,
-        },
-        window = {
-          treesitter_highlighting = true,
-          show_documentation = true,
-        },
+        -- trigger = {
+        --   enabled = true,
+        --   show_on_keyword = true,
+        --   show_on_insert = true,
+        --   show_on_insert_on_trigger_character = true,
+        -- },
+        -- window = {
+        --   treesitter_highlighting = true,
+        --   show_documentation = true,
+        -- },
       },
     },
     opts_extend = { "sources.default" },
