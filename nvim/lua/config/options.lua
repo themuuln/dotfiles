@@ -39,6 +39,8 @@ end
 
 vim.g.snacks_animate = true
 vim.o.scrolloff = 8
+-- useful for renaming across multiple files
+vim.o.inccommand = "split"
 vim.opt.smartindent = true
 vim.opt.laststatus = 3
 -- vim.opt.guicursor = ""
@@ -55,7 +57,6 @@ vim.opt.updatetime = 50
 vim.opt.formatoptions:append({ "r" })
 vim.g.lazyvim_cmp = "blink.cmp"
 vim.opt.cursorcolumn = false
-vim.opt.background = "dark"
 
 local namespace = vim.api.nvim_create_namespace("dap-hlng")
 vim.api.nvim_set_hl(namespace, "DapBreakpoint", { fg = "#eaeaeb", bg = "#ffffff" })
