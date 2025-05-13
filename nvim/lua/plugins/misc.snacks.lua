@@ -31,27 +31,19 @@ return {
       },
       debug = { enabled = true },
       dashboard = {
-        --                                              
-        --       ████ ██████           █████      ██
-        --      ███████████             █████ 
-        --      █████████ ███████████████████ ███   ███████████
-        --     █████████  ███    █████████████ █████ ██████████████
-        --    █████████ ██████████ █████████ █████ █████ ████ █████
-        --  ███████████ ███    ███ █████████ █████ █████ ████ █████
-        -- ██████  █████████████████████ ████ █████ █████ ████ ██████
         sections = {
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-          {
-            pane = 2,
-            icon = " ",
-            desc = "Browse Repo",
-            padding = 1,
-            key = "b",
-            action = function()
-              Snacks.gitbrowse()
-            end,
-          },
+          -- {
+          --   pane = 2,
+          --   icon = " ",
+          --   desc = "Browse Repo",
+          --   padding = 1,
+          --   key = "b",
+          --   action = function()
+          --     Snacks.gitbrowse()
+          --   end,
+          -- },
           function()
             local in_git = Snacks.git.get_root() ~= nil
             local cmds = {
