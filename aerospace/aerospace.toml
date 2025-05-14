@@ -143,7 +143,7 @@ shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'telegram'
-run = "move-node-to-workspace 1"
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'teams'
@@ -151,6 +151,10 @@ run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'ghostty'
+run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'kitty'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
@@ -204,14 +208,6 @@ run = "move-node-to-workspace N"
 [[on-window-detected]]
 if.app-name-regex-substring = 'spotify'
 run = "move-node-to-workspace S"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'kitty'
-run = "move-node-to-workspace T"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'todoist'
-run = "move-node-to-workspace P"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'reminders'
