@@ -7,7 +7,7 @@ return {
       vendors = {
         pro = {
           __inherited_from = "gemini",
-          model = "gemini-2.5-pro-preview-03-25",
+          model = "gemini-2.5-pro-preview-05-06",
           api_key_name = "GEMINI_API",
           timeout = 30000,
           temperature = 0,
@@ -18,6 +18,11 @@ return {
           api_key_name = "GEMINI_API",
           timeout = 30000,
           temperature = 0,
+          generationConfig = {
+            thinkingConfig = {
+              thinkingBudget = 1024,
+            },
+          },
         },
         flash_1500 = {
           __inherited_from = "gemini",
