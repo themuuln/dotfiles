@@ -5,10 +5,24 @@ return {
     ---@type blink.cmp.Config
     opts = {
       completion = {
-        list = { selection = { auto_insert = false, preselect = true } },
-        documentation = { auto_show = false, treesitter_highlighting = true },
-        ghost_text = { enabled = vim.g.ai_cmp },
+        accept = { auto_brackets = { enabled = true } },
+        list = {
+          selection = {
+            auto_insert = false,
+            preselect = true,
+          },
+        },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 100,
+          treesitter_highlighting = true,
+        },
+        ghost_text = {
+          enabled = true,
+          show_without_selection = true,
+        },
         menu = {
+          scrollbar = false,
           auto_show = true,
           draw = {
             components = {
@@ -34,18 +48,13 @@ return {
       },
       signature = {
         enabled = true,
-        -- trigger = {
-        --   enabled = true,
-        --   show_on_keyword = true,
-        --   show_on_insert = true,
-        --   show_on_insert_on_trigger_character = true,
-        -- },
-        -- window = {
-        --   treesitter_highlighting = true,
-        --   show_documentation = true,
-        -- },
+        trigger = {
+          enabled = true,
+          show_on_keyword = false,
+          show_on_insert = true,
+          show_on_insert_on_trigger_character = true,
+        },
       },
     },
-    opts_extend = { "sources.default" },
   },
 }
