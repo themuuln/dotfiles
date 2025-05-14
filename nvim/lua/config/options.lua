@@ -4,6 +4,8 @@ local o = vim.opt
 -- Optimizations on startup
 vim.loader.enable()
 
+vim.g.ai_cmp = false
+
 -- Personal Config and LazyVim global options
 go.lualine_info_extras = false
 go.lazygit_config = false
