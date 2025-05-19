@@ -15,7 +15,7 @@ return {
         },
         root_patterns = { ".git", "pubspec.yaml" },
         flutter_path = os.getenv("HOME") .. "/development/flutter/bin/flutter",
-        widget_guides = { enabled = true },
+        widget_guides = { enabled = false },
         dev_log = { enabled = false },
         dev_tools = { autostart = false, auto_open_browser = false },
         lsp = {
