@@ -1,5 +1,6 @@
 # run this command for fix mission control size
 # defaults write com.apple.dock expose-group-apps -bool true && killall Dock
+# defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
 start-at-login = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 enable-normalization-flatten-containers = true
@@ -133,8 +134,8 @@ if.app-name-regex-substring = 'messages'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'simulator'
-run = 'layout floating'
+if.app-id = 'com.apple.iphonesimulator'
+run = ['layout floating', 'move-node-to-workspace 2']
 
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
@@ -167,10 +168,6 @@ run = "move-node-to-workspace 3"
 [[on-window-detected]]
 if.app-name-regex-substring = 'kitty'
 run = "move-node-to-workspace 3"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'simulator'
-run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
@@ -228,9 +225,36 @@ run = "move-node-to-workspace R"
 if.app-name-regex-substring = 'zen'
 run = "move-node-to-workspace 0"
 
-# [workspace-to-monitor-force-assignment]
-#     1 = '^acer$'
-#     2 = '^dell$'
-#     3 = '^dell$'
-#     4 = '^dell$'
-#     5 = 'main'
+[workspace-to-monitor-force-assignment]
+1 = 'secondary'
+2 = 'secondary'
+3 = 'secondary'
+4 = 'secondary'
+5 = 'secondary'
+6 = 'secondary'
+7 = 'secondary'
+8 = 'secondary'
+9 = 'secondary'
+10 = 'secondary'
+a = 'secondary'
+b = 'secondary'
+c = 'secondary'
+d = 'secondary'
+e = 'secondary'
+f = 'secondary'
+g = 'secondary'
+i = 'secondary'
+m = 'secondary'
+n = 'secondary'
+o = 'secondary'
+p = 'secondary'
+q = 'secondary'
+r = 'secondary'
+s = 'secondary'
+t = 'secondary'
+u = 'secondary'
+v = 'secondary'
+w = 'secondary'
+x = 'secondary'
+y = 'secondary'
+z = 'secondary'
