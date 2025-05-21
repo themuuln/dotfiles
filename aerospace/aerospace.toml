@@ -1,3 +1,5 @@
+# run this command for fix mission control size
+# defaults write com.apple.dock expose-group-apps -bool true && killall Dock
 start-at-login = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 enable-normalization-flatten-containers = true
@@ -115,6 +117,10 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'passwords'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'telegram'
 run = 'layout floating'
 
@@ -124,6 +130,10 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'messages'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'simulator'
 run = 'layout floating'
 
 [mode.service.binding]
@@ -148,7 +158,7 @@ run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'teams'
-run = "move-node-to-workspace 2"
+run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'ghostty'
@@ -159,8 +169,8 @@ if.app-name-regex-substring = 'kitty'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id = 'com.apple.iphonesimulator'
-run = "move-node-to-workspace 3"
+if.app-name-regex-substring = 'simulator'
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
@@ -213,6 +223,10 @@ run = "move-node-to-workspace S"
 [[on-window-detected]]
 if.app-name-regex-substring = 'reminders'
 run = "move-node-to-workspace R"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'zen'
+run = "move-node-to-workspace 0"
 
 # [workspace-to-monitor-force-assignment]
 #     1 = '^acer$'
