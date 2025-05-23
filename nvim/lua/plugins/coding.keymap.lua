@@ -3,7 +3,6 @@ return {
   { "echasnovski/mini.surround", version = false, opts = { n_lines = 100 } },
   {
     "echasnovski/mini.move",
-    version = false,
     opts = {
       mappings = {
         left = "<A-Left>",

@@ -1,5 +1,4 @@
 {
-  "name": "custom-snippets",
   "contributes": {
     "snippets": [
       {
@@ -13,7 +12,14 @@
       {
         "language": "typescript",
         "path": "./typescript.json"
+      },
+      {
+        "language": [
+          "lua"
+        ],
+        "path": "./lua.json"
       }
     ]
-  }
+  },
+  "name": "custom-snippets"
 }

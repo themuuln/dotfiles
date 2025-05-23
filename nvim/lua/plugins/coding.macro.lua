@@ -12,7 +12,7 @@ return {
       { "dq", desc = "Delete All Macros" },
     },
     opts = {
-      useNerdFontsIcons = false,
+      useNerdFontsIcons = true,
       slots = { "a", "b", "c", "d" },
       mapping = {
         startStopRecording = "q",
@@ -24,11 +24,11 @@ return {
       },
     },
   },
-  {
-    "nvim-lualine/lualine.nvim",
-    optional = true,
-    opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, require("recorder").displaySlots)
-    end,
-  },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     table.insert(opts.sections.lualine_x, require("recorder").displaySlots)
+  --   end,
+  -- },
 }

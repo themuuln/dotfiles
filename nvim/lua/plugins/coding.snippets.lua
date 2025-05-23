@@ -1,9 +1,7 @@
 return {
   {
     "chrisgrieser/nvim-scissors",
-    opts = {
-      jsonFormatter = "jq",
-    },
+    opts = { jsonFormatter = "jq" },
     keys = {
       {
         "<leader>cB",

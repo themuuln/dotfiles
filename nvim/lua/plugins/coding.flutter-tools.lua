@@ -9,12 +9,12 @@ return {
         debugger = {
           enabled = true,
           run_via_dap = true,
-          -- exception_breakpoints = "default",
-          exception_breakpoints = {},
+          exception_breakpoints = "default",
+          -- exception_breakpoints = {},
           evaluate_to_string_in_debug_views = true,
         },
         flutter_path = os.getenv("HOME") .. "/development/flutter/bin/flutter",
-        -- widget_guides = { enabled = false },
+        widget_guides = { enabled = true },
         dev_log = { enabled = false },
         dev_tools = { autostart = false, auto_open_browser = false },
         lsp = {

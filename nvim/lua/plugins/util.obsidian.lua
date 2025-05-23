@@ -21,11 +21,9 @@ return {
         blink = true,
         min_chars = 2,
       },
-
       picker = {
         name = "snacks.pick",
       },
-
       templates = {
         folder = "templates",
         date_format = "%Y-%m-%d",

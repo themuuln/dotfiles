@@ -10,8 +10,8 @@ keymap.set("n", "<leader>pv", vim.cmd.Ex)
 keymap.set("n", "J", "mzJ`z")
 -- keymap.set("n", "<C-d>", "<C-d>zz")
 -- keymap.set("n", "<C-u>", "<C-u>zz")
-keymap.set("n", "n", "nzzzv")
-keymap.set("n", "N", "Nzzzv")
+keymap.set("n", "n", "nzz")
+keymap.set("n", "N", "Nzz")
 
 -- dial
 keymap.set("n", "+", function()
@@ -27,6 +27,7 @@ keymap.set("v", "-", function()
   require("dial.map").manipulate("decrement", "visual")
 end)
 
+-- lazy related
 map("n", "<leader>l", "<Nop>")
 map("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
 map("n", "<leader>ld", function()

@@ -18,11 +18,11 @@ return {
           api_key_name = "GEMINI_API",
           timeout = 30000,
           temperature = 0,
-          generationConfig = {
-            thinkingConfig = {
-              thinkingBudget = 1024,
-            },
-          },
+          -- generationConfig = {
+          --   thinkingConfig = {
+          --     thinkingBudget = 1024,
+          --   },
+          -- },
         },
         flash_1500 = {
           __inherited_from = "gemini",

@@ -9,41 +9,26 @@ return {
         fps = 120,
         easing = "inOutCubic",
       },
-      -- NOTE: if you prefer yazi, then uncomment this
-      -- explorer = {
-      --   enabled = false,
-      -- },
-      image = {
-        enabled = true,
-        doc = {
-          inline = false,
-        },
-      },
       scroll = {
         enabled = false,
         animate = {
           duration = { step = 10, total = 150 },
         },
       },
-      bigfile = {
-        enabled = true,
-        notify = true,
-      },
-      debug = { enabled = true },
       dashboard = {
         sections = {
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-          -- {
-          --   pane = 2,
-          --   icon = " ",
-          --   desc = "Browse Repo",
-          --   padding = 1,
-          --   key = "b",
-          --   action = function()
-          --     Snacks.gitbrowse()
-          --   end,
-          -- },
+          {
+            pane = 2,
+            icon = " ",
+            desc = "Browse Repo",
+            padding = 1,
+            key = "b",
+            action = function()
+              Snacks.gitbrowse()
+            end,
+          },
           function()
             local in_git = Snacks.git.get_root() ~= nil
             local cmds = {
