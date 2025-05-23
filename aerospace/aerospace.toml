@@ -202,6 +202,10 @@ if.app-name-regex-substring = 'trae'
 run = "move-node-to-workspace I"
 
 [[on-window-detected]]
+if.app-id = 'com.google.android.studio'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'mail'
 run = "move-node-to-workspace M"
 
