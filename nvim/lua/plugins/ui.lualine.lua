@@ -50,9 +50,19 @@ return {
         globalstatus = true,
         always_divide_middle = false,
         ignore_focus = { "snacks_input", "snacks_picker_input" },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
       },
       tabline = {
         lualine_a = {
+          {
+            "branch",
+            icon = "",
+            cond = function()
+              local curBranch = require("lualine.components.branch.git_branch").get_branch()
+              return curBranch ~= "main" and curBranch ~= "master" and vim.bo.buftype == ""
+            end,
+          },
           {
             "tabs",
             tab_max_length = 40, -- Maximum width of each tab. The content will be shorten dynamically (example: apple/orange -> a/orange)
@@ -85,21 +95,11 @@ return {
         -- lualine_b = { { LazyVim.lualine.pretty_path() } },
         lualine_c = {
           -- LazyVim.lualine.root_dir(),
-          -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          -- { LazyVim.lualine.pretty_path() },
+          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
         },
       },
       sections = {
-        lualine_a = {
-          {
-            "branch",
-            icon = "",
-            cond = function() -- only if not on main or master
-              local curBranch = require("lualine.components.branch.git_branch").get_branch()
-              return curBranch ~= "main" and curBranch ~= "master" and vim.bo.buftype == ""
-            end,
-          },
-        },
+        lualine_a = {},
         lualine_b = {
           {
             "buffers",
@@ -130,37 +130,7 @@ return {
             end,
             color = "ErrorMsg",
           },
-          {
-            function()
-              local ok, pomo = pcall(require, "pomo")
-              if not ok then
-                return ""
-              end
-
-              local timer = pomo.get_first_to_finish()
-              if timer == nil then
-                return ""
-              end
-
-              return "󰄉 " .. tostring(timer)
-            end,
-          },
-          { -- Quickfix counter
-            function()
-              local qf = vim.fn.getqflist({ idx = 0, title = true, items = true })
-              if #qf.items == 0 then
-                return ""
-              end
-              return (" %d/%d (%s)"):format(qf.idx, #qf.items, qf.title)
-            end,
-          },
-          {
-            "fileformat",
-            icon = "󰌑",
-            cond = function()
-              return vim.bo.fileformat ~= "unix"
-            end,
-          },
+          { "diff" },
           {
             "diagnostics",
             symbols = {
@@ -218,6 +188,7 @@ return {
         },
         lualine_z = {
           { "selectioncount", icon = "󰒆" },
+          -- { "progress" },
           { "location" },
         },
       },
