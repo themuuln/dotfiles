@@ -76,8 +76,8 @@ alt-e = 'workspace E'
 alt-shift-e = 'move-node-to-workspace E --focus-follows-window'
 alt-f = 'workspace F'
 alt-shift-f = 'move-node-to-workspace F --focus-follows-window'
-# alt-g = 'workspace G'
-# alt-shift-g = 'move-node-to-workspace G --focus-follows-window'
+alt-g = 'workspace G'
+alt-shift-g = 'move-node-to-workspace G --focus-follows-window'
 alt-i = 'workspace I'
 alt-shift-i = 'move-node-to-workspace I --focus-follows-window'
 alt-m = 'workspace M'
@@ -135,7 +135,7 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iphonesimulator'
-run = ['layout floating', 'move-node-to-workspace 2']
+run = ['layout floating', 'move-node-to-workspace S']
 
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
@@ -154,20 +154,16 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'telegram'
-run = "move-node-to-workspace 2"
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'teams'
-run = "move-node-to-workspace 5"
+run = "move-node-to-workspace G"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'ghostty'
-run = "move-node-to-workspace 3"
+run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'kitty'
-run = "move-node-to-workspace 3"
+run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
@@ -180,10 +176,6 @@ run = "move-node-to-workspace C"
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
 run = "move-node-to-workspace C"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'discord'
-run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
@@ -218,16 +210,12 @@ if.app-name-regex-substring = 'notes'
 run = "move-node-to-workspace N"
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'spotify'
-run = "move-node-to-workspace S"
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'reminders'
 run = "move-node-to-workspace R"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'zen'
-run = "move-node-to-workspace 0"
+run = "move-node-to-workspace V"
 
 [workspace-to-monitor-force-assignment]
 1 = 'secondary'
