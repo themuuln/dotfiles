@@ -32,3 +32,5 @@ alias f='fuck'
 export EDITOR="nvim"
 export GEMINI_API=$(security find-generic-password -a "$USER" -s "GEMINI_API_2" -w)
 export OPENROUTER_API=$(security find-generic-password -a "$USER" -s "OPENROUTER_API" -w)
+export GITLAB_TOKEN=$(security find-generic-password -a "$USER" -s "GITLAB_TOKEN" -w)
+export GITLAB_VIM_URL="https://git.ictgroup.mn/"
