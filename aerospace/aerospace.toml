@@ -44,28 +44,28 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-alt-1 = 'workspace 1'
-alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
-alt-2 = 'workspace 2'
-alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
-alt-3 = 'workspace 3'
-alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
-alt-4 = 'workspace 4'
-alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
-alt-5 = 'workspace 5'
-alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
-alt-6 = 'workspace 6'
-alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
-alt-7 = 'workspace 7'
-alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
-alt-8 = 'workspace 8'
-alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
-alt-9 = 'workspace 9'
-alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
-alt-0 = 'workspace 0'
-alt-shift-0 = 'move-node-to-workspace 0 --focus-follows-window'
+# alt-1 = 'workspace 1'
+# alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+# alt-2 = 'workspace 2'
+# alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+# alt-3 = 'workspace 3'
+# alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+# alt-4 = 'workspace 4'
+# alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+# alt-5 = 'workspace 5'
+# alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+# alt-6 = 'workspace 6'
+# alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+# alt-7 = 'workspace 7'
+# alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+# alt-8 = 'workspace 8'
+# alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+# alt-9 = 'workspace 9'
+# alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+# alt-0 = 'workspace 0'
+# alt-shift-0 = 'move-node-to-workspace 0 --focus-follows-window'
 alt-a = 'workspace A'
-alt-shift-a = 'move-node-to-workspace B --focus-follows-window'
+alt-shift-a = 'move-node-to-workspace A --focus-follows-window'
 alt-b = 'workspace B'
 alt-shift-b = 'move-node-to-workspace B --focus-follows-window'
 alt-c = 'workspace C'
@@ -84,34 +84,30 @@ alt-m = 'workspace M'
 alt-shift-m = 'move-node-to-workspace M --focus-follows-window'
 alt-n = 'workspace N'
 alt-shift-n = 'move-node-to-workspace N --focus-follows-window'
-# alt-o = 'workspace O'
-# alt-shift-o = 'move-node-to-workspace O --focus-follows-window'
-# postman
-# alt-p = 'workspace P'
-# alt-shift-p = 'move-node-to-workspace P --focus-follows-window'
-# alt-q = 'workspace Q'
-# alt-shift-q = 'move-node-to-workspace Q --focus-follows-window'
-# reminders
+alt-o = 'workspace O'
+alt-shift-o = 'move-node-to-workspace O --focus-follows-window'
+alt-p = 'workspace P'
+alt-shift-p = 'move-node-to-workspace P --focus-follows-window'
+alt-q = 'workspace Q'
+alt-shift-q = 'move-node-to-workspace Q --focus-follows-window'
 alt-r = 'workspace R'
 alt-shift-r = 'move-node-to-workspace R --focus-follows-window'
-# spotify
 alt-s = 'workspace S'
 alt-shift-s = 'move-node-to-workspace S --focus-follows-window'
-# terminal
 alt-t = 'workspace T'
 alt-shift-t = 'move-node-to-workspace T --focus-follows-window'
-# alt-u = 'workspace U'
-# alt-shift-u = 'move-node-to-workspace U --focus-follows-window'
-# alt-v = 'workspace V'
-# alt-shift-v = 'move-node-to-workspace V --focus-follows-window'
-# alt-w = 'workspace W'
-# alt-shift-w = 'move-node-to-workspace W --focus-follows-window'
-# alt-x = 'workspace X'
-# alt-shift-x = 'move-node-to-workspace X --focus-follows-window'
-# alt-y = 'workspace Y'
-# alt-shift-y = 'move-node-to-workspace Y --focus-follows-window'
-# alt-z = 'workspace Z'
-# alt-shift-z = 'move-node-to-workspace Z --focus-follows-window'
+alt-u = 'workspace U'
+alt-shift-u = 'move-node-to-workspace U --focus-follows-window'
+alt-v = 'workspace V'
+alt-shift-v = 'move-node-to-workspace V --focus-follows-window'
+alt-w = 'workspace W'
+alt-shift-w = 'move-node-to-workspace W --focus-follows-window'
+alt-x = 'workspace X'
+alt-shift-x = 'move-node-to-workspace X --focus-follows-window'
+alt-y = 'workspace Y'
+alt-shift-y = 'move-node-to-workspace Y --focus-follows-window'
+alt-z = 'workspace Z'
+alt-shift-z = 'move-node-to-workspace Z --focus-follows-window'
 
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -135,7 +131,7 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iphonesimulator'
-run = ['layout floating', 'move-node-to-workspace D']
+run = ['layout floating', 'move-node-to-workspace S']
 
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
@@ -154,6 +150,10 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'teams'
 run = "move-node-to-workspace G"
 
@@ -164,10 +164,6 @@ run = "move-node-to-workspace D"
 [[on-window-detected]]
 if.app-name-regex-substring = 'kitty'
 run = "move-node-to-workspace D"
-
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
@@ -218,16 +214,16 @@ if.app-name-regex-substring = 'zen'
 run = "move-node-to-workspace V"
 
 [workspace-to-monitor-force-assignment]
-1 = 'secondary'
-2 = 'secondary'
-3 = 'secondary'
-4 = 'secondary'
-5 = 'secondary'
-6 = 'secondary'
-7 = 'secondary'
-8 = 'secondary'
-9 = 'secondary'
-10 = 'secondary'
+# 1 = 'secondary'
+# 2 = 'secondary'
+# 3 = 'secondary'
+# 4 = 'secondary'
+# 5 = 'secondary'
+# 6 = 'secondary'
+# 7 = 'secondary'
+# 8 = 'secondary'
+# 9 = 'secondary'
+# 10 = 'secondary'
 A = 'secondary'
 B = 'secondary'
 C = 'secondary'
