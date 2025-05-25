@@ -14,7 +14,7 @@ return {
         },
         flash_500 = {
           __inherited_from = "gemini",
-          model = "gemini-2.5-flash-preview-04-17",
+          model = "gemini-2.5-flash-preview-05-20",
           api_key_name = "GEMINI_API",
           timeout = 30000,
           temperature = 0,
