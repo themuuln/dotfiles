@@ -5,7 +5,7 @@
 # font-family = CaskaydiaCove Nerd Font
 # font-family-italic = VictorMono Nerd Font Mono
 # font-family-bold-italic = VictorMono Nerd Font Mono
-font-size = 15
+font-size = 16
 
 # THEMES
 # theme = OneHalfDark
@@ -13,8 +13,8 @@ font-size = 15
 # theme = nord
 # theme = Kanagawa Wave
 # theme = catppuccin-frappe
-theme = catppuccin-macchiato
-# theme = catppuccin-mocha
+# theme = catppuccin-macchiato
+theme = catppuccin-mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
 # theme = Dark+
@@ -25,16 +25,16 @@ theme = catppuccin-macchiato
 # theme = Solarized Dark - Patched
 
 # BACKGROUND
-background-opacity = 0.90
+background-opacity = 0.85
 background-blur = 40
 
 window-decoration = none
 # cursor-style = block
 mouse-hide-while-typing = true
-adjust-cell-height = 10%
-adjust-cursor-height = 10%
-# adjust-cell-height = 15%
-# adjust-cursor-height = 15%
+# adjust-cell-height = 10%
+# adjust-cursor-height = 10%
+adjust-cell-height = 15%
+adjust-cursor-height = 15%
 # adjust-cell-height = 17%
 # adjust-cursor-height = 17%
 # adjust-cell-height = 20%
