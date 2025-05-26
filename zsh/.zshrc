@@ -28,6 +28,9 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias f='fuck'
+# glab aliases
+alias gil='glab issue list'
+alias gib='/Users/ict/.config/gitlab/issue-branch.sh'
 
 export EDITOR="nvim"
 export GEMINI_API=$(security find-generic-password -a "$USER" -s "GEMINI_API_2" -w)
