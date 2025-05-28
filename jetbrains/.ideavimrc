@@ -1,0 +1,101 @@
+" @author themuuln
+" @date 2025-05-28
+
+" Source external vim config
+source ~/.idea-lazy.vim
+
+" Leader keys
+let mapleader = " "
+let maplocalleader = "\\"
+
+" ----------------------------------------
+" Plugin Manager & Plugins
+" ----------------------------------------
+" Plugin installation (assuming Plug is bootstrapped)
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'justinmk/vim-sneak'
+Plug 'preservim/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'machakann/vim-highlightedyank'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'kana/vim-textobj-entire'
+Plug 'tommcdo/vim-exchange'
+Plug 'liuchengxu/vim-which-key'
+Plug 'wellle/targets.vim' 
+
+" ----------------------------------------
+" Plugin Settings
+" ----------------------------------------
+let g:argtextobj_pairs = "[:],(:),<:>"
+
+map <C-n> <Plug>NextWholeOccurrence
+
+" Disable default vim-surround keymaps
+let g:surround_no_mappings = 1
+
+" Add LazyVim-style surround mappings
+nmap gsa <Plug>Ysurround       " Add around motion
+nmap gsA <Plug>YSurround       " Add around line (linewise)
+nmap gsd <Plug>Dsurround       " Delete surround
+nmap gsr <Plug>Csurround       " Replace surround
+nmap gsR <Plug>CSurround       " Replace linewise surround
+
+" For visual mode
+xmap gsa <Plug>VSurround       " Visual add
+
+" ----------------------------------------
+" UI and Behavior Settings
+" ----------------------------------------
+
+" Line Numbers
+set number
+set relativenumber
+
+" Scrolling and Cursor
+set scrolloff=8
+set sidescrolloff=8
+set so=8 " legacy synonym for scrolloff
+set showmatch
+
+" Search
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+
+" Clipboard
+set clipboard+=unnamedplus
+
+" Interface feedback
+set showcmd
+set visualbell
+set noerrorbells
+set showmode
+
+" Indentation & Backspace
+set backspace=indent,eol,start
+set shiftround
+
+" History
+set history=1000
+set undolevels=10000
+
+" Formatting
+set formatoptions=jcroqlnt
+
+" Misc
+set listchars=tab:>\ ,trail:-,nbsp:+
+set shortmess=filnxtToOF
+
+" Timeout Settings
+set notimeout " Disable mapping timeout
+" set timeoutlen=10000 " Ignored because notimeout overrides it
+
+" ----------------------------------------
+" IdeaVim Specific Settings
+" ----------------------------------------
+set ideajoin
+set ideastatusicon=gray
+
