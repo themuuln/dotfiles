@@ -77,9 +77,9 @@ nmap ]e <Action>(GotoNextError)
 " Prev Error
 nmap [e <Action>(GotoPreviousError)
 " Next Hunk
-nmap ]h <Action>(NextChange)
+nmap ]h :action VcsShowNextChangeMarker<CR>
 " Previous Hunk
-nmap [h <Action>(PreviousChange)
+nmap [h :action VcsShowPrevChangeMarker<CR>
 " Next Warning
 nmap ]w <Action>(GotoNextError)
 " Prev Warning
