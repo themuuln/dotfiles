@@ -1,6 +1,10 @@
 inoremap jk <Esc>
 inoremap jj <Esc>
+
+" easymotion
 nmap s <Plug>(easymotion-s)
+
+" undo, redo
 nmap u :undo<CR>
 nmap U :redo<CR>
 " Save File
@@ -690,3 +694,23 @@ let g:WhichKeyDesc_LazyVim_252 = "<leader>qs Restore Session"
 let g:WhichKeyDesc_LazyVim_253 = "<leader>qS Select Session"
 let g:WhichKeyDesc_LazyVim_254 = "<leader>ql Restore Last Session"
 let g:WhichKeyDesc_LazyVim_255 = "<leader>qd Don't Save Current Session"
+
+" Unmap original vim-surround keys
+unmap ys
+unmap ds
+unmap cs
+
+" NORMAL mode mappings
+nmap gsa ys
+nmap gsd ds
+nmap gsr cs
+
+" OPERATOR-PENDING mode mappings (for visual usage)
+omap gsa ys
+omap gsd ds
+omap gsr cs
+
+" VISUAL mode mappings
+xmap gsa S
+xmap gsd ds
+xmap gsr cs
