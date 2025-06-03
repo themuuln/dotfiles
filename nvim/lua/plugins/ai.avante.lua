@@ -1,17 +1,11 @@
 return {
   {
     "yetone/avante.nvim",
+    enabled = false,
     event = "VeryLazy",
     opts = {
       provider = "flash_500",
       vendors = {
-        pro = {
-          __inherited_from = "gemini",
-          model = "gemini-2.5-pro-preview-05-06",
-          api_key_name = "GEMINI_API",
-          timeout = 30000,
-          temperature = 0,
-        },
         flash_500 = {
           __inherited_from = "gemini",
           model = "gemini-2.5-flash-preview-05-20",
@@ -23,13 +17,6 @@ return {
           --     thinkingBudget = 1024,
           --   },
           -- },
-        },
-        flash_1500 = {
-          __inherited_from = "gemini",
-          model = "gemini-2.0-flash",
-          api_key_name = "GEMINI_API",
-          timeout = 30000,
-          temperature = 0,
         },
       },
       behaviour = {
