@@ -149,6 +149,15 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'zen'
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+if.window-title-regex-substring = 'Picture-in-Picture'
+run = ['layout floating']
+
+[[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace A"
 
@@ -213,6 +222,7 @@ if.app-name-regex-substring = 'zen'
 run = "move-node-to-workspace V"
 
 [workspace-to-monitor-force-assignment]
+# 0 = 'secondary'
 1 = 'secondary'
 2 = 'secondary'
 3 = 'secondary'
@@ -222,13 +232,12 @@ run = "move-node-to-workspace V"
 7 = 'secondary'
 8 = 'secondary'
 9 = 'secondary'
-10 = 'secondary'
 A = 'secondary'
 B = 'secondary'
 C = 'secondary'
 D = 'secondary'
 E = 'secondary'
-# F = 'secondary'
+F = 'secondary'
 G = 'secondary'
 I = 'secondary'
 M = 'secondary'

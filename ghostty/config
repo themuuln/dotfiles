@@ -5,7 +5,7 @@
 # font-family = CaskaydiaCove Nerd Font
 # font-family-italic = VictorMono Nerd Font Mono
 # font-family-bold-italic = VictorMono Nerd Font Mono
-font-size = 16
+font-size = 18
 
 # THEMES
 # theme = OneHalfDark
@@ -25,31 +25,17 @@ theme = catppuccin-mocha
 # theme = Solarized Dark - Patched
 
 # BACKGROUND
-background-opacity = 0.85
-background-blur = 40
+# background-opacity = 0.85
+# background-blur = 10
 
 window-decoration = none
-# cursor-style = block
-mouse-hide-while-typing = true
-# adjust-cell-height = 10%
-# adjust-cursor-height = 10%
 adjust-cell-height = 15%
 adjust-cursor-height = 15%
-# adjust-cell-height = 17%
-# adjust-cursor-height = 17%
-# adjust-cell-height = 20%
-# adjust-cursor-height = 20%
 
 # window-padding-x = 8
 # window-padding-y = 8
 window-padding-x = 0
 window-padding-y = 0
 
-# custom-shader = "shaders/bloom025.glsl"
-# custom-shader = "shaders/bloom05.glsl"
-# custom-shader = "shaders/bloom06.glsl"
-# custom-shader = "shaders/bloom075.glsl"
-# custom-shader = "shaders/bloom.glsl"
-
-# cursor-invert-fg-bg = true
-cursor-opacity = 0.5
+cursor-invert-fg-bg = true
+#cursor-opacity = 0.5

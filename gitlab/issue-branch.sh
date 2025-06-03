@@ -24,7 +24,7 @@ fi
 
 # Slugify
 SLUG=$(echo "$ISSUE_TITLE" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g' | sed -E 's/^-+|-+$//g')
-BRANCH_NAME="issue-${ISSUE_ID}-${SLUG}"
+BRANCH_NAME="${ISSUE_ID}-${SLUG}"
 
 echo "📦 Creating branch '$BRANCH_NAME' from '$BASE_BRANCH'..."
 git fetch origin
