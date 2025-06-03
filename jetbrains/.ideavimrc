@@ -7,7 +7,6 @@ set formatoptions=jcroqlnt
 
 """ Plugins  --------------------------------
 set surround
-set multiple-cursors
 set commentary
 set argtextobj
 set easymotion
@@ -22,6 +21,7 @@ Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
 Plug 'preservim/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'machakann/vim-highlightedyank'
 
 """ Plugin settings -------------------------
@@ -62,4 +62,9 @@ set shortmess=filnxtToOF
 """ Idea specific settings ------------------
 set ideajoin
 set ideastatusicon=gray
-clean up my ideavimrc config
+
+nmap gsd ds
+nmap gsr cs
+nmap gsa ys
+xmap gsa S
+omap gsa ys
