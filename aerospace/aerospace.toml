@@ -117,6 +117,10 @@ if.app-name-regex-substring = 'passwords'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'telegram'
 run = 'layout floating'
 
@@ -202,6 +206,10 @@ if.app-id = 'com.google.android.studio'
 run = "move-node-to-workspace I"
 
 [[on-window-detected]]
+if.app-id = 'com.google.android.studio-EAP'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'mail'
 run = "move-node-to-workspace M"
 
@@ -220,6 +228,11 @@ run = "move-node-to-workspace R"
 [[on-window-detected]]
 if.app-name-regex-substring = 'zen'
 run = "move-node-to-workspace V"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'xcode'
+run = "move-node-to-workspace X"
+
 
 [workspace-to-monitor-force-assignment]
 # 0 = 'secondary'
