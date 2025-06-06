@@ -1,11 +1,11 @@
 return {
   {
     "yetone/avante.nvim",
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
     opts = {
       provider = "flash_500",
-      vendors = {
+      providers = {
         flash_500 = {
           __inherited_from = "gemini",
           model = "gemini-2.5-flash-preview-05-20",
