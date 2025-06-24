@@ -9,7 +9,6 @@ set formatoptions=jcroqlnt
 set surround
 set commentary
 set argtextobj
-set easymotion
 set textobj-entire
 set exchange
 set which-key
