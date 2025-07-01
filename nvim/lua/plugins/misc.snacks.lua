@@ -9,6 +9,9 @@ return {
         fps = 120,
         easing = "inOutCubic",
       },
+      indent = {
+        enabled = false,
+      },
       scroll = {
         enabled = false,
         animate = {
