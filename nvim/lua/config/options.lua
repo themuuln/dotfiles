@@ -1,6 +1,8 @@
 local go = vim.g
 local o = vim.opt
 
+o.spell = false
+
 -- -- Optimizations on startup
 -- vim.loader.enable()
 vim.g.ai_cmp = false
@@ -14,9 +16,6 @@ go.maplocalleader = "\\"
 
 -- Autoformat on save (Global)
 -- go.autoformat = true
-
--- Font
-go.gui_font_face = "JetBrainsMono Nerd Font"
 
 -- Root dir detection
 go.root_spec = {
@@ -48,6 +47,7 @@ vim.opt.expandtab = true
 vim.opt.wrap = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- set directory where undo files are stored
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "120"
