@@ -1,5 +1,6 @@
 local lazy = require("lazy")
 local wk = require("which-key")
+vim.g.flutter_is_running = false
 local keymap = vim.keymap
 local map = vim.keymap.set
 
@@ -61,7 +62,13 @@ wk.add({
     end,
   },
   { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App", group = "Run Flutter App", mode = "n" },
-  { "<leader>Fr", "<cmd>FlutterRestart<cr>", desc = "Restart Flutter App", group = "Restart Flutter App", mode = "n" },
+  {
+    "<leader>Fr",
+    "<cmd>FlutterRestart<cr>",
+    desc = "Restart Flutter App",
+    group = "Restart Flutter App",
+    mode = "n",
+  },
   {
     "<leader>t",
     group = "toggle",
@@ -76,3 +83,28 @@ vim.keymap.set("n", "<leader>tt", function()
   cat.compile()
   vim.cmd.colorscheme(vim.g.colors_name)
 end)
+
+-- F5 mapping
+map("n", "<F5>", function()
+  vim.cmd("FlutterDebug")
+end, { desc = "Debug Flutter App" })
+
+-- Ctrl+Shift+F5 → FlutterHotRestart
+map("n", "<C-S-F5>", function()
+  vim.cmd("FlutterRestart")
+end, { desc = "Hot Restart Flutter App" })
+
+-- Shift+F5 → FlutterQuit
+map("n", "<S-F5>", function()
+  vim.cmd("FlutterQuit")
+end, { desc = "Stop Flutter App" })
+
+-- F9 → Toggle breakpoint (DAP)
+map("n", "<F9>", function()
+  local ok, dap = pcall(require, "dap")
+  if ok then
+    dap.toggle_breakpoint()
+  else
+    vim.notify("nvim-dap not found", vim.log.levels.WARN)
+  end
+end, { desc = "Toggle Breakpoint" })
