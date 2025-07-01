@@ -7,8 +7,9 @@ xmap s <Action>(flash.search)
 " undo, redo
 nmap u :undo<CR>
 nmap U :redo<CR>
-" Save File
-nmap <C-s> <Action>(SaveAll)
+" Save File then hot reload flutter app
+nmap <C-s> <Action>(SaveDocument)<Action>(Flutter.Toolbar.ReloadAction)
+imap <C-s> <Action>(SaveDocument)<Action>(Flutter.Toolbar.ReloadAction)<Esc>
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
@@ -25,6 +26,7 @@ nmap <C-Right> <Action>(IncrementWindowWidth)
 " Move Down
 nmap <A-j> <Action>(MoveLineDown)
 imap <A-j> <Esc><Action>(MoveLineDown)i
+imap <C-y> <Action>(EditorChooseLookupItem)
 " Move Up
 nmap <A-k> <Action>(MoveLineUp)
 imap <A-k> <Esc><Action>(MoveLineUp)i
@@ -36,12 +38,20 @@ nmap <S-l> <Action>(NextTab)
 nmap [b <Action>(PreviousTab)
 " Next Buffer (alternative)
 nmap ]b <Action>(NextTab)
+" Hot Reload Flutter
+nmap <leader>Fr <Action>(Flutter.Toolbar.ReloadAction)
 " Switch to Other Buffer
 nnoremap <leader>bb <C-^>
 " Switch to Other Buffer (alternative)
 nnoremap <leader>` <C-^>
 " Delete Buffer
 nmap <leader>bd <Action>(CloseContent)
+" Ask Gemini
+nmap <leader>aa <Action>(sml.studiobot.custom.transform)
+" Ask Gemini
+xmap <leader>aa <Action>(sml.studiobot.custom.transform)
+" Open Gemini Chat
+nmap <leader>an <Action>(ActivateStudioBotToolWindow)
 " Delete Buffer and Window
 nmap <leader>bD <Action>(CloseContent)
 " Delete Other Buffers
@@ -84,13 +94,19 @@ nmap ]e <Action>(GotoNextError)
 nmap [e <Action>(GotoPreviousError)
 " Next Hunk
 nmap ]h :action VcsShowNextChangeMarker<CR>
+nmap ]h <Action>(NextDiff)<CR>
 " Previous Hunk
 nmap [h :action VcsShowPrevChangeMarker<CR>
+nmap [h <Action>(PreviousDiff)<CR>
 " Next Warning
 nmap ]w <Action>(GotoNextError)
 " Prev Warning
 nmap [w <Action>(GotoPreviousError)
 " Toggle Auto Format (Global)
+" Prev Method (Prev function alternative)
+nmap [f <Action>(MethodUp)
+" Next Method (Next function alternative)
+nmap ]f <Action>(MethodDown)
 nmap <leader>ub :echo 'There is no equivalent mapping for Toggle Auto Format.'<cr>
 " Toggle Auto Format (Buffer)
 nmap <leader>uB :echo 'There is no equivalent mapping for Toggle Auto Format.'<cr>
@@ -114,6 +130,7 @@ nmap <leader>ub <Action>(QuickChangeScheme)
 nmap <leader>uh :echo 'There is no equivalent mapping for Toggle Inlay Hints.'<cr>
 " Lazygit (Root Dir)
 nmap <leader>gg <Action>(ActivateCommitToolWindow)
+nmap <leader>gg <Action>(ActivateCommitToolWindow)
 " Lazygit (cwd)
 nmap <leader>gG <Action>(ActivateCommitToolWindow)
 " Git Blame Line
@@ -126,6 +143,10 @@ nmap <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
 nmap <leader>gl <Action>(Vcs.Show.Log)
 " Lazygit Log (cwd)
 nmap <leader>gL <Action>(Vcs.Show.Log)
+" preview hunk
+nmap <leader>ghp k:action VcsShowNextChangeMarker<CR>
+" rollback hunk
+nmap <leader>ghr :action Vcs.RollbackChangedLines<CR>
 " Quit All
 nmap <leader>qq <Action>(Exit)
 " Inspect Pos
@@ -197,6 +218,7 @@ nmap <leader>cR <Action>(RenameFile)
 nmap <leader>cr <Action>(RenameElement)
 " Code Action
 nmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>cs <Action>(FileStructurePopup)
 vmap <leader>ca <Action>(ShowIntentionActions)
 " Source Action
 nmap <leader>cA <Action>(RefactoringMenu)
@@ -234,10 +256,7 @@ nmap <leader>fe <Action>(ActivateProjectToolWindow)
 nmap <leader>fE <Action>(ActivateProjectToolWindow)
 " Git Explorer
 nmap <leader>ge <Action>(ActivateVersionControlToolWindow)
-
 " Notifications (noice, snacks)
-
-nmap <leader>snd <Action>(ClearAllNotifications)
 nmap <leader>un <Action>(ClearAllNotifications)
 
 " Telescope Keymaps
@@ -296,7 +315,7 @@ nmap <leader>sH <Action>(HighlightUsagesInFile)
 " Jumplist
 nmap <leader>sj <Action>(RecentLocations)
 " Key Maps
-nmap <leader>sk :map<cr>
+nmap <leader>sk <Action>(ChangeKeymap)
 " Location List
 nmap <leader>sl <Action>(ActivateProblemsViewToolWindow)
 " Jump to Mark
@@ -338,7 +357,7 @@ nmap <leader>dc <Action>(Resume)
 " Flutter Select Device
 nmap <leader>dd <Action>(Flutter.DeviceSelector)
 " Run to Cursor
-nmap <leader>dC <Action>(ForceRunToCursor)
+nmap <leader>dC <Action>(RunToCursor)
 " Go to Line (No Execute)
 nmap <leader>dg :echo 'Not yet implemented.'<cr>
 " Step Into
