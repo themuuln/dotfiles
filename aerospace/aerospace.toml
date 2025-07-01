@@ -116,10 +116,10 @@ alt-shift-semicolon = 'mode service'
 if.app-name-regex-substring = 'passwords'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'com.apple.dt.Xcode'
-run = 'layout floating'
-
+# [[on-window-detected]]
+# if.app-id = 'com.apple.dt.Xcode'
+# run = 'layout floating'
+#
 [[on-window-detected]]
 if.app-name-regex-substring = 'telegram'
 run = 'layout floating'
@@ -130,6 +130,10 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'messages'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Picture-in-Picture'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -155,11 +159,6 @@ shift-down = ['volume set 0', 'mode main']
 [[on-window-detected]]
 if.app-name-regex-substring = 'zen'
 run = "move-node-to-workspace A"
-
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-if.window-title-regex-substring = 'Picture-in-Picture'
-run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
@@ -226,44 +225,51 @@ if.app-name-regex-substring = 'reminders'
 run = "move-node-to-workspace R"
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'zen'
-run = "move-node-to-workspace V"
+if.app-id = 'com.spotify.client'
+run = "move-node-to-workspace S"
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'xcode'
+if.app-name-regex-substring = 'eDebug - ecourt'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
 run = "move-node-to-workspace X"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'code'
+run = "move-node-to-workspace I"
 
 
 [workspace-to-monitor-force-assignment]
-# 0 = 'secondary'
-1 = 'secondary'
-2 = 'secondary'
-3 = 'secondary'
-4 = 'secondary'
-5 = 'secondary'
-6 = 'secondary'
-7 = 'secondary'
-8 = 'secondary'
-9 = 'secondary'
-A = 'secondary'
-B = 'secondary'
-C = 'secondary'
-D = 'secondary'
-E = 'secondary'
-F = 'secondary'
-G = 'secondary'
-I = 'secondary'
-M = 'secondary'
-N = 'secondary'
-O = 'secondary'
-P = 'secondary'
-Q = 'secondary'
-R = 'secondary'
-S = 'secondary'
-T = 'secondary'
-U = 'secondary'
-V = 'secondary'
-W = 'secondary'
-X = 'secondary'
-Y = 'secondary'
-Z = 'secondary'
+# # 0 = 'secondary'
+# # 1 = 'secondary'
+# # 2 = 'secondary'
+# # 3 = 'secondary'
+# # 4 = 'secondary'
+# # 5 = 'secondary'
+# # 6 = 'secondary'
+# # 7 = 'secondary'
+# # 8 = 'secondary'
+# # 9 = 'secondary'
+# A = 'secondary'
+# B = 'secondary'
+# C = 'secondary'
+# D = 'secondary'
+# E = 'secondary'
+# G = 'secondary'
+# I = 'secondary'
+# M = 'secondary'
+# N = 'secondary'
+# O = 'secondary'
+# P = 'secondary'
+# Q = 'secondary'
+# R = 'secondary'
+# # S = 'secondary'
+# T = 'secondary'
+# U = 'secondary'
+# V = 'secondary'
+# W = 'secondary'
+# X = 'secondary'
+# Y = 'secondary'
+# Z = 'secondary'
