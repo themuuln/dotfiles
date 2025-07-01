@@ -18,7 +18,7 @@ return {
         dev_tools = { autostart = false, auto_open_browser = false },
         lsp = {
           color = {
-            enabled = true,
+            enabled = false,
             foreground = false,
             virtual_text = true,
             virtual_text_str = "■",
