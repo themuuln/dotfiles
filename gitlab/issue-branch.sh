@@ -8,23 +8,25 @@ if [ -z "$ISSUE_ID" ]; then
   exit 1
 fi
 
-# Retrieve issue text and extract the title (first line)
+# Retrieve issue data using glab
 ISSUE_RAW=$(glab issue view "$ISSUE_ID")
 if [ $? -ne 0 ]; then
   echo "❌ Could not retrieve issue #$ISSUE_ID"
   exit 2
 fi
 
-# Get the first non-empty line, assuming it's the title
-ISSUE_TITLE=$(echo "$ISSUE_RAW" | awk 'NF {print; exit}')
-if [ -z "$ISSUE_TITLE" ]; then
-  echo "❌ Could not parse title from issue #$ISSUE_ID"
-  exit 3
+# Determine prefix based on labels
+LABELS=$(echo "$ISSUE_RAW" | grep '^labels:' | cut -d':' -f2- | tr -d ' ')
+if [[ "$LABELS" == *feat* ]]; then
+  PREFIX="feat/"
+elif [[ "$LABELS" == *bug* ]]; then
+  PREFIX="fix/"
+else
+  PREFIX=""
 fi
 
-# Slugify
-SLUG=$(echo "$ISSUE_TITLE" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g' | sed -E 's/^-+|-+$//g')
-BRANCH_NAME="${ISSUE_ID}-${SLUG}"
+# Final branch name: prefix + ISSUE_ID only
+BRANCH_NAME="${PREFIX}${ISSUE_ID}"
 
 echo "📦 Creating branch '$BRANCH_NAME' from '$BASE_BRANCH'..."
 git fetch origin
