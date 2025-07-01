@@ -9,7 +9,6 @@ return {
         debugger = {
           enabled = true,
           run_via_dap = true,
-          exception_breakpoints = "default",
           -- exception_breakpoints = {},
           evaluate_to_string_in_debug_views = true,
         },
