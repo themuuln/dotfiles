@@ -1,14 +1,14 @@
 {
   "alternativeDisplays" : "",
   "centerCursorOnFocusChange" : true,
-  "centerCursorOnWorkspaceChange" : false,
+  "centerCursorOnWorkspaceChange" : true,
   "changeWorkspaceOnAppAssign" : true,
   "checkForUpdatesAutomatically" : true,
   "enableFocusManagement" : true,
   "enableIntegrations" : false,
   "enablePictureInPictureSupport" : true,
   "enableSpaceControl" : true,
-  "enableSpaceControlAnimations" : true,
+  "enableSpaceControlAnimations" : false,
   "enableSwipeGestures" : false,
   "enableWorkspaceTransitions" : false,
   "focusFrontmostWindow" : false,
@@ -16,7 +16,11 @@
   "menuBarDisplayAliases" : "",
   "menuBarTitleTemplate" : "$WORKSPACE",
   "pipApps" : [
-
+    {
+      "bundleIdentifier" : "app.zen-browser.zen",
+      "name" : "Zen",
+      "pipWindowTitleRegex" : "Picture"
+    }
   ],
   "pipScreenCornerOffset" : 15,
   "restoreHiddenAppsOnSwitch" : true,
@@ -26,8 +30,9 @@
   "showFloatingNotifications" : true,
   "showMenuBarIcon" : true,
   "showMenuBarTitle" : true,
-  "skipEmptyWorkspacesOnSwitch" : false,
-  "spaceControlCurrentDisplayWorkspaces" : false,
+  "showSpaceControl" : "ctrl+up",
+  "skipEmptyWorkspacesOnSwitch" : true,
+  "spaceControlCurrentDisplayWorkspaces" : true,
   "spaceControlMaxColumns" : 6,
   "swipeDown3FingerAction" : "none",
   "swipeDown4FingerAction" : "none",

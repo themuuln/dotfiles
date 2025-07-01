@@ -68,7 +68,8 @@
           "display" : "XZ342CU P",
           "id" : "AB954D65-955C-4639-860C-570FB417C738",
           "name" : "ChatGPT",
-          "shortcut" : "opt+c"
+          "shortcut" : "opt+c",
+          "symbolIconName" : "brain"
         },
         {
           "apps" : [
@@ -81,7 +82,41 @@
           "display" : "XZ342CU P",
           "id" : "D7BB54FB-7B86-4B91-8EA3-E80418C90350",
           "name" : "Design",
-          "shortcut" : "opt+f"
+          "shortcut" : "opt+f",
+          "symbolIconName" : "compass.drawing"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.spotify.client",
+              "iconPath" : "/Applications/Spotify.app/Contents/Resources/Icon.icns",
+              "name" : "Spotify"
+            }
+          ],
+          "display" : "XZ342CU P",
+          "id" : "BDC3706A-1C7E-4F0B-B770-95FF6EBE312F",
+          "name" : "Music",
+          "shortcut" : "opt+s",
+          "symbolIconName" : "music.quarternote.3"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.mitchellh.ghostty",
+              "iconPath" : "/Applications/Ghostty.app/Contents/Resources/AppIcon.icns",
+              "name" : "Ghostty"
+            },
+            {
+              "bundleIdentifier" : "net.kovidgoyal.kitty",
+              "iconPath" : "/Applications/kitty.app/Contents/Resources/kitty.icns",
+              "name" : "kitty"
+            }
+          ],
+          "display" : "XZ342CU P",
+          "id" : "32E5AA9B-53C3-4950-97D0-6236570319DA",
+          "name" : "Terminal",
+          "shortcut" : "opt+d",
+          "symbolIconName" : "lock.open.desktopcomputer"
         }
       ]
     }
