@@ -2,7 +2,8 @@ return {
   {
     "LazyVim/LazyVim",
     -- opts = { colorscheme = "catppuccin" },
-    opts = { colorscheme = "tokyonight-moon" },
+    opts = { colorscheme = "catppuccin-mocha" },
+    -- opts = { colorscheme = "tokyonight-moon" },
   },
   {
     "folke/tokyonight.nvim",

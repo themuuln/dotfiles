@@ -106,19 +106,7 @@ return {
     event = "LspAttach",
     opts = {
       backend = "vim",
-      picker = "snacks",
-      signs = {
-        quickfix = { "", { link = "DiagnosticWarning" } },
-        others = { "", { link = "DiagnosticWarning" } },
-        refactor = { "", { link = "DiagnosticInfo" } },
-        ["refactor.move"] = { "󰪹", { link = "DiagnosticInfo" } },
-        ["refactor.extract"] = { "", { link = "DiagnosticError" } },
-        ["source.organizeImports"] = { "", { link = "DiagnosticWarning" } },
-        ["source.fixAll"] = { "󰃢", { link = "DiagnosticError" } },
-        ["source"] = { "", { link = "DiagnosticError" } },
-        ["rename"] = { "󰑕", { link = "DiagnosticWarning" } },
-        ["codeAction"] = { "", { link = "DiagnosticWarning" } },
-      },
+      picker = "buffer",
     },
   },
 }
