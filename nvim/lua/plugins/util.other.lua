@@ -1,4 +1,5 @@
 return {
+
   -- {
   --   "rmagatti/auto-session",
   --   lazy = false,
@@ -25,35 +26,33 @@ return {
     config = true,
   },
 
-  { "jake-stewart/force-cul.nvim", opts = {} },
-
-  {
-    "chrisgrieser/nvim-spider",
-    keys = {
-      {
-        "w",
-        function()
-          require("spider").motion("w")
-        end,
-        mode = { "n", "o", "x" },
-      },
-      {
-        "e",
-        function()
-          require("spider").motion("e")
-        end,
-        mode = { "n", "o", "x" },
-      },
-      {
-        "b",
-        function()
-          require("spider").motion("b")
-        end,
-        mode = { "n", "o", "x" },
-      },
-    },
-    opts = { subwordMovement = true },
-  },
+  -- {
+  --   "chrisgrieser/nvim-spider",
+  --   keys = {
+  --     {
+  --       "w",
+  --       function()
+  --         require("spider").motion("w")
+  --       end,
+  --       mode = { "n", "o", "x" },
+  --     },
+  --     {
+  --       "e",
+  --       function()
+  --         require("spider").motion("e")
+  --       end,
+  --       mode = { "n", "o", "x" },
+  --     },
+  --     {
+  --       "b",
+  --       function()
+  --         require("spider").motion("b")
+  --       end,
+  --       mode = { "n", "o", "x" },
+  --     },
+  --   },
+  --   opts = { subwordMovement = true },
+  -- },
 
   -- partition UI elements
   {
@@ -97,6 +96,28 @@ return {
       integration = {
         ["nvim-tree"] = { enable = false },
         ["xcodebuild-nvim"] = { enable = false },
+      },
+    },
+  },
+
+  {
+    "rachartier/tiny-code-action.nvim",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+    event = "LspAttach",
+    opts = {
+      backend = "vim",
+      picker = "snacks",
+      signs = {
+        quickfix = { "", { link = "DiagnosticWarning" } },
+        others = { "", { link = "DiagnosticWarning" } },
+        refactor = { "", { link = "DiagnosticInfo" } },
+        ["refactor.move"] = { "󰪹", { link = "DiagnosticInfo" } },
+        ["refactor.extract"] = { "", { link = "DiagnosticError" } },
+        ["source.organizeImports"] = { "", { link = "DiagnosticWarning" } },
+        ["source.fixAll"] = { "󰃢", { link = "DiagnosticError" } },
+        ["source"] = { "", { link = "DiagnosticError" } },
+        ["rename"] = { "󰑕", { link = "DiagnosticWarning" } },
+        ["codeAction"] = { "", { link = "DiagnosticWarning" } },
       },
     },
   },

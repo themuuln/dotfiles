@@ -61,12 +61,12 @@ wk.add({
       return require("which-key.extras").expand.buf()
     end,
   },
-  { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App", group = "Run Flutter App", mode = "n" },
+
+  { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App", mode = "n" },
   {
     "<leader>Fr",
     "<cmd>FlutterRestart<cr>",
     desc = "Restart Flutter App",
-    group = "Restart Flutter App",
     mode = "n",
   },
   {
@@ -108,3 +108,20 @@ map("n", "<F9>", function()
     vim.notify("nvim-dap not found", vim.log.levels.WARN)
   end
 end, { desc = "Toggle Breakpoint" })
+
+vim.keymap.set("n", "gf", function()
+  local path = vim.fn.expand("<cfile>")
+  local file, line, col = path:match("([^:]+):(%d+):(%d+)")
+  if file and line and col then
+    vim.cmd("edit " .. file)
+    vim.fn.cursor(tonumber(line) or 1, tonumber(col) or 1)
+    return
+  end
+  file, line = path:match("([^:]+):(%d+)")
+  if file and line then
+    vim.cmd("edit " .. file)
+    vim.fn.cursor(tonumber(line) or 1, 1)
+    return
+  end
+  vim.cmd("edit " .. path)
+end, { desc = "gf with support for file:line:col" })
