@@ -1,4 +1,4 @@
-j# FONTS 
+# FONTS 
 #font-family = "FiraCode Nerd Font"
 #font-family-bold = "FiraCode Nerd Font"
 font-family-italic = "Maple Mono NF"
@@ -25,8 +25,8 @@ theme = catppuccin-mocha
 # theme = Solarized Dark - Patched
 
 # BACKGROUND
-background-opacity = 0.8
-background-blur = 30
+background-opacity = 0.85
+background-blur = 40
 
 adjust-cell-height = 22%
 adjust-cursor-height = 22%

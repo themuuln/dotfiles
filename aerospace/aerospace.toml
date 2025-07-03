@@ -116,10 +116,14 @@ alt-shift-semicolon = 'mode service'
 if.app-name-regex-substring = 'passwords'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'layout floating'
+
 # [[on-window-detected]]
 # if.app-id = 'com.apple.dt.Xcode'
 # run = 'layout floating'
-#
+
 [[on-window-detected]]
 if.app-name-regex-substring = 'telegram'
 run = 'layout floating'
