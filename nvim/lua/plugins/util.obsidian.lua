@@ -6,6 +6,7 @@ return {
     cmd = { "ObsidianSearch", "ObsidianQuickSwitch", "ObsidianNew" },
     version = "*",
     opts = {
+      homepage = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main/Second Brain",
       workspaces = {
         {
           name = "main",

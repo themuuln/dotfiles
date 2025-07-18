@@ -1,7 +1,7 @@
 return {
   {
     "Exafunction/windsurf.vim",
-    -- enabled = false,
+    enabled = false,
     event = "BufEnter",
   },
   {

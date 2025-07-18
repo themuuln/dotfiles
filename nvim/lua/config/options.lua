@@ -57,3 +57,21 @@ vim.opt.cursorcolumn = false
 
 local namespace = vim.api.nvim_create_namespace("dap-hlng")
 vim.api.nvim_set_hl(namespace, "DapBreakpoint", { fg = "#eaeaeb", bg = "#ffffff" })
+
+vim.opt.backup = true
+vim.opt.cmdheight = 0
+vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
+vim.opt.mousescroll = "ver:1,hor:4"
+
+local keymap_set = vim.keymap.set
+---@diagnostic disable-next-line: duplicate-set-field
+vim.keymap.set = function(mode, lhs, rhs, opts)
+  opts = opts or {}
+  opts.silent = opts.silent ~= false
+  return keymap_set(mode, lhs, rhs, opts)
+end
+
+vim.g.deprecation_warnings = true
+vim.env.FZF_DEFAULT_OPTS = ""
+vim.g.ai_cmp = false
+vim.g.lazyvim_blink_main = not jit.os:find("Windows")

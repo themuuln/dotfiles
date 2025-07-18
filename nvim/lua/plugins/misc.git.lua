@@ -24,13 +24,6 @@ return {
   --     })
   --   end,
   -- },
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-    },
-  },
   { "sindrets/diffview.nvim" },
-  { "tpope/vim-fugitive" },
+  -- { "tpope/vim-fugitive" },
 }
