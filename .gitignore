@@ -24,3 +24,5 @@ tmux/plugins/tmux-plugins
 tmux/plugins
 ghostty/shaders
 glab-cli/config.yml
+configstore
+opencode

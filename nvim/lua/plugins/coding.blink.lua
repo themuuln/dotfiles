@@ -121,20 +121,20 @@ return {
           dot_repeat = true,
           create_undo_point = true,
           resolve_timeout_ms = 100,
-          auto_brackets = {
-            enabled = true,
-            default_brackets = { "(", ")" },
-            override_brackets_for_filetypes = {},
-            kind_resolution = {
-              enabled = true,
-              blocked_filetypes = { "typescriptreact", "javascriptreact", "vue" },
-            },
-            semantic_token_resolution = {
-              enabled = true,
-              blocked_filetypes = { "java" },
-              timeout_ms = 400,
-            },
-          },
+          -- auto_brackets = {
+          --   enabled = true,
+          --   default_brackets = { "(", ")" },
+          --   override_brackets_for_filetypes = {},
+          --   kind_resolution = {
+          --     enabled = true,
+          --     blocked_filetypes = { "typescriptreact", "javascriptreact", "vue" },
+          --   },
+          --   semantic_token_resolution = {
+          --     enabled = true,
+          --     blocked_filetypes = { "java" },
+          --     timeout_ms = 400,
+          --   },
+          -- },
         },
         ghost_text = {
           enabled = true,

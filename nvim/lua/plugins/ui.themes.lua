@@ -2,8 +2,14 @@ return {
   {
     "LazyVim/LazyVim",
     -- opts = { colorscheme = "catppuccin" },
-    opts = { colorscheme = "catppuccin-mocha" },
+    -- opts = { colorscheme = "catppuccin-mocha" },
+    -- opts = { colorscheme = "catppuccin-macchiato" },
+    -- opts = { colorscheme = "tokyonight" },
+    opts = { colorscheme = "nordic" },
+    -- opts = { colorscheme = "edge" },
+    -- opts = { colorscheme = "onedark" },
     -- opts = { colorscheme = "tokyonight-moon" },
+    -- opts = { colorscheme = "tokyonight-night" },
   },
   {
     "folke/tokyonight.nvim",
@@ -12,7 +18,18 @@ return {
     },
   },
   { "catppuccin/nvim", name = "catppuccin" },
-  { "AlexvZyl/nordic.nvim", name = "nordic" },
+  {
+    "AlexvZyl/nordic.nvim",
+    name = "nordic",
+    opts = {
+      transparent = {
+        -- Enable transparent background.
+        bg = true,
+        -- Enable transparent background for floating windows.
+        float = true,
+      },
+    },
+  },
   -- recolor devicons to match theme
   {
     "rachartier/tiny-devicons-auto-colors.nvim",

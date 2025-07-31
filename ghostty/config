@@ -1,19 +1,21 @@
 # FONTS 
 # font-family = "FiraCode Nerd Font"
 # font-family-bold = "FiraCode Nerd Font"
-font-family-italic = "Maple Mono NF"
-font-family-bold-italic = "Maple Mono NF"
+# font-family = "GeistMono Nerd Font"
+# font-family-bold = "GeistMono Nerd Font"
+# font-family-italic = "Maple Mono NF"
+# font-family-bold-italic = "Maple Mono NF"
 # font-family = "Symbols Nerd Font Mono"
-font-size = 16
+font-size = 18
 adjust-underline-position = 4
 
 # THEMES
-# theme = OneHalfDark
+theme = OneHalfDark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
 # theme = Kanagawa Wave
 # theme = catppuccin-frappe
-theme = catppuccin-macchiato
+# theme = catppuccin-macchiato
 # theme = catppuccin-mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
@@ -25,7 +27,7 @@ theme = catppuccin-macchiato
 # theme = Solarized Dark - Patched
 
 # BACKGROUND
-background-opacity = 0.85
+background-opacity = 0.9
 background-blur = 40
 
 adjust-cell-height = 20%

@@ -52,43 +52,43 @@ return {
         -- component_separators = { left = "", right = "" },
         -- section_separators = { left = "", right = "" },
       },
-      tabline = {
-        lualine_a = {
-          {
-            "buffers",
-            mode = 0,
-            use_mode_colors = true,
-            symbols = { alternate_file = "" },
-          },
-        },
-        lualine_z = {
-          {
-            "tabs",
-            tab_max_length = 40,
-            max_length = vim.o.columns / 3,
-            mode = 0,
-            -- 0: Shows tab_nr
-            -- 1: Shows tab_name
-            -- 2: Shows tab_nr + tab_name
-            path = 0, -- 0: just shows the filename
-            -- 1: shows the relative path and shorten $HOME to ~
-            -- 2: shows the full path
-            -- 3: shows the full path and shorten $HOME to ~
-            use_mode_colors = true,
-            show_modified_status = true,
-            symbols = { modified = " " },
-            fmt = function(name, context)
-              -- Show + if buffer is modified in tab
-              local buflist = vim.fn.tabpagebuflist(context.tabnr)
-              local winnr = vim.fn.tabpagewinnr(context.tabnr)
-              local bufnr = buflist[winnr]
-              local mod = vim.fn.getbufvar(bufnr, "&mod")
-
-              return name .. (mod == 1 and " +" or "")
-            end,
-          },
-        },
-      },
+      -- tabline = {
+      --   lualine_a = {
+      --     {
+      --       "buffers",
+      --       mode = 0,
+      --       use_mode_colors = true,
+      --       symbols = { alternate_file = "" },
+      --     },
+      --   },
+      --   lualine_z = {
+      --     {
+      --       "tabs",
+      --       tab_max_length = 40,
+      --       max_length = vim.o.columns / 3,
+      --       mode = 0,
+      --       -- 0: Shows tab_nr
+      --       -- 1: Shows tab_name
+      --       -- 2: Shows tab_nr + tab_name
+      --       path = 0, -- 0: just shows the filename
+      --       -- 1: shows the relative path and shorten $HOME to ~
+      --       -- 2: shows the full path
+      --       -- 3: shows the full path and shorten $HOME to ~
+      --       use_mode_colors = true,
+      --       show_modified_status = true,
+      --       symbols = { modified = " " },
+      --       fmt = function(name, context)
+      --         -- Show + if buffer is modified in tab
+      --         local buflist = vim.fn.tabpagebuflist(context.tabnr)
+      --         local winnr = vim.fn.tabpagewinnr(context.tabnr)
+      --         local bufnr = buflist[winnr]
+      --         local mod = vim.fn.getbufvar(bufnr, "&mod")
+      --
+      --         return name .. (mod == 1 and " +" or "")
+      --       end,
+      --     },
+      --   },
+      -- },
     }
 
     return opts

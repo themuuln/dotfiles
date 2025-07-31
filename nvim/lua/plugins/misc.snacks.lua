@@ -20,6 +20,7 @@ return {
         doc = { inline = true, float = true },
       },
       picker = {
+        enabled = true,
         previewers = {
           diff = { builtin = false },
           git = { builtin = false },
