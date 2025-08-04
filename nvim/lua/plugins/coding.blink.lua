@@ -2,6 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = { "rafamadriz/friendly-snippets" },
+    version = "1.*",
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -15,26 +16,14 @@ return {
         max_typos = function(keyword)
           return math.floor(#keyword / 4)
         end,
+
         use_frecency = true,
         use_proximity = true,
         use_unsafe_no_lock = false,
         sorts = {
-          -- (optionally) always prioritize exact matches
-          -- 'exact',
           "score",
+          "exact",
           "sort_text",
-        },
-
-        prebuilt_binaries = {
-          download = true,
-          ignore_version_mismatch = false,
-          force_version = nil,
-          force_system_triple = nil,
-          extra_curl_args = {},
-          proxy = {
-            from_env = true,
-            url = nil,
-          },
         },
       },
       cmdline = {
