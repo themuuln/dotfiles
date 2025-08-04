@@ -1,19 +1,22 @@
-# font_family JetBrainsMono Nerd Font Mono ExtraLight
-# bold_font JetBrainsMono Nerd Font Mono Light
-# italic_font JetBrainsMono Nerd Font Mono ExtraLight Italic
-# bold_italic_font JetBrainsMono Nerd Font Mono Light Italic
-
-font_family IosevkaTerm Nerd Font Mono ExtraLight
-bold_font IosevkaTerm Nerd Font Mono Light
-italic_font IosevkaTerm Nerd Font Mono ExtraLight Italic
-bold_italic_font IosevkaTerm Nerd Font Mono Light Italic
+font_family JetBrainsMono Nerd Font Mono ExtraLight
+bold_font JetBrainsMono Nerd Font Mono Light
+italic_font JetBrainsMono Nerd Font Mono ExtraLight Italic
+bold_italic_font JetBrainsMono Nerd Font Mono Light Italic
+# font_family JetBrainsMono Nerd Font Mono Light
+# bold_font JetBrainsMono Nerd Font Mono
+# italic_font JetBrainsMono Nerd Font Mono Light Italic
+# bold_italic_font JetBrainsMono Nerd Font Mono Italic
 
 font_size 18
 cursor_trail 1
-include catppuccin-mocha.conf
+# include catppuccin-mocha.conf
+
+# include kanagawabones.conf
 # include nord.conf
 # include One Dark.conf
 # include catppuccin-macchiato.conf
+include catppuccin-mocha.conf
+# include Solarized Dark - Patched.conf
 background_opacity 0.9
 background_blur 40
 window_border_width 0
@@ -30,3 +33,11 @@ window_padding_height 0
 # Tokyo Night Moon
 # include current-theme.conf
 # END_KITTY_THEME
+
+
+# BEGIN_KITTY_FONTS
+# font_family      family='IosevkaTerm Nerd Font Mono' postscript_name=IosevkaTermNFM-ExtraLight
+# bold_font        family='IosevkaTerm Nerd Font Mono' postscript_name=IosevkaTermNFM-Light
+# italic_font      family='IosevkaTerm Nerd Font Mono' postscript_name=IosevkaTermNFM-ExtraLightItalic
+# bold_italic_font family='IosevkaTerm Nerd Font Mono' postscript_name=IosevkaTermNFM-LightItalic
+# END_KITTY_FONTS
