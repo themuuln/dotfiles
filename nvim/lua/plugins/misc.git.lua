@@ -12,6 +12,18 @@ return {
     },
   },
   -- {
+  --   "lewis6991/gitsigns.nvim",
+  --   event = "LazyFile",
+  --   opts = {
+  --     current_line_blame = true,
+  --     current_line_blame_opts = {
+  --       delay = 0,
+  --       virt_text_priority = 100,
+  --       use_focus = true,
+  --     },
+  --   },
+  -- },
+  -- {
   --   "harrisoncramer/gitlab.nvim",
   --   build = function()
   --     require("gitlab.server").build(true)

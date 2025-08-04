@@ -41,56 +41,108 @@
 --------------------------------------------------------------------------------
 
 return {
-  "nvim-lualine/lualine.nvim",
-  event = "UIEnter",
-  opts = function()
-    local opts = {
-      options = {
-        globalstatus = true,
-        always_divide_middle = false,
-        ignore_focus = { "snacks_input", "snacks_picker_input" },
-        -- component_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
-      },
-      -- tabline = {
-      --   lualine_a = {
-      --     {
-      --       "buffers",
-      --       mode = 0,
-      --       use_mode_colors = true,
-      --       symbols = { alternate_file = "" },
-      --     },
-      --   },
-      --   lualine_z = {
-      --     {
-      --       "tabs",
-      --       tab_max_length = 40,
-      --       max_length = vim.o.columns / 3,
-      --       mode = 0,
-      --       -- 0: Shows tab_nr
-      --       -- 1: Shows tab_name
-      --       -- 2: Shows tab_nr + tab_name
-      --       path = 0, -- 0: just shows the filename
-      --       -- 1: shows the relative path and shorten $HOME to ~
-      --       -- 2: shows the full path
-      --       -- 3: shows the full path and shorten $HOME to ~
-      --       use_mode_colors = true,
-      --       show_modified_status = true,
-      --       symbols = { modified = " " },
-      --       fmt = function(name, context)
-      --         -- Show + if buffer is modified in tab
-      --         local buflist = vim.fn.tabpagebuflist(context.tabnr)
-      --         local winnr = vim.fn.tabpagewinnr(context.tabnr)
-      --         local bufnr = buflist[winnr]
-      --         local mod = vim.fn.getbufvar(bufnr, "&mod")
-      --
-      --         return name .. (mod == 1 and " +" or "")
-      --       end,
-      --     },
-      --   },
-      -- },
-    }
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      ---@type table<string, {updated:number, total:number, enabled: boolean, status:string[]}>
+      local mutagen = {}
 
-    return opts
-  end,
+      local function mutagen_status()
+        local cwd = vim.uv.cwd() or "."
+        mutagen[cwd] = mutagen[cwd]
+          or {
+            updated = 0,
+            total = 0,
+            enabled = vim.fs.find("mutagen.yml", { path = cwd, upward = true })[1] ~= nil,
+            status = {},
+          }
+        local now = vim.uv.now() -- timestamp in milliseconds
+        local refresh = mutagen[cwd].updated + 10000 < now
+        if #mutagen[cwd].status > 0 then
+          refresh = mutagen[cwd].updated + 1000 < now
+        end
+        if mutagen[cwd].enabled and refresh then
+          ---@type {name:string, status:string, idle:boolean}[]
+          local sessions = {}
+          local lines = vim.fn.systemlist("mutagen project list")
+          local status = {}
+          local name = nil
+          for _, line in ipairs(lines) do
+            local n = line:match("^Name: (.*)")
+            if n then
+              name = n
+            end
+            local s = line:match("^Status: (.*)")
+            if s then
+              table.insert(sessions, {
+                name = name,
+                status = s,
+                idle = s == "Watching for changes",
+              })
+            end
+          end
+          for _, session in ipairs(sessions) do
+            if not session.idle then
+              table.insert(status, session.name .. ": " .. session.status)
+            end
+          end
+          mutagen[cwd].updated = now
+          mutagen[cwd].total = #sessions
+          mutagen[cwd].status = status
+          if #sessions == 0 then
+            vim.notify("Mutagen is not running", vim.log.levels.ERROR, { title = "Mutagen" })
+          end
+        end
+        return mutagen[cwd]
+      end
+
+      local error_color = { fg = Snacks.util.color("DiagnosticError") }
+      local ok_color = { fg = Snacks.util.color("DiagnosticInfo") }
+      opts.sections = opts.sections or {}
+      opts.sections.lualine_x = opts.sections.lualine_x or {}
+      table.insert(opts.sections.lualine_x, {
+        function()
+          local s = mutagen_status()
+          local msg = tostring(s.total)
+          if #s.status > 0 then
+            msg = msg .. " | " .. table.concat(s.status, " | ")
+          end
+          return (s.total == 0 and "󰋘 " or "󰋙 ") .. msg
+        end,
+        cond = function()
+          return mutagen_status().enabled
+        end,
+        color = function()
+          return (mutagen_status().total == 0 or mutagen_status().status[1]) and error_color or ok_color
+        end,
+      })
+
+      opts.tabline = opts.tabline or {}
+      opts.tabline.lualine_a = opts.tabline.lualine_a or {}
+      opts.tabline.lualine_z = opts.tabline.lualine_z or {}
+      table.insert(opts.tabline.lualine_a, {
+        "buffers",
+        mode = 0,
+        use_mode_colors = true,
+        symbols = { alternate_file = "" },
+      })
+      table.insert(opts.tabline.lualine_z, {
+        "tabs",
+        tab_max_length = 40,
+        max_length = vim.o.columns / 3,
+        mode = 0,
+        path = 0,
+        use_mode_colors = true,
+        show_modified_status = true,
+        symbols = { modified = " " },
+        fmt = function(name, context)
+          local buflist = vim.fn.tabpagebuflist(context.tabnr)
+          local winnr = vim.fn.tabpagewinnr(context.tabnr)
+          local bufnr = buflist[winnr]
+          local mod = vim.fn.getbufvar(bufnr, "&mod")
+          return name .. (mod == 1 and " +" or "")
+        end,
+      })
+    end,
+  },
 }
