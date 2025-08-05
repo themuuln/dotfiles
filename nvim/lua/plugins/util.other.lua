@@ -1,5 +1,4 @@
 return {
-
   -- {
   --   "rmagatti/auto-session",
   --   lazy = false,
@@ -99,6 +98,7 @@ return {
       },
     },
   },
+
   {
     "shahshlok/vim-coach.nvim",
     dependencies = {
@@ -110,5 +110,27 @@ return {
     keys = {
       { "<leader>?", "<cmd>VimCoach<cr>", desc = "Vim Coach" },
     },
+  },
+
+  -- {
+  --   "dmtrkovalenko/fold-imports.nvim",
+  --   opts = {},
+  --   event = "BufReadPre",
+  -- },
+
+  {
+    "mbbill/undotree",
+    keys = {
+      {
+        mode = "n",
+        "<leader>u",
+        "<cmd>UndotreeToggle<CR>",
+      },
+    },
+    config = function()
+      vim.g.undotree_WindowLayout = 3 -- Right layout
+      vim.g.undotree_SplitWidth = 40 -- Width of the undotree window
+      vim.g.undotree_SetFocusWhenToggle = 1 -- Focus on the undotree window when toggled
+    end,
   },
 }
