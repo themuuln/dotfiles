@@ -10,7 +10,7 @@ font-size = 18
 adjust-underline-position = 4
 
 # THEMES
-theme = OneHalfDark
+# theme = OneHalfDark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
 # theme = Kanagawa Wave
@@ -19,6 +19,7 @@ theme = OneHalfDark
 # theme = catppuccin-mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
+theme = tokyonight_night
 # theme = Dark+
 # theme = ayu
 # theme = Ayu Mirage
