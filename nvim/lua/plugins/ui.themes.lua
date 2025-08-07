@@ -2,34 +2,35 @@ return {
   {
     "LazyVim/LazyVim",
     -- opts = { colorscheme = "catppuccin" },
-    opts = { colorscheme = "catppuccin-mocha" },
+    -- opts = { colorscheme = "catppuccin-mocha" },
     -- opts = { colorscheme = "catppuccin-macchiato" },
+    -- opts = { colorscheme = "github_dark_default" },
     -- opts = { colorscheme = "tokyonight" },
     -- opts = { colorscheme = "kanagawa-paper-ink" },
     -- opts = { colorscheme = "nordic" },
     -- opts = { colorscheme = "edge" },
     -- opts = { colorscheme = "onedark" },
-    -- opts = { colorscheme = "tokyonight-moon" },
+    opts = { colorscheme = "tokyonight-moon" },
     -- opts = { colorscheme = "tokyonight-night" },
     -- opts = { colorscheme = "solarized-osaka" },
   },
   {
     "folke/tokyonight.nvim",
-    opts = {
-      transparent = true,
-    },
+    -- opts = {
+    --   transparent = true,
+    -- },
   },
   { "catppuccin/nvim", name = "catppuccin" },
   {
     "AlexvZyl/nordic.nvim",
     name = "nordic",
     opts = {
-      transparent = {
-        -- Enable transparent background.
-        bg = true,
-        -- Enable transparent background for floating windows.
-        float = false,
-      },
+      -- transparent = {
+      --   -- Enable transparent background.
+      --   bg = true,
+      --   -- Enable transparent background for floating windows.
+      --   float = true,
+      -- },
     },
   },
   -- recolor devicons to match theme
@@ -56,13 +57,13 @@ return {
   -- { "Everblush/everblush.nvim" },
   -- { "cryptomilk/nightcity.nvim" },
   { "navarasu/onedark.nvim" },
-  { "sainnhe/gruvbox-material" },
-  { "projekt0n/github-nvim-theme" },
-  { "sainnhe/everforest" },
-  { "Mofiqul/vscode.nvim" },
+  -- { "sainnhe/gruvbox-material" },
+  -- { "projekt0n/github-nvim-theme" },
+  -- { "sainnhe/everforest" },
+  -- { "Mofiqul/vscode.nvim" },
   { "olimorris/onedarkpro.nvim" },
   { "craftzdog/solarized-osaka.nvim" },
-  { "shaunsingh/nord.nvim" },
+  -- { "shaunsingh/nord.nvim" },
   { "tiagovla/tokyodark.nvim" },
   { "sainnhe/edge" },
   { "rmehri01/onenord.nvim" },
@@ -70,7 +71,7 @@ return {
   -- { "eldritch-theme/eldritch.nvim" },
   -- { "mcchrish/zenbones.nvim" },
   -- { "olivercederborg/poimandres.nvim" },
-  { "mhartington/oceanic-next" },
+  -- { "mhartington/oceanic-next" },
   -- { "dgox16/oldworld.nvim" },
   { "sho-87/kanagawa-paper.nvim" },
   { "HoNamDuong/hybrid.nvim" },
