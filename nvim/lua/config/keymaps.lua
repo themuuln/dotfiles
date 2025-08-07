@@ -1,6 +1,5 @@
 local lazy = require("lazy")
 local wk = require("which-key")
-vim.g.flutter_is_running = false
 local keymap = vim.keymap
 local map = vim.keymap.set
 
@@ -61,7 +60,6 @@ wk.add({
       return require("which-key.extras").expand.buf()
     end,
   },
-
   { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App", mode = "n" },
   {
     "<leader>Fr",
@@ -83,45 +81,3 @@ vim.keymap.set("n", "<leader>tt", function()
   cat.compile()
   vim.cmd.colorscheme(vim.g.colors_name)
 end)
-
--- F5 mapping
-map("n", "<F5>", function()
-  vim.cmd("FlutterDebug")
-end, { desc = "Debug Flutter App" })
-
--- Ctrl+Shift+F5 → FlutterHotRestart
-map("n", "<C-S-F5>", function()
-  vim.cmd("FlutterRestart")
-end, { desc = "Hot Restart Flutter App" })
-
--- Shift+F5 → FlutterQuit
-map("n", "<S-F5>", function()
-  vim.cmd("FlutterQuit")
-end, { desc = "Stop Flutter App" })
-
--- F9 → Toggle breakpoint (DAP)
-map("n", "<F9>", function()
-  local ok, dap = pcall(require, "dap")
-  if ok then
-    dap.toggle_breakpoint()
-  else
-    vim.notify("nvim-dap not found", vim.log.levels.WARN)
-  end
-end, { desc = "Toggle Breakpoint" })
-
-vim.keymap.set("n", "gf", function()
-  local path = vim.fn.expand("<cfile>")
-  local file, line, col = path:match("([^:]+):(%d+):(%d+)")
-  if file and line and col then
-    vim.cmd("edit " .. file)
-    vim.fn.cursor(tonumber(line) or 1, tonumber(col) or 1)
-    return
-  end
-  file, line = path:match("([^:]+):(%d+)")
-  if file and line then
-    vim.cmd("edit " .. file)
-    vim.fn.cursor(tonumber(line) or 1, 1)
-    return
-  end
-  vim.cmd("edit " .. path)
-end, { desc = "gf with support for file:line:col" })
