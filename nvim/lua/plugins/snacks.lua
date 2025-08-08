@@ -4,14 +4,9 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    -- show open fold icons in the statuscolumn
     statuscolumn = { folds = { open = true } },
     notifier = { sort = { "added" } },
-    scroll = {
-      -- enabled = false,
-      -- animate = {
-      --   duration = { step = 10, total = 150 },
-      -- },
-    },
     image = {
       force = false,
       enabled = true,
@@ -83,7 +78,7 @@ return {
       },
     },
     indent = {
-      -- enabled = false,
+      enabled = false,
       chunk = { enabled = true },
     },
     animate = {
