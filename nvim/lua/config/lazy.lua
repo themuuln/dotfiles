@@ -23,6 +23,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
+  git = { timeout = 15000 },
   checker = {
     enabled = true,
     notify = true,
