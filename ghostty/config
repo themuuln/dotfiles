@@ -6,7 +6,7 @@
 # font-family-italic = "Maple Mono NF"
 # font-family-bold-italic = "Maple Mono NF"
 # font-family = "Symbols Nerd Font Mono"
-font-size = 18
+font-size = 20
 adjust-underline-position = 4
 
 # THEMES
@@ -28,8 +28,8 @@ theme = tokyonight_night
 # theme = Solarized Dark - Patched
 
 # BACKGROUND
-background-opacity = 0.9
-background-blur = 40
+background-opacity = 0.94
+background-blur = 100
 
 adjust-cell-height = 20%
 adjust-cursor-height = 20%
