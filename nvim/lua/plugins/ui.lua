@@ -1,7 +1,9 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "tokyonight-moon" },
+    opts = { colorscheme = "gruvbox-material" },
+    -- opts = { colorscheme = "gruvbox" },
+    -- opts = { colorscheme = "tokyonight-moon" },
     -- opts = { colorscheme = "catppuccin" },
     -- opts = { colorscheme = "catppuccin-mocha" },
     -- opts = { colorscheme = "catppuccin-macchiato" },
@@ -46,7 +48,33 @@ return {
   -- { "Everblush/everblush.nvim" },
   -- { "cryptomilk/nightcity.nvim" },
   { "navarasu/onedark.nvim" },
-  -- { "sainnhe/gruvbox-material" },
+  { "sainnhe/gruvbox-material" },
+  {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      terminal_colors = true, -- add neovim terminal colors
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      inverse = true, -- invert background for search, diffs, statuslines and errors
+      contrast = "", -- can be "hard", "soft" or empty string
+      palette_overrides = {},
+      overrides = {},
+      dim_inactive = false,
+      transparent_mode = false,
+    },
+  },
   -- { "projekt0n/github-nvim-theme" },
   -- { "sainnhe/everforest" },
   -- { "Mofiqul/vscode.nvim" },
