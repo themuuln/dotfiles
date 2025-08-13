@@ -1,15 +1,18 @@
+
 # FONTS 
-# font-family = "FiraCode Nerd Font"
-# font-family-bold = "FiraCode Nerd Font"
+font-family = "FiraCode Nerd Font"
+font-family-bold = "FiraCode Nerd Font"
 # font-family = "GeistMono Nerd Font"
 # font-family-bold = "GeistMono Nerd Font"
-# font-family-italic = "Maple Mono NF"
-# font-family-bold-italic = "Maple Mono NF"
-# font-family = "Symbols Nerd Font Mono"
-font-size = 20
+font-family-italic = "Maple Mono NF"
+font-family-bold-italic = "Maple Mono NF"
+font-family = "Symbols Nerd Font Mono"
+font-size = 18
 adjust-underline-position = 4
 
 # THEMES
+# theme = GruvboxDarkHard
+theme = GruvboxDark
 # theme = OneHalfDark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
@@ -19,7 +22,7 @@ adjust-underline-position = 4
 # theme = catppuccin-mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
-theme = tokyonight_night
+# theme = tokyonight_night
 # theme = Dark+
 # theme = ayu
 # theme = Ayu Mirage
@@ -28,11 +31,12 @@ theme = tokyonight_night
 # theme = Solarized Dark - Patched
 
 # BACKGROUND
-background-opacity = 0.94
+background-opacity = 0.9
 background-blur = 100
 
-adjust-cell-height = 20%
-adjust-cursor-height = 20%
+adjust-cell-height = 15%
+adjust-cursor-height = 15%
+adjust-cell-width = -4%
 
 # window-padding-x = 8
 # window-padding-y = 8
@@ -49,4 +53,33 @@ window-padding-balance = true
 window-decoration = false
 
 copy-on-select = clipboard
-shell-integration-features = cursor,sudo,no-title
+
+custom-shader = "shaders/bloom025.glsl"
+# custom-shader = "shaders/bloom05.glsl"
+# custom-shader = "shaders/bloom06.glsl"
+# custom-shader = "shaders/bloom075.glsl"
+# custom-shader = "shaders/bloom.glsl"
+# custom-shader = "shaders/glow-rgbsplit-twitchy.glsl"
+# custom-shader = "shaders/retro-terminal.glsl"
+
+# custom-shader = "shaders/animated-gradient-shader.glsl"
+# custom-shader = "shaders/bettercrt.glsl"
+# custom-shader = "shaders/cineShader-Lava.glsl"
+# custom-shader = "shaders/crt.glsl"
+# custom-shader = "shaders/cubes.glsl"
+# custom-shader = "shaders/dither.glsl"
+# custom-shader = "shaders/drunkard.glsl"
+# custom-shader = "shaders/fireworks-rockets.glsl"
+# custom-shader = "shaders/fireworks.glsl"
+# custom-shader = "shaders/galaxy.glsl"
+# custom-shader = "shaders/gears-and-belts.glsl"
+# custom-shader = "shaders/glitchy.glsl"
+# custom-shader = "shaders/gradient-background.glsl"
+# custom-shader = "shaders/in-game-crt.glsl"
+# custom-shader = "shaders/inside-the-matrix.glsl"
+# custom-shader = "shaders/just-snow.glsl"
+# custom-shader = "shaders/matrix-hallway.glsl"
+# custom-shader = "shaders/mnoise.glsl"
+# custom-shader = "shaders/negative.glsl"
+# custom-shader = "shaders/sin-interference.glsl"
+# custom-shader = "shaders/tft.glsl"
