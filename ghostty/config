@@ -12,7 +12,7 @@ adjust-underline-position = 4
 
 # THEMES
 # theme = GruvboxDarkHard
-theme = GruvboxDark
+# theme = GruvboxDark
 # theme = OneHalfDark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
@@ -22,7 +22,7 @@ theme = GruvboxDark
 # theme = catppuccin-mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
-# theme = tokyonight_night
+theme = tokyonight_night
 # theme = Dark+
 # theme = ayu
 # theme = Ayu Mirage
@@ -31,7 +31,7 @@ theme = GruvboxDark
 # theme = Solarized Dark - Patched
 
 # BACKGROUND
-background-opacity = 0.9
+background-opacity = 0.85
 background-blur = 100
 
 adjust-cell-height = 10%
@@ -54,7 +54,7 @@ window-decoration = false
 
 copy-on-select = clipboard
 
-custom-shader = "shaders/bloom025.glsl"
+# custom-shader = "shaders/bloom025.glsl"
 # custom-shader = "shaders/bloom05.glsl"
 # custom-shader = "shaders/bloom06.glsl"
 # custom-shader = "shaders/bloom075.glsl"

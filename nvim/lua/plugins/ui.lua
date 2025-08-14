@@ -1,24 +1,25 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "gruvbox-material" },
+    -- opts = { colorscheme = "gruvbox-material" },
     -- opts = { colorscheme = "gruvbox" },
+    -- opts = { colorscheme = "tokyonight" },
+    opts = { colorscheme = "tokyonight-night" },
     -- opts = { colorscheme = "tokyonight-moon" },
     -- opts = { colorscheme = "catppuccin" },
     -- opts = { colorscheme = "catppuccin-mocha" },
     -- opts = { colorscheme = "catppuccin-macchiato" },
     -- opts = { colorscheme = "github_dark_default" },
-    -- opts = { colorscheme = "tokyonight" },
     -- opts = { colorscheme = "kanagawa-paper-ink" },
     -- opts = { colorscheme = "nordic" },
     -- opts = { colorscheme = "edge" },
     -- opts = { colorscheme = "onedark" },
-    -- opts = { colorscheme = "tokyonight-night" },
     -- opts = { colorscheme = "solarized-osaka" },
+    -- opts = { colorscheme = "techbase" },
   },
   {
     "folke/tokyonight.nvim",
-    -- opts = { transparent = true },
+    opts = { transparent = true },
   },
   { "catppuccin/nvim", name = "catppuccin" },
   {
@@ -48,29 +49,16 @@ return {
   -- { "Everblush/everblush.nvim" },
   -- { "cryptomilk/nightcity.nvim" },
   { "navarasu/onedark.nvim" },
-  {
-    "sainnhe/gruvbox-material",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("gruvbox-material")
-      -- vim.g.gruvbox_material_background = "hard"
-      -- vim.g.gruvbox_material_foreground = "mix"
-      vim.g.gruvbox_material_better_performance = 1
-      -- vim.g.gruvbox_material_enable_bold = 1
-      vim.g.gruvbox_material_enable_italic = 1
-      vim.g.gruvbox_material_transparent_background = 1
-    end,
-  },
+  { "sainnhe/gruvbox-material" },
   -- { "projekt0n/github-nvim-theme" },
   -- { "sainnhe/everforest" },
   -- { "Mofiqul/vscode.nvim" },
-  { "olimorris/onedarkpro.nvim" },
-  { "craftzdog/solarized-osaka.nvim" },
+  -- { "olimorris/onedarkpro.nvim" },
+  -- { "craftzdog/solarized-osaka.nvim" },
   -- { "shaunsingh/nord.nvim" },
-  { "tiagovla/tokyodark.nvim" },
+  -- { "tiagovla/tokyodark.nvim" },
   { "sainnhe/edge" },
-  { "rmehri01/onenord.nvim" },
+  -- { "rmehri01/onenord.nvim" },
   -- { "bluz71/vim-nightfly-colors" },
   -- { "eldritch-theme/eldritch.nvim" },
   -- { "mcchrish/zenbones.nvim" },
@@ -84,6 +72,7 @@ return {
   -- { "datsfilipe/vesper.nvim" },
   -- { "kvrohit/substrata.nvim" },
   -- { "rktjmp/lush.nvim" },
+  { "mcauley-penney/techbase.nvim", priority = 1000 },
 
   {
     "nvim-lualine/lualine.nvim",
