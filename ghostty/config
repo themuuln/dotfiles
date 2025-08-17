@@ -1,11 +1,10 @@
-
 # FONTS 
 font-family = "FiraCode Nerd Font"
 font-family-bold = "FiraCode Nerd Font"
 # font-family = "GeistMono Nerd Font"
 # font-family-bold = "GeistMono Nerd Font"
-font-family-italic = "Maple Mono NF"
-font-family-bold-italic = "Maple Mono NF"
+# font-family-italic = "Maple Mono NF"
+# font-family-bold-italic = "Maple Mono NF"
 font-family = "Symbols Nerd Font Mono"
 font-size = 18
 adjust-underline-position = 4
@@ -19,10 +18,10 @@ adjust-underline-position = 4
 # theme = Kanagawa Wave
 # theme = catppuccin-frappe
 # theme = catppuccin-macchiato
-# theme = catppuccin-mocha
+theme = catppuccin-mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
-theme = tokyonight_night
+# theme = tokyonight_night
 # theme = Dark+
 # theme = ayu
 # theme = Ayu Mirage
