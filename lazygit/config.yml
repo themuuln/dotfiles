@@ -5,5 +5,19 @@ customCommands:
     context: "files"
     loadingText: "opening commitizen commit tool"
     subprocess: true
+
 gui:
-  mouseEvents: false
+  scrollOffMargin: 8
+  tabWidth: 2
+  language: en
+  timeFormat: 02 Jan
+  showBottomLine: false
+  nerdFontsVersion: 3
+  filterMode: fuzzy
+  # One of 'dashboard' (default) | 'allBranchesLog'
+  # statusPanelView: dashboard
+
+git:
+  paging:
+    pager: "delta --dark --line-numbers --paging=never"
+    useConfig: false
