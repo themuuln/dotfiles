@@ -4,24 +4,110 @@ return {
     -- opts = { colorscheme = "gruvbox-material" },
     -- opts = { colorscheme = "gruvbox" },
     -- opts = { colorscheme = "tokyonight" },
-    opts = { colorscheme = "tokyonight-night" },
+    -- opts = { colorscheme = "tokyonight-night" },
     -- opts = { colorscheme = "tokyonight-moon" },
     -- opts = { colorscheme = "catppuccin" },
-    -- opts = { colorscheme = "catppuccin-mocha" },
     -- opts = { colorscheme = "catppuccin-macchiato" },
+    -- opts = { colorscheme = "catppuccin-mocha" },
     -- opts = { colorscheme = "github_dark_default" },
+    opts = { colorscheme = "kanagawa-dragon" },
     -- opts = { colorscheme = "kanagawa-paper-ink" },
     -- opts = { colorscheme = "nordic" },
     -- opts = { colorscheme = "edge" },
     -- opts = { colorscheme = "onedark" },
     -- opts = { colorscheme = "solarized-osaka" },
     -- opts = { colorscheme = "techbase" },
+    -- opts = { colorscheme = "hybrid" },
+    -- opts = { colorscheme = "vague" },
+    -- opts = { colorscheme = "rose-pine-main" },
   },
   {
     "folke/tokyonight.nvim",
     opts = { transparent = true },
   },
-  { "catppuccin/nvim", name = "catppuccin" },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    opts = {
+      variant = "main", -- auto, main, moon, or dawn
+      dark_variant = "moon", -- main, moon, or dawn
+      dim_inactive_windows = false,
+      extend_background_behind_borders = true,
+
+      enable = {
+        terminal = true,
+        legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+        migrations = true, -- Handle deprecated options automatically
+      },
+
+      styles = {
+        bold = false,
+        italic = false,
+        transparency = true,
+      },
+
+      groups = {
+        border = "muted",
+        link = "iris",
+        panel = "surface",
+
+        error = "love",
+        hint = "iris",
+        info = "foam",
+        note = "pine",
+        todo = "rose",
+        warn = "gold",
+
+        git_add = "foam",
+        git_change = "rose",
+        git_delete = "love",
+        git_dirty = "rose",
+        git_ignore = "muted",
+        git_merge = "iris",
+        git_rename = "pine",
+        git_stage = "iris",
+        git_text = "rose",
+        git_untracked = "subtle",
+
+        h1 = "iris",
+        h2 = "foam",
+        h3 = "rose",
+        h4 = "gold",
+        h5 = "pine",
+        h6 = "foam",
+      },
+
+      palette = {
+        -- Override the builtin palette per variant
+        -- moon = {
+        --     base = '#18191a',
+        --     overlay = '#363738',
+        -- },
+      },
+
+      -- NOTE: Highlight groups are extended (merged) by default. Disable this
+      -- per group via `inherit = false`
+      highlight_groups = {
+        -- Comment = { fg = "foam" },
+        -- StatusLine = { fg = "love", bg = "love", blend = 15 },
+        -- VertSplit = { fg = "muted", bg = "muted" },
+        -- Visual = { fg = "base", bg = "text", inherit = false },
+      },
+
+      before_highlight = function(group, highlight, palette)
+        -- Disable all undercurls
+        -- if highlight.undercurl then
+        --     highlight.undercurl = false
+        -- end
+        --
+        -- Change palette colour
+        -- if highlight.fg == palette.pine then
+        --     highlight.fg = palette.foam
+        -- end
+      end,
+    },
+  },
+  { "catppuccin/nvim", name = "catppuccin", opts = { transparent_background = true } },
   {
     "AlexvZyl/nordic.nvim",
     name = "nordic",
@@ -41,7 +127,26 @@ return {
     lazy = false,
     priority = 1000,
   },
-  { "rebelot/kanagawa.nvim" },
+  {
+    "rebelot/kanagawa.nvim",
+    opts = {
+      compile = true, -- enable compiling the colorscheme
+      undercurl = true, -- enable undercurls
+      commentStyle = { italic = true },
+      functionStyle = {},
+      keywordStyle = { italic = false },
+      statementStyle = { bold = false },
+      typeStyle = {},
+      transparent = true, -- do not set background color
+      dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+      terminalColors = true, -- define vim.g.terminal_color_{0,17}
+      theme = "dragon", -- Load "wave" theme
+      background = { -- map the value of 'background' option to a theme
+        dark = "dragon", -- try "dragon" !
+        light = "dragon",
+      },
+    },
+  },
   -- { "oxfist/night-owl.nvim" },
   -- { "ramojus/mellifluous.nvim" },
   -- { "rafamadriz/neon" },
@@ -65,7 +170,7 @@ return {
   -- { "olivercederborg/poimandres.nvim" },
   -- { "mhartington/oceanic-next" },
   -- { "dgox16/oldworld.nvim" },
-  { "sho-87/kanagawa-paper.nvim" },
+  -- { "sho-87/kanagawa-paper.nvim" },
   { "HoNamDuong/hybrid.nvim" },
   -- { "rockyzhang24/arctic.nvim" },
   -- { "Yazeed1s/oh-lucy.nvim" },
@@ -73,110 +178,234 @@ return {
   -- { "kvrohit/substrata.nvim" },
   -- { "rktjmp/lush.nvim" },
   { "mcauley-penney/techbase.nvim", priority = 1000 },
+  {
+    "vague2k/vague.nvim",
+    lazy = true,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      -- disable bold/italic globally in `style`
+      bold = false,
+      italic = true,
+      style = {
+        -- "none" is the same thing as default. But "italic" and "bold" are also valid options
+        boolean = "bold",
+        number = "none",
+        float = "none",
+        error = "bold",
+        comments = "italic",
+        conditionals = "none",
+        functions = "none",
+        headings = "bold",
+        operators = "none",
+        strings = "italic",
+        variables = "none",
+
+        -- keywords
+        keywords = "none",
+        keyword_return = "italic",
+        keywords_loop = "none",
+        keywords_label = "none",
+        keywords_exception = "none",
+
+        -- builtin
+        builtin_constants = "bold",
+        builtin_functions = "none",
+        builtin_types = "bold",
+        builtin_variables = "none",
+      },
+      -- plugin styles where applicable
+      -- make an issue/pr if you'd like to see more styling options!
+      plugins = {
+        cmp = {
+          match = "bold",
+          match_fuzzy = "bold",
+        },
+        dashboard = {
+          footer = "italic",
+        },
+        lsp = {
+          diagnostic_error = "bold",
+          diagnostic_hint = "none",
+          diagnostic_info = "italic",
+          diagnostic_ok = "none",
+          diagnostic_warn = "bold",
+        },
+        neotest = {
+          focused = "bold",
+          adapter_name = "bold",
+        },
+        telescope = {
+          match = "bold",
+        },
+      },
+
+      -- Override highlights or add new highlights
+      on_highlights = function(highlights, colors) end,
+
+      -- Override colors
+      colors = {
+        bg = "#141415",
+        inactiveBg = "#1c1c24",
+        fg = "#cdcdcd",
+        floatBorder = "#878787",
+        line = "#252530",
+        comment = "#606079",
+        builtin = "#b4d4cf",
+        func = "#c48282",
+        string = "#e8b589",
+        number = "#e0a363",
+        property = "#c3c3d5",
+        constant = "#aeaed1",
+        parameter = "#bb9dbd",
+        visual = "#333738",
+        error = "#d8647e",
+        warning = "#f3be7c",
+        hint = "#7e98e8",
+        operator = "#90a0b5",
+        keyword = "#6e94b2",
+        type = "#9bb4bc",
+        search = "#405065",
+        plus = "#7fa563",
+        delta = "#f3be7c",
+      },
+    },
+  },
 
   {
     "nvim-lualine/lualine.nvim",
-    opts = function(_, opts)
-      ---@type table<string, {updated:number, total:number, enabled: boolean, status:string[]}>
-      local mutagen = {}
-
-      local function mutagen_status()
-        local cwd = vim.uv.cwd() or "."
-        mutagen[cwd] = mutagen[cwd]
-          or {
-            updated = 0,
-            total = 0,
-            enabled = vim.fs.find("mutagen.yml", { path = cwd, upward = true })[1] ~= nil,
-            status = {},
-          }
-        local now = vim.uv.now() -- timestamp in milliseconds
-        local refresh = mutagen[cwd].updated + 10000 < now
-        if #mutagen[cwd].status > 0 then
-          refresh = mutagen[cwd].updated + 1000 < now
-        end
-        if mutagen[cwd].enabled and refresh then
-          ---@type {name:string, status:string, idle:boolean}[]
-          local sessions = {}
-          local lines = vim.fn.systemlist("mutagen project list")
-          local status = {}
-          local name = nil
-          for _, line in ipairs(lines) do
-            local n = line:match("^Name: (.*)")
-            if n then
-              name = n
-            end
-            local s = line:match("^Status: (.*)")
-            if s then
-              table.insert(sessions, {
-                name = name,
-                status = s,
-                idle = s == "Watching for changes",
-              })
-            end
-          end
-          for _, session in ipairs(sessions) do
-            if not session.idle then
-              table.insert(status, session.name .. ": " .. session.status)
-            end
-          end
-          mutagen[cwd].updated = now
-          mutagen[cwd].total = #sessions
-          mutagen[cwd].status = status
-          if #sessions == 0 then
-            vim.notify("Mutagen is not running", vim.log.levels.ERROR, { title = "Mutagen" })
-          end
-        end
-        return mutagen[cwd]
-      end
-
-      local error_color = { fg = Snacks.util.color("DiagnosticError") }
-      local ok_color = { fg = Snacks.util.color("DiagnosticInfo") }
-      opts.sections = opts.sections or {}
-      opts.sections.lualine_x = opts.sections.lualine_x or {}
-      table.insert(opts.sections.lualine_x, {
-        function()
-          local s = mutagen_status()
-          local msg = tostring(s.total)
-          if #s.status > 0 then
-            msg = msg .. " | " .. table.concat(s.status, " | ")
-          end
-          return (s.total == 0 and "󰋘 " or "󰋙 ") .. msg
-        end,
-        cond = function()
-          return mutagen_status().enabled
-        end,
-        color = function()
-          return (mutagen_status().total == 0 or mutagen_status().status[1]) and error_color or ok_color
-        end,
-      })
-
-      opts.tabline = opts.tabline or {}
-      opts.tabline.lualine_a = opts.tabline.lualine_a or {}
-      opts.tabline.lualine_z = opts.tabline.lualine_z or {}
-      table.insert(opts.tabline.lualine_a, {
-        "buffers",
-        mode = 0,
-        use_mode_colors = true,
-        symbols = { alternate_file = "" },
-      })
-      table.insert(opts.tabline.lualine_z, {
-        "tabs",
-        tab_max_length = 40,
-        max_length = vim.o.columns / 3,
-        mode = 0,
-        path = 0,
-        use_mode_colors = true,
-        show_modified_status = true,
-        symbols = { modified = " " },
-        fmt = function(name, context)
-          local buflist = vim.fn.tabpagebuflist(context.tabnr)
-          local winnr = vim.fn.tabpagewinnr(context.tabnr)
-          local bufnr = buflist[winnr]
-          local mod = vim.fn.getbufvar(bufnr, "&mod")
-          return name .. (mod == 1 and " +" or "")
-        end,
-      })
-    end,
+    opts = {
+      options = {
+        icons_enabled = true,
+        theme = "auto",
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+      },
+      sections = {
+        lualine_a = { "filename" },
+        lualine_b = { "diagnostics" },
+        lualine_c = {},
+        lualine_x = { "lsp_status" },
+        lualine_y = { "diff" },
+        lualine_z = { "location" },
+      },
+      tabline = {
+        lualine_a = {
+          {
+            "buffers",
+            hide_filename_extension = true,
+            max_length = vim.o.columns * 2 / 3,
+            use_mode_colors = true,
+            symbols = { alternate_file = "" },
+          },
+        },
+        lualine_b = {},
+        lualine_z = {
+          { "tabs", use_mode_colors = true, symbols = { modified = "●" } },
+        },
+      },
+    },
+    -- opts = function(_, opts)
+    --   ---@type table<string, {updated:number, total:number, enabled: boolean, status:string[]}>
+    --   local mutagen = {}
+    --
+    --   local function mutagen_status()
+    --     local cwd = vim.uv.cwd() or "."
+    --     mutagen[cwd] = mutagen[cwd]
+    --       or {
+    --         updated = 0,
+    --         total = 0,
+    --         enabled = vim.fs.find("mutagen.yml", { path = cwd, upward = true })[1] ~= nil,
+    --         status = {},
+    --       }
+    --     local now = vim.uv.now() -- timestamp in milliseconds
+    --     local refresh = mutagen[cwd].updated + 10000 < now
+    --     if #mutagen[cwd].status > 0 then
+    --       refresh = mutagen[cwd].updated + 1000 < now
+    --     end
+    --     if mutagen[cwd].enabled and refresh then
+    --       ---@type {name:string, status:string, idle:boolean}[]
+    --       local sessions = {}
+    --       local lines = vim.fn.systemlist("mutagen project list")
+    --       local status = {}
+    --       local name = nil
+    --       for _, line in ipairs(lines) do
+    --         local n = line:match("^Name: (.*)")
+    --         if n then
+    --           name = n
+    --         end
+    --         local s = line:match("^Status: (.*)")
+    --         if s then
+    --           table.insert(sessions, {
+    --             name = name,
+    --             status = s,
+    --             idle = s == "Watching for changes",
+    --           })
+    --         end
+    --       end
+    --       for _, session in ipairs(sessions) do
+    --         if not session.idle then
+    --           table.insert(status, session.name .. ": " .. session.status)
+    --         end
+    --       end
+    --       mutagen[cwd].updated = now
+    --       mutagen[cwd].total = #sessions
+    --       mutagen[cwd].status = status
+    --       if #sessions == 0 then
+    --         vim.notify("Mutagen is not running", vim.log.levels.ERROR, { title = "Mutagen" })
+    --       end
+    --     end
+    --     return mutagen[cwd]
+    --   end
+    --
+    --   local error_color = { fg = Snacks.util.color("DiagnosticError") }
+    --   local ok_color = { fg = Snacks.util.color("DiagnosticInfo") }
+    --   opts.sections = opts.sections or {}
+    --   opts.sections.lualine_x = opts.sections.lualine_x or {}
+    --   table.insert(opts.sections.lualine_x, {
+    --     function()
+    --       local s = mutagen_status()
+    --       local msg = tostring(s.total)
+    --       if #s.status > 0 then
+    --         msg = msg .. " | " .. table.concat(s.status, " | ")
+    --       end
+    --       return (s.total == 0 and "󰋘 " or "󰋙 ") .. msg
+    --     end,
+    --     cond = function()
+    --       return mutagen_status().enabled
+    --     end,
+    --     color = function()
+    --       return (mutagen_status().total == 0 or mutagen_status().status[1]) and error_color or ok_color
+    --     end,
+    --   })
+    --
+    --   opts.tabline = opts.tabline or {}
+    --   opts.tabline.lualine_a = opts.tabline.lualine_a or {}
+    --   opts.tabline.lualine_z = opts.tabline.lualine_z or {}
+    --   table.insert(opts.tabline.lualine_a, {
+    --     "buffers",
+    --     mode = 0,
+    --     use_mode_colors = true,
+    --     symbols = { alternate_file = "" },
+    --   })
+    --   table.insert(opts.tabline.lualine_z, {
+    --     "tabs",
+    --     tab_max_length = 40,
+    --     max_length = vim.o.columns / 3,
+    --     mode = 0,
+    --     path = 0,
+    --     use_mode_colors = true,
+    --     show_modified_status = true,
+    --     symbols = { modified = " " },
+    --     fmt = function(name, context)
+    --       local buflist = vim.fn.tabpagebuflist(context.tabnr)
+    --       local winnr = vim.fn.tabpagewinnr(context.tabnr)
+    --       local bufnr = buflist[winnr]
+    --       local mod = vim.fn.getbufvar(bufnr, "&mod")
+    --       return name .. (mod == 1 and " +" or "")
+    --     end,
+    --   })
+    -- end,
   },
 
   {
