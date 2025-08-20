@@ -35,7 +35,7 @@ theme = Kanagawa Dragon
 # theme = rose-pine
 
 # BACKGROUND
-background-opacity = 0.85
+background-opacity = 0.8
 background-blur = 100
 
 adjust-cell-height = 10%

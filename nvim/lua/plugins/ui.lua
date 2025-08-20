@@ -147,6 +147,14 @@ return {
       },
     },
   },
+  {
+    "ramojus/mellifluous.nvim",
+    config = function()
+      require("mellifluous").setup({})
+    end,
+  },
+  { "marko-cerovac/material.nvim" },
+  { "Shatur/neovim-ayu" },
   -- { "oxfist/night-owl.nvim" },
   -- { "ramojus/mellifluous.nvim" },
   -- { "rafamadriz/neon" },
@@ -177,7 +185,14 @@ return {
   -- { "datsfilipe/vesper.nvim" },
   -- { "kvrohit/substrata.nvim" },
   -- { "rktjmp/lush.nvim" },
-  { "mcauley-penney/techbase.nvim", priority = 1000 },
+  {
+    "mcauley-penney/techbase.nvim",
+    priority = 1000,
+    opts = {
+      italic_comments = true,
+      transparent = true,
+    },
+  },
   {
     "vague2k/vague.nvim",
     lazy = true,

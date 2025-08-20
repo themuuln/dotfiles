@@ -81,11 +81,6 @@ return {
       enabled = false,
       chunk = { enabled = true },
     },
-    animate = {
-      fps = 120,
-      easing = "inOutCubic",
-    },
-    -- dashboard = { example = "github" },
     dashboard = {
       sections = {
         { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },

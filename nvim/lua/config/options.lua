@@ -3,19 +3,15 @@ local o = vim.opt
 
 o.spell = false
 
--- -- Optimizations on startup
--- vim.loader.enable()
+vim.loader.enable()
 vim.g.ai_cmp = false
--- go.lazygit_config = false
 go.lazyvim_cmp = "blink"
-go.lazyvim_picker = "snacks"
 
 -- Define leader key
 go.mapleader = " "
 go.maplocalleader = "\\"
 
--- Autoformat on save (Global)
--- go.autoformat = true
+go.autoformat = true
 
 -- Root dir detection
 go.root_spec = {

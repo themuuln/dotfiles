@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     local filename = vim.fn.expand("%:t"):lower()
     local kulala = require("kulala")
 
-    local selected_env = filename:match("sso") and "testsso" or "test"
+    local selected_env = filename:match("sso") and "devsso" or "dev"
 
     if selected_env ~= last_env then
       kulala.set_selected_env(selected_env)

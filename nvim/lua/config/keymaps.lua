@@ -10,6 +10,8 @@ keymap.set("n", "<leader>pv", vim.cmd.Ex)
 keymap.set("n", "J", "mzJ`z")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<C-f>", "<C-f>zz")
+keymap.set("n", "<C-b>", "<C-b>zz")
 keymap.set("n", "n", "nzz")
 keymap.set("n", "N", "Nzz")
 
