@@ -211,6 +211,8 @@ return {
   { "sindrets/diffview.nvim" },
   { "tpope/vim-fugitive" },
 
+  { "sindrets/diffview.nvim" },
+
   {
     "akinsho/bufferline.nvim",
     enabled = false,
