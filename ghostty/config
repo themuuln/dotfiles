@@ -5,8 +5,9 @@
 # font-family-bold = "GeistMono Nerd Font"
 # font-family-italic = "Maple Mono NF"
 # font-family-bold-italic = "Maple Mono NF"
+font-family = "ZedMono NFM Extd"
 # font-family = "Symbols Nerd Font Mono"
-font-size = 18
+font-size = 16
 adjust-underline-position = 4
 
 # THEMES
@@ -15,8 +16,8 @@ adjust-underline-position = 4
 # theme = OneHalfDark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
-theme = Kanagawa Wave
-# theme = Kanagawa Dragon
+# theme = Kanagawa Wave
+theme = Kanagawa Dragon
 # theme = catppuccin-frappe
 # theme = catppuccin-macchiato
 # theme = catppuccin-mocha
