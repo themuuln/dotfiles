@@ -83,18 +83,7 @@ return {
     },
     dashboard = {
       sections = {
-        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-        { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-        {
-          pane = 2,
-          icon = " ",
-          desc = "Browse Repo",
-          padding = 1,
-          key = "b",
-          action = function()
-            Snacks.gitbrowse()
-          end,
-        },
+        { icon = " ", title = "Recent", section = "recent_files", indent = 0, padding = 1 },
         function()
           local in_git = Snacks.git.get_root() ~= nil
           local cmds = {
@@ -102,16 +91,16 @@ return {
               icon = " ",
               title = "Git Status",
               cmd = "git --no-pager diff --stat -B -M -C",
-              pane = 2,
+              pane = 1,
             },
           }
           return vim.tbl_map(function(cmd)
             return vim.tbl_extend("force", {
               section = "terminal",
               enabled = in_git,
-              padding = 1,
+              padding = 0,
               ttl = 5 * 60,
-              indent = 3,
+              indent = 0,
             }, cmd)
           end, cmds)
         end,
