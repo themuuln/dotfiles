@@ -95,6 +95,13 @@ return {
       --     show_without_menu = false,
       --   },
       -- },
+      signature = {
+        trigger = {
+          enabled = true,
+          show_on_keyword = true,
+          show_on_insert = true,
+        },
+      },
     },
   },
 
