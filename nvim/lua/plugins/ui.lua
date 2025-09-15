@@ -137,7 +137,7 @@ return {
       keywordStyle = { italic = false },
       statementStyle = { bold = false },
       typeStyle = {},
-      transparent = true, -- do not set background color
+      transparent = false, -- do not set background color
       dimInactive = false, -- dim inactive window `:h hl-NormalNC`
       terminalColors = true, -- define vim.g.terminal_color_{0,17}
       theme = "dragon", -- Load "wave" theme
@@ -190,7 +190,7 @@ return {
     lazy = true,
     priority = 1000,
     opts = {
-      transparent = true,
+      -- transparent = true,
       bold = false,
       italic = true,
     },
