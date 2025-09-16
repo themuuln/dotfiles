@@ -183,16 +183,7 @@ return {
     },
   },
 
-  require("treesitter-context").setup({
-    multiwindow = true,
-    trim_scope = "outer",
-    mode = "topline",
-  }),
-
-  {
-    "dinhhuy258/git.nvim",
-    event = "BufReadPre",
-  },
+  { "dinhhuy258/git.nvim", event = "BufReadPre" },
 
   {
     "harrisoncramer/gitlab.nvim",
@@ -207,15 +198,22 @@ return {
       })
     end,
   },
-
-  { "sindrets/diffview.nvim" },
   { "tpope/vim-fugitive" },
 
-  { "sindrets/diffview.nvim" },
-
   {
-    "akinsho/bufferline.nvim",
-    enabled = false,
-    -- opts = { options = { separator_style = "slope" } },
+    "NeogitOrg/neogit",
+    enabled = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+    },
   },
+
+  { "akinsho/bufferline.nvim", enabled = false },
+
+  require("treesitter-context").setup({
+    multiwindow = true,
+    trim_scope = "outer",
+    mode = "topline",
+  }),
 }
