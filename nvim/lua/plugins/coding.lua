@@ -156,4 +156,24 @@ return {
       },
     },
   },
+
+  {
+    "dmtrKovalenko/fff.nvim",
+    build = "cargo build --release",
+    opts = {
+      debug = {
+        show_scores = true, -- to help us optimize the scoring system, feel free to share your scores!
+      },
+    },
+    lazy = false,
+    keys = {
+      {
+        "<leader><Space>",
+        function()
+          require("fff").find_files()
+        end,
+        desc = "FFFind files",
+      },
+    },
+  },
 }
