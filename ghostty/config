@@ -5,9 +5,8 @@
 # font-family-bold = "GeistMono Nerd Font"
 # font-family-italic = "Maple Mono NF"
 # font-family-bold-italic = "Maple Mono NF"
-font-family = "ZedMono NFM Extd"
-# font-family = "Symbols Nerd Font Mono"
-font-size = 16
+# font-family = "ZedMono NFM Extd"
+font-size = 18
 adjust-underline-position = 4
 
 # THEMES
@@ -17,10 +16,10 @@ adjust-underline-position = 4
 # theme = GitHub-Dark-Dimmed
 # theme = nord
 # theme = Kanagawa Wave
-theme = Kanagawa Dragon
+# theme = Kanagawa Dragon
 # theme = catppuccin-frappe
 # theme = catppuccin-macchiato
-# theme = catppuccin-mocha
+theme = catppuccin-mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
 # theme = tokyonight_night
@@ -36,12 +35,31 @@ theme = Kanagawa Dragon
 # theme = rose-pine
 
 # BACKGROUND
-background-opacity = 0.85
-background-blur = 100
+# background-opacity = 0.85
+# background-blur = 100
 
-adjust-cell-height = 10%
-adjust-cursor-height = 10%
-adjust-cell-width = -5%
+adjust-cell-height = 15%
+adjust-cursor-height = 15%
+
+# adjust-cell-height = 20%
+# adjust-cursor-height = 20%
+
+# adjust-cell-height = 25%
+# adjust-cursor-height = 25%
+
+# adjust-cell-height = 30%
+# adjust-cursor-height = 30%
+
+# adjust-cell-height = 35%
+# adjust-cursor-height = 35%
+
+# adjust-cell-height = 35%
+# adjust-cursor-height = 35%
+
+# adjust-cell-height = 40%
+# adjust-cursor-height = 40%
+
+# adjust-cell-width = -5%
 
 # window-padding-x = 8
 # window-padding-y = 8
@@ -53,10 +71,9 @@ cursor-invert-fg-bg = true
 gtk-single-instance = true
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
-window-padding-y = 2,0
+# window-padding-y = 2,0
 window-padding-balance = true
 window-decoration = false
-
 copy-on-select = clipboard
 
 # custom-shader = "shaders/bloom025.glsl"
