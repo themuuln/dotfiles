@@ -9,17 +9,6 @@ return {
       keymap = {
         preset = "enter",
         ["<C-g>"] = { "accept" },
-        ["<C-d>"] = { "select_next" },
-        ["<C-c>"] = { "select_prev" },
-      },
-      fuzzy = {
-        max_typos = function(keyword)
-          return math.floor(#keyword / 4)
-        end,
-        use_frecency = true,
-        use_proximity = true,
-        use_unsafe_no_lock = false,
-        sorts = { "score", "exact", "sort_text" },
       },
       cmdline = { completion = { ghost_text = { enabled = false } } },
       signature = { trigger = { enabled = true, show_on_keyword = true, show_on_insert = true } },
@@ -59,10 +48,10 @@ return {
 
   { "mg979/vim-visual-multi" },
 
-  { "echasnovski/mini.surround", version = false, opts = { n_lines = 100 } },
+  { "nvim-mini/mini.surround", version = false, opts = { n_lines = 100 } },
 
   {
-    "echasnovski/mini.move",
+    "nvim-mini/mini.move",
     opts = {
       mappings = {
         left = "<A-Left>",
