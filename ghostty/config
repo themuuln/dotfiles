@@ -6,8 +6,8 @@
 # font-family-italic = "Maple Mono NF"
 # font-family-bold-italic = "Maple Mono NF"
 # font-family = "ZedMono NFM Extd"
-font-size = 18
-adjust-underline-position = 4
+# font-size = 18
+# adjust-underline-position = 4
 
 # THEMES
 # theme = GruvboxDarkHard
@@ -17,9 +17,10 @@ adjust-underline-position = 4
 # theme = nord
 # theme = Kanagawa Wave
 # theme = Kanagawa Dragon
+# theme = Catppuccin
 # theme = catppuccin-frappe
-# theme = catppuccin-macchiato
-theme = catppuccin-mocha
+theme = Catppuccin Macchiato
+# theme = Catppuccin Mocha
 # theme = GitHub-Dark-Default
 # theme = tokyonight_moon
 # theme = tokyonight_night
@@ -33,13 +34,14 @@ theme = catppuccin-mocha
 # theme = neobones_dark
 # theme = Operator Mono Dark
 # theme = rose-pine
+confirm-close-surface = false
 
 # BACKGROUND
 # background-opacity = 0.85
 # background-blur = 100
 
-adjust-cell-height = 15%
-adjust-cursor-height = 15%
+adjust-cell-height = 13%
+adjust-cursor-height = 13%
 
 # adjust-cell-height = 20%
 # adjust-cursor-height = 20%
@@ -68,6 +70,9 @@ window-padding-y = 0
 
 cursor-invert-fg-bg = true
 
+cursor-style = block
+cursor-style-blink = true
+
 gtk-single-instance = true
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
@@ -83,25 +88,3 @@ copy-on-select = clipboard
 # custom-shader = "shaders/bloom.glsl"
 # custom-shader = "shaders/glow-rgbsplit-twitchy.glsl"
 # custom-shader = "shaders/retro-terminal.glsl"
-
-# custom-shader = "shaders/animated-gradient-shader.glsl"
-# custom-shader = "shaders/bettercrt.glsl"
-# custom-shader = "shaders/cineShader-Lava.glsl"
-# custom-shader = "shaders/crt.glsl"
-# custom-shader = "shaders/cubes.glsl"
-# custom-shader = "shaders/dither.glsl"
-# custom-shader = "shaders/drunkard.glsl"
-# custom-shader = "shaders/fireworks-rockets.glsl"
-# custom-shader = "shaders/fireworks.glsl"
-# custom-shader = "shaders/galaxy.glsl"
-# custom-shader = "shaders/gears-and-belts.glsl"
-# custom-shader = "shaders/glitchy.glsl"
-# custom-shader = "shaders/gradient-background.glsl"
-# custom-shader = "shaders/in-game-crt.glsl"
-# custom-shader = "shaders/inside-the-matrix.glsl"
-# custom-shader = "shaders/just-snow.glsl"
-# custom-shader = "shaders/matrix-hallway.glsl"
-# custom-shader = "shaders/mnoise.glsl"
-# custom-shader = "shaders/negative.glsl"
-# custom-shader = "shaders/sin-interference.glsl"
-# custom-shader = "shaders/tft.glsl"
