@@ -16,15 +16,6 @@ return {
   },
 
   {
-    "folke/ts-comments.nvim",
-    opts = {
-      langs = {
-        dts = "// %s",
-      },
-    },
-  },
-
-  {
     "chrisgrieser/nvim-scissors",
     opts = { jsonFormatter = "jq" },
     keys = {
@@ -67,23 +58,32 @@ return {
     },
   },
 
-  {
-    "dmtrKovalenko/fff.nvim",
-    build = "cargo build --release",
-    opts = {
-      debug = {
-        show_scores = true, -- to help us optimize the scoring system, feel free to share your scores!
-      },
-    },
-    lazy = false,
-    keys = {
-      {
-        "<leader><Space>",
-        function()
-          require("fff").find_files()
-        end,
-        desc = "FFFind files",
-      },
-    },
-  },
+  -- {
+  --   "dmtrKovalenko/fff.nvim",
+  --   build = "cargo build --release",
+  --   opts = {
+  --     debug = {
+  --       show_scores = true,
+  --     },
+  --   },
+  --   lazy = false,
+  --   keys = {
+  --     {
+  --       "<leader><Space>",
+  --       function()
+  --         require("fff").find_files()
+  --       end,
+  --       desc = "FFFind files",
+  --     },
+  --   },
+  -- },
+
+  -- {
+  --   "stevearc/oil.nvim",
+  --   ---@module 'oil'
+  --   ---@type oil.SetupOpts
+  --   opts = {},
+  --   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  --   lazy = false,
+  -- },
 }
