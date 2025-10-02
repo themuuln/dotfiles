@@ -2,6 +2,7 @@ local lazy = require("lazy")
 local wk = require("which-key")
 local keymap = vim.keymap
 local map = vim.keymap.set
+local dap = require("dap")
 
 keymap.set("n", "<C-m>", "<C-i>", { noremap = true, silent = true })
 keymap.set("n", "U", ":redo<CR>", { noremap = true, silent = true })
@@ -14,6 +15,20 @@ keymap.set("n", "<C-f>", "<C-f>zz")
 keymap.set("n", "<C-b>", "<C-b>zz")
 keymap.set("n", "n", "nzz")
 keymap.set("n", "N", "Nzz")
+keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Continue / Start" })
+keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
+keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
+keymap.set("n", "<S-F11>", dap.step_out, { desc = "Debug: Step Out" })
+keymap.set("n", "<C-S-F5>", dap.restart, { desc = "Debug: Restart" })
+keymap.set("n", "<S-F5>", function()
+  dap.close()
+end, { desc = "Debug: Stop" })
+
+-- -- Optional: Visual mode mappings for selecting code to debug (VSCode-like)
+-- vim.keymap.set("v", "<F5>", function()
+--   dap.continue({ execute_args = vim.fn.getenv("DEBUGPY_ARGS") }) -- Adjust for your lang if needed
+-- end, { desc = "Debug: Continue selected" }))
+--
 
 -- dial
 keymap.set("n", "+", function()
