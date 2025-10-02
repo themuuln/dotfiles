@@ -1,6 +1,14 @@
 # run this command for fix mission control size
 # defaults write com.apple.dock expose-group-apps -bool true && killall Dock
 # defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
+after-startup-command = [
+  'exec-and-forget borders active_color=0xff7AA2F8 inactive_color=0xff24283B width=5.0',
+]
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  '~/.config/aerospace/pip-move.sh',
+]
 start-at-login = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 enable-normalization-flatten-containers = true
