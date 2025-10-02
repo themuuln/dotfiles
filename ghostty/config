@@ -1,28 +1,28 @@
 # FONTS 
-# font-family = "FiraCode Nerd Font"
+font-family = "FiraCode Nerd Font"
 # font-family-bold = "FiraCode Nerd Font"
 # font-family = "GeistMono Nerd Font"
 # font-family-bold = "GeistMono Nerd Font"
 # font-family-italic = "Maple Mono NF"
 # font-family-bold-italic = "Maple Mono NF"
 # font-family = "ZedMono NFM Extd"
-# font-size = 18
-# adjust-underline-position = 4
+font-size = 18
+adjust-underline-position = 6
 
 # THEMES
 # theme = GruvboxDarkHard
 # theme = GruvboxDark
-# theme = OneHalfDark
+# theme = One Half Dark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
 # theme = Kanagawa Wave
-# theme = Kanagawa Dragon
+theme = Kanagawa Dragon
 # theme = Catppuccin
 # theme = catppuccin-frappe
-theme = Catppuccin Macchiato
+# theme = Catppuccin Macchiato
 # theme = Catppuccin Mocha
 # theme = GitHub-Dark-Default
-# theme = tokyonight_moon
+# theme = TokyoNight Moon
 # theme = tokyonight_night
 # theme = Dark+
 # theme = ayu
@@ -37,11 +37,15 @@ theme = Catppuccin Macchiato
 confirm-close-surface = false
 
 # BACKGROUND
-# background-opacity = 0.85
-# background-blur = 100
+background-opacity = 0.9
+background-blur = 100
 
-adjust-cell-height = 13%
-adjust-cursor-height = 13%
+# adjust-cell-height = 13%
+# adjust-cursor-height = 13%
+
+
+adjust-cell-height = 15%
+adjust-cursor-height = 15%
 
 # adjust-cell-height = 20%
 # adjust-cursor-height = 20%
@@ -72,13 +76,19 @@ cursor-invert-fg-bg = true
 
 cursor-style = block
 cursor-style-blink = true
+mouse-hide-while-typing = true
 
 gtk-single-instance = true
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
-# window-padding-y = 2,0
+gtk-toolbar-style = flat
+window-padding-y = 2,0
 window-padding-balance = true
 window-decoration = false
+copy-on-select = clipboard
+shell-integration-features = cursor,sudo,no-title,ssh-env,ssh-terminfo
+app-notifications = no-clipboard-copy
+macos-titlebar-style = hidden
 copy-on-select = clipboard
 
 # custom-shader = "shaders/bloom025.glsl"
