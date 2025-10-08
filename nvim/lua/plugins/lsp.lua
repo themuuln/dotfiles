@@ -4,14 +4,14 @@ return {
     dependencies = { "saghen/blink.cmp" },
     opts = {
       inlay_hints = { enabled = false },
-      diagnostics = { virtual_text = { prefix = "icons" } },
-      capabilities = {
-        workspace = {
-          didChangeWatchedFiles = {
-            dynamicRegistration = false,
-          },
-        },
-      },
+      -- diagnostics = { virtual_text = { prefix = "icons" } },
+      -- capabilities = {
+      --   workspace = {
+      --     didChangeWatchedFiles = {
+      --       dynamicRegistration = false,
+      --     },
+      --   },
+      -- },
     },
   },
 
@@ -39,8 +39,8 @@ return {
         dev_tools = { autostart = false, auto_open_browser = false },
         lsp = {
           color = {
-            enabled = false,
-            foreground = false,
+            enabled = true,
+            foreground = true,
             virtual_text = true,
             virtual_text_str = "■",
           },
@@ -62,10 +62,9 @@ return {
       })
     end,
   },
-  {
-    "stevearc/conform.nvim",
-    opts = { exclude_filetypes = { "dart" } },
-  },
+
+  { "stevearc/conform.nvim", opts = { exclude_filetypes = { "dart" } } },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {

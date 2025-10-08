@@ -44,7 +44,7 @@ vim.opt.wrap = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- set directory where undo files are stored
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "120"
 vim.opt.formatoptions:append({ "r" })

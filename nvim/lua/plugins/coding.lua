@@ -10,32 +10,30 @@ return {
         preset = "enter",
         ["<C-g>"] = { "accept" },
       },
-      cmdline = { completion = { ghost_text = { enabled = false } } },
-      signature = { trigger = { enabled = true, show_on_keyword = true, show_on_insert = true } },
     },
   },
 
-  {
-    "chrisgrieser/nvim-scissors",
-    opts = { jsonFormatter = "jq" },
-    keys = {
-      {
-        "<leader>cB",
-        function()
-          require("scissors").editSnippet()
-        end,
-        desc = "Edit Snippets",
-      },
-      {
-        "<leader>cb",
-        mode = { "n", "v" },
-        function()
-          require("scissors").addNewSnippet()
-        end,
-        desc = "Add Snippets",
-      },
-    },
-  },
+  -- {
+  --   "chrisgrieser/nvim-scissors",
+  --   opts = { jsonFormatter = "jq" },
+  --   keys = {
+  --     {
+  --       "<leader>cB",
+  --       function()
+  --         require("scissors").editSnippet()
+  --       end,
+  --       desc = "Edit Snippets",
+  --     },
+  --     {
+  --       "<leader>cb",
+  --       mode = { "n", "v" },
+  --       function()
+  --         require("scissors").addNewSnippet()
+  --       end,
+  --       desc = "Add Snippets",
+  --     },
+  --   },
+  -- },
 
   { "mg979/vim-visual-multi" },
 
@@ -82,8 +80,26 @@ return {
   --   "stevearc/oil.nvim",
   --   ---@module 'oil'
   --   ---@type oil.SetupOpts
-  --   opts = {},
+  --   opts = {
+  --     -- win_options = {
+  --     --   signcolumn = "yes:2",
+  --     -- },
+  --   },
+  --   -- Optional dependencies
   --   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  --   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  --   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   --   lazy = false,
+  -- },
+
+  -- {
+  --   "refractalize/oil-git-status.nvim",
+  --   dependencies = { "stevearc/oil.nvim" },
+  --   config = true,
+  -- },
+
+  -- {
+  --   "benomahony/oil-git.nvim",
+  --   dependencies = { "stevearc/oil.nvim" },
   -- },
 }

@@ -29,13 +29,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
-vim.filetype.add({
-  extension = {
-    overlay = "dts",
-    keymap = "dts",
-  },
-})
-
 -- vim.api.nvim_create_autocmd("QuickFixCmdPost", {
 --   callback = function()
 --     vim.cmd([[Trouble qflist open]])
@@ -52,15 +45,6 @@ vim.filetype.add({
 --     end
 --   end,
 -- })
-
-if vim.fn.has("nvim-0.10") == 1 then
-  -- vim.api.nvim_create_autocmd({ "TermRequest", "TermResponse" }, {
-  --   once = true,
-  --   callback = function(ev)
-  --     dd(ev.event, ev.data)
-  --   end,
-  -- })
-end
 
 -- kulala autocmds for env
 local last_env = nil
