@@ -5,12 +5,7 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
-    opts = {
-      keymap = {
-        preset = "enter",
-        ["<C-g>"] = { "accept" },
-      },
-    },
+    opts = { keymap = { preset = "enter" } },
   },
 
   -- {

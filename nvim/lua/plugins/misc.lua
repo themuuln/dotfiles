@@ -63,19 +63,19 @@ return {
 
   { "DavidAnson/markdownlint", enabled = false },
 
-  {
-    "harrisoncramer/gitlab.nvim",
-    build = function()
-      require("gitlab.server").build(true)
-    end, -- Builds the Go binary
-    config = function()
-      require("gitlab").setup({
-        auth_provider = function()
-          return os.getenv("GITLAB_TOKEN"), os.getenv("GITLAB_VIM_URL"), nil
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "harrisoncramer/gitlab.nvim",
+  --   build = function()
+  --     require("gitlab.server").build(true)
+  --   end, -- Builds the Go binary
+  --   config = function()
+  --     require("gitlab").setup({
+  --       auth_provider = function()
+  --         return os.getenv("GITLAB_TOKEN"), os.getenv("GITLAB_VIM_URL"), nil
+  --       end,
+  --     })
+  --   end,
+  -- },
 
   {
     "NeogitOrg/neogit",
@@ -86,36 +86,56 @@ return {
     },
   },
 
-  -- {
-  --   "saxon1964/neovim-tips",
-  --   version = "*", -- Only update on tagged releases
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "MeanderingProgrammer/render-markdown.nvim",
-  --   },
-  --   opts = {
-  --     -- OPTIONAL: Location of user defined tips (default value shown below)
-  --     user_file = vim.fn.stdpath("config") .. "/neovim_tips/user_tips.md",
-  --     -- OPTIONAL: Prefix for user tips to avoid conflicts (default: "[User] ")
-  --     user_tip_prefix = "[User] ",
-  --     -- OPTIONAL: Show warnings when user tips conflict with builtin (default: true)
-  --     warn_on_conflicts = true,
-  --     -- OPTIONAL: Daily tip mode (default: 1)
-  --     -- 0 = off, 1 = once per day, 2 = every startup
-  --     daily_tip = 1,
-  --   },
-  --   init = function()
-  --     -- OPTIONAL: Change to your liking or drop completely
-  --     -- The plugin does not provide default key mappings, only commands
-  --     local map = vim.keymap.set
-  --     map("n", "<leader>nto", ":NeovimTips<CR>", { desc = "Neovim tips", noremap = true, silent = true })
-  --     map("n", "<leader>nte", ":NeovimTipsEdit<CR>", { desc = "Edit your Neovim tips", noremap = true, silent = true })
-  --     map("n", "<leader>nta", ":NeovimTipsAdd<CR>", { desc = "Add your Neovim tip", noremap = true, silent = true })
-  --     map("n", "<leader>nth", ":help neovim-tips<CR>", { desc = "Neovim tips help", noremap = true, silent = true })
-  --     map("n", "<leader>ntr", ":NeovimTipsRandom<CR>", { desc = "Show random tip", noremap = true, silent = true })
-  --     map("n", "<leader>ntp", ":NeovimTipsPdf<CR>", { desc = "Open Neovim tips PDF", noremap = true, silent = true })
-  --   end,
-  -- },
+  {
+    "saxon1964/neovim-tips",
+    version = "*", -- Only update on tagged releases
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "MeanderingProgrammer/render-markdown.nvim",
+    },
+    opts = {
+      -- OPTIONAL: Location of user defined tips (default value shown below)
+      user_file = vim.fn.stdpath("config") .. "/neovim_tips/user_tips.md",
+      -- OPTIONAL: Prefix for user tips to avoid conflicts (default: "[User] ")
+      user_tip_prefix = "[User] ",
+      -- OPTIONAL: Show warnings when user tips conflict with builtin (default: true)
+      warn_on_conflicts = true,
+      -- OPTIONAL: Daily tip mode (default: 1)
+      -- 0 = off, 1 = once per day, 2 = every startup
+      daily_tip = 1,
+    },
+    init = function()
+      -- OPTIONAL: Change to your liking or drop completely
+      -- The plugin does not provide default key mappings, only commands
+      local map = vim.keymap.set
+      map("n", "<leader>nto", ":NeovimTips<CR>", { desc = "Neovim tips", noremap = true, silent = true })
+      map("n", "<leader>nte", ":NeovimTipsEdit<CR>", { desc = "Edit your Neovim tips", noremap = true, silent = true })
+      map("n", "<leader>nta", ":NeovimTipsAdd<CR>", { desc = "Add your Neovim tip", noremap = true, silent = true })
+      map("n", "<leader>nth", ":help neovim-tips<CR>", { desc = "Neovim tips help", noremap = true, silent = true })
+      map("n", "<leader>ntr", ":NeovimTipsRandom<CR>", { desc = "Show random tip", noremap = true, silent = true })
+      map("n", "<leader>ntp", ":NeovimTipsPdf<CR>", { desc = "Open Neovim tips PDF", noremap = true, silent = true })
+    end,
+  },
+  {
+    "obsidian-nvim/obsidian.nvim",
+    lazy = true,
+    ft = "markdown",
+    cmd = { "ObsidianSearch", "ObsidianQuickSwitch", "ObsidianNew" },
+    version = "*",
+    opts = {
+      homepage = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main",
+      workspaces = {
+        {
+          name = "main",
+          path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main",
+        },
+        {
+          name = "work",
+          path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main/Second Brain/Work/ICT",
+        },
+      },
+    },
+  },
 
   {
     "aznhe21/actions-preview.nvim",
@@ -156,9 +176,10 @@ return {
     },
   },
 
-  require("treesitter-context").setup({
-    multiwindow = true,
-    trim_scope = "outer",
-    mode = "topline",
-  }),
+  -- PERF: temporarily disabled
+  -- require("treesitter-context").setup({
+  --   multiwindow = true,
+  --   trim_scope = "outer",
+  --   mode = "topline",
+  -- }),
 }

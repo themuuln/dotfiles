@@ -29,8 +29,7 @@ return {
 
   {
     "thesimonho/kanagawa-paper.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     opts = function()
       local colors = require("kanagawa-paper.colors")
       local palette_colors = colors.palette
