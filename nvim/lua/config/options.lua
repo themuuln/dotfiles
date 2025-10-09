@@ -50,6 +50,7 @@ vim.opt.updatetime = 50
 vim.opt.formatoptions:append({ "r" })
 vim.g.lazyvim_cmp = "blink.cmp"
 vim.opt.cursorcolumn = false
+vim.opt.mouse = ""
 
 local namespace = vim.api.nvim_create_namespace("dap-hlng")
 vim.api.nvim_set_hl(namespace, "DapBreakpoint", { fg = "#eaeaeb", bg = "#ffffff" })
