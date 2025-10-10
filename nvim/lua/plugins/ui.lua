@@ -201,12 +201,18 @@ return {
     end,
   },
 
-  { "akinsho/bufferline.nvim", opts = { options = { separator_style = "slope", show_close_icon = false } } },
   {
-    "zenbones-theme/zenbones.nvim",
-    dependencies = "rktjmp/lush.nvim",
-    lazy = false,
-    priority = 1000,
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        indicator = {
+          icon = "",
+          style = "none",
+        },
+        show_buffer_close_icons = false,
+        show_tab_indicators = false,
+        separator_style = "slope",
+      },
+    },
   },
-  { "Mofiqul/vscode.nvim" },
 }
