@@ -1,8 +1,3 @@
-vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticSignError", text = "" })
-vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticSignWarn", text = "" })
-vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticSignHint", text = "" })
-vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticSignInfo", text = "" })
-
 return {
   -- { "ahkinsho/git-conflict.nvim", version = "*", config = true },
 
@@ -24,7 +19,7 @@ return {
         default_winbar_panes = { "body" },
         -- possible values: false, "float"
         -- show_variable_info_text = false,
-        show_variable_info_text = "float",
+        -- show_variable_info_text = "float",
         -- icons position: "signcolumn"|"on_request"|"above_request"|"below_request" or nil to disable
         show_icons = "signcolumn",
         icons = {
@@ -37,19 +32,6 @@ return {
       },
 
       debug = 0,
-    },
-  },
-
-  -- LSP notifications
-  {
-    "j-hui/fidget.nvim",
-    event = "VeryLazy",
-    opts = {
-      notification = { window = { normal_hl = "Normal" } },
-      integration = {
-        ["nvim-tree"] = { enable = false },
-        ["xcodebuild-nvim"] = { enable = false },
-      },
     },
   },
 
@@ -78,45 +60,6 @@ return {
   -- },
 
   {
-    "NeogitOrg/neogit",
-    enabled = true,
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-    },
-  },
-
-  {
-    "saxon1964/neovim-tips",
-    version = "*", -- Only update on tagged releases
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "MeanderingProgrammer/render-markdown.nvim",
-    },
-    opts = {
-      -- OPTIONAL: Location of user defined tips (default value shown below)
-      user_file = vim.fn.stdpath("config") .. "/neovim_tips/user_tips.md",
-      -- OPTIONAL: Prefix for user tips to avoid conflicts (default: "[User] ")
-      user_tip_prefix = "[User] ",
-      -- OPTIONAL: Show warnings when user tips conflict with builtin (default: true)
-      warn_on_conflicts = true,
-      -- OPTIONAL: Daily tip mode (default: 1)
-      -- 0 = off, 1 = once per day, 2 = every startup
-      daily_tip = 1,
-    },
-    init = function()
-      -- OPTIONAL: Change to your liking or drop completely
-      -- The plugin does not provide default key mappings, only commands
-      local map = vim.keymap.set
-      map("n", "<leader>nto", ":NeovimTips<CR>", { desc = "Neovim tips", noremap = true, silent = true })
-      map("n", "<leader>nte", ":NeovimTipsEdit<CR>", { desc = "Edit your Neovim tips", noremap = true, silent = true })
-      map("n", "<leader>nta", ":NeovimTipsAdd<CR>", { desc = "Add your Neovim tip", noremap = true, silent = true })
-      map("n", "<leader>nth", ":help neovim-tips<CR>", { desc = "Neovim tips help", noremap = true, silent = true })
-      map("n", "<leader>ntr", ":NeovimTipsRandom<CR>", { desc = "Show random tip", noremap = true, silent = true })
-      map("n", "<leader>ntp", ":NeovimTipsPdf<CR>", { desc = "Open Neovim tips PDF", noremap = true, silent = true })
-    end,
-  },
-  {
     "obsidian-nvim/obsidian.nvim",
     lazy = true,
     ft = "markdown",
@@ -137,46 +80,34 @@ return {
     },
   },
 
+  -- screenshot
   {
-    "aznhe21/actions-preview.nvim",
-
-    -- Run this AFTER the plugin is loaded, so require() works.
-    opts = function()
-      local highlight_command = {}
-      local ok, hl = pcall(require, "actions-preview.highlight")
-      if ok then
-        table.insert(highlight_command, hl.delta())
-      -- you can add others later:
-      -- table.insert(highlight_command, hl.diff_so_fancy())
-      -- table.insert(highlight_command, hl.diff_highlight())
-      else
-        -- Optional: fall back silently if highlight module isn’t available
-        -- (e.g. snapshot mismatch). You still get a working plugin.
-      end
-
-      return {
-        diff = { ctxlen = 3 },
-        highlight_command = highlight_command,
-        backend = { "snacks" },
-
-        -- nui = { ... }
-        -- snacks = { layout = { preset = "default" } },
-      }
-    end,
-
-    keys = {
-      {
-        "gf",
-        function()
-          require("actions-preview").code_actions()
-        end,
-        mode = { "n", "v" },
-        desc = "Code Action (actions-preview)",
-      },
+    "mistricky/codesnap.nvim",
+    build = "make",
+    opts = {
+      mac_window_bar = false,
+      title = "",
+      code_font_family = "JetBrainsMono Nerd Font Mono",
+      watermark_font_family = "",
+      watermark = "",
+      bg_theme = "default",
+      breadcrumbs_separator = "/",
+      has_breadcrumbs = true,
+      has_line_number = true,
+      show_workspace = true,
+      min_width = 0,
+      bg_x_padding = 0,
+      bg_y_padding = 0,
+      save_path = os.getenv("XDG_PICTURES_DIR") or (os.getenv("HOME") .. "/Pictures"),
     },
   },
 
-  -- PERF: temporarily disabled
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
+  },
   -- require("treesitter-context").setup({
   --   multiwindow = true,
   --   trim_scope = "outer",

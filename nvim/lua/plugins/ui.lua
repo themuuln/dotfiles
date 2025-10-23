@@ -1,53 +1,51 @@
 return {
-  {
-    "LazyVim/LazyVim",
-    -- opts = { colorscheme = "gruvbox-material" },
-    -- opts = { colorscheme = "gruvbox" },
-    -- opts = { colorscheme = "tokyonight" },
-    -- opts = { colorscheme = "tokyonight-night" },
-    -- opts = { colorscheme = "tokyonight-moon" },
-    -- opts = { colorscheme = "catppuccin" },
-    -- opts = { colorscheme = "catppuccin-macchiato" },
-    opts = { colorscheme = "catppuccin-mocha" },
-    -- opts = { colorscheme = "github_dark_default" },
-    -- opts = { colorscheme = "kanagawa-dragon" },
-    -- opts = { colorscheme = "kanagawa-paper-ink" },
-    -- opts = { colorscheme = "nordic" },
-    -- opts = { colorscheme = "vscode" },
-    -- opts = { colorscheme = "nord" },
-    -- opts = { colorscheme = "edge" },
-    -- opts = { colorscheme = "onedark" },
-    -- opts = { colorscheme = "solarized-osaka" },
-    -- opts = { colorscheme = "techbase" },
-    -- opts = { colorscheme = "hybrid" },
-    -- opts = { colorscheme = "vague" },
-    -- opts = { colorscheme = "rose-pine-main" },
-  },
-  -- { "folke/tokyonight.nvim", opts = { transparent = true } },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   -- opts = { colorscheme = "tokyonight-night" },
+  --   -- opts = { colorscheme = "tokyonight-moon" },
+  --   -- opts = { colorscheme = "catppuccin-macchiato" },
+  --   -- opts = { colorscheme = "catppuccin-mocha" },
+  --   -- opts = { colorscheme = "github_dark_dimmed" },
+  --   -- opts = { colorscheme = "kanagawa-dragon" },
+  --   -- opts = { colorscheme = "kanagawa-paper-ink" },
+  --   -- opts = { colorscheme = "nordic" },
+  --   -- opts = { colorscheme = "nord" },
+  --   -- opts = { colorscheme = "hybrid" },
+  --   -- opts = { colorscheme = "vague" },
+  --   -- opts = { colorscheme = "rose-pine-main" },
+  -- },
 
-  { "catppuccin/nvim", name = "catppuccin", opts = { transparent_background = false } },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = false,
+      styles = {
+        -- Style to be applied to different syntax groups
+        -- Value is any valid attr-list value for `:help nvim_set_hl`
+        comments = { italic = true },
+        keywords = { italic = false },
+        functions = {},
+        variables = {},
+        -- Background styles. Can be "dark", "transparent" or "normal"
+        sidebars = "dark", -- style for sidebars, see below
+        floats = "dark", -- style for floating windows
+      },
+    },
+  },
+
+  { "catppuccin/nvim", name = "catppuccin" },
 
   {
     "thesimonho/kanagawa-paper.nvim",
     lazy = true,
     opts = function()
-      local colors = require("kanagawa-paper.colors")
-      local palette_colors = colors.palette
       return {
         transparent = true,
         diag_background = true,
-        colors = {
-          theme = {
-            ink = {
-              ui = {},
-            },
-          },
-        },
       }
     end,
   },
 
-  -- { "shaunsingh/nord.nvim" },
   {
     "AlexvZyl/nordic.nvim",
     lazy = false,
@@ -57,74 +55,25 @@ return {
   -- main theme
   {
     "rebelot/kanagawa.nvim",
-    -- opts = {
-    --   compile = true, -- enable compiling the colorscheme
-    --   undercurl = true, -- enable undercurls
-    --   commentStyle = { italic = true },
-    --   functionStyle = {},
-    --   keywordStyle = { italic = false },
-    --   statementStyle = { bold = false },
-    --   typeStyle = {},
-    --   transparent = false, -- do not set background color
-    --   dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-    --   terminalColors = true, -- define vim.g.terminal_color_{0,17}
-    --   theme = "dragon", -- Load "wave" theme
-    --   background = { -- map the value of 'background' option to a theme
-    --     dark = "dragon", -- try "dragon" !
-    --     light = "dragon",
-    --   },
-    -- },
+    opts = {
+      transparent = false, -- do not set background color
+      compile = true, -- enable compiling the colorscheme
+      undercurl = true, -- enable undercurls
+      commentStyle = { italic = true },
+      functionStyle = {},
+      keywordStyle = { italic = false },
+      statementStyle = { bold = false },
+      typeStyle = {},
+      dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+      terminalColors = true, -- define vim.g.terminal_color_{0,17}
+      theme = "dragon", -- Load "wave" theme
+      background = { -- map the value of 'background' option to a theme
+        dark = "dragon", -- try "dragon" !
+        light = "dragon",
+      },
+    },
   },
-  -- { "navarasu/onedark.nvim" },
-  -- { "sainnhe/gruvbox-material" },
-  -- { "sainnhe/edge" },
-  -- { "HoNamDuong/hybrid.nvim" },
-  -- {
-  --   "vague2k/vague.nvim",
-  --   lazy = true,
-  --   priority = 1000,
-  --   opts = {
-  --     -- transparent = true,
-  --     bold = false,
-  --     italic = true,
-  --   },
-  -- },
 
-  -- {
-  --   "nvim-lualine/lualine.nvim",
-  --   opts = {
-  --     options = {
-  --       icons_enabled = true,
-  --       theme = "auto",
-  --       component_separators = { left = "", right = "" },
-  --       section_separators = { left = "", right = "" },
-  --     },
-  --     -- -- bufferline replacement
-  --     -- tabline = {
-  --     --   lualine_a = {
-  --     --     {
-  --     --       "buffers",
-  --     --       hide_filename_extension = true,
-  --     --       max_length = vim.o.columns * 2 / 3,
-  --     --       use_mode_colors = true,
-  --     --       symbols = { alternate_file = "" },
-  --     --     },
-  --     --   },
-  --     --   lualine_b = {},
-  --     --   lualine_z = {
-  --     --     { "tabs", use_mode_colors = true, symbols = { modified = "●" } },
-  --     --   },
-  --     -- },
-  --     sections = {
-  --       lualine_a = { "filename" },
-  --       lualine_b = { "diagnostics" },
-  --       lualine_c = {},
-  --       lualine_x = {},
-  --       lualine_y = { "diff" },
-  --       lualine_z = { "location" },
-  --     },
-  --   },
-  -- },
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
@@ -140,7 +89,7 @@ return {
             enabled = vim.fs.find("mutagen.yml", { path = cwd, upward = true })[1] ~= nil,
             status = {},
           }
-        local now = vim.uv.now() -- timestamp in milliseconds
+        local now = vim.uv.now()
         local refresh = mutagen[cwd].updated + 10000 < now
         if #mutagen[cwd].status > 0 then
           refresh = mutagen[cwd].updated + 1000 < now
@@ -198,11 +147,26 @@ return {
           return (s.total == 0 and "󰋘 " or "󰋙 ") .. msg
         end,
       })
+      opts.tabline = {
+        lualine_a = {
+          {
+            "buffers",
+            symbols = { alternate_file = "" },
+            use_mode_colors = true,
+          },
+        },
+        -- lualine_b = {},
+        -- lualine_c = {},
+        -- lualine_x = {},
+        -- lualine_y = {},
+        lualine_z = { "tabs" },
+      }
     end,
   },
 
   {
     "akinsho/bufferline.nvim",
+    enabled = false,
     opts = {
       options = {
         indicator = {
@@ -211,7 +175,6 @@ return {
         },
         show_buffer_close_icons = false,
         show_tab_indicators = false,
-        separator_style = "slope",
       },
     },
   },

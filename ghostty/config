@@ -7,8 +7,8 @@
 # font-family-bold-italic = "Maple Mono NF"
 # font-family = "ZedMono NFM Extd"
 # font-family = "CommitMono Nerd Font Mono"
-font-size = 19
-adjust-underline-position = 4
+font-size = 18
+adjust-underline-position = 2
 
 # THEMES
 # theme = GruvboxDarkHard
@@ -21,9 +21,9 @@ adjust-underline-position = 4
 # theme = Catppuccin
 # theme = catppuccin-frappe
 # theme = Catppuccin Macchiato
-theme = Catppuccin Mocha
+# theme = Catppuccin Mocha
 # theme = GitHub-Dark-Default
-# theme = TokyoNight Moon
+theme = TokyoNight Moon
 # theme = tokyonight_night
 # theme = Dark+
 # theme = ayu
@@ -38,17 +38,26 @@ theme = Catppuccin Mocha
 confirm-close-surface = false
 
 # BACKGROUND
-# background-opacity = 0.9
-# background-blur = 100
+background-opacity = 0.85
+background-blur = true
 
-adjust-cell-height = 13%
-adjust-cursor-height = 13%
+# adjust-cell-height = 6%
+# adjust-cursor-height = 6%
+
+# adjust-cell-height = 10%
+# adjust-cursor-height = 10%
+
+# adjust-cell-height = 13%
+# adjust-cursor-height = 13%
 
 # adjust-cell-height = 15%
 # adjust-cursor-height = 15%
 
-# adjust-cell-height = 20%
-# adjust-cursor-height = 20%
+# adjust-cell-height = 15%
+# adjust-cursor-height = 15%
+
+adjust-cell-height = 20%
+adjust-cursor-height = 20%
 
 # adjust-cell-height = 25%
 # adjust-cursor-height = 25%
@@ -72,7 +81,7 @@ adjust-cursor-height = 13%
 window-padding-x = 0
 window-padding-y = 0
 
-cursor-invert-fg-bg = true
+# cursor-invert-fg-bg = true
 
 cursor-style = block
 cursor-style-blink = true
