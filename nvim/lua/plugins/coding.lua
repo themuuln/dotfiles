@@ -5,7 +5,12 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
-    opts = { keymap = { preset = "enter" } },
+    opts = {
+      keymap = {
+        preset = "enter",
+        ["<C-g>"] = { "accept" },
+      },
+    },
   },
 
   -- {
@@ -50,51 +55,4 @@ return {
       },
     },
   },
-
-  -- {
-  --   "dmtrKovalenko/fff.nvim",
-  --   build = "cargo build --release",
-  --   opts = {
-  --     debug = {
-  --       show_scores = true,
-  --     },
-  --   },
-  --   lazy = false,
-  --   keys = {
-  --     {
-  --       "<leader><Space>",
-  --       function()
-  --         require("fff").find_files()
-  --       end,
-  --       desc = "FFFind files",
-  --     },
-  --   },
-  -- },
-
-  -- {
-  --   "stevearc/oil.nvim",
-  --   ---@module 'oil'
-  --   ---@type oil.SetupOpts
-  --   opts = {
-  --     -- win_options = {
-  --     --   signcolumn = "yes:2",
-  --     -- },
-  --   },
-  --   -- Optional dependencies
-  --   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-  --   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  --   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-  --   lazy = false,
-  -- },
-
-  -- {
-  --   "refractalize/oil-git-status.nvim",
-  --   dependencies = { "stevearc/oil.nvim" },
-  --   config = true,
-  -- },
-
-  -- {
-  --   "benomahony/oil-git.nvim",
-  --   dependencies = { "stevearc/oil.nvim" },
-  -- },
 }
