@@ -23,12 +23,6 @@ map("n", "<S-F5>", function()
   dap.close()
 end, { desc = "Debug: Stop" })
 
--- -- Optional: Visual mode mappings for selecting code to debug (VSCode-like)
--- vim.map("v", "<F5>", function()
---   dap.continue({ execute_args = vim.fn.getenv("DEBUGPY_ARGS") }) -- Adjust for your lang if needed
--- end, { desc = "Debug: Continue selected" }))
---
-
 -- dial
 map("n", "+", function()
   require("dial.map").manipulate("increment", "normal")
@@ -43,21 +37,26 @@ map("v", "-", function()
   require("dial.map").manipulate("decrement", "visual")
 end)
 
-wk.add({
-  { "<leader>dd", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App", group = "Debug Flutter App", mode = "n" },
-  {
-    "<leader>F",
-    group = "flutter",
-    icon = "󱗆",
-    expand = function()
-      return require("which-key.extras").expand.buf()
-    end,
-  },
-  { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App", mode = "n" },
-  {
-    "<leader>Fr",
-    "<cmd>FlutterRestart<cr>",
-    desc = "Restart Flutter App",
-    mode = "n",
-  },
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "dart",
+  callback = function()
+    wk.add({
+      { "<leader>dd", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App", group = "Debug Flutter App", mode = "n" },
+      {
+        "<leader>F",
+        group = "flutter",
+        icon = "󱗆",
+        expand = function()
+          return require("which-key.extras").expand.buf()
+        end,
+      },
+      { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App", mode = "n" },
+      {
+        "<leader>Fr",
+        "<cmd>FlutterRestart<cr>",
+        desc = "Restart Flutter App",
+        mode = "n",
+      },
+    })
+  end,
 })
