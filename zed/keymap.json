@@ -23,13 +23,6 @@
       "q": "git_panel::Close"
     }
   },
-  {
-    "context": "AgentPanel",
-    "bindings": {
-      "ctrl-\\": "workspace::ToggleRightDock",
-      "cmd-k": "workspace::ToggleRightDock"
-    }
-  },
   // File panel (netrw)
   {
     "context": "ProjectPanel && not_editing",
@@ -61,7 +54,8 @@
       "shift-g": "menu::SelectLast",
       "g g": "menu::SelectFirst",
       "-": "project_panel::SelectParent",
-      "ctrl-6": "pane::AlternateFile"
+      "ctrl-6": "pane::AlternateFile",
+      "shift-i": "project_panel::ToggleHideGitIgnore"
     }
   },
   // Empty pane, set of keybindings that are available when there is no active editor
@@ -86,7 +80,7 @@
       // Refactoring
       "space c r ": "editor::Rename",
       // Chat with AI
-      "space a a": "assistant::ToggleFocus",
+      "space a a": "agent::ToggleFocus",
       "ctrl-\\": "workspace::ToggleRightDock",
       "cmd-k": "workspace::ToggleRightDock",
       "space a e": "assistant::InlineAssist",
@@ -100,12 +94,13 @@
           "reveal_target": "center"
         }
       ],
+      "space g h p": "editor::ToggleSelectedDiffHunks",
       "space g h d": "editor::ExpandAllDiffHunks",
       "space g h D": "git::Diff",
       "space g h r": "git::Restore",
       "space g h R": "git::RestoreFile",
       // Toggle inlay hints
-      "space u i": "editor::ToggleInlayHints",
+      "space u h": "editor::ToggleInlayHints",
       // Toggle soft wrap
       "space u w": "editor::ToggleSoftWrap",
       // Open markdown preview
@@ -118,15 +113,42 @@
       // Search word under cursor in all panes
       "space s W": "pane::DeploySearch",
       // Tab things. Almost as good as harpoon.
-      "space 1": ["pane::ActivateItem", 0],
-      "space 2": ["pane::ActivateItem", 1],
-      "space 3": ["pane::ActivateItem", 2],
-      "space 4": ["pane::ActivateItem", 3],
-      "space 5": ["pane::ActivateItem", 4],
-      "space 6": ["pane::ActivateItem", 5],
-      "space 7": ["pane::ActivateItem", 6],
-      "space 8": ["pane::ActivateItem", 7],
-      "space 9": ["pane::ActivateItem", 8],
+      // "space 1": [
+      //   "pane::ActivateItem",
+      //   0
+      // ],
+      // "space 2": [
+      //   "pane::ActivateItem",
+      //   1
+      // ],
+      // "space 3": [
+      //   "pane::ActivateItem",
+      //   2
+      // ],
+      // "space 4": [
+      //   "pane::ActivateItem",
+      //   3
+      // ],
+      // "space 5": [
+      //   "pane::ActivateItem",
+      //   4
+      // ],
+      // "space 6": [
+      //   "pane::ActivateItem",
+      //   5
+      // ],
+      // "space 7": [
+      //   "pane::ActivateItem",
+      //   6
+      // ],
+      // "space 8": [
+      //   "pane::ActivateItem",
+      //   7
+      // ],
+      // "space 9": [
+      //   "pane::ActivateItem",
+      //   8
+      // ],
       "space 0": "pane::ActivateLastItem",
       "] b": "pane::ActivateNextItem",
       "[ b": "pane::ActivatePreviousItem",
@@ -135,8 +157,8 @@
       "space b b": "pane::AlternateFile",
       // Close buffer
       "space b d": "pane::CloseActiveItem",
-      // Close inactive buffers
-      "space b q": "pane::CloseInactiveItems",
+      // Close other buffers
+      "space b o": "pane::CloseOtherItems",
       // New file
       "space b n": "workspace::NewFile",
       // Search in the current buffer
@@ -182,7 +204,11 @@
       "[ e": "editor::GoToPreviousDiagnostic",
       // Excerpts
       "] q": "editor::MoveToStartOfNextExcerpt",
-      "[ q": "editor::MoveToStartOfExcerpt"
+      "[ q": "editor::MoveToStartOfExcerpt",
+      "space u C": "theme_selector::Toggle",
+      "space d b ": "editor::ToggleBreakpoint",
+      "space s k ": "zed::OpenKeymapFile",
+      "space w o ": "pane::CloseCleanItems"
     }
   },
   {
@@ -226,27 +252,39 @@
     }
   },
   {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "shift-h": "vim::GoToPreviousTab"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "shift-l": "vim::GoToTab"
+    }
+  },
+  {
     "context": "Workspace",
     "bindings": {
       "ctrl-s": "workspace::Save"
     }
   },
   {
-    "context": "Workspace",
+    "context": "vim_mode == insert",
     "bindings": {
-      "cmd-s": null
+      "ctrl-k": "editor::ShowSignatureHelp"
     }
   },
   {
-    "context": "ContextEditor > Editor",
+    "context": "Workspace && vim_mode != insert",
     "bindings": {
-      "ctrl-s": "workspace::Save"
-    }
-  },
-  {
-    "context": "ContextEditor > Editor",
-    "bindings": {
-      "cmd-s": null
+      "space u z": "debugger::ToggleExpandItem"
     }
   }
 ]
