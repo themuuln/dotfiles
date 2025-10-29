@@ -4,7 +4,6 @@ customCommands:
     description: "commit with commitizen"
     context: "files"
     loadingText: "opening commitizen commit tool"
-    subprocess: true
 
 gui:
   scrollOffMargin: 8
@@ -12,12 +11,12 @@ gui:
   language: en
   timeFormat: 02 Jan
   showBottomLine: false
-  nerdFontsVersion: 3
   filterMode: fuzzy
-  # One of 'dashboard' (default) | 'allBranchesLog'
-  # statusPanelView: dashboard
+  statusPanelView: allBranchesLog
 
 git:
-  paging:
-    pager: "delta --dark --line-numbers --paging=never"
-    useConfig: false
+  pagers:
+    - pager: delta --dark --paging=never
+    - pager: ydiff -p cat -s --wrap --width={{columnWidth}}
+      colorArg: never
+    - externalDiffCommand: difft --color=always
