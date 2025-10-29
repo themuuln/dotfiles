@@ -1,179 +1,221 @@
 {
-  // {
-  //   "edit_predictions": {
-  //     "disabled_globs": [
-  //       "**/.git",
-  //       "**/.svn",
-  //       "**/.hg",
-  //       "**/CVS",
-  //       "**/.DS_Store",
-  //       "**/Thumbs.db",
-  //       "**/.classpath",
-  //       "**/.settings",
-  //       "**/.vscode",
-  //       "**/.idea",
-  //       "**/node_modules",
-  //       "**/.serverless",
-  //       "**/build",
-  //       "**/dist",
-  //       "**/coverage",
-  //       "**/.venv",
-  //       "**/__pycache__",
-  //       "**/.ropeproject",
-  //       "**/.pytest_cache",
-  //       "**/.ruff_cache"
-  //     ],
-  //     "mode": "eager",
-  //     "copilot": {
-  //       "proxy": null,
-  //       "proxy_no_verify": null
-  //     },
-  //     "enabled_in_text_threads": false
-  //   },
-  //   "icon_theme": "Catppuccin Mocha",
-  //   "notification_panel": {
-  //     "enabled": false,
-  //     "button": false
-  //   },
-  //   "agent": {
-  //     "default_profile": "ask",
-  //     "default_model": {
-  //       "provider": "zed.dev",
-  //       "model": "claude-3-7-sonnet-latest"
-  //     },
-  //   },
-  //   "show_edit_predictions": false,
-  //   "tab_size": 2,
-  //   "telemetry": {
-  //     "diagnostics": false,
-  //     "metrics": false
-  //   },
-  //   "vim_mode": true,
-  //   "relative_line_numbers": true,
-  //   "scrollbar": {
-  //     "show": "never"
-  //   },
-  //   "tab_bar": {
-  //     "show": true,
-  //     "show_nav_history_buttons": false
-  //   },
-  //   "tabs": {
-  //     "file_icons": true,
-  //     "git_status": true
-  //   },// Indentation, rainbow indentation
-  //   "indent_guides": {
-  //     "enabled": true,
-  //     "coloring": "indent_aware"
-  //   },// Use zed commit editor
-  //   "terminal": {
-  //     "env": {
-  //       "EDITOR": "zed --wait"
-  //     },
-  //     "font_size": 20,
-  //     "font_family": "JetBrainsMono Nerd Font Mono",
-  //     "detect_venv": {
-  //       "on": {// Default directories to search for virtual environments, relative// to the current working directory. We recommend overriding this// in your project's settings, rather than globally.
-  //         "directories": [".venv", "venv"],// Can also be `csh`, `fish`, and `nushell`
-  //         "activate_script": "default"
-  //       }
-  //     },
-  //     "button": false
-  //   },
-  //   "toolbar": {
-  //     "title": false,
-  //     "quick_actions": false
-  //   },//github.com/zed-industries/zed/issues/4382 when it's resolved
-  //   "centered_layout": {
-  //     "left_padding": 0.15,
-  //     "right_padding": 0.15
-  //   },// File syntax highlighting
-  //   "file_types": {
-  //     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
-  //     "JSON": ["json", "jsonc", "*.code-snippets"]
-  //   },
-  //   "file_scan_exclusions": [
-  //     "**/.git",
-  //     "**/.svn",
-  //     "**/.hg",
-  //     "**/CVS",
-  //     "**/.DS_Store",
-  //     "**/Thumbs.db",
-  //     "**/.classpath",
-  //     "**/.settings",
-  //     "**/.vscode",
-  //     "**/.idea",
-  //     "**/node_modules",
-  //     "**/.serverless",
-  //     "**/build",
-  //     "**/dist",
-  //     "**/coverage",
-  //     "**/.venv",
-  //     "**/__pycache__",
-  //     "**/.ropeproject",
-  //     "**/.pytest_cache",
-  //     "**/.ruff_cache"
-  //   ],
-  //   "file_scan_inclusions": [".env"],// Move all panel to the right
-  //   "project_panel": {
-  //     "button": false,
-  //     "default_width": 300,
-  //     "dock": "left",
-  //     "file_icons": true,
-  //     "folder_icons": true,
-  //     "git_status": true,
-  //     "scrollbar": {
-  //       "show": "never"
-  //     }
-  //   },
-  //   "outline_panel": {
-  //     "dock": "right",
-  //     "button": false
-  //   },
-  //   "collaboration_panel": {
-  //     "dock": "left",
-  //     "button": false
-  //   },
-  //   "chat_panel": {
-  //     "dock": "right"
-  //   },
-  //   "ui_font_size": 16,
-  //   "buffer_font_size": 16,
-  //   "buffer_font_family": "BlexMono Nerd Font Mono",
-  //   "ui_font_family": "BlexMono Nerd Font Mono",
-  //   "autosave": "on_focus_change",
-  //   "theme": {
-  //     "mode": "dark",
-  //     "light": "One Light",
-  //     "dark": "Catppuccin Mocha"
-  //   },
-  //   "search": {
-  //     "whole_word": false,
-  //     "case_sensitive": true,
-  //     "include_ignored": false,
-  //     "regex": false
-  //   },
-  //   "projects_online_by_default": false,
-  //   "preferred_line_length": 120,
-  //   "features": {
-  //     "edit_prediction_provider": "zed"
-  //   },
-  //   "formatter": {
-  //     "language_server": {
-  //       "name": "biome"
-  //     }
-  //   },
-  //   "code_actions_on_format": {
-  //     "source.fixAll.biome": true,
-  //     "source.organizeImports.biome": true
-  //   }
-  // }
+  "ui_font_family": ".ZedMono",
+  "git_panel": {
+    "scrollbar": {
+      "show": "never"
+    },
+    "collapse_untracked_diff": false,
+    "sort_by_path": true,
+    "status_style": "label_color",
+    "default_width": 380.0,
+    "button": false
+  },
+  "languages": {
+    "TypeScript": {
+      "inlay_hints": {
+        "show_background": true,
+        "enabled": false
+      }
+    }
+  },
+  "file_finder": {
+    "modal_max_width": "full"
+  },
+  "pane_split_direction_vertical": "right",
+  "zoomed_padding": false,
+  "use_system_window_tabs": false,
+  "bottom_dock_layout": "contained",
+  "preview_tabs": {
+    "enable_preview_from_code_navigation": true,
+    "enable_preview_from_file_finder": true
+  },
+  "debugger": {
+    "button": false
+  },
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "min_column": 0,
+      "padding": 4,
+      "enabled": true
+    },
+    "button": false
+  },
+  "status_bar": {
+    "active_language_button": false,
+    "cursor_position_button": false
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "theme": "One Dark",
+  "edit_predictions": {
+    "mode": "eager"
+  },
+  "title_bar": {
+    "show_branch_name": true,
+    "show_sign_in": false,
+    "show_user_picture": false,
+    "show_onboarding_banner": false,
+    "show_project_items": true,
+    "show_branch_icon": false
+  },
+  "git": {
+    "hunk_style": "unstaged_hollow",
+    "blame": {
+      "show_avatar": true
+    },
+    "inline_blame": {
+      "show_commit_summary": false,
+      "enabled": false
+    }
+  },
+  "prettier": {
+    "allowed": true
+  },
+  "tabs": {
+    "show_close_button": "hidden",
+    "show_diagnostics": "all",
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true
+  },
+  "use_smartcase_search": true,
+  "inlay_hints": {
+    "show_background": false
+  },
+  "minimap": {
+    "thumb": "hover",
+    "display_in": "active_editor",
+    "show": "auto"
+  },
+  "relative_line_numbers": true,
+  "show_signature_help_after_edits": false,
+  "auto_signature_help": false,
+  "vertical_scroll_margin": 8.0,
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "cursor_shape": "bar",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "redact_private_values": false,
   "agent_buffer_font_size": 14.0,
   "ui_font_weight": 300.0,
   "ui_font_size": 20.0,
-  "ui_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_weight": 300.0,
   "buffer_font_size": 20.0,
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_family": ".ZedMono",
   "vim_mode": true,
-  "formatter": "auto"
+  "show_edit_predictions": true,
+  "notification_panel": {
+    "button": false
+  },
+  "agent": {
+    "button": false,
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "openrouter",
+      "model": "x-ai/grok-code-fast-1"
+    }
+  },
+  "show_completions_on_input": true,
+  "tab_size": 2,
+  "scrollbar": {
+    "show": "never"
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false
+  },
+  "indent_guides": {
+    "enabled": false
+  },
+  "terminal": {
+    "env": {
+      "EDITOR": "zed --wait"
+    },
+    "font_size": 20,
+    "font_family": "JetBrainsMono Nerd Font Mono",
+    "detect_venv": {
+      "on": {
+        "directories": [".venv", "venv"],
+        "activate_script": "default"
+      }
+    },
+    "button": false
+  },
+  "toolbar": {
+    "quick_actions": false
+  },
+  "centered_layout": {
+    "left_padding": 0.15,
+    "right_padding": 0.15
+  },
+  "file_types": {
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"],
+    "JSON": ["json", "jsonc", "*.code-snippets"]
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.vscode",
+    "**/.idea",
+    "**/node_modules",
+    "**/.serverless",
+    "**/build",
+    "**/dist",
+    "**/coverage",
+    "**/.venv",
+    "**/__pycache__",
+    "**/.ropeproject",
+    "**/.pytest_cache",
+    "**/.ruff_cache"
+  ],
+  "file_scan_inclusions": [".env"],
+  "project_panel": {
+    "hide_hidden": false,
+    "hide_root": true,
+    "auto_reveal_entries": true,
+    "indent_size": 12.0,
+    "button": false,
+    "default_width": 300,
+    "dock": "left",
+    "file_icons": true,
+    "folder_icons": true,
+    "git_status": true,
+    "scrollbar": {
+      "show": "never"
+    }
+  },
+  "outline_panel": {
+    "dock": "left",
+    "button": false
+  },
+  "collaboration_panel": {
+    "dock": "left",
+    "button": false
+  },
+  "search": {
+    "button": false,
+    "whole_word": false,
+    "case_sensitive": true,
+    "include_ignored": false,
+    "regex": false
+  },
+  "preferred_line_length": 120,
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "lsp": {
+    "dart": {
+      "settings": {
+        "lineLength": 140
+      }
+    }
+  }
 }
