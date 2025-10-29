@@ -10,7 +10,7 @@ return {
         force = false,
         enabled = true,
         math = { enabled = true },
-        doc = { inline = true, float = true },
+        doc = { inline = false, float = true },
       },
       picker = {
         enabled = true,
@@ -19,6 +19,7 @@ return {
           git = { builtin = false },
         },
         sources = {
+          colorschemes = { layout = { preset = "ivy" } },
           explorer = {
             layout = {
               preset = "sidebar",

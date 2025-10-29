@@ -1,19 +1,22 @@
 return {
-  -- {
-  --   "LazyVim/LazyVim",
-  --   -- opts = { colorscheme = "tokyonight-night" },
-  --   -- opts = { colorscheme = "tokyonight-moon" },
-  --   -- opts = { colorscheme = "catppuccin-macchiato" },
-  --   -- opts = { colorscheme = "catppuccin-mocha" },
-  --   -- opts = { colorscheme = "github_dark_dimmed" },
-  --   -- opts = { colorscheme = "kanagawa-dragon" },
-  --   -- opts = { colorscheme = "kanagawa-paper-ink" },
-  --   -- opts = { colorscheme = "nordic" },
-  --   -- opts = { colorscheme = "nord" },
-  --   -- opts = { colorscheme = "hybrid" },
-  --   -- opts = { colorscheme = "vague" },
-  --   -- opts = { colorscheme = "rose-pine-main" },
-  -- },
+  {
+    "LazyVim/LazyVim",
+    -- opts = { colorscheme = "tokyonight-night" },
+    -- opts = { colorscheme = "tokyonight-moon" },
+    -- opts = { colorscheme = "catppuccin-macchiato" },
+    -- opts = { colorscheme = "catppuccin-mocha" },
+    -- opts = { colorscheme = "github_dark_dimmed" },
+    -- opts = { colorscheme = "kanagawa-dragon" },
+    -- opts = { colorscheme = "kanagawa-paper-ink" },
+    -- opts = { colorscheme = "nordic" },
+    -- opts = { colorscheme = "nord" },
+    -- opts = { colorscheme = "hybrid" },
+    -- opts = { colorscheme = "vague" },
+    -- opts = { colorscheme = "rose-pine-main" },
+    opts = {
+      colorscheme = "onedark",
+    },
+  },
 
   {
     "folke/tokyonight.nvim",
@@ -41,39 +44,19 @@ return {
     opts = function()
       return {
         transparent = true,
-        diag_background = true,
+        diag_background = false,
       }
     end,
   },
-
   {
-    "AlexvZyl/nordic.nvim",
-    lazy = false,
+    "navarasu/onedark.nvim",
     priority = 1000,
   },
 
-  -- main theme
-  {
-    "rebelot/kanagawa.nvim",
-    opts = {
-      transparent = false, -- do not set background color
-      compile = true, -- enable compiling the colorscheme
-      undercurl = true, -- enable undercurls
-      commentStyle = { italic = true },
-      functionStyle = {},
-      keywordStyle = { italic = false },
-      statementStyle = { bold = false },
-      typeStyle = {},
-      dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-      terminalColors = true, -- define vim.g.terminal_color_{0,17}
-      theme = "dragon", -- Load "wave" theme
-      background = { -- map the value of 'background' option to a theme
-        dark = "dragon", -- try "dragon" !
-        light = "dragon",
-      },
-    },
-  },
+  { "AlexvZyl/nordic.nvim", lazy = false, priority = 1000 },
 
+  -- main theme
+  { "rebelot/kanagawa.nvim", opts = { transparent = true, compile = true } },
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
