@@ -125,6 +125,10 @@ if.app-name-regex-substring = 'telegram'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'Developer Tools'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.apple.reminders'
 run = 'layout floating'
 
@@ -190,6 +194,10 @@ run = "move-node-to-workspace F"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'vscode'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'zed'
 run = "move-node-to-workspace I"
 
 [[on-window-detected]]

@@ -1,45 +1,26 @@
-# FONTS 
 # font-family = "FiraCode Nerd Font"
-# font-family-bold = "FiraCode Nerd Font"
 # font-family = "GeistMono Nerd Font"
-# font-family-bold = "GeistMono Nerd Font"
-# font-family-italic = "Maple Mono NF"
-# font-family-bold-italic = "Maple Mono NF"
 # font-family = "ZedMono NFM Extd"
-# font-family = "CommitMono Nerd Font Mono"
-font-size = 18
+font-size = 20
 adjust-underline-position = 2
 
-# THEMES
-# theme = GruvboxDarkHard
-# theme = GruvboxDark
-# theme = One Half Dark
+background-opacity = 0.9
+background-blur = true
+
+theme = One Half Dark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
 # theme = Kanagawa Wave
 # theme = Kanagawa Dragon
-# theme = Catppuccin
 # theme = catppuccin-frappe
 # theme = Catppuccin Macchiato
 # theme = Catppuccin Mocha
 # theme = GitHub-Dark-Default
-theme = TokyoNight Moon
+# theme = TokyoNight Moon
 # theme = tokyonight_night
 # theme = Dark+
-# theme = ayu
-# theme = Ayu Mirage
-# theme = Everforest Dark - Hard
-# theme = zenbones_dark
-# theme = Solarized Dark - Patched
-# theme = embers-dark
-# theme = neobones_dark
-# theme = Operator Mono Dark
-# theme = rose-pine
-confirm-close-surface = false
 
-# BACKGROUND
-background-opacity = 0.85
-background-blur = true
+confirm-close-surface = false
 
 # adjust-cell-height = 6%
 # adjust-cursor-height = 6%
@@ -62,19 +43,11 @@ adjust-cursor-height = 20%
 # adjust-cell-height = 25%
 # adjust-cursor-height = 25%
 
-# adjust-cell-height = 30%
-# adjust-cursor-height = 30%
+adjust-cell-height = 30%
+adjust-cursor-height = 30%
 
 # adjust-cell-height = 35%
 # adjust-cursor-height = 35%
-
-# adjust-cell-height = 35%
-# adjust-cursor-height = 35%
-
-# adjust-cell-height = 40%
-# adjust-cursor-height = 40%
-
-# adjust-cell-width = -5%
 
 # window-padding-x = 8
 # window-padding-y = 8
@@ -87,10 +60,6 @@ cursor-style = block
 cursor-style-blink = true
 mouse-hide-while-typing = true
 
-gtk-single-instance = true
-gtk-tabs-location = bottom
-gtk-wide-tabs = false
-gtk-toolbar-style = flat
 window-padding-y = 2,0
 window-padding-balance = true
 window-decoration = false
@@ -100,10 +69,9 @@ app-notifications = no-clipboard-copy
 macos-titlebar-style = hidden
 copy-on-select = clipboard
 
-# custom-shader = "shaders/bloom025.glsl"
-# custom-shader = "shaders/bloom05.glsl"
-# custom-shader = "shaders/bloom06.glsl"
-# custom-shader = "shaders/bloom075.glsl"
-# custom-shader = "shaders/bloom.glsl"
-# custom-shader = "shaders/glow-rgbsplit-twitchy.glsl"
-# custom-shader = "shaders/retro-terminal.glsl"
+# custom-shader = shaders/cursor_sweep.glsl
+# custom-shader = shaders/cursor_tail.glsl
+custom-shader = shaders/cursor_warp.glsl
+# custom-shader = shaders/rectangle_boom_cursor.glsl
+# custom-shader = shaders/ripple_cursor.glsl
+# custom-shader = shaders/ripple_rectangle_cursor.glsl
