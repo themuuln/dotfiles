@@ -6,16 +6,14 @@ return {
     -- opts = { colorscheme = "catppuccin-macchiato" },
     -- opts = { colorscheme = "catppuccin-mocha" },
     -- opts = { colorscheme = "github_dark_dimmed" },
-    -- opts = { colorscheme = "kanagawa-dragon" },
+    opts = { colorscheme = "kanagawa-dragon" },
     -- opts = { colorscheme = "kanagawa-paper-ink" },
     -- opts = { colorscheme = "nordic" },
     -- opts = { colorscheme = "nord" },
     -- opts = { colorscheme = "hybrid" },
     -- opts = { colorscheme = "vague" },
     -- opts = { colorscheme = "rose-pine-main" },
-    opts = {
-      colorscheme = "onedark",
-    },
+    -- opts = { colorscheme = "onedark", },
   },
 
   {

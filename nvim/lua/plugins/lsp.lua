@@ -4,7 +4,6 @@ return {
     dependencies = { "saghen/blink.cmp" },
     opts = {
       inlay_hints = { enabled = false },
-      diagnostics = { virtual_text = { prefix = "icons" } },
     },
   },
 
@@ -48,52 +47,15 @@ return {
     end,
   },
 
-  { "stevearc/conform.nvim", opts = {
-    exclude_filetypes = { "dart" },
-  } },
-  {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.formatters_by_ft = opts.formatters_by_ft or {}
-      local supported = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc" }
-      for _, ft in ipairs(supported) do
-        -- Try Biome first; if it’s not applicable, try Prettier
-        opts.formatters_by_ft[ft] = { "biome", "prettier", stop_after_first = true }
-      end
-      opts.formatters = opts.formatters or {}
-      opts.formatters.biome = {
-        -- Only run when a project has a Biome config
-        require_cwd = true, -- looks for biome.json/biome.jsonc from cwd
-      }
-    end,
-  },
-
+  { "stevearc/conform.nvim", opts = { exclude_filetypes = { "dart" } } },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "caddy",
-        "cmake",
-        -- "dart",
-        -- "comment", -- comments are slowing down TS bigtime, so disable for now
         "css",
-        "devicetree",
         "gitcommit",
         "gitignore",
-        "glsl",
-        "go",
-        "graphql",
         "http",
-        "just",
-        "kconfig",
-        "meson",
-        "ninja",
-        "scss",
-        -- "sql",
-        "svelte",
-        "vue",
-        "wgsl",
       },
     },
   },

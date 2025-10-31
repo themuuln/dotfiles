@@ -7,11 +7,11 @@ adjust-underline-position = 2
 background-opacity = 0.9
 background-blur = true
 
-theme = One Half Dark
+# theme = One Half Dark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
 # theme = Kanagawa Wave
-# theme = Kanagawa Dragon
+theme = Kanagawa Dragon
 # theme = catppuccin-frappe
 # theme = Catppuccin Macchiato
 # theme = Catppuccin Mocha

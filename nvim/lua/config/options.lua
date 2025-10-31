@@ -3,15 +3,11 @@ local o = vim.opt
 
 o.spell = false
 
-vim.loader.enable()
 vim.g.ai_cmp = false
-go.lazyvim_cmp = "blink"
 
 -- Define leader key
 go.mapleader = " "
 go.maplocalleader = "\\"
-
-go.autoformat = true
 
 -- Root dir detection
 go.root_spec = {
@@ -21,14 +17,9 @@ go.root_spec = {
 }
 
 -- Disable annoying cmd line stuff
-o.showcmd = false
-o.laststatus = 3
-o.cmdheight = 0
-
--- -- Smoothscroll
--- if vim.fn.has("nvim-0.10") == 1 then
---   o.smoothscroll = true
--- end
+-- o.showcmd = false
+-- o.laststatus = 3
+-- o.cmdheight = 0
 
 vim.g.snacks_animate = false
 vim.o.scrolloff = 8
@@ -53,7 +44,6 @@ vim.opt.backup = true
 vim.opt.cmdheight = 0
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
 
-vim.g.deprecation_warnings = true
-vim.env.FZF_DEFAULT_OPTS = ""
-vim.g.ai_cmp = false
-o.termguicolors = true
+-- vim.g.deprecation_warnings = true
+-- vim.env.FZF_DEFAULT_OPTS = ""
+-- o.termguicolors = true

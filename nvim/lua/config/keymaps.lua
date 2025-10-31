@@ -7,13 +7,16 @@ map("n", "U", ":redo<CR>", { noremap = true, silent = true })
 map("i", "jk", "<Esc>", { noremap = true, silent = false })
 map("n", "<leader>pv", vim.cmd.Ex)
 map("n", "J", "mzJ`z")
+
+-- center on navigation
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-f>", "<C-f>zz")
 map("n", "<C-b>", "<C-b>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
--- debugger realted
+
+-- debug
 map("n", "<F5>", dap.continue, { desc = "Debug: Continue / Start" })
 map("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
 map("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
@@ -50,6 +53,8 @@ vim.api.nvim_create_autocmd("FileType", {
           return require("which-key.extras").expand.buf()
         end,
       },
+
+      { "<leader>FC", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App", group = "Debug Flutter App", mode = "n" },
       { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App", mode = "n" },
       {
         "<leader>Fr",

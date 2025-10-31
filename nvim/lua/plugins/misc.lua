@@ -76,38 +76,43 @@ return {
           name = "work",
           path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main/Second Brain/Work/ICT",
         },
+        {
+          name = "work-main",
+          path = "/Users/ict/coding/work/lesson",
+        },
       },
     },
   },
 
-  -- screenshot
-  {
-    "mistricky/codesnap.nvim",
-    build = "make",
-    opts = {
-      mac_window_bar = false,
-      title = "",
-      code_font_family = "JetBrainsMono Nerd Font Mono",
-      watermark_font_family = "",
-      watermark = "",
-      bg_theme = "default",
-      breadcrumbs_separator = "/",
-      has_breadcrumbs = true,
-      has_line_number = true,
-      show_workspace = true,
-      min_width = 0,
-      bg_x_padding = 0,
-      bg_y_padding = 0,
-      save_path = os.getenv("XDG_PICTURES_DIR") or (os.getenv("HOME") .. "/Pictures"),
-    },
-  },
+  -- -- screenshot
+  -- {
+  --   "mistricky/codesnap.nvim",
+  --   build = "make",
+  --   opts = {
+  --     mac_window_bar = false,
+  --     title = "",
+  --     code_font_family = "JetBrainsMono Nerd Font Mono",
+  --     watermark_font_family = "",
+  --     watermark = "",
+  --     bg_theme = "default",
+  --     breadcrumbs_separator = "/",
+  --     has_breadcrumbs = true,
+  --     has_line_number = true,
+  --     show_workspace = true,
+  --     min_width = 0,
+  --     bg_x_padding = 0,
+  --     bg_y_padding = 0,
+  --     save_path = os.getenv("XDG_PICTURES_DIR") or (os.getenv("HOME") .. "/Pictures"),
+  --   },
+  -- },
 
-  {
-    "nvzone/typr",
-    dependencies = "nvzone/volt",
-    opts = {},
-    cmd = { "Typr", "TyprStats" },
-  },
+  -- {
+  --   "nvzone/typr",
+  --   dependencies = "nvzone/volt",
+  --   opts = {},
+  --   cmd = { "Typr", "TyprStats" },
+  -- },
+
   require("treesitter-context").setup({
     multiwindow = true,
     trim_scope = "outer",

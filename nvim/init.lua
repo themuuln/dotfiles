@@ -16,7 +16,7 @@ vim.api.nvim_create_augroup("DartLogMacro", { clear = true })
 -- select variable, `@l` to print that data on the next line
 vim.api.nvim_create_autocmd("FileType", {
   group = "JSLogMacro",
-  pattern = { "javascript", "typescript" },
+  pattern = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
   callback = function()
     vim.fn.setreg("l", "yoconsole.log('" .. esc .. "pa:" .. esc .. "la, " .. esc .. "pl")
   end,
