@@ -7,7 +7,7 @@ return {
     },
   },
 
-  { "stevearc/dressing.nvim" },
+  { "stevearc/dressing.nvim", lazy = true, ft = { "dart" } },
 
   {
     "nvim-flutter/flutter-tools.nvim",
@@ -48,15 +48,4 @@ return {
   },
 
   { "stevearc/conform.nvim", opts = { exclude_filetypes = { "dart" } } },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "css",
-        "gitcommit",
-        "gitignore",
-        "http",
-      },
-    },
-  },
 }

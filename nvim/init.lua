@@ -30,3 +30,4 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.fn.setreg("l", "yo" .. "log(" .. esc .. 'pa, prefix: "' .. esc .. 'pa");' .. esc)
   end,
 })
+-- vim.opt.winborder = "none"
