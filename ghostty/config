@@ -1,22 +1,22 @@
 # font-family = "FiraCode Nerd Font"
 # font-family = "GeistMono Nerd Font"
-# font-family = "ZedMono NFM Extd"
-font-size = 20
+font-family = "ZedMono NFM Extd"
+font-size = 18
 adjust-underline-position = 2
 
-background-opacity = 0.9
-background-blur = true
+# background-opacity = 1
+# background-blur = false
 
 # theme = One Half Dark
 # theme = GitHub-Dark-Dimmed
 # theme = nord
 # theme = Kanagawa Wave
-theme = Kanagawa Dragon
+# theme = Kanagawa Dragon
 # theme = catppuccin-frappe
 # theme = Catppuccin Macchiato
 # theme = Catppuccin Mocha
 # theme = GitHub-Dark-Default
-# theme = TokyoNight Moon
+theme = TokyoNight Moon
 # theme = tokyonight_night
 # theme = Dark+
 
@@ -63,10 +63,10 @@ mouse-hide-while-typing = true
 window-padding-y = 2,0
 window-padding-balance = true
 window-decoration = false
+macos-titlebar-style = hidden
 copy-on-select = clipboard
 shell-integration-features = cursor,sudo,no-title,ssh-env,ssh-terminfo
 app-notifications = no-clipboard-copy
-macos-titlebar-style = hidden
 copy-on-select = clipboard
 
 # custom-shader = shaders/cursor_sweep.glsl
