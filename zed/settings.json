@@ -1,5 +1,5 @@
 {
-  "ui_font_family": ".ZedMono",
+  "ui_font_family": "JetBrainsMono Nerd Font Mono",
   "git_panel": {
     "scrollbar": {
       "show": "never"
@@ -19,7 +19,7 @@
     }
   },
   "file_finder": {
-    "modal_max_width": "full"
+    "modal_max_width": "large"
   },
   "pane_split_direction_vertical": "right",
   "zoomed_padding": false,
@@ -100,10 +100,10 @@
   "redact_private_values": false,
   "agent_buffer_font_size": 14.0,
   "ui_font_weight": 300.0,
-  "ui_font_size": 20.0,
+  "ui_font_size": 18.0,
   "buffer_font_weight": 300.0,
-  "buffer_font_size": 20.0,
-  "buffer_font_family": ".ZedMono",
+  "buffer_font_size": 16.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "vim_mode": true,
   "show_edit_predictions": true,
   "notification_panel": {

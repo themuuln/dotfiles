@@ -112,6 +112,8 @@
       "space s w": "buffer_search::Deploy",
       // Search word under cursor in all panes
       "space s W": "pane::DeploySearch",
+
+      "space u z": "workspace::ToggleZoom",
       // Tab things. Almost as good as harpoon.
       // "space 1": [
       //   "pane::ActivateItem",
