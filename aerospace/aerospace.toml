@@ -4,11 +4,7 @@
 # after-startup-command = [
 #   'exec-and-forget borders active_color=0xff7AA2F8 inactive_color=0xff24283B width=5.0',
 # ]
-exec-on-workspace-change = [
-  '/bin/bash',
-  '-c',
-  '~/.config/aerospace/pip-move.sh',
-]
+exec-on-workspace-change = ['/bin/bash', '-c']
 start-at-login = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 enable-normalization-flatten-containers = true
@@ -165,16 +161,8 @@ if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace A"
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'teams'
-run = "move-node-to-workspace G"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'ghostty'
-run = "move-node-to-workspace D"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'kitty'
-run = "move-node-to-workspace D"
+if.app-name-regex-substring = 'firefox'
+run = "move-node-to-workspace A"
 
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
@@ -185,6 +173,10 @@ if.app-id = 'com.apple.iCal'
 run = "move-node-to-workspace C"
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'ghostty'
+run = "move-node-to-workspace D"
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'finder'
 run = "move-node-to-workspace E"
 
@@ -193,15 +185,15 @@ if.app-name-regex-substring = 'figma'
 run = "move-node-to-workspace F"
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'teams'
+run = "move-node-to-workspace G"
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'vscode'
 run = "move-node-to-workspace I"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'zed'
-run = "move-node-to-workspace I"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'trae'
 run = "move-node-to-workspace I"
 
 [[on-window-detected]]
@@ -217,10 +209,6 @@ if.app-name-regex-substring = 'mail'
 run = "move-node-to-workspace M"
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'obsidian'
-run = "move-node-to-workspace N"
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'notes'
 run = "move-node-to-workspace N"
 
@@ -233,54 +221,5 @@ if.app-id = 'com.spotify.client'
 run = "move-node-to-workspace S"
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'eDebug - ecourt'
-run = "move-node-to-workspace 2"
-
-[[on-window-detected]]
 if.app-id = 'com.apple.dt.Xcode'
 run = "move-node-to-workspace X"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'code'
-run = "move-node-to-workspace I"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'viber'
-run = "move-node-to-workspace V"
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'docker'
-run = "move-node-to-workspace 3"
-
-[workspace-to-monitor-force-assignment]
-# # 0 = 'secondary'
-# # 1 = 'secondary'
-# # 2 = 'secondary'
-# # 3 = 'secondary'
-# # 4 = 'secondary'
-# # 5 = 'secondary'
-# # 6 = 'secondary'
-# # 7 = 'secondary'
-# # 8 = 'secondary'
-# # 9 = 'secondary'
-# A = 'secondary'
-# B = 'secondary'
-# C = 'secondary'
-# D = 'secondary'
-# E = 'secondary'
-# G = 'secondary'
-# I = 'secondary'
-# M = 'secondary'
-# N = 'secondary'
-# O = 'secondary'
-# P = 'secondary'
-# Q = 'secondary'
-# R = 'secondary'
-# # S = 'secondary'
-# T = 'secondary'
-# U = 'secondary'
-# V = 'secondary'
-# W = 'secondary'
-# X = 'secondary'
-# Y = 'secondary'
-# Z = 'secondary'
