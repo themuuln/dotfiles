@@ -6,7 +6,6 @@ return {
     opts = {
       -- possible values: b = buffer, g = global
       environment_scope = "b",
-      default_env = "dev",
       vscode_rest_client_environmentvars = false,
 
       ui = {
@@ -667,6 +666,21 @@ return {
   --   dependencies = "nvzone/volt",
   --   opts = {},
   --   cmd = { "Typr", "TyprStats" },
+  -- },
+
+  -- {
+  --   "gisketch/triforce.nvim",
+  --   dependencies = {
+  --     "nvzone/volt",
+  --   },
+  --   config = function()
+  --     require("triforce").setup({
+  --       -- Optional: Add your configuration here
+  --       keymap = {
+  --         show_profile = "<leader>tp", -- Open profile with <leader>tp
+  --       },
+  --     })
+  --   end,
   -- },
 
   require("treesitter-context").setup({

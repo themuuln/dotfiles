@@ -116,26 +116,6 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
-[[on-window-detected]]
-if.app-name-regex-substring = 'telegram'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Developer Tools'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.reminders'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'messages'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.iphonesimulator'
-run = ['layout floating', 'move-node-to-workspace S']
-
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']

@@ -1,24 +1,21 @@
 # font-family = "FiraCode Nerd Font"
 # font-family = "GeistMono Nerd Font"
+# font-family = "ZedMono NFM"
 font-family = "ZedMono NFM Extd"
+# font-family = "CommitMono Nerd Font"
+# font-family = "CommitMono Nerd Font"
 font-size = 18
 adjust-underline-position = 2
 
 # background-opacity = 1
 # background-blur = false
 
-# theme = One Half Dark
-# theme = GitHub-Dark-Dimmed
-# theme = nord
-# theme = Kanagawa Wave
 # theme = Kanagawa Dragon
-# theme = catppuccin-frappe
 # theme = Catppuccin Macchiato
 # theme = Catppuccin Mocha
 # theme = GitHub-Dark-Default
 theme = TokyoNight Moon
 # theme = tokyonight_night
-# theme = Dark+
 
 confirm-close-surface = false
 
@@ -37,14 +34,14 @@ confirm-close-surface = false
 # adjust-cell-height = 15%
 # adjust-cursor-height = 15%
 
-adjust-cell-height = 20%
-adjust-cursor-height = 20%
+# adjust-cell-height = 20%
+# adjust-cursor-height = 20%
 
-# adjust-cell-height = 25%
-# adjust-cursor-height = 25%
+adjust-cell-height = 25%
+adjust-cursor-height = 25%
 
-adjust-cell-height = 30%
-adjust-cursor-height = 30%
+# adjust-cell-height = 30%
+# adjust-cursor-height = 30%
 
 # adjust-cell-height = 35%
 # adjust-cursor-height = 35%
@@ -57,10 +54,10 @@ window-padding-y = 0
 # cursor-invert-fg-bg = true
 
 cursor-style = block
-cursor-style-blink = true
+cursor-style-blink = false
 mouse-hide-while-typing = true
 
-window-padding-y = 2,0
+# window-padding-y = 2,0
 window-padding-balance = true
 window-decoration = false
 macos-titlebar-style = hidden

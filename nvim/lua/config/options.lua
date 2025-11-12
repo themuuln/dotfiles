@@ -4,6 +4,7 @@ local o = vim.opt
 o.spell = false
 
 vim.g.ai_cmp = false
+vim.g.lazyvim_blink_main = true
 
 -- Define leader key
 go.mapleader = " "
