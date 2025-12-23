@@ -428,6 +428,7 @@ return {
       },
       picker = {
         enabled = true,
+        ui_select = true,
         previewers = {
           diff = {
             style = "fancy", ---@type "fancy"|"syntax"|"terminal"

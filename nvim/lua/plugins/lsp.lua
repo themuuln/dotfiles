@@ -18,8 +18,6 @@ return {
     },
   },
 
-  { "stevearc/dressing.nvim", lazy = true, ft = { "dart" } },
-
   {
     "mfussenegger/nvim-dap",
     keys = {
