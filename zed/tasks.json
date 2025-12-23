@@ -1,0 +1,47 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+//
+// Example:
+[
+	{
+		"label": "Flutter: Run with PID",
+		"command": "flutter run --pid-file=.flutter.pid",
+		"use_new_terminal": true,
+		"allow_concurrent_runs": false,
+		"reveal": "always"
+	},
+	{
+		"label": "Flutter: Run example with PID",
+		"command": "cd example && flutter run --pid-file=.flutter.pid",
+		"use_new_terminal": true,
+		"allow_concurrent_runs": false,
+		"reveal": "always"
+	},
+	{
+		"label": "Flutter: Hot Reload Watcher",
+		"command": "sh -c 'while true; do if [ -f .flutter.pid ]; then fswatch -1 lib/ && kill -USR1 $(cat .flutter.pid); else sleep 1; fi; done'",
+		"use_new_terminal": true,
+		"allow_concurrent_runs": true,
+		"hide": "always",
+		"reveal": "never"
+	},
+	{
+		"label": "Television File Finder",
+		"command": "zed \"$(tv files)\"",
+		"hide": "always",
+		"allow_concurrent_runs": true,
+		"use_new_terminal": true
+	},
+	{
+		"label": "LazyGit",
+		"command": "lazygit",
+		"shell": {
+			"program": "sh"
+		},
+		"hide": "on_success",
+		"reveal_target": "center",
+		"show_summary": false,
+		"show_command": false,
+		"allow_concurrent_runs": true,
+		"use_new_terminal": true
+	}
+]

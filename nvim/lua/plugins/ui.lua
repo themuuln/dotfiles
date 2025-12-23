@@ -4,55 +4,68 @@ return {
     -- opts = { colorscheme = "tokyonight-night" },
     -- opts = { colorscheme = "catppuccin" },
     -- opts = { colorscheme = "kanagawa-dragon" },
+    -- opts = { colorscheme = "onedark" },
+    -- opts = { colorscheme = "vague" },
+    -- opts = { colorscheme = "nordic" },
   },
 
-  -- {
-  --   "rose-pine/neovim",
-  --   name = "rose-pine",
-  -- },
-
-  -- { "catppuccin/nvim", name = "catppuccin", opts = { transparent_background = false } },
-
-  -- {
-  --   "thesimonho/kanagawa-paper.nvim",
-  --   lazy = true,
-  --   opts = function()
-  --     return {
-  --       transparent = true,
-  --       diag_background = false,
-  --     }
-  --   end,
-  -- },
+  {
+    "thesimonho/kanagawa-paper.nvim",
+    lazy = true,
+    opts = function()
+      return {
+        transparent = true,
+        diag_background = false,
+      }
+    end,
+  },
 
   -- main theme
   { "rebelot/kanagawa.nvim", opts = { transparent = false, compile = true } },
 
+  { "shaunsingh/nord.nvim" },
+
   {
-    "nvim-lualine/lualine.nvim",
-    opts = {
-      tabline = {
-        lualine_a = {
-          {
-            "buffers",
-            symbols = { alternate_file = "" },
-            hide_filename_extension = true,
-            use_mode_colors = true,
-          },
-        },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = { "tabs" },
-      },
-    },
+    "AlexvZyl/nordic.nvim",
+    lazy = true,
+    -- priority = 1000,
   },
 
   {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup({
+        style = "darker",
+        -- style = "warmer",
+      })
+      -- require("onedark").load()
+    end,
+  },
+
+  { "rmehri01/onenord.nvim" },
+
+  {
+    "nickkadutskyi/jb.nvim",
+    lazy = true,
+  },
+
+  { "Mofiqul/vscode.nvim" },
+
+  { "nyoom-engineering/oxocarbon.nvim" },
+
+  {
+    "vague-theme/vague.nvim",
+    lazy = true,
+  },
+
+  { "marko-cerovac/material.nvim" },
+
+  {
     "akinsho/bufferline.nvim",
-    enabled = false,
+    enabled = true,
     opts = {
       options = {
+        separator_style = "slope",
         indicator = {
           icon = "",
           style = "none",

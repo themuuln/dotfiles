@@ -31,7 +31,7 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
--- vim.opt.wrap = false
+vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- set directory where undo files are stored
@@ -41,7 +41,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- set directory where un
 vim.opt.formatoptions:append({ "r" })
 vim.opt.cursorcolumn = false
 
-vim.opt.backup = true
+vim.opt.backup = false
 vim.opt.cmdheight = 0
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
 

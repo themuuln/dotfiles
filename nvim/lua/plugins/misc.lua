@@ -44,51 +44,52 @@ return {
 
   { "DavidAnson/markdownlint", enabled = false },
 
-  {
-    "harrisoncramer/gitlab.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    build = function()
-      require("gitlab.server").build(true)
-    end, -- Builds the Go binary
-    config = function()
-      require("gitlab").setup({
-        auth_provider = function()
-          return os.getenv("GITLAB_TOKEN"), os.getenv("GITLAB_VIM_URL"), nil
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "harrisoncramer/gitlab.nvim",
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   build = function()
+  --     require("gitlab.server").build(true)
+  --   end, -- Builds the Go binary
+  --   config = function()
+  --     require("gitlab").setup({
+  --       auth_provider = function()
+  --         return os.getenv("GITLAB_TOKEN"), os.getenv("GITLAB_VIM_URL"), nil
+  --       end,
+  --     })
+  --   end,
+  -- },
 
-  {
-    "obsidian-nvim/obsidian.nvim",
-    lazy = true,
-    ft = "markdown",
-    cmd = { "ObsidianSearch", "ObsidianQuickSwitch", "ObsidianNew" },
-    version = "*",
-    opts = {
-      homepage = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main",
-      workspaces = {
-        {
-          name = "main",
-          path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main",
-        },
-        {
-          name = "work",
-          path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main/Second Brain/Work/ICT",
-        },
-        {
-          name = "work-main",
-          path = "/Users/ict/coding/work/lesson",
-        },
-      },
-    },
-  },
+  -- {
+  --   "obsidian-nvim/obsidian.nvim",
+  --   lazy = true,
+  --   ft = "markdown",
+  --   cmd = { "ObsidianSearch", "ObsidianQuickSwitch", "ObsidianNew" },
+  --   version = "*",
+  --   opts = {
+  --     homepage = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main",
+  --     workspaces = {
+  --       {
+  --         name = "main",
+  --         path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main",
+  --       },
+  --       {
+  --         name = "work",
+  --         path = "/Users/ict/Library/Mobile Documents/iCloud~md~obsidian/Documents/main/Second Brain/Work/ICT",
+  --       },
+  --       {
+  --         name = "work-main",
+  --         path = "/Users/ict/coding/work/lesson",
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     config = function()
       local actions = require("diffview.actions")
       require("diffview").setup({
@@ -639,28 +640,6 @@ return {
     -- },
   },
 
-  -- -- screenshot
-  -- {
-  --   "mistricky/codesnap.nvim",
-  --   build = "make",
-  --   opts = {
-  --     mac_window_bar = false,
-  --     title = "",
-  --     code_font_family = "JetBrainsMono Nerd Font Mono",
-  --     watermark_font_family = "",
-  --     watermark = "",
-  --     bg_theme = "default",
-  --     breadcrumbs_separator = "/",
-  --     has_breadcrumbs = true,
-  --     has_line_number = true,
-  --     show_workspace = true,
-  --     min_width = 0,
-  --     bg_x_padding = 0,
-  --     bg_y_padding = 0,
-  --     save_path = os.getenv("XDG_PICTURES_DIR") or (os.getenv("HOME") .. "/Pictures"),
-  --   },
-  -- },
-
   -- {
   --   "nvzone/typr",
   --   dependencies = "nvzone/volt",
@@ -683,9 +662,29 @@ return {
   --   end,
   -- },
 
-  require("treesitter-context").setup({
-    multiwindow = true,
-    trim_scope = "outer",
-    mode = "topline",
-  }),
+  {
+    "chrisgrieser/nvim-recorder",
+    opts = {},
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    config = function()
+      require("treesitter-context").setup({
+        multiwindow = true,
+        trim_scope = "outer",
+        mode = "topline",
+      })
+    end,
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    ft = { "markdown" },
+    opts = {},
+  },
 }

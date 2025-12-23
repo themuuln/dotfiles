@@ -26,6 +26,37 @@ return {
 
   { "nvim-mini/mini.surround", version = false, opts = { n_lines = 100 } },
 
+  -- {
+  --   "stevearc/oil.nvim",
+  --   ---@module 'oil'
+  --   ---@type oil.SetupOpts
+  --   opts = {},
+  --   dependencies = {
+  --     -- { "nvim-mini/mini.icons", opts = {} },
+  --     -- {
+  --     --   "benomahony/oil-git.nvim",
+  --     --   dependencies = { "stevearc/oil.nvim" },
+  --     -- },
+  --     -- {
+  --     --   "JezerM/oil-lsp-diagnostics.nvim",
+  --     --   dependencies = { "stevearc/oil.nvim" },
+  --     --   opts = {},
+  --     -- },
+  --     -- {
+  --     --   "refractalize/oil-git-status.nvim",
+  --     --
+  --     --   dependencies = {
+  --     --     "stevearc/oil.nvim",
+  --     --   },
+  --     --
+  --     --   config = true,
+  --     -- },
+  --   },
+  --   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  --   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  --   lazy = false,
+  -- },
+
   {
     "nvim-mini/mini.move",
     opts = {

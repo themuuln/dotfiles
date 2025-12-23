@@ -27,7 +27,6 @@ vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("DartLogMacro", { clear = true }),
   pattern = "dart",
   callback = function()
-    vim.fn.setreg("l", "yo" .. "log(" .. esc .. 'pa, prefix: "' .. esc .. 'pa");' .. esc)
+    vim.fn.setreg("l", 'yo' .. 'log(' .. esc .. 'pa, prefix: "' .. esc .. 'pa");' .. esc)
   end,
 })
-vim.opt.winborder = "none"

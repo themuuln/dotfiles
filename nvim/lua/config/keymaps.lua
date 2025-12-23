@@ -1,40 +1,52 @@
-local map = vim.keymap.set
-local dap = require("dap")
-
-map("n", "<C-m>", "<C-i>", { noremap = true, silent = true })
-map("n", "U", ":redo<CR>", { noremap = true, silent = true })
-map("i", "jk", "<Esc>", { noremap = true, silent = false })
-map("n", "<leader>pv", vim.cmd.Ex)
-map("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-m>", "<C-i>", { noremap = true, silent = true })
+vim.keymap.set("n", "U", ":redo<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "J", "mzJ`z")
 
 -- center on navigation
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-map("n", "<C-f>", "<C-f>zz")
-map("n", "<C-b>", "<C-b>zz")
-map("n", "n", "nzzzv")
-map("n", "N", "Nzzzv")
-
--- debug
-map("n", "<F5>", dap.continue, { desc = "Debug: Continue / Start" })
-map("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
-map("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
-map("n", "<S-F11>", dap.step_out, { desc = "Debug: Step Out" })
-map("n", "<C-S-F5>", dap.restart, { desc = "Debug: Restart" })
-map("n", "<S-F5>", function()
-  dap.close()
-end, { desc = "Debug: Stop" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 -- dial
-map("n", "+", function()
+vim.keymap.set("n", "+", function()
   require("dial.map").manipulate("increment", "normal")
 end)
-map("n", "-", function()
+vim.keymap.set("n", "-", function()
   require("dial.map").manipulate("decrement", "normal")
 end)
-map("v", "+", function()
+vim.keymap.set("v", "+", function()
   require("dial.map").manipulate("increment", "visual")
 end)
-map("v", "-", function()
+vim.keymap.set("v", "-", function()
   require("dial.map").manipulate("decrement", "visual")
 end)
+
+vim.keymap.set(
+  "v",
+  "<S-j>",
+  ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv",
+  { desc = "Move Down", silent = true }
+)
+vim.keymap.set(
+  "v",
+  "<S-k>",
+  ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv",
+  { desc = "Move Up", silent = true }
+)
+
+if vim.g.vscode then
+  vim.keymap.set("n", "<leader>,", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>")
+  vim.keymap.set("n", "<leader><Cr>", "<Cmd>call VSCodeNotify('oil-code.open')<CR>")
+  vim.keymap.set("n", "<leader>tn", "<Cmd>call VSCodeNotify('workbench.action.createTerminalEditor')<CR>")
+  vim.keymap.set("n", "<leader>/", "<Cmd>call VSCodeNotify('workbench.action.quickTextSearch')<CR>")
+  vim.keymap.set("n", "<leader>gg", "<Cmd>call VSCodeNotify('lazygit.openLazygit')<CR>")
+  vim.keymap.set("n", "gd", "<Cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>")
+  vim.keymap.set("n", "gr", "<Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>")
+  vim.keymap.set("n", "[h", "<Cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>")
+  vim.keymap.set("n", "]h", "<Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>")
+end

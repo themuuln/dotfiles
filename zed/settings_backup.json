@@ -1,167 +1,130 @@
 {
-  "edit_predictions": {
-    "disabled_globs": [
-      "**/.git",
-      "**/.svn",
-      "**/.hg",
-      "**/CVS",
-      "**/.DS_Store",
-      "**/Thumbs.db",
-      "**/.classpath",
-      "**/.settings",
-      "**/.vscode",
-      "**/.idea",
-      "**/node_modules",
-      "**/.serverless",
-      "**/build",
-      "**/dist",
-      "**/coverage",
-      "**/.venv",
-      "**/__pycache__",
-      "**/.ropeproject",
-      "**/.pytest_cache",
-      "**/.ruff_cache"
-    ],
-    "mode": "eager",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null
-    },
-    "enabled_in_assistant": false
+  "prettier": {
+    "allowed": true
   },
-  "icon_theme": "Catppuccin Mocha",
-  "notification_panel": {
-    "enabled": false,
+  // "context_servers": {
+  // 	"mcp-server-figma": {
+  // 		"enabled": false,
+  // 		"settings": {
+  // 			"figma_api_key": "REDACTED"
+  // 		}
+  // 	}
+  // },
+  "hard_tabs": false,
+  "buffer_line_height": "comfortable",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "git_panel": {
+    "scrollbar": {
+      "show": "never"
+    },
+    "collapse_untracked_diff": false,
+    "sort_by_path": true,
+    "status_style": "label_color",
+    "default_width": 380.0,
     "button": false
   },
-
-  "assistant": {
-    "default_profile": "ask",
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
-    },
-    "version": "2"
+  "file_finder": {
+    "modal_max_width": "large"
   },
-  "show_edit_predictions": true,
-  "languages": {
-    "Python": {
-      "language_servers": ["ruff", "basedpyright", "!pyright"],
-      "formatter": [
-        {
-          "code_actions": {
-            "source.organizeImports.ruff": true,
-            "source.fixAll.ruff": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
+  "pane_split_direction_vertical": "right",
+  "zoomed_padding": false,
+  "use_system_window_tabs": false,
+  "bottom_dock_layout": "contained",
+  "preview_tabs": {
+    "enable_preview_from_code_navigation": true,
+    "enable_preview_from_file_finder": true
+  },
+  "debugger": {
+    "button": false
+  },
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "min_column": 0,
+      "padding": 4,
+      "enabled": true
+    },
+    "button": false
+  },
+  "status_bar": {
+    "active_language_button": false,
+    "cursor_position_button": false
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "theme": "One Dark Pro",
+  "edit_predictions": {
+    "mode": "eager"
+  },
+  "title_bar": {
+    "show_branch_name": true,
+    "show_sign_in": false,
+    "show_user_picture": false,
+    "show_onboarding_banner": false,
+    "show_project_items": true,
+    "show_branch_icon": false
+  },
+  "git": {
+    "hunk_style": "unstaged_hollow",
+    "blame": {
+      "show_avatar": true
+    },
+    "inline_blame": {
+      "show_commit_summary": false,
+      "enabled": true
     }
   },
-  "lsp": {
-    "basedpyright": {
-      "settings": {
-        "python": {
-          "pythonPath": "./.venv/bin/python"
-        },
-        "basedpyright.analysis": {
-          "diagnosticMode": "workspace",
-          "inlayHints": {
-            "callArgumentNames": false
-          }
-        }
-      }
-    },
-    "gopls": {
-      "gofumpt": true,
-      "initialization_options": {
-        "gofumpt": true
-      }
-    },
-    "yaml-language-server": {
-      "settings": {
-        "yaml": {
-          "validate": false,
-          "customTags": [
-            "!And scalar",
-            "!And mapping",
-            "!And sequence",
-            "!If scalar",
-            "!If mapping",
-            "!If sequence",
-            "!Not scalar",
-            "!Not mapping",
-            "!Not sequence",
-            "!Equals scalar",
-            "!Equals mapping",
-            "!Equals sequence",
-            "!Or scalar",
-            "!Or mapping",
-            "!Or sequence",
-            "!FindInMap scalar",
-            "!FindInMap mapping",
-            "!FindInMap sequence",
-            "!Base64 scalar",
-            "!Base64 mapping",
-            "!Base64 sequence",
-            "!Cidr scalar",
-            "!Cidr mapping",
-            "!Cidr sequence",
-            "!Ref scalar",
-            "!Ref mapping",
-            "!Ref sequence",
-            "!Sub scalar",
-            "!Sub mapping",
-            "!Sub sequence",
-            "!GetAtt scalar",
-            "!GetAtt mapping",
-            "!GetAtt sequence",
-            "!GetAZs scalar",
-            "!GetAZs mapping",
-            "!GetAZs sequence",
-            "!ImportValue scalar",
-            "!ImportValue mapping",
-            "!ImportValue sequence",
-            "!Select scalar",
-            "!Select mapping",
-            "!Select sequence",
-            "!Split scalar",
-            "!Split mapping",
-            "!Split sequence",
-            "!Join scalar",
-            "!Join mapping",
-            "!Join sequence",
-            "!Condition scalar",
-            "!Condition mapping",
-            "!Condition sequence"
-          ],
-          "format": {
-            "enable": true,
-            "singleQuote": true
-          },
-          "editor": {
-            "tabSize": 4
-          },
-          "schemas": {
-            "https://raw.githubusercontent.com/lalcebo/json-schema/master/serverless/reference.json": [
-              "/*"
-            ]
-          }
-        }
-      }
-    }
+  "tabs": {
+    "show_close_button": "hidden",
+    "show_diagnostics": "all",
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true
   },
-  "tab_size": 4,
+  "use_smartcase_search": true,
+  "inlay_hints": {
+    "show_background": false
+  },
+  "minimap": {
+    "thumb": "hover",
+    "display_in": "active_editor",
+    "show": "auto"
+  },
+  "relative_line_numbers": "enabled",
+  "show_signature_help_after_edits": false,
+  "auto_signature_help": false,
+  "vertical_scroll_margin": 8.0,
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "cursor_shape": "bar",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
+  "redact_private_values": false,
+  "agent_buffer_font_size": 14.0,
+  "ui_font_weight": 300.0,
+  "ui_font_size": 18.0,
+  "buffer_font_weight": 300.0,
+  "buffer_font_size": 20.0,
   "vim_mode": true,
-  "relative_line_numbers": true,
+  "show_edit_predictions": true,
+  "notification_panel": {
+    "button": false
+  },
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "grok-code-fast-1"
+    },
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash"
+    },
+    "always_allow_tool_actions": true,
+    "model_parameters": []
+  },
+  "show_completions_on_input": true,
+  "tab_size": 2,
   "scrollbar": {
     "show": "never"
   },
@@ -169,44 +132,30 @@
     "show": true,
     "show_nav_history_buttons": false
   },
-  "tabs": {
-    "file_icons": true,
-    "git_status": true
-  },
-  // Indentation, rainbow indentation
   "indent_guides": {
-    "enabled": true,
-    "coloring": "indent_aware"
+    "enabled": false
   },
-  // Use zed commit editor
   "terminal": {
     "env": {
       "EDITOR": "zed --wait"
     },
-    "font_size": 16,
-    "font_family": "BlexMono Nerd Font Mono",
+    "font_size": 20,
+    "font_family": "JetBrainsMono Nerd Font Mono",
     "detect_venv": {
       "on": {
-        // Default directories to search for virtual environments, relative
-        // to the current working directory. We recommend overriding this
-        // in your project's settings, rather than globally.
         "directories": [".venv", "venv"],
-        // Can also be `csh`, `fish`, and `nushell`
         "activate_script": "default"
       }
     },
     "button": false
   },
   "toolbar": {
-    "title": false,
     "quick_actions": false
   },
-  // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.15,
     "right_padding": 0.15
   },
-  // File syntax highlighting
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
     "JSON": ["json", "jsonc", "*.code-snippets"]
@@ -234,10 +183,14 @@
     "**/.ruff_cache"
   ],
   "file_scan_inclusions": [".env"],
-  // Move all panel to the right
   "project_panel": {
+    "hide_gitignore": false,
+    "default_width": 300.0,
+    "hide_hidden": false,
+    "hide_root": true,
+    "auto_reveal_entries": true,
+    "indent_size": 20.0,
     "button": false,
-    "default_width": 300,
     "dock": "left",
     "file_icons": true,
     "folder_icons": true,
@@ -247,44 +200,35 @@
     }
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "left",
     "button": false
   },
   "collaboration_panel": {
     "dock": "left",
     "button": false
   },
-  "chat_panel": {
-    "dock": "right"
-  },
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "buffer_font_family": "BlexMono Nerd Font Mono",
-  "ui_font_family": "BlexMono Nerd Font Mono",
-  "autosave": "on_focus_change",
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "Catppuccin Mocha"
-  },
   "search": {
+    "button": false,
     "whole_word": false,
     "case_sensitive": true,
     "include_ignored": false,
     "regex": false
   },
-  "projects_online_by_default": false,
   "preferred_line_length": 120,
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "formatter": {
-    "language_server": {
-      "name": "biome"
+  "lsp": {
+    "biome": {
+      "binary": {
+        "path": "./node_modules/.bin/biome",
+        "arguments": ["lsp-proxy"]
+      }
+    },
+    "dart": {
+      "settings": {
+        "lineLength": 140
+      }
     }
-  },
-  "code_actions_on_format": {
-    "source.fixAll.biome": true,
-    "source.organizeImports.biome": true
   }
 }
