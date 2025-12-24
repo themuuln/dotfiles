@@ -1,0 +1,1 @@
+/Users/ict/.config/opencode/superpowers/.opencode/plugin/superpowers.js

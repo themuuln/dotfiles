@@ -3,18 +3,12 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      diagnostics = { virtual_text = { prefix = "icons" } },
+      inlay_hints = { enabled = false },
       servers = {
         -- fix conflict with other dart lsp servers
         dartls = {},
       },
-    },
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      diagnostics = { virtual_text = { prefix = "icons" } },
-      inlay_hints = { enabled = false },
     },
   },
 

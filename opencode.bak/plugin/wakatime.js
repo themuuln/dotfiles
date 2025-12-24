@@ -1,0 +1,1 @@
+/Users/ict/opencode-wakatime/dist/index.js

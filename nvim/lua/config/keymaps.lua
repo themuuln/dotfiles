@@ -1,8 +1,7 @@
-vim.keymap.set("n", "<C-m>", "<C-i>", { noremap = true, silent = true })
-vim.keymap.set("n", "U", ":redo<CR>", { noremap = true, silent = true })
-vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-m>", "<C-i>", { desc = "Jump to older position in jump list" })
+vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Netrw file explorer" })
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines keeping cursor position" })
 
 -- center on navigation
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -40,13 +39,13 @@ vim.keymap.set(
 )
 
 if vim.g.vscode then
-  vim.keymap.set("n", "<leader>,", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>")
-  vim.keymap.set("n", "<leader><Cr>", "<Cmd>call VSCodeNotify('oil-code.open')<CR>")
-  vim.keymap.set("n", "<leader>tn", "<Cmd>call VSCodeNotify('workbench.action.createTerminalEditor')<CR>")
-  vim.keymap.set("n", "<leader>/", "<Cmd>call VSCodeNotify('workbench.action.quickTextSearch')<CR>")
-  vim.keymap.set("n", "<leader>gg", "<Cmd>call VSCodeNotify('lazygit.openLazygit')<CR>")
-  vim.keymap.set("n", "gd", "<Cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>")
-  vim.keymap.set("n", "gr", "<Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>")
-  vim.keymap.set("n", "[h", "<Cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>")
-  vim.keymap.set("n", "]h", "<Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>")
+  vim.keymap.set("n", "<leader>,", "<Cmd>call VSCodeNotify('workbench.action.showAllEditors')<CR>", { desc = "Show all editors" })
+  vim.keymap.set("n", "<leader><Cr>", "<Cmd>call VSCodeNotify('oil-code.open')<CR>", { desc = "Open oil" })
+  vim.keymap.set("n", "<leader>tn", "<Cmd>call VSCodeNotify('workbench.action.createTerminalEditor')<CR>", { desc = "Create terminal" })
+  vim.keymap.set("n", "<leader>/", "<Cmd>call VSCodeNotify('workbench.action.quickTextSearch')<CR>", { desc = "Quick text search" })
+  vim.keymap.set("n", "<leader>gg", "<Cmd>call VSCodeNotify('lazygit.openLazygit')<CR>", { desc = "Open lazygit" })
+  vim.keymap.set("n", "gd", "<Cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>", { desc = "Go to definition" })
+  vim.keymap.set("n", "gr", "<Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>", { desc = "Go to references" })
+  vim.keymap.set("n", "[h", "<Cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>", { desc = "Previous change" })
+  vim.keymap.set("n", "]h", "<Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>", { desc = "Next change" })
 end

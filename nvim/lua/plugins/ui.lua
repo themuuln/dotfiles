@@ -1,13 +1,12 @@
 return {
   {
     "LazyVim/LazyVim",
-    -- opts = { colorscheme = "tokyonight-night" },
-    -- opts = { colorscheme = "catppuccin" },
-    -- opts = { colorscheme = "kanagawa-dragon" },
-    -- opts = { colorscheme = "onedark" },
-    -- opts = { colorscheme = "vague" },
-    -- opts = { colorscheme = "nordic" },
+    opts = { colorscheme = "kanagawa" },
   },
+
+  -- Main theme
+  { "rebelot/kanagawa.nvim", priority = 1000, opts = { transparent = false, compile = true } },
+
 
   {
     "thesimonho/kanagawa-paper.nvim",
@@ -20,45 +19,20 @@ return {
     end,
   },
 
-  -- main theme
-  { "rebelot/kanagawa.nvim", opts = { transparent = false, compile = true } },
-
-  { "shaunsingh/nord.nvim" },
-
   {
     "AlexvZyl/nordic.nvim",
     lazy = true,
-    -- priority = 1000,
   },
 
   {
     "navarasu/onedark.nvim",
+    lazy = true,
     config = function()
       require("onedark").setup({
         style = "darker",
-        -- style = "warmer",
       })
-      -- require("onedark").load()
     end,
   },
-
-  { "rmehri01/onenord.nvim" },
-
-  {
-    "nickkadutskyi/jb.nvim",
-    lazy = true,
-  },
-
-  { "Mofiqul/vscode.nvim" },
-
-  { "nyoom-engineering/oxocarbon.nvim" },
-
-  {
-    "vague-theme/vague.nvim",
-    lazy = true,
-  },
-
-  { "marko-cerovac/material.nvim" },
 
   {
     "akinsho/bufferline.nvim",
@@ -72,6 +46,31 @@ return {
         },
         show_buffer_close_icons = false,
         show_tab_indicators = false,
+        hover = {
+          enabled = true,
+          reveal = { "close" },
+        },
+        diagnostics = "nvim_lsp",
+        offsets = {
+          {
+            filetype = "NvimTree",
+            text = "File Explorer",
+            text_align = "left",
+            separator = true,
+          },
+        },
+      },
+      highlights = {
+        fill = {
+          bg = { attribute = "bg", highlight = "Normal" },
+        },
+        background = {
+          bg = { attribute = "bg", highlight = "Normal" },
+        },
+        buffer_selected = {
+          bg = { attribute = "bg", highlight = "Normal" },
+          fg = { attribute = "fg", highlight = "Normal" },
+        },
       },
     },
   },

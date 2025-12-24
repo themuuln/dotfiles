@@ -17,14 +17,12 @@ go.root_spec = {
   "cwd",
 }
 
--- Disable annoying cmd line stuff
--- o.showcmd = false
--- o.laststatus = 3
--- o.cmdheight = 0
-
 vim.g.snacks_animate = false
 vim.o.scrolloff = 8
 vim.o.inccommand = "split"
+vim.o.updatetime = 100
+vim.o.timeoutlen = 300
+
 vim.opt.smartindent = true
 vim.opt.laststatus = 3
 vim.opt.tabstop = 2
@@ -34,17 +32,12 @@ vim.opt.expandtab = true
 vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- set directory where undo files are stored
--- vim.opt.signcolumn = "yes"
--- vim.opt.updatetime = 50
--- vim.opt.colorcolumn = "120"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.signcolumn = "yes"
 vim.opt.formatoptions:append({ "r" })
 vim.opt.cursorcolumn = false
-
 vim.opt.backup = false
 vim.opt.cmdheight = 0
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
-
--- vim.g.deprecation_warnings = true
--- vim.env.FZF_DEFAULT_OPTS = ""
--- o.termguicolors = true
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.termguicolors = true

@@ -30,16 +30,19 @@ require("lazy").setup({
   },
   performance = {
     cache = { enabled = true },
+    reset_packpath = true,
     rtp = {
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
         "zipPlugin",
+        "shada_plugin",
+        "spellfile_plugin",
       },
     },
   },
