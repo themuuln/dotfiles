@@ -1,12 +1,11 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "kanagawa" },
+    opts = { colorscheme = "tokyonight-night" },
   },
 
   -- Main theme
   { "rebelot/kanagawa.nvim", priority = 1000, opts = { transparent = false, compile = true } },
-
 
   {
     "thesimonho/kanagawa-paper.nvim",

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/NoeFabris/opencode-antigravity-auth/main/assets/antigravity.schema.json",
+  "quiet_mode": false,
+  "debug": false,
+  "keep_thinking": true,
+  "session_recovery": true,
+  "auto_resume": true,
+  "resume_text": "continue"
+}

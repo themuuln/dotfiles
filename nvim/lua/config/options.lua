@@ -20,7 +20,7 @@ go.root_spec = {
 vim.g.snacks_animate = false
 vim.o.scrolloff = 8
 vim.o.inccommand = "split"
-vim.o.updatetime = 100
+vim.o.updatetime = 250 -- Performance: reduced frequency of background events
 vim.o.timeoutlen = 300
 
 vim.opt.smartindent = true

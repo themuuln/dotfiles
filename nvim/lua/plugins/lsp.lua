@@ -3,10 +3,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      diagnostics = { virtual_text = { prefix = "icons" } },
       inlay_hints = { enabled = false },
       servers = {
-        -- fix conflict with other dart lsp servers
         dartls = {},
       },
     },
@@ -65,6 +63,7 @@ return {
     lazy = true,
     keys = {
       { "<leader>dd", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App" },
+      { "<leader>dr", "<cmd>FlutterLogToggle<cr>", desc = "Toggle Log" },
       { "<leader>FC", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App" },
       { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App" },
       { "<leader>Fr", "<cmd>FlutterRestart<cr>", desc = "Restart Flutter App" },
@@ -79,19 +78,23 @@ return {
           -- evaluate_to_string_in_debug_views = false,
         },
         flutter_path = os.getenv("HOME") .. "/development/flutter/bin/flutter",
-        default_run_args = { flutter = "--pid-file=.flutter.pid" }, -- Default options for run command (i.e `{ flutter = "--no-version-check" }`). Configured separately for `dart run` and `flutter run`.
-        widget_guides = { enabled = true },
-        dev_log = { enabled = false },
+        dev_log = {
+          enabled = true,
+          notify_errors = true,
+        },
+        default_run_args = { flutter = "--pid-file=.flutter.pid" },
         dev_tools = { autostart = false, auto_open_browser = false },
         lsp = {
           settings = {
-            lineLength = 120,
             showTodos = false,
             completeFunctionCalls = false,
             enableSdkFormatter = true,
             analysisExcludedFolders = {
               os.getenv("HOME") .. "/development/flutter/packages",
-              vim.fn.expand("$Home/.pub-cache"),
+              os.getenv("HOME") .. "/.pub-cache",
+              vim.fn.getcwd() .. "/build",
+              vim.fn.getcwd() .. "/.dart_tool",
+              vim.fn.getcwd() .. "/.git",
             },
           },
         },
@@ -101,10 +104,6 @@ return {
 
   {
     "stevearc/conform.nvim",
-    opts = {
-      exclude_filetypes = {
-        "dart",
-      },
-    },
+    opts = { exclude_filetypes = { "dart" } },
   },
 }

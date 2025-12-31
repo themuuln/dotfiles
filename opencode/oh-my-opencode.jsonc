@@ -1,0 +1,33 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "google_auth": false,
+  "anthropic_auto_compact": {
+    "experimental": {
+      "dynamic_context_pruning": {
+        "enabled": true,
+        "notification": true,
+        "turn_protection": 3,
+      },
+    },
+  },
+  "experimental": {
+    "auto_resume": true,
+    "dcp_for_compaction": true,
+  },
+  "agents": {
+    "Sisyphus": { "model": "google/gemini-3-flash-preview" },
+    "oracle": { "model": "google/gemini-3-flash-preview" },
+    "librarian": { "model": "google/gemini-3-flash-preview" },
+    "explore": { "model": "google/gemini-3-flash-preview" },
+    "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro-preview" },
+    "document-writer": { "model": "google/gemini-3-flash-preview" },
+    "multimodal-looker": { "model": "google/gemini-3-flash-preview" },
+    // "Sisyphus": { "model": "google/claude-opus-4-5-thinking-high" },
+    // "oracle": { "model": "google/claude-opus-4-5-thinking-high" },
+    // "librarian": { "model": "google/claude-sonnet-4-5" },
+    // "explore": { "model": "google/gemini-3-flash" },
+    // "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro-high" },
+    // "document-writer": { "model": "google/gemini-3-flash" },
+    // "multimodal-looker": { "model": "google/gemini-3-flash" }
+  },
+}

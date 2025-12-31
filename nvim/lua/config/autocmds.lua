@@ -8,6 +8,13 @@ vim.api.nvim_create_autocmd("VimResized", {
   command = "wincmd =",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+})
+
 -- -- kulala autocmds for env
 -- local last_env = nil
 -- vim.api.nvim_create_autocmd("BufEnter", {

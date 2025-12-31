@@ -1,9 +1,0 @@
-{
-  "$schema": "https://charm.land/crush.json",
-  "mcp": {
-    "figma-developer": {
-      "type": "sse",
-      "url": "http://127.0.0.1:3845/sse"
-    }
-  }
-}

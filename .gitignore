@@ -25,9 +25,10 @@ tmux/plugins
 ghostty/shaders
 glab-cli/config.yml
 configstore
-opencode
 television
 yazi
-yazi
-yazi
-yazi
+opencode/superpowers
+opencode/plugin
+opencode/antigravity-accounts.json
+opencode/.bak.json
+opencode/antigravity-signature-cache.json
