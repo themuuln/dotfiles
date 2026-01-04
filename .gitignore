@@ -32,3 +32,6 @@ opencode/plugin
 opencode/antigravity-accounts.json
 opencode/.bak.json
 opencode/antigravity-signature-cache.json
+tokscale
+atuin/config.toml
+mole/mole.log
