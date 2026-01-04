@@ -7,9 +7,6 @@
 #   'exec-and-forget borders active_color=0xff7AA2F8 inactive_color=0xff24283B width=5.0',
 # ]
 
-# this is for sketchybar
-# after-startup-command = ['exec-and-forget sketchybar']
-
 exec-on-workspace-change = ['/bin/bash', '-c']
 start-at-login = true
 enable-normalization-opposite-orientation-for-nested-containers = true
