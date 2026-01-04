@@ -15,13 +15,34 @@
     "dcp_for_compaction": true,
   },
   "agents": {
-    "Sisyphus": { "model": "google/gemini-3-flash-preview" },
-    "oracle": { "model": "google/gemini-3-flash-preview" },
-    "librarian": { "model": "google/gemini-3-flash-preview" },
-    "explore": { "model": "google/gemini-3-flash-preview" },
-    "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro-preview" },
-    "document-writer": { "model": "google/gemini-3-flash-preview" },
-    "multimodal-looker": { "model": "google/gemini-3-flash-preview" },
+    // glm
+    "Sisyphus": { "model": "opencode/glm-4.7-free" },
+    "oracle": { "model": "opencode/glm-4.7-free" },
+    "librarian": { "model": "opencode/glm-4.7-free" },
+    "explore": { "model": "opencode/glm-4.7-free" },
+    "frontend-ui-ux-engineer": { "model": "opencode/glm-4.7-free" },
+    "document-writer": { "model": "opencode/glm-4.7-free" },
+    "multimodal-looker": { "model": "opencode/glm-4.7-free" },
+
+    // // antigravity
+    // "Sisyphus": { "model": "google/antigravity-gemini-3-flash" },
+    // "oracle": { "model": "google/antigravity-gemini-3-flash" },
+    // "librarian": { "model": "google/antigravity-gemini-3-flash" },
+    // "explore": { "model": "google/antigravity-gemini-3-flash" },
+    // "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro" },
+    // "document-writer": { "model": "google/antigravity-gemini-3-flash" },
+    // "multimodal-looker": { "model": "google/antigravity-gemini-3-flash" },
+
+    // // flash preview
+    // "Sisyphus": { "model": "google/gemini-3-flash-preview" },
+    // "oracle": { "model": "google/gemini-3-flash-preview" },
+    // "librarian": { "model": "google/gemini-3-flash-preview" },
+    // "explore": { "model": "google/gemini-3-flash-preview" },
+    // "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro-preview" },
+    // "document-writer": { "model": "google/gemini-3-flash-preview" },
+    // "multimodal-looker": { "model": "google/gemini-3-flash-preview" },
+
+    // // antigravity claude
     // "Sisyphus": { "model": "google/claude-opus-4-5-thinking-high" },
     // "oracle": { "model": "google/claude-opus-4-5-thinking-high" },
     // "librarian": { "model": "google/claude-sonnet-4-5" },
