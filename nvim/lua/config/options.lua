@@ -1,17 +1,14 @@
-local go = vim.g
-local o = vim.opt
-
-o.spell = false
+vim.opt.spell = false
 
 vim.g.ai_cmp = false
 vim.g.lazyvim_blink_main = true
 
 -- Define leader key
-go.mapleader = " "
-go.maplocalleader = "\\"
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Root dir detection
-go.root_spec = {
+vim.g.root_spec = {
   "lsp",
   { ".git", "lua", ".obsidian", "package.json", "Makefile", "go.mod", "cargo.toml", "pyproject.toml", "src" },
   "cwd",
@@ -20,7 +17,7 @@ go.root_spec = {
 vim.g.snacks_animate = false
 vim.o.scrolloff = 8
 vim.o.inccommand = "split"
-vim.o.updatetime = 250 -- Performance: reduced frequency of background events
+vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 vim.opt.smartindent = true
