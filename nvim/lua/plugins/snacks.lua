@@ -490,10 +490,7 @@ return {
         },
       },
       indent = {
-        enabled = true,
-        only_scope = true, -- only show indent guides of the scope
-        only_current = true, -- only show indent guides in the current window
-        chunk = { enabled = false }, -- Performance: disabled for deeply nested code
+        enabled = false,
       },
       dashboard = {
         sections = {

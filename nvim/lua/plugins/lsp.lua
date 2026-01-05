@@ -79,7 +79,7 @@ return {
         },
         flutter_path = os.getenv("HOME") .. "/development/flutter/bin/flutter",
         dev_log = {
-          enabled = true,
+          enabled = false,
           notify_errors = true,
         },
         default_run_args = { flutter = "--pid-file=.flutter.pid" },

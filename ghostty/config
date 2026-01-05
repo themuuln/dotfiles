@@ -13,7 +13,8 @@ adjust-underline-position = 2
 # theme = Atom One Dark
 # theme = Catppuccin Mocha
 # theme = TokyoNight Moon
-theme = TokyoNight Night
+# theme = TokyoNight Night
+theme = Kanagawabones
 
 window-padding-x = 0
 window-padding-y = 0
