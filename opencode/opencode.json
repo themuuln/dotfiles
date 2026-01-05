@@ -6,26 +6,27 @@
   ],
   "provider": {
     "google": {
+      "name": "Google",
       "models": {
-        "antigravity-gemini-3-pro-low": {
-          "name": "Gemini 3 Pro Low (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
-          }
-        },
-        "antigravity-gemini-3-pro-high": {
+        "gemini-3-pro-high": {
           "name": "Gemini 3 Pro High (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           }
         },
-        "antigravity-gemini-3-flash": {
-          "name": "Gemini 3 Flash (Antigravity)",
-          "limit": { "context": 1048576, "output": 65536 },
+        "gemini-3-pro-medium": {
+          "name": "Gemini 3 Pro Medium (Antigravity)",
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -33,15 +34,11 @@
         },
         "gemini-3-pro-low": {
           "name": "Gemini 3 Pro Low (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
-          }
-        },
-        "gemini-3-pro-high": {
-          "name": "Gemini 3 Pro High (Antigravity)",
-          "limit": { "context": 1048576, "output": 65535 },
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -49,95 +46,107 @@
         },
         "gemini-3-flash": {
           "name": "Gemini 3 Flash (Antigravity)",
-          "limit": { "context": 1048576, "output": 65536 },
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           }
         },
-        "antigravity-claude-sonnet-4-5": {
+        "gemini-3-flash-lite": {
+          "name": "Gemini 3 Flash Lite (Antigravity)",
+          "attachment": true,
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          }
+        },
+        "claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5 (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           }
         },
-        "antigravity-claude-sonnet-4-5-thinking-low": {
-          "name": "Claude Sonnet 4.5 Think Low (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
+        "claude-sonnet-4-5-thinking-low": {
+          "name": "Claude Sonnet 4.5 Thinking Low (Antigravity)",
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           }
         },
-        "antigravity-claude-sonnet-4-5-thinking-medium": {
-          "name": "Claude Sonnet 4.5 Think Medium (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
+        "claude-sonnet-4-5-thinking-medium": {
+          "name": "Claude Sonnet 4.5 Thinking Medium (Antigravity)",
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           }
         },
-        "antigravity-claude-sonnet-4-5-thinking-high": {
-          "name": "Claude Sonnet 4.5 Think High (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
+        "claude-sonnet-4-5-thinking-high": {
+          "name": "Claude Sonnet 4.5 Thinking High (Antigravity)",
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           }
         },
-        "antigravity-claude-opus-4-5-thinking-low": {
-          "name": "Claude Opus 4.5 Think Low (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
+        "claude-opus-4-5-thinking-low": {
+          "name": "Claude Opus 4.5 Thinking Low (Antigravity)",
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           }
         },
-        "antigravity-claude-opus-4-5-thinking-medium": {
-          "name": "Claude Opus 4.5 Think Medium (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
+        "claude-opus-4-5-thinking-medium": {
+          "name": "Claude Opus 4.5 Thinking Medium (Antigravity)",
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
           }
         },
-        "antigravity-claude-opus-4-5-thinking-high": {
-          "name": "Claude Opus 4.5 Think High (Antigravity)",
-          "limit": { "context": 200000, "output": 64000 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
-          }
-        },
-        "gemini-2.5-flash": {
-          "name": "Gemini 2.5 Flash (CLI)",
-          "limit": { "context": 1048576, "output": 65536 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
-          }
-        },
-        "gemini-2.5-pro": {
-          "name": "Gemini 2.5 Pro (CLI)",
-          "limit": { "context": 1048576, "output": 65536 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
-          }
-        },
-        "gemini-3-flash-preview": {
-          "name": "Gemini 3 Flash Preview (CLI)",
-          "limit": { "context": 1048576, "output": 65536 },
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
-          }
-        },
-        "gemini-3-pro-preview": {
-          "name": "Gemini 3 Pro Preview (CLI)",
-          "limit": { "context": 1048576, "output": 65535 },
+        "claude-opus-4-5-thinking-high": {
+          "name": "Claude Opus 4.5 Thinking High (Antigravity)",
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"]
@@ -154,8 +163,8 @@
         "store": false
       },
       "models": {
-        "gpt-5.2-none": {
-          "name": "GPT 5.2 None (OAuth)",
+        "gpt-5.2": {
+          "name": "GPT 5.2 (OAuth)",
           "limit": {
             "context": 272000,
             "output": 128000
@@ -164,16 +173,36 @@
             "input": ["text", "image"],
             "output": ["text"]
           },
-          "options": {
-            "reasoningEffort": "none",
-            "reasoningSummary": "auto",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
+          "variants": {
+            "none": {
+              "reasoningEffort": "none",
+              "reasoningSummary": "auto",
+              "textVerbosity": "medium"
+            },
+            "low": {
+              "reasoningEffort": "low",
+              "reasoningSummary": "auto",
+              "textVerbosity": "medium"
+            },
+            "medium": {
+              "reasoningEffort": "medium",
+              "reasoningSummary": "auto",
+              "textVerbosity": "medium"
+            },
+            "high": {
+              "reasoningEffort": "high",
+              "reasoningSummary": "detailed",
+              "textVerbosity": "medium"
+            },
+            "xhigh": {
+              "reasoningEffort": "xhigh",
+              "reasoningSummary": "detailed",
+              "textVerbosity": "medium"
+            }
           }
         },
-        "gpt-5.2-low": {
-          "name": "GPT 5.2 Low (OAuth)",
+        "gpt-5.2-codex": {
+          "name": "GPT 5.2 Codex (OAuth)",
           "limit": {
             "context": 272000,
             "output": 128000
@@ -182,138 +211,27 @@
             "input": ["text", "image"],
             "output": ["text"]
           },
-          "options": {
-            "reasoningEffort": "low",
-            "reasoningSummary": "auto",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
-          }
-        },
-        "gpt-5.2-medium": {
-          "name": "GPT 5.2 Medium (OAuth)",
-          "limit": {
-            "context": 272000,
-            "output": 128000
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "options": {
-            "reasoningEffort": "medium",
-            "reasoningSummary": "auto",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
-          }
-        },
-        "gpt-5.2-high": {
-          "name": "GPT 5.2 High (OAuth)",
-          "limit": {
-            "context": 272000,
-            "output": 128000
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "options": {
-            "reasoningEffort": "high",
-            "reasoningSummary": "detailed",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
-          }
-        },
-        "gpt-5.2-xhigh": {
-          "name": "GPT 5.2 Extra High (OAuth)",
-          "limit": {
-            "context": 272000,
-            "output": 128000
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "options": {
-            "reasoningEffort": "xhigh",
-            "reasoningSummary": "detailed",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
-          }
-        },
-        "gpt-5.2-codex-low": {
-          "name": "GPT 5.2 Codex Low (OAuth)",
-          "limit": {
-            "context": 272000,
-            "output": 128000
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "options": {
-            "reasoningEffort": "low",
-            "reasoningSummary": "auto",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
-          }
-        },
-        "gpt-5.2-codex-medium": {
-          "name": "GPT 5.2 Codex Medium (OAuth)",
-          "limit": {
-            "context": 272000,
-            "output": 128000
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "options": {
-            "reasoningEffort": "medium",
-            "reasoningSummary": "auto",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
-          }
-        },
-        "gpt-5.2-codex-high": {
-          "name": "GPT 5.2 Codex High (OAuth)",
-          "limit": {
-            "context": 272000,
-            "output": 128000
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "options": {
-            "reasoningEffort": "high",
-            "reasoningSummary": "detailed",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
-          }
-        },
-        "gpt-5.2-codex-xhigh": {
-          "name": "GPT 5.2 Codex Extra High (OAuth)",
-          "limit": {
-            "context": 272000,
-            "output": 128000
-          },
-          "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
-          },
-          "options": {
-            "reasoningEffort": "xhigh",
-            "reasoningSummary": "detailed",
-            "textVerbosity": "medium",
-            "include": ["reasoning.encrypted_content"],
-            "store": false
+          "variants": {
+            "low": {
+              "reasoningEffort": "low",
+              "reasoningSummary": "auto",
+              "textVerbosity": "medium"
+            },
+            "medium": {
+              "reasoningEffort": "medium",
+              "reasoningSummary": "auto",
+              "textVerbosity": "medium"
+            },
+            "high": {
+              "reasoningEffort": "high",
+              "reasoningSummary": "detailed",
+              "textVerbosity": "medium"
+            },
+            "xhigh": {
+              "reasoningEffort": "xhigh",
+              "reasoningSummary": "detailed",
+              "textVerbosity": "medium"
+            }
           }
         }
       }
@@ -322,7 +240,7 @@
   "mcp": {
     "figma": {
       "type": "remote",
-      "url": "https://mcp.figma.com/mcp",
+      "url": "http://127.0.0.1:3845/mcp",
       "enabled": true
     }
   },
