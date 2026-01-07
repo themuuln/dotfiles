@@ -15,15 +15,19 @@
     "dcp_for_compaction": true,
   },
   "agents": {
+    // "Sisyphus": { "model": "opencode/glm-4.7-free" },
+    // "librarian": { "model": "opencode/glm-4.7-free" },
+    // "explore": { "model": "opencode/glm-4.7-free" },
+    // "frontend-ui-ux-engineer": { "model": "opencode/glm-4.7-free" },
+    // "document-writer": { "model": "opencode/glm-4.7-free" },
+    // "multimodal-looker": { "model": "opencode/glm-4.7-free" },
     // Antigravity Gemini 3 Flash
-    "Sisyphus": { "model": "google/gemini-3-flash" },
-    "oracle": { "model": "google/gemini-3-flash" },
-    "librarian": { "model": "google/gemini-3-flash" },
-    "explore": { "model": "google/gemini-3-flash" },
-    "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro" },
-    "document-writer": { "model": "google/gemini-3-flash" },
-    "multimodal-looker": { "model": "google/gemini-3-flash" },
-
+    "Sisyphus": { "model": "google/antigravity-gemini-3-flash" },
+    "librarian": { "model": "google/antigravity-gemini-3-flash" },
+    "explore": { "model": "google/antigravity-gemini-3-flash" },
+    "frontend-ui-ux-engineer": { "model": "google/antigravity-gemini-3-flash" },
+    "document-writer": { "model": "google/antigravity-gemini-3-flash" },
+    "multimodal-looker": { "model": "google/antigravity-gemini-3-flash" },
     // // Google API Key
     // "Sisyphus": { "model": "google/gemini-3-flash-preview" },
     // "oracle": { "model": "google/gemini-3-flash-preview" },
