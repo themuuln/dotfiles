@@ -38,12 +38,20 @@
     // "multimodal-looker": { "model": "google/gemini-3-flash-preview" },
     //
     // Antigravity Opus
-    // "Sisyphus": { "model": "google/claude-opus-4-5-thinking-high" },
-    // "oracle": { "model": "google/claude-opus-4-5-thinking-high" },
-    // "librarian": { "model": "google/claude-sonnet-4-5" },
-    // "explore": { "model": "google/gemini-3-flash" },
-    // "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro-high" },
-    // "document-writer": { "model": "google/gemini-3-flash" },
-    // "multimodal-looker": { "model": "google/gemini-3-flash" }
+    // "Sisyphus": { "model": "google/antigravity-claude-opus-4-5-thinking" },
+    // "oracle": { "model": "google/antigravity-claude-opus-4-5-thinking" },
+    // "librarian": {
+    //   "model": "google/antigravity-claude-opus-4-5-thinking",
+    // },
+    // "explore": { "model": "google/antigravity-claude-opus-4-5-thinking" },
+    // "frontend-ui-ux-engineer": {
+    //   "model": "google/antigravity-gemini-3-pro",
+    // },
+    // "document-writer": {
+    //   "model": "google/antigravity-claude-opus-4-5-thinking",
+    // },
+    // "multimodal-looker": {
+    //   "model": "google/antigravity-claude-opus-4-5-thinking",
+    // },
   },
 }
