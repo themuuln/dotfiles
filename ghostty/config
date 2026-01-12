@@ -5,16 +5,15 @@
 font-size = 16
 adjust-underline-position = 2
 
-# background-opacity = 1
-# background-blur = false
-
 # theme = Kanagawa Dragon
 # theme = Nord
-# theme = Atom One Dark
 # theme = Catppuccin Mocha
 # theme = TokyoNight Moon
-# theme = TokyoNight Night
-theme = Kanagawabones
+# theme = One Double dark
+# theme = One Half Dark
+# theme = Atom One Dark
+theme = TokyoNight Night
+# theme = Kanagawabones
 
 window-padding-x = 0
 window-padding-y = 0
@@ -30,7 +29,7 @@ macos-titlebar-style = hidden
 
 # custom-shader = shaders/cursor_sweep.glsl
 # custom-shader = shaders/cursor_tail.glsl
-# custom-shader = shaders/cursor_warp.glsl
+custom-shader = shaders/cursor_warp.glsl
 # custom-shader = shaders/just_snow.glsl
 # custom-shader = shaders/rectangle_boom_cursor.glsl
 # custom-shader = shaders/ripple_cursor.glsl
