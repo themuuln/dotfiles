@@ -1,52 +1,130 @@
-export ZSH="$HOME/.oh-my-zsh"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-18.0.2.1.jdk/Contents/Home
-export PATH="$JAVA_HOME/bin:$PATH"
-export PATH=$PATH:/Users/$USER/.spicetify
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use tmux)
-source $ZSH/oh-my-zsh.sh
-[[ -f /Users/$USER/.dart-cli-completion/zsh-config.zsh ]] && . /Users/$USER/.dart-cli-completion/zsh-config.zsh || true
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-if [[ $FIND_IT_FASTER_ACTIVE -eq 1 ]]; then
-  FZF_DEFAULT_OPTS='--height=50%'
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# Zinit setup
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Load Powerlevel10k immediately
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# Plugins with Turbo Mode (wait)
+zinit wait lucid for \
+    zsh-users/zsh-syntax-highlighting \
+    zsh-users/zsh-completions \
+    zsh-users/zsh-autosuggestions \
+    Aloxaf/fzf-tab
+
+# Snippets with Turbo Mode
+zinit wait lucid for \
+    OMZL::git.zsh \
+    OMZP::git \
+    OMZP::sudo \
+    OMZP::aws \
+    OMZP::kubectl \
+    OMZP::kubectx \
+    OMZP::command-not-found
+
+# Optimized compinit with caching
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+zinit cdreplay -q
+
+# Keybindings
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey '^[w' kill-region
+set -o vi
+
+# History
+HISTSIZE=10000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups hist_save_no_dups hist_find_no_dups
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# Interactive tool inits
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval $(thefuck --alias)
+[[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
+eval "$(atuin init zsh)"
 
-export PATH="/Users/$USER/.codeium/windsurf/bin:$PATH"
-export PATH="/Users/$USER/development/flutter/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+# Lazy-load Keychain Secrets
+load_secrets() {
+  export OPENROUTER_API=$(security find-generic-password -a "$USER" -s "OPENROUTER_API" -w)
+  export GITLAB_TOKEN=$(security find-generic-password -a "$USER" -s "GITLAB_TOKEN" -w)
+  export HAMUGA_SDK_KEY=$(security find-generic-password -a "$USER" -s "HAMUGA_SDK_KEY" -w)
+  echo "Secrets loaded from Keychain."
+}
 
-alias ls="eza --color=always --long --git --icons=always --no-user"
-alias ll="eza --color=always --long --git --icons=always --no-user"
-alias l="eza -l --icons --git -a"
-alias lt="eza --tree --level=2 --long --icons --git"
-alias ltree="eza --tree --level=2  --icons --git"
-alias v='nvim'
+# Aliases
 alias vi='nvim'
 alias vim='nvim'
-alias f='fuck'
+alias ls='eza --color=always --long --icons=always --no-user'
+alias l='eza --color=always --long --icons=always --no-user'
+alias ll='eza --color=always --long --icons=always --no-user'
+alias lg='lazygit'
+alias oc='opencode'
+alias cat='bat -pp'
+alias ps='procs'
+alias du='dust'
+alias top='btm'
+alias help='tlrc'
+alias git-viz='gitui'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Interactive project switcher
+pj() {
+  local dir
+  dir=$(find ~/coding ~/development -maxdepth 2 -type d 2> /dev/null | fzf --preview 'eza -T --level=2 --color=always {}')
+  if [[ -n "$dir" ]]; then
+    cd "$dir"
+  fi
+}
+
+# React / React Native
+alias ni='pnpm install'
+alias ns='pnpm start'
+alias nx='pnpm dlx'
+alias nrd='pnpm run android'
+alias nri='pnpm run ios'
+
+# Flutter
+alias fl='fvm flutter'
+alias flr='fvm flutter run'
+alias fld='fvm flutter devices'
+alias flc='fvm flutter clean && fvm flutter pub get'
+
 # glab aliases
 alias gil='glab issue list'
+alias gic='glab issue create'
 alias gib='/Users/ict/.config/gitlab/issue-branch.sh'
 
-# export GEMINI_API=$(security find-generic-password -a "$USER" -s "GEMINI_API_2" -w)
-# export OPENROUTER_API=$(security find-generic-password -a "$USER" -s "OPENROUTER_API" -w)
-# export GITLAB_TOKEN=$(security find-generic-password -a "$USER" -s "GITLAB_TOKEN" -w)
+# Project specific
+alias air='$(go env GOPATH)/bin/air'
 
-# API Tokens Caching
-TOKEN_CACHE="$HOME/.cache/zsh/api_tokens.zsh"
-if [[ -f "$TOKEN_CACHE" ]]; then
-  source "$TOKEN_CACHE"
-else
-  mkdir -p "$(dirname "$TOKEN_CACHE")"
-  echo "export GEMINI_API=\"$(security find-generic-password -a "$USER" -s "GEMINI_API_2" -w 2>/dev/null)\"" > "$TOKEN_CACHE"
-  echo "export OPENROUTER_API=\"$(security find-generic-password -a "$USER" -s "OPENROUTER_API" -w 2>/dev/null)\"" >> "$TOKEN_CACHE"
-  echo "export GITLAB_TOKEN=\"$(security find-generic-password -a "$USER" -s "GITLAB_TOKEN" -w 2>/dev/null)\"" >> "$TOKEN_CACHE"
-  source "$TOKEN_CACHE"
-fi
-export GITLAB_VIM_URL="https://git.ictgroup.mn/"
+# Source Powerlevel10k config
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export EDITOR="nvim"
+# Docker completions
+fpath=(/Users/ict/.docker/completions $fpath)
+eval "$(mise activate zsh)"
