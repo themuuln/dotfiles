@@ -3,8 +3,6 @@
   "quiet_mode": false,
   "debug": false,
   "keep_thinking": false,
-  "empty_response_max_attempts": 4,
-  "empty_response_retry_delay_ms": 2000,
   "quota_fallback": true,
   "account_selection_strategy": "round-robin",
   "pid_offset_enabled": true

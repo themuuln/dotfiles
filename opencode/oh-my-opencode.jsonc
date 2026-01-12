@@ -1,57 +1,30 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
-  "anthropic_auto_compact": {
-    "experimental": {
-      "dynamic_context_pruning": {
-        "enabled": true,
-        "notification": true,
-        "turn_protection": 3,
-      },
-    },
-  },
-  "experimental": {
-    "auto_resume": true,
-    "dcp_for_compaction": true,
-  },
   "agents": {
-    // "Sisyphus": { "model": "opencode/glm-4.7-free" },
-    // "librarian": { "model": "opencode/glm-4.7-free" },
-    // "explore": { "model": "opencode/glm-4.7-free" },
-    // "frontend-ui-ux-engineer": { "model": "opencode/glm-4.7-free" },
-    // "document-writer": { "model": "opencode/glm-4.7-free" },
-    // "multimodal-looker": { "model": "opencode/glm-4.7-free" },
-    // Antigravity Gemini 3 Flash
-    "Sisyphus": { "model": "google/antigravity-gemini-3-flash" },
-    "librarian": { "model": "google/antigravity-gemini-3-flash" },
-    "explore": { "model": "google/antigravity-gemini-3-flash" },
-    "frontend-ui-ux-engineer": { "model": "google/antigravity-gemini-3-flash" },
-    "document-writer": { "model": "google/antigravity-gemini-3-flash" },
-    "multimodal-looker": { "model": "google/antigravity-gemini-3-flash" },
-    // // Google API Key
-    // "Sisyphus": { "model": "google/gemini-3-flash-preview" },
-    // "oracle": { "model": "google/gemini-3-flash-preview" },
-    // "librarian": { "model": "google/gemini-3-flash-preview" },
-    // "explore": { "model": "google/gemini-3-flash-preview" },
-    // "frontend-ui-ux-engineer": { "model": "google/gemini-3-pro-preview" },
-    // "document-writer": { "model": "google/gemini-3-flash-preview" },
-    // "multimodal-looker": { "model": "google/gemini-3-flash-preview" },
-    //
-    // Antigravity Opus
-    // "Sisyphus": { "model": "google/antigravity-claude-opus-4-5-thinking" },
-    // "oracle": { "model": "google/antigravity-claude-opus-4-5-thinking" },
-    // "librarian": {
-    //   "model": "google/antigravity-claude-opus-4-5-thinking",
-    // },
-    // "explore": { "model": "google/antigravity-claude-opus-4-5-thinking" },
-    // "frontend-ui-ux-engineer": {
-    //   "model": "google/antigravity-gemini-3-pro",
-    // },
-    // "document-writer": {
-    //   "model": "google/antigravity-claude-opus-4-5-thinking",
-    // },
-    // "multimodal-looker": {
-    //   "model": "google/antigravity-claude-opus-4-5-thinking",
-    // },
-  },
+    "OpenCode-Builder": {
+      "model": "openai/gpt-5.2-codex"
+    },
+    "Prometheus (Planner)": {
+      "model": "openai/gpt-5.2-codex"
+    },
+    "Metis (Plan Consultant)": {
+      "model": "openai/gpt-5.2-codex"
+    }
+    "oracle": {
+      "model": "openai/gpt-5.2-codex"
+    },
+    "librarian": {
+      "model": "openai/gpt-5.2-codex"
+    },
+    "explore": {
+      "model": "openai/gpt-5.2-codex"
+    },
+    "document-writer": {
+      "model": "openai/gpt-5.2-codex"
+    },
+    "multimodal-looker": {
+      "model": "openai/gpt-5.2-codex"
+    }
+  }
 }
