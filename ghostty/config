@@ -1,5 +1,5 @@
 # font-family = "FiraCode Nerd Font"
-# font-family = "GeistMono Nerd Font"
+font-family = "GeistMono Nerd Font"
 # font-family = "ZedMono NFM"
 # font-family = "ZedMono NFM Extd"
 font-size = 16
@@ -8,11 +8,11 @@ adjust-underline-position = 2
 # theme = Kanagawa Dragon
 # theme = Nord
 # theme = Catppuccin Mocha
-# theme = TokyoNight Moon
 # theme = One Double dark
 # theme = One Half Dark
 # theme = Atom One Dark
 theme = TokyoNight Night
+# theme = TokyoNight Moon
 # theme = Kanagawabones
 
 window-padding-x = 0
