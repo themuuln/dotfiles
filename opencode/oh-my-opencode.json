@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "google_auth": false,
+  "agents": {
+    "Sisyphus": {
+      "model": "google/antigravity-gemini-3-flash",
+      "temperature": 0.3
+    },
+    "OpenCode-Builder": {
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "Prometheus (Planner)": {
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "Metis (Plan Consultant)": {
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "orchestrator-sisyphus": {
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "oracle": {
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "librarian": {
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "explore": {
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "frontend-ui-ux-engineer": {
+      "model": "google/antigravity-gemini-3-pro"
+    },
+    "document-writer": {
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "multimodal-looker": {
+      "model": "google/antigravity-gemini-3-flash"
+    }
+  },
+  "git_master": {
+    "commit_footer": false,
+    "include_co_authored_by": false
+  }
+}
