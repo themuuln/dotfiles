@@ -668,6 +668,37 @@ return {
   },
 
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      opts.highlight = opts.highlight or {}
+      opts.highlight.additional_vim_regex_highlighting = false
+      opts.indent = opts.indent or { enable = true }
+      opts.indent.disable = opts.indent.disable or {}
+      vim.list_extend(opts.indent.disable, { "typescript", "tsx" })
+      vim.list_extend(opts.ensure_installed, {
+        "dart",
+        "javascript",
+        "typescript",
+        "tsx",
+        "json",
+        "jsonc",
+        "html",
+        "css",
+        "scss",
+        "graphql",
+        "yaml",
+        "java",
+        "kotlin",
+        "objc",
+        "swift",
+        "ruby",
+        "groovy",
+      })
+      opts.auto_install = true
+    end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter-context",
     config = function()
       require("treesitter-context").setup({

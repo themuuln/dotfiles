@@ -1,11 +1,12 @@
 return {
-  -- dartls interrupt solution
   {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = false },
-      servers = {
-        dartls = {},
+      setup = {
+        dartls = function()
+          return true
+        end,
       },
     },
   },
@@ -35,7 +36,7 @@ return {
         desc = "Debug: Step Into",
       },
       {
-        "<S-F11",
+        "<S-F11>",
         function()
           require("dap").step_out()
         end,
@@ -75,7 +76,6 @@ return {
           enabled = true,
           run_via_dap = true,
           exception_breakpoints = {},
-          -- evaluate_to_string_in_debug_views = false,
         },
         flutter_path = os.getenv("HOME") .. "/development/flutter/bin/flutter",
         dev_log = {
@@ -104,6 +104,10 @@ return {
 
   {
     "stevearc/conform.nvim",
-    opts = { exclude_filetypes = { "dart" } },
+    opts = {
+      formatters_by_ft = {
+        dart = {},
+      },
+    },
   },
 }
