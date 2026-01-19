@@ -3,20 +3,19 @@
   "google_auth": false,
   "agents": {
     "Sisyphus": {
-      "model": "google/antigravity-gemini-3-flash",
-      "temperature": 0.3
+      "model": "google/antigravity-gemini-3-pro"
     },
     "OpenCode-Builder": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "google/antigravity-gemini-3-pro"
     },
     "Prometheus (Planner)": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "google/antigravity-gemini-3-pro"
     },
     "Metis (Plan Consultant)": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "google/antigravity-gemini-3-pro"
     },
     "orchestrator-sisyphus": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "google/antigravity-gemini-3-pro"
     },
     "oracle": {
       "model": "google/antigravity-gemini-3-flash"
