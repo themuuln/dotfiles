@@ -1,9 +1,21 @@
 ---
-description: Generate standard git commit message (English header, Mongolian body)
-agent: build
+description: Analyze changes, group by logic, and directly execute separate commits (English header, Mongolian body)
+model: google/antigravity-gemini-3-flash
 ---
 
-Analyze the staged changes (or recent edits) and generate a `git commit` command that adheres to the Company Standard.
+Analyze the current changes (staged or working directory). **Identify if there are multiple distinct logical groups** (different scopes, unrelated features, etc.).
+
+# Execution Workflow
+
+1.  **Multi-Group Detection**:
+    - If the changes belong to different logical scopes (e.g., a fix in `auth` vs. a new feature in `ui`), you **MUST** split them.
+    - **Action**: Run `git reset` to unstage everything first.
+    - **Loop**: For each distinct logical group:
+      1.  `git add <specific_files>`
+      2.  Execute `git commit` (see standards below).
+
+2.  **Single Group**:
+    - If all changes belong to one logical task, ensure they are staged and execute a single commit.
 
 # Company Standard Guidelines
 
@@ -16,25 +28,14 @@ Analyze the staged changes (or recent edits) and generate a `git commit` command
     ```
 
 2.  **Scope is MANDATORY**:
-    - Every commit must have a scope in parentheses.
     - Format: `lower_snake_case` (e.g., `auth_service`, `login_ui`).
 3.  **Languages**:
-    - **Subject**: English (Imperative mood, no period at end).
-    - **Body**: Mongolian (Concise but detailed enough to explain the "why").
-4.  **Allowed Types**:
-    - `feat`: New feature (minor version).
-    - `fix`: Bug fix (patch version).
-    - `docs`: Documentation updates.
-    - `chore`: Routine maintenance, config, CI/CD.
-    - `ref`: Refactoring (no logic change).
-    - `feat!`: Breaking change (major version).
+    - **Subject**: English (Imperative mood, no period).
+    - **Body**: Mongolian (Concise, explaining the "why").
+4.  **Allowed Types**: `feat`, `fix`, `docs`, `chore`, `ref`, `feat!`.
 
-# Output Format
+# Execution Instructions
 
-Return ONLY the bash command to execute. Do not provide markdown explanation.
-
-Example Output:
-
-```bash
-git commit -m "feat(user_profile): add avatar upload functionality" -m "Хэрэглэгчийн профайл зураг хуулах функцийг нэмж, AWS S3 тохиргоог хийв."
-```
+- **DO NOT** ask for confirmation.
+- **DO NOT** output the command as text.
+- **DIRECTLY RUN** the necessary `git add` and `git commit` commands in the terminal.
