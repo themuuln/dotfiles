@@ -1,7 +1,5 @@
 ---
 description: Analyze staged files and group them by logical scope
-subtask: true
-agent: plan
 model: google/antigravity-gemini-3-flash
 ---
 

@@ -1,6 +1,6 @@
 ---
 description: Critical performance and security audit (Senior Level)
-agent: explore
+agent: explorer
 ---
 
 Act as a Principal Engineer doing a strict code review.

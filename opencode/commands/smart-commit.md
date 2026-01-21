@@ -1,6 +1,5 @@
 ---
 description: Orchestrated commit using subtasks
-agent: build
 model: google/antigravity-gemini-3-flash
 ---
 
