@@ -39,7 +39,7 @@
     },
     "multimodal-looker": {
       "description": "Analyzes PDFs, images, diagrams beyond raw text",
-      "model": "google/gemini-2.5-flash"
+      "model": "google/antigravity-gemini-3-flash"
     }
   },
   "git_master": {
