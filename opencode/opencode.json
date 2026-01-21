@@ -1,6 +1,20 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["oh-my-opencode@3.0.0-beta.11", "opencode-antigravity-auth@1.3.0"],
+  "plugin": [
+    "oh-my-opencode",
+    "opencode-antigravity-auth@1.3.0",
+    "@franlol/opencode-md-table-formatter@0.0.3",
+    "@tarquinen/opencode-dcp"
+  ],
+  "agent": {
+    "compaction": {
+      "model": "opencode/glm-4.7-free"
+    },
+    "plan": {
+      "model": "google/antigravity-claude-opus-4-5-thinking",
+      "variant": "max"
+    }
+  },
   "provider": {
     "google": {
       "models": {

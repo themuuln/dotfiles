@@ -223,3 +223,12 @@ run = "move-node-to-workspace I"
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
 run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating tiling'
+
+
+[[on-window-detected]]
+if.app-id = 'com.lbjlaq.antigravity-tools'
+run = 'layout floating tiling'

@@ -68,6 +68,7 @@ return {
       { "<leader>FC", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App" },
       { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App" },
       { "<leader>Fr", "<cmd>FlutterRestart<cr>", desc = "Restart Flutter App" },
+      { "<leader>r", "<cmd>FlutterReload<cr>", desc = "Reload Flutter App" },
     },
     ft = { "dart" },
     config = function()

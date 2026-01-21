@@ -1,39 +1,45 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "auto_update": false,
   "agents": {
     "Sisyphus": {
-      "model": "google/antigravity-gemini-3-pro"
+      "description": "Primary orchestrator agent with powerful AI capabilities",
+      "model": "google/antigravity-claude-opus-4-5-thinking",
+      "prompt_append": "\n---\n\n## Session Management (REQUIRED)\n\nBefore investigating any issue:\n1. Use `session_search` to find relevant prior sessions for this repository\n2. Use `session_read` to review prior work if found\n3. Avoid repeating investigation already completed in previous sessions\n\nBefore completing:\n1. Ensure your session contains a summary of work done\n2. Include key decisions, findings, and outcomes\n3. This summary will be searchable in future agent runs"
     },
     "OpenCode-Builder": {
-      "model": "google/antigravity-gemini-3-pro"
+      "description": "Default build agent for development tasks",
+      "model": "google/antigravity-claude-opus-4-5-thinking"
     },
-    "Prometheus (Planner)": {
-      "model": "google/antigravity-gemini-3-pro"
-    },
-    "Metis (Plan Consultant)": {
-      "model": "google/antigravity-gemini-3-pro"
-    },
-    "orchestrator-sisyphus": {
-      "model": "google/antigravity-gemini-3-pro"
+    "Planner-Sisyphus": {
+      "description": "Strategic planning agent with minimal creativity",
+      "model": "google/antigravity-claude-opus-4-5-thinking"
     },
     "oracle": {
-      "model": "google/antigravity-gemini-3-flash"
+      "description": "Expert technical advisor for architecture decisions and code analysis",
+      "model": "openai/gpt-5.2-codex"
     },
     "librarian": {
-      "model": "google/antigravity-gemini-3-flash"
+      "description": "Multi-repository analysis, official docs, and implementation examples",
+      "model": "opencode/grok-code"
     },
     "explore": {
+      "description": "Fast agent for codebase exploration and pattern matching",
       "model": "google/antigravity-gemini-3-flash"
     },
     "frontend-ui-ux-engineer": {
-      "model": "google/antigravity-gemini-3-pro"
+      "description": "Designer-turned-developer for stunning UI/UX implementation",
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high"
     },
     "document-writer": {
+      "description": "Technical writing expert for documentation and guides",
       "model": "google/antigravity-gemini-3-flash"
     },
     "multimodal-looker": {
-      "model": "google/antigravity-gemini-3-flash"
+      "description": "Analyzes PDFs, images, diagrams beyond raw text",
+      "model": "google/gemini-2.5-flash"
     }
   },
   "git_master": {
