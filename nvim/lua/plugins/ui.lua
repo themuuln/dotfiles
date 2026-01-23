@@ -4,6 +4,8 @@ return {
     opts = { colorscheme = "tokyonight-night" },
   },
 
+  { "rebelot/kanagawa.nvim" },
+
   {
     "akinsho/bufferline.nvim",
     opts = {

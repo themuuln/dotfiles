@@ -51,6 +51,42 @@ return {
         },
         sources = {
           colorschemes = { layout = { preset = "ivy" } },
+          files = {
+            sort = function(a, b)
+              local a_lib = a.file:find("/lib/") or a.file:find("^lib/")
+              local b_lib = b.file:find("/lib/") or b.file:find("^lib/")
+              if a_lib and not b_lib then
+                return true
+              elseif b_lib and not a_lib then
+                return false
+              end
+              return require("snacks.picker.sort").default()(a, b)
+            end,
+          },
+          git_files = {
+            sort = function(a, b)
+              local a_lib = a.file:find("/lib/") or a.file:find("^lib/")
+              local b_lib = b.file:find("/lib/") or b.file:find("^lib/")
+              if a_lib and not b_lib then
+                return true
+              elseif b_lib and not a_lib then
+                return false
+              end
+              return require("snacks.picker.sort").default()(a, b)
+            end,
+          },
+          smart = {
+            sort = function(a, b)
+              local a_lib = a.file:find("/lib/") or a.file:find("^lib/")
+              local b_lib = b.file:find("/lib/") or b.file:find("^lib/")
+              if a_lib and not b_lib then
+                return true
+              elseif b_lib and not a_lib then
+                return false
+              end
+              return require("snacks.picker.sort").default()(a, b)
+            end,
+          },
           files_with_symbols = {
             multi = { "files", "lsp_symbols" },
             filter = {
