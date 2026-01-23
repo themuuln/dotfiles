@@ -228,7 +228,10 @@ run = "move-node-to-workspace S"
 if.app-id = 'com.apple.finder'
 run = 'layout floating tiling'
 
-
 [[on-window-detected]]
 if.app-id = 'com.lbjlaq.antigravity-tools'
 run = 'layout floating tiling'
+
+[[on-window-detected]]
+if.app-id = 'com.lbjlaq.antigravity-tools'
+run = 'move-node-to-workspace 9'
