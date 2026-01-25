@@ -1,11 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "oh-my-opencode",
-    "opencode-antigravity-auth@1.3.1",
+    "oh-my-opencode@latest",
+    "opencode-antigravity-auth@beta",
     "@franlol/opencode-md-table-formatter@0.0.3",
-    "@tarquinen/opencode-dcp",
-    "@mohak34/opencode-notifier@0.1.14"
+    "@tarquinen/opencode-dcp"
   ],
   "agent": {
     "compaction": {

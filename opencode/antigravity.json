@@ -3,6 +3,7 @@
   "account_selection_strategy": "hybrid",
   "switch_on_first_rate_limit": true,
   "pid_offset_enabled": true,
+  "max_cache_first_wait_seconds": 10,
   "web_search": {
     "default_mode": "auto"
   }

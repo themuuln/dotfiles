@@ -4,54 +4,72 @@
   "auto_update": false,
   "agents": {
     "sisyphus": {
-      "description": "Primary orchestrator agent with powerful AI capabilities",
-      "model": "google/antigravity-gemini-3-pro",
-      "prompt_append": "\n---\n\n## Session Management (REQUIRED)\n\nBefore investigating any issue:\n1. Use `session_search` to find relevant prior sessions for this repository\n2. Use `session_read` to review prior work if found\n3. Avoid repeating investigation already completed in previous sessions\n\nBefore completing:\n1. Ensure your session contains a summary of work done\n2. Include key decisions, findings, and outcomes\n3. This summary will be searchable in future agent runs"
-    },
-    "OpenCode-Builder": {
-      "description": "Default build agent for development tasks",
-      "model": "google/antigravity-gemini-3-pro"
+      "description": "Primary orchestrator agent - The Boss",
+      "model": "openai/gpt-5.2-codex",
+      "prompt_append": "\n---\n\n## Session Management (REQUIRED)\n\nBefore investigating any issue:\n1. Use `session_search` to find relevant prior sessions\n2. Use `session_read` to review prior work\n\nBefore completing:\n1. Ensure your session contains a summary of work done",
+      "variant": "high"
     },
     "prometheus": {
-      "description": "Strategic planning agent with minimal creativity",
-      "model": "google/antigravity-gemini-3-pro"
+      "description": "The Planner - High Reasoning",
+      "model": "openai/gpt-5.2-codex",
+      "variant": "high"
+    },
+    "metis": {
+      "description": "The Critic - Plan Reviewer",
+      "model": "openai/gpt-5.2-codex",
+      "variant": "high"
     },
     "atlas": {
-      "description": "Strategic planning agent with minimal creativity",
-      "model": "google/antigravity-gemini-3-pro"
-    },
-    "oracle": {
-      "description": "Expert technical advisor for architecture decisions and code analysis",
+      "description": "The Executor - Manages workers",
       "model": "openai/gpt-5.2-codex"
     },
+    "oracle": {
+      "description": "Technical Expert Advisor",
+      "model": "openai/gpt-5.2-codex",
+      "variant": "high"
+    },
     "librarian": {
-      "description": "Multi-repository analysis, official docs, and implementation examples",
+      "description": "Docs & Context Search",
       "model": "google/antigravity-gemini-3-flash"
     },
     "explore": {
-      "description": "Fast agent for codebase exploration and pattern matching",
-      "model": "google/antigravity-gemini-3-flash"
-    },
-    "visual-engineering": {
-      "model": "google/antigravity-gemini-3-pro",
-      "variant": "high"
-    },
-    "frontend-ui-ux": {
-      "description": "Designer-turned-developer for stunning UI/UX implementation",
-      "model": "google/antigravity-gemini-3-pro",
-      "variant": "high"
-    },
-    "document-writer": {
-      "description": "Technical writing expert for documentation and guides",
-      "model": "google/antigravity-gemini-3-flash"
-    },
-    "multimodal-looker": {
-      "description": "Analyzes PDFs, images, diagrams beyond raw text",
+      "description": "Codebase Navigation",
       "model": "google/antigravity-gemini-3-flash"
     }
   },
   "git_master": {
     "commit_footer": false,
     "include_co_authored_by": false
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "google/antigravity-gemini-3-pro"
+    },
+    "ultrabrain": {
+      "description": "For complex logic & refactoring",
+      "model": "openai/gpt-5.2-codex",
+      "variant": "xhigh"
+    },
+    "artistry": {
+      "description": "For UI/UX tasks (Frontend)",
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "max"
+    },
+    "quick": {
+      "description": "Simple tasks & git ops",
+      "model": "google/antigravity-gemini-3-flash"
+    },
+    "unspecified-low": {
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "medium"
+    },
+    "unspecified-high": {
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high"
+    },
+    "writing": {
+      "description": "Documentation & Text generation",
+      "model": "google/antigravity-gemini-3-pro"
+    }
   }
 }
