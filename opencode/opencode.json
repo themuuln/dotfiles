@@ -9,7 +9,7 @@
   ],
   "agent": {
     "compaction": {
-      "model": "opencode/glm-4.7-free"
+      "model": "google/antigravity-gemini-3-flash"
     },
     "plan": {
       "model": "google/antigravity-claude-opus-4-5-thinking",
