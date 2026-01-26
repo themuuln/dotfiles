@@ -28,8 +28,9 @@ When I say "finished", "done", "test completed", or "merge this", you must initi
 **Step 1: Verification**
 
 - **Run Tests:** Execute the project's test suite (e.g., `npm test`, `pytest`, or `cargo test`).
-- **If Tests Fail:** STOP. Do not merge. Fix the errors first.
-- **If Tests Pass:** Proceed to Step 2.
+- **Run Static Analysis:** If this is a Flutter project, you MUST run `flutter analyze` and ensure it returns zero issues.
+- **If Tests or Analysis Fail:** STOP. Do not merge. Fix the errors first.
+- **If All Pass:** Proceed to Step 2.
 
 **Step 2: Commit & Push**
 
@@ -52,3 +53,64 @@ _Since we are in a worktree, we cannot checkout 'main' here. We must go to the r
 **Step 4: Report**
 
 - "Task completed, merged to main, and worktree cleaned up. Ready for next task."
+
+# Log Driven Development (LDD)
+
+## Protocol
+The LDD workflow standardizes debugging on mobile devices (iOS/Android) where direct debugger attachment is difficult or impossible. It relies on high-fidelity structured logging to reconstruct state and control flow.
+
+1.  **Instrumentation:** Agent proactively injects structured logging into code paths.
+2.  **Reproduction:** User performs the workflow on the device.
+3.  **Extraction:** User provides raw console output or log files.
+4.  **Analysis:** Agent parses logs to pinpoint failure modes, timing issues, or state corruption.
+
+## User Role
+-   Reproduce the reported issue on the physical device.
+-   Capture the full log stream (e.g., via Xcode Console, ADB, or file export).
+-   Paste the raw logs into the chat for analysis.
+
+## Agent Role
+-   **Proactive Logging:** Always add logging to new features *during implementation*, not just after bugs are found.
+-   **Pattern Matching:** Analyze timestamps and sequences to detect race conditions.
+-   **Sanitization Check:** Verify that suggested logging code does not expose secrets.
+
+## Log Standards
+Adhere strictly to this structured format to ensure parseability:
+
+**Format:**
+`[Category] Message {metadata}`
+
+-   **Category:** The subsystem or feature area (e.g., `[Auth]`, `[BLE]`, `[Nav]`).
+-   **Message:** A clear, human-readable description of the event.
+-   **Metadata:** A key-value set (JSON-style) containing variable state, IDs, or error codes.
+
+## Safety
+-   **Conditional Compilation:** Wrap debug logs in `#if DEBUG` (Swift) or `if (BuildConfig.DEBUG)` (Kotlin) to protect production performance and binary size.
+-   **Data Privacy:** **NEVER** log PII (emails, names), Auth Tokens, or Passwords.
+-   **Sanitization:** Always mask sensitive IDs (e.g., `userId: ***52a`) before logging.
+
+## Gold Standard Example
+```text
+[Network] User profile fetch failed {status=401, endpoint="/api/v1/me", duration_ms=150, error="Token expired"}
+```
+
+# AGENT CHANGELOG PROTOCOL
+
+**Objective:**
+Maintain a granular history of agent-performed tasks for auditability and tracking.
+
+**1. Location & Structure**
+- Root directory: `./changelogs/`
+- Date-based subdirectories: `./changelogs/YYYY-MM-DD/`
+- File naming: `<HHMM>-<kebab-case-task-name>.md`
+  - Example: `changelogs/2026-01-26/1430-refactor-auth-middleware.md`
+
+**2. Content Template**
+Each changelog file must contain:
+- **Task**: The original user request or ticket.
+- **Changes**: Bullet points of key modifications.
+- **Files**: List of touched files.
+- **Verification**: How the changes were verified (tests, manual checks).
+
+**3. Execution Timing**
+- Create this log entry **before** initiating the "Task Completion & Merge" sequence.
