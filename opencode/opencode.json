@@ -3,8 +3,7 @@
   "plugin": [
     "oh-my-opencode@latest",
     "opencode-antigravity-auth@beta",
-    "@franlol/opencode-md-table-formatter@0.0.3",
-    "@tarquinen/opencode-dcp"
+    "@franlol/opencode-md-table-formatter@0.0.3"
   ],
   "agent": {
     "compaction": {
