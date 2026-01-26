@@ -2,7 +2,7 @@ return {
   {
     "folke/snacks.nvim",
     init = function()
-      vim.api.nvim_create_user_command("FlutterRun", function()
+      vim.api.nvim_create_user_command("FlutterEnv", function()
         local envs = { "Production", "Development", "Staging" }
         vim.ui.select(envs, {
           prompt = "Select Flutter Environment",
