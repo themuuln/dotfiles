@@ -5,71 +5,78 @@
   "agents": {
     "sisyphus": {
       "description": "Primary orchestrator agent - The Boss",
-      "model": "openai/gpt-5.2-codex",
+      // "model": "openai/gpt-5.2-codex",
+      "model": "google/antigravity-gemini-3-pro",
       "prompt_append": "\n---\n\n## Session Management (REQUIRED)\n\nBefore investigating any issue:\n1. Use `session_search` to find relevant prior sessions\n2. Use `session_read` to review prior work\n\nBefore completing:\n1. Ensure your session contains a summary of work done",
-      "variant": "high"
+      "variant": "high",
     },
     "prometheus": {
       "description": "The Planner - High Reasoning",
-      "model": "openai/gpt-5.2-codex",
-      "variant": "high"
+      // "model": "openai/gpt-5.2-codex",
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high",
     },
     "metis": {
       "description": "The Critic - Plan Reviewer",
-      "model": "openai/gpt-5.2-codex",
-      "variant": "high"
+      // "model": "openai/gpt-5.2-codex",
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high",
     },
     "atlas": {
       "description": "The Executor - Manages workers",
-      "model": "openai/gpt-5.2-codex"
+      // "model": "openai/gpt-5.2-codex",
+      "model": "google/antigravity-gemini-3-pro",
     },
     "oracle": {
       "description": "Technical Expert Advisor",
-      "model": "openai/gpt-5.2-codex",
-      "variant": "high"
+      // "model": "openai/gpt-5.2-codex",
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high",
     },
     "librarian": {
       "description": "Docs & Context Search",
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "google/antigravity-gemini-3-flash",
     },
     "explore": {
       "description": "Codebase Navigation",
-      "model": "google/antigravity-gemini-3-flash"
-    }
+      "model": "google/antigravity-gemini-3-flash",
+    },
   },
   "git_master": {
     "commit_footer": false,
-    "include_co_authored_by": false
+    "include_co_authored_by": false,
   },
   "categories": {
     "visual-engineering": {
-      "model": "google/antigravity-gemini-3-pro"
+      "model": "google/antigravity-gemini-3-pro",
     },
     "ultrabrain": {
       "description": "For complex logic & refactoring",
-      "model": "openai/gpt-5.2-codex",
-      "variant": "xhigh"
+      // "model": "openai/gpt-5.2-codex",
+      "variant": "xhigh",
+      "model": "google/antigravity-gemini-3-pro",
+      "variant": "high",
     },
     "artistry": {
       "description": "For UI/UX tasks (Frontend)",
       "model": "google/antigravity-gemini-3-pro",
-      "variant": "max"
+      "variant": "max",
     },
     "quick": {
       "description": "Simple tasks & git ops",
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "google/antigravity-gemini-3-flash",
     },
     "unspecified-low": {
       "model": "google/antigravity-gemini-3-flash",
-      "variant": "medium"
+      "variant": "medium",
     },
     "unspecified-high": {
       "model": "google/antigravity-gemini-3-pro",
-      "variant": "high"
+      "variant": "high",
     },
     "writing": {
       "description": "Documentation & Text generation",
-      "model": "google/antigravity-gemini-3-pro"
-    }
-  }
+      "model": "google/antigravity-gemini-3-pro",
+    },
+  },
 }
