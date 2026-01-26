@@ -6,14 +6,18 @@ font-size = 16
 adjust-underline-position = 2
 
 # theme = Kanagawa Dragon
+theme = Kanagawa Wave
 # theme = Nord
 # theme = Catppuccin Mocha
 # theme = One Double dark
 # theme = One Half Dark
 # theme = Atom One Dark
-theme = TokyoNight Night
+# theme = TokyoNight Night
 # theme = TokyoNight Moon
 # theme = Kanagawabones
+
+background-blur = true
+background-opacity = 0.9
 
 window-padding-x = 0
 window-padding-y = 0
