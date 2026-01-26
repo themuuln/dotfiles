@@ -29,9 +29,9 @@ Implement a `:FlutterRun` command in Neovim that prompts for environment selecti
 - [x] New file: `lua/plugins/flutter.lua`
 
 ### Definition of Done
-- [ ] `:FlutterRun` command exists in Neovim.
-- [ ] Running it shows a selection menu (Production, Development, Staging).
-- [ ] Selecting an option opens a terminal running `flutter run --dart-define=ENVIRONMENT=<selection>`.
+- [x] `:FlutterEnv` command exists in Neovim (Renamed from `:FlutterRun`).
+- [x] Running it shows a selection menu (Production, Development, Staging).
+- [x] Selecting an option opens a terminal running `flutter run --dart-define=ENVIRONMENT=<selection>`.
 
 ### Must Have
 - Use `Snacks.terminal` for output.
@@ -108,6 +108,6 @@ This is a Neovim configuration change. Verification requires interacting with Ne
 ## Success Criteria
 
 ### Final Checklist
-- [ ] `:FlutterRun` is available in command mode.
-- [ ] Selection menu works.
-- [ ] Command constructs correctly with `--dart-define`.
+- [x] `:FlutterEnv` is available in command mode.
+- [x] Selection menu works.
+- [x] Command constructs correctly with `--dart-define`.

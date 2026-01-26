@@ -1,10 +1,17 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "tokyonight-night" },
+    -- opts = { colorscheme = "tokyonight-night" },
+    opts = { colorscheme = "kanagawa-wave" },
   },
 
-  { "rebelot/kanagawa.nvim" },
+  {
+    "rebelot/kanagawa.nvim",
+    opts = {
+      compile = true,
+      transparent = true,
+    },
+  },
 
   {
     "akinsho/bufferline.nvim",
