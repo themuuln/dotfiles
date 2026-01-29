@@ -7,7 +7,8 @@
   ],
   "agent": {
     "compaction": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "google/antigravity-gemini-3-flash",
+      "variant": "max"
     },
     "plan": {
       "model": "google/antigravity-claude-opus-4-5-thinking",
@@ -117,18 +118,8 @@
               "reasoningSummary": "auto",
               "textVerbosity": "medium"
             },
-            "medium": {
-              "reasoningEffort": "medium",
-              "reasoningSummary": "auto",
-              "textVerbosity": "medium"
-            },
             "high": {
               "reasoningEffort": "high",
-              "reasoningSummary": "detailed",
-              "textVerbosity": "medium"
-            },
-            "xhigh": {
-              "reasoningEffort": "xhigh",
               "reasoningSummary": "detailed",
               "textVerbosity": "medium"
             }
@@ -159,11 +150,6 @@
               "reasoningEffort": "high",
               "reasoningSummary": "detailed",
               "textVerbosity": "medium"
-            },
-            "xhigh": {
-              "reasoningEffort": "xhigh",
-              "reasoningSummary": "detailed",
-              "textVerbosity": "medium"
             }
           }
         }
@@ -185,13 +171,22 @@
         "Authorization": "Bearer sbp_6ee027026479982505c4b2dc9342891dfd48783f"
       }
     },
+
     "figma-desktop": {
       "type": "remote",
       "url": "http://127.0.0.1:3845/mcp",
       "enabled": true
+    },
+
+    "dart-mcp-server": {
+      "type": "local",
+      "command": ["dart", "mcp-server"],
+      "enabled": true,
+      "environment": {}
     }
   },
   "tui": {
     "scroll_acceleration": { "enabled": true }
-  }
+  },
+  "username": "themuuln"
 }

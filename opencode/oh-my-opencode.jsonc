@@ -5,10 +5,18 @@
   "agents": {
     "sisyphus": {
       "description": "Primary orchestrator agent - The Boss",
-      // "model": "openai/gpt-5.2-codex",
+
       "model": "google/antigravity-gemini-3-pro",
-      "prompt_append": "\n---\n\n## Session Management (REQUIRED)\n\nBefore investigating any issue:\n1. Use `session_search` to find relevant prior sessions\n2. Use `session_read` to review prior work\n\nBefore completing:\n1. Ensure your session contains a summary of work done",
       "variant": "high",
+
+      // "model": "google/antigravity-claude-opus-4-5-thinking",
+      // "variant": "max",
+
+      // "model": "openai/gpt-5.2-codex",
+      // "model": "google/antigravity-gemini-3-pro",
+      // "variant": "high",
+      //
+      "prompt_append": "\n---\n\n## Session Management (REQUIRED)\n\nBefore investigating any issue:\n1. Use `session_search` to find relevant prior sessions\n2. Use `session_read` to review prior work\n\nBefore completing:\n1. Ensure your session contains a summary of work done",
     },
     "prometheus": {
       "description": "The Planner - High Reasoning",
@@ -18,18 +26,22 @@
     },
     "metis": {
       "description": "The Critic - Plan Reviewer",
+
       // "model": "openai/gpt-5.2-codex",
       "model": "google/antigravity-gemini-3-pro",
+
       "variant": "high",
     },
     "atlas": {
       "description": "The Executor - Manages workers",
       // "model": "openai/gpt-5.2-codex",
       "model": "google/antigravity-gemini-3-pro",
+      "variant": "high",
     },
     "oracle": {
       "description": "Technical Expert Advisor",
       // "model": "openai/gpt-5.2-codex",
+
       "model": "google/antigravity-gemini-3-pro",
       "variant": "high",
     },
@@ -53,14 +65,13 @@
     "ultrabrain": {
       "description": "For complex logic & refactoring",
       // "model": "openai/gpt-5.2-codex",
-      "variant": "xhigh",
       "model": "google/antigravity-gemini-3-pro",
       "variant": "high",
     },
     "artistry": {
       "description": "For UI/UX tasks (Frontend)",
       "model": "google/antigravity-gemini-3-pro",
-      "variant": "max",
+      "variant": "high",
     },
     "quick": {
       "description": "Simple tasks & git ops",
