@@ -165,10 +165,6 @@ if.app-name-regex-substring = 'ghostty'
 run = "move-node-to-workspace D"
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'finder'
-run = "move-node-to-workspace F"
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'figma'
 run = "move-node-to-workspace F"
 
@@ -226,11 +222,11 @@ run = "move-node-to-workspace S"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = 'layout floating tiling'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.lbjlaq.antigravity-tools'
-run = 'layout floating tiling'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.lbjlaq.antigravity-tools'
