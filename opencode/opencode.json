@@ -2,13 +2,16 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
     "oh-my-opencode@latest",
-    "opencode-antigravity-auth@beta",
-    "@franlol/opencode-md-table-formatter@0.0.3"
+    "opencode-antigravity-auth@1.4.2",
+    "@franlol/opencode-md-table-formatter@0.0.3",
+    "opencode-wakatime",
+    "@mohak34/opencode-notifier@0.1.14",
+    "opencode-pty"
   ],
   "agent": {
     "compaction": {
       "model": "google/antigravity-gemini-3-flash",
-      "variant": "max"
+      "variant": "high"
     },
     "plan": {
       "model": "google/antigravity-claude-opus-4-5-thinking",
