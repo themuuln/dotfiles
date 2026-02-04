@@ -5,39 +5,39 @@
   "notification": { "force_enable": true },
   "agents": {
     "sisyphus": {
-      "description": "Primary orchestrator agent - The Boss",
-      // Switched to Flash for faster loops and better agentic performance
-      "model": "google/antigravity-gemini-3-flash",
+      "description": "Primary orchestrator agent - The Boss (Claude Opus 4.5)",
+      "model": "google/antigravity-claude-opus-4-5-thinking",
       "variant": "high",
 
       // "model": "google/antigravity-gemini-3-pro",
-      // "model": "google/antigravity-claude-opus-4-5-thinking",
+      // "model": "google/antigravity-claude-sonnet-4-5-thinking-thinking",
 
       "prompt_append": "\n---\n\n## Session Management (REQUIRED)\n\nBefore investigating any issue:\n1. Use `session_search` to find relevant prior sessions\n2. Use `session_read` to review prior work\n\nBefore completing:\n1. Ensure your session contains a summary of work done",
     },
     "prometheus": {
-      "description": "The Planner - High Reasoning",
-      // Kept Pro for "Deep Think" architecture planning
-      "model": "google/antigravity-gemini-3-pro",
+      "description": "The Planner - Project Planning (Claude Opus 4.5)",
+      "model": "google/antigravity-claude-opus-4-5-thinking",
       "variant": "high",
     },
     "metis": {
-      "description": "The Critic - Plan Reviewer",
-      // Switched to Flash for rapid code review
-      "model": "google/antigravity-gemini-3-flash",
+      "description": "The Critic - Plan Reviewer (GPT 5.2 High)",
+      "model": "openai/gpt-5.2",
       "variant": "high",
     },
     "atlas": {
       "description": "The Executor - Manages workers",
-      // Switched to Flash for reliable, fast execution
       "model": "google/antigravity-gemini-3-flash",
       "variant": "high",
     },
     "oracle": {
-      "description": "Technical Expert Advisor",
-      // Switched to Flash for faster context retrieval
-      "model": "google/antigravity-gemini-3-flash",
+      "description": "Technical Expert Advisor - Arch/Debug (GPT 5.2 High)",
+      "model": "openai/gpt-5.2",
       "variant": "high",
+    },
+    "hephaestus": {
+      "description": "GPT 5.2 Codex Medium Thinking",
+      "model": "openai/gpt-5.2-codex",
+      "variant": "medium",
     },
     "librarian": {
       "description": "Docs & Context Search",
@@ -56,31 +56,33 @@
   },
   "categories": {
     "visual-engineering": {
-      "model": "google/antigravity-gemini-3-pro",
-    },
-    "ultrabrain": {
-      "description": "For complex logic & refactoring",
-      // Kept Pro for heavy logic tasks
+      "description": "FE/UI (Gemini 3 Pro High)",
       "model": "google/antigravity-gemini-3-pro",
       "variant": "high",
     },
+    "ultrabrain": {
+      "description": "Deep Reasoning (GPT 5.2 Codex X-High)",
+      "model": "openai/gpt-5.2-codex",
+      "variant": "xhigh",
+    },
     "artistry": {
-      "description": "For UI/UX tasks (Frontend)",
+      "description": "Creative Tasks (Gemini 3 Pro High)",
       "model": "google/antigravity-gemini-3-pro",
       "variant": "high",
     },
     "quick": {
-      "description": "Simple tasks & git ops",
+      "description": "Simple tasks (Claude Haiku 4.5)",
       "model": "google/antigravity-gemini-3-flash",
       "variant": "high",
     },
     "unspecified-low": {
+      "description": "Medium tasks (Claude Sonnet 4.5)",
       "model": "google/antigravity-gemini-3-flash",
       "variant": "high",
     },
     "unspecified-high": {
-      // Kept Pro as the fallback for 'High' difficulty
-      "model": "google/antigravity-gemini-3-pro",
+      "description": "Complex tasks (Claude Opus 4.5)",
+      "model": "google/antigravity-claude-sonnet-4-5-thinking",
       "variant": "high",
     },
     "writing": {
