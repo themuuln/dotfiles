@@ -20,8 +20,8 @@
       "variant": "high",
     },
     "metis": {
-      "description": "The Critic - Plan Reviewer (GPT 5.2 High)",
-      "model": "openai/gpt-5.2",
+      "description": "The Critic - Plan Reviewer (GPT 5.3 High)",
+      "model": "openai/gpt-5.3-codex",
       "variant": "high",
     },
     "atlas": {
@@ -30,13 +30,13 @@
       "variant": "high",
     },
     "oracle": {
-      "description": "Technical Expert Advisor - Arch/Debug (GPT 5.2 High)",
-      "model": "openai/gpt-5.2",
+      "description": "Technical Expert Advisor - Arch/Debug (GPT 5.3 High)",
+      "model": "openai/gpt-5.3-codex",
       "variant": "high",
     },
     "hephaestus": {
-      "description": "GPT 5.2 Codex Medium Thinking",
-      "model": "openai/gpt-5.2-codex",
+      "description": "GPT 5.3 Codex Medium Thinking",
+      "model": "openai/gpt-5.3-codex",
       "variant": "medium",
     },
     "librarian": {
@@ -61,8 +61,8 @@
       "variant": "high",
     },
     "ultrabrain": {
-      "description": "Deep Reasoning (GPT 5.2 Codex X-High)",
-      "model": "openai/gpt-5.2-codex",
+      "description": "Deep Reasoning (GPT 5.3 Codex X-High)",
+      "model": "openai/gpt-5.3-codex",
       "variant": "xhigh",
     },
     "artistry": {

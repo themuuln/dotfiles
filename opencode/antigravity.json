@@ -3,10 +3,9 @@
   "account_selection_strategy": "sticky",
   "switch_on_first_rate_limit": true,
   "pid_offset_enabled": true,
+  "session_recovery": true,
+  "auto_resume": true,
   "quiet_mode": false,
-  "debug": false,
-  "web_search": {
-    "default_mode": "auto",
-    "grounding_threshold": 0
-  }
+  "cli_first": true,
+  "debug": false
 }
