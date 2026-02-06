@@ -230,5 +230,9 @@ if.app-id = 'com.apple.finder'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'NULL-APP-BUNDLE-ID'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.lbjlaq.antigravity-tools'
 run = 'move-node-to-workspace 9'
