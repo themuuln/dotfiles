@@ -1,0 +1,321 @@
+# run this command for fix mission control size
+# defaults write com.apple.dock expose-group-apps -bool true && killall Dock
+# defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
+
+config-version = 2
+
+# this is for border
+# after-startup-command = [
+#   'exec-and-forget borders active_color=0xff7AA2F8 inactive_color=0xff24283B width=5.0',
+# ]
+
+start-at-login = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+enable-normalization-flatten-containers = true
+
+accordion-padding = 50
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+automatically-unhide-macos-hidden-apps = true
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[key-mapping]
+preset = 'qwerty'
+
+[gaps]
+inner.horizontal = 0
+inner.vertical = 0
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
+
+[mode.main.binding]
+cmd-alt-ctrl-slash = 'layout tiles horizontal vertical'
+cmd-alt-ctrl-comma = 'layout accordion horizontal vertical'
+
+cmd-alt-ctrl-enter = 'fullscreen --no-outer-gaps'
+# cmd-alt-ctrl-enter = 'fullscreen'
+
+cmd-alt-ctrl-h = 'focus left'
+cmd-alt-ctrl-j = 'focus down'
+cmd-alt-ctrl-k = 'focus up'
+cmd-alt-ctrl-l = 'focus right'
+
+cmd-alt-ctrl-shift-h = 'move left'
+cmd-alt-ctrl-shift-j = 'move down'
+cmd-alt-ctrl-shift-k = 'move up'
+cmd-alt-ctrl-shift-l = 'move right'
+
+cmd-alt-ctrl-shift-minus = 'resize smart -50'
+cmd-alt-ctrl-shift-equal = 'resize smart +50'
+
+cmd-alt-ctrl-1 = 'workspace 1'
+cmd-alt-ctrl-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+cmd-alt-ctrl-2 = 'workspace 2'
+cmd-alt-ctrl-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+cmd-alt-ctrl-3 = 'workspace 3'
+cmd-alt-ctrl-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+cmd-alt-ctrl-4 = 'workspace 4'
+cmd-alt-ctrl-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+cmd-alt-ctrl-5 = 'workspace 5'
+cmd-alt-ctrl-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+cmd-alt-ctrl-6 = 'workspace 6'
+cmd-alt-ctrl-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+cmd-alt-ctrl-7 = 'workspace 7'
+cmd-alt-ctrl-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+cmd-alt-ctrl-8 = 'workspace 8'
+cmd-alt-ctrl-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+cmd-alt-ctrl-9 = 'workspace 9'
+cmd-alt-ctrl-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+cmd-alt-ctrl-0 = 'workspace 0'
+cmd-alt-ctrl-shift-0 = 'move-node-to-workspace 0 --focus-follows-window'
+cmd-alt-ctrl-a = 'workspace A'
+cmd-alt-ctrl-shift-a = 'move-node-to-workspace A --focus-follows-window'
+cmd-alt-ctrl-b = 'workspace B'
+cmd-alt-ctrl-shift-b = 'move-node-to-workspace B --focus-follows-window'
+cmd-alt-ctrl-c = 'workspace C'
+cmd-alt-ctrl-shift-c = 'move-node-to-workspace C --focus-follows-window'
+cmd-alt-ctrl-d = 'workspace D'
+cmd-alt-ctrl-shift-d = 'move-node-to-workspace D --focus-follows-window'
+cmd-alt-ctrl-e = 'workspace E'
+cmd-alt-ctrl-shift-e = 'move-node-to-workspace E --focus-follows-window'
+cmd-alt-ctrl-f = 'workspace F'
+cmd-alt-ctrl-shift-f = 'move-node-to-workspace F --focus-follows-window'
+cmd-alt-ctrl-g = 'workspace G'
+cmd-alt-ctrl-shift-g = 'move-node-to-workspace G --focus-follows-window'
+cmd-alt-ctrl-i = 'workspace I'
+cmd-alt-ctrl-shift-i = 'move-node-to-workspace I --focus-follows-window'
+cmd-alt-ctrl-m = 'workspace M'
+cmd-alt-ctrl-shift-m = 'move-node-to-workspace M --focus-follows-window'
+cmd-alt-ctrl-n = 'workspace N'
+cmd-alt-ctrl-shift-n = 'move-node-to-workspace N --focus-follows-window'
+cmd-alt-ctrl-o = 'workspace O'
+cmd-alt-ctrl-shift-o = 'move-node-to-workspace O --focus-follows-window'
+cmd-alt-ctrl-p = 'workspace P'
+cmd-alt-ctrl-shift-p = 'move-node-to-workspace P --focus-follows-window'
+cmd-alt-ctrl-q = 'workspace Q'
+cmd-alt-ctrl-shift-q = 'move-node-to-workspace Q --focus-follows-window'
+cmd-alt-ctrl-r = 'workspace R'
+cmd-alt-ctrl-shift-r = 'move-node-to-workspace R --focus-follows-window'
+cmd-alt-ctrl-s = 'workspace S'
+cmd-alt-ctrl-shift-s = 'move-node-to-workspace S --focus-follows-window'
+cmd-alt-ctrl-t = 'workspace T'
+cmd-alt-ctrl-shift-t = 'move-node-to-workspace T --focus-follows-window'
+cmd-alt-ctrl-u = 'workspace U'
+cmd-alt-ctrl-shift-u = 'move-node-to-workspace U --focus-follows-window'
+cmd-alt-ctrl-v = 'workspace V'
+cmd-alt-ctrl-shift-v = 'move-node-to-workspace V --focus-follows-window'
+cmd-alt-ctrl-w = 'workspace W'
+cmd-alt-ctrl-shift-w = 'move-node-to-workspace W --focus-follows-window'
+cmd-alt-ctrl-x = 'workspace X'
+cmd-alt-ctrl-shift-x = 'move-node-to-workspace X --focus-follows-window'
+cmd-alt-ctrl-y = 'workspace Y'
+cmd-alt-ctrl-shift-y = 'move-node-to-workspace Y --focus-follows-window'
+cmd-alt-ctrl-z = 'workspace Z'
+cmd-alt-ctrl-shift-z = 'move-node-to-workspace Z --focus-follows-window'
+
+cmd-alt-ctrl-semicolon = 'mode workspace'
+cmd-alt-ctrl-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+cmd-alt-ctrl-shift-semicolon = 'mode service'
+
+[mode.workspace.binding]
+esc = 'mode main'
+1 = ['workspace 1', 'mode main']
+shift-1 = ['move-node-to-workspace 1 --focus-follows-window', 'mode main']
+2 = ['workspace 2', 'mode main']
+shift-2 = ['move-node-to-workspace 2 --focus-follows-window', 'mode main']
+3 = ['workspace 3', 'mode main']
+shift-3 = ['move-node-to-workspace 3 --focus-follows-window', 'mode main']
+4 = ['workspace 4', 'mode main']
+shift-4 = ['move-node-to-workspace 4 --focus-follows-window', 'mode main']
+5 = ['workspace 5', 'mode main']
+shift-5 = ['move-node-to-workspace 5 --focus-follows-window', 'mode main']
+6 = ['workspace 6', 'mode main']
+shift-6 = ['move-node-to-workspace 6 --focus-follows-window', 'mode main']
+7 = ['workspace 7', 'mode main']
+shift-7 = ['move-node-to-workspace 7 --focus-follows-window', 'mode main']
+8 = ['workspace 8', 'mode main']
+shift-8 = ['move-node-to-workspace 8 --focus-follows-window', 'mode main']
+9 = ['workspace 9', 'mode main']
+shift-9 = ['move-node-to-workspace 9 --focus-follows-window', 'mode main']
+a = ['workspace A', 'mode main']
+shift-a = ['move-node-to-workspace A --focus-follows-window', 'mode main']
+b = ['workspace B', 'mode main']
+shift-b = ['move-node-to-workspace B --focus-follows-window', 'mode main']
+c = ['workspace C', 'mode main']
+shift-c = ['move-node-to-workspace C --focus-follows-window', 'mode main']
+d = ['workspace D', 'mode main']
+shift-d = ['move-node-to-workspace D --focus-follows-window', 'mode main']
+e = ['workspace E', 'mode main']
+shift-e = ['move-node-to-workspace E --focus-follows-window', 'mode main']
+f = ['workspace F', 'mode main']
+shift-f = ['move-node-to-workspace F --focus-follows-window', 'mode main']
+g = ['workspace G', 'mode main']
+shift-g = ['move-node-to-workspace G --focus-follows-window', 'mode main']
+h = ['workspace H', 'mode main']
+shift-h = ['move-node-to-workspace H --focus-follows-window', 'mode main']
+i = ['workspace I', 'mode main']
+shift-i = ['move-node-to-workspace I --focus-follows-window', 'mode main']
+j = ['workspace J', 'mode main']
+shift-j = ['move-node-to-workspace J --focus-follows-window', 'mode main']
+k = ['workspace K', 'mode main']
+shift-k = ['move-node-to-workspace K --focus-follows-window', 'mode main']
+l = ['workspace L', 'mode main']
+shift-l = ['move-node-to-workspace L --focus-follows-window', 'mode main']
+m = ['workspace M', 'mode main']
+shift-m = ['move-node-to-workspace M --focus-follows-window', 'mode main']
+n = ['workspace N', 'mode main']
+shift-n = ['move-node-to-workspace N --focus-follows-window', 'mode main']
+o = ['workspace O', 'mode main']
+shift-o = ['move-node-to-workspace O --focus-follows-window', 'mode main']
+p = ['workspace P', 'mode main']
+shift-p = ['move-node-to-workspace P --focus-follows-window', 'mode main']
+q = ['workspace Q', 'mode main']
+shift-q = ['move-node-to-workspace Q --focus-follows-window', 'mode main']
+r = ['workspace R', 'mode main']
+shift-r = ['move-node-to-workspace R --focus-follows-window', 'mode main']
+s = ['workspace S', 'mode main']
+shift-s = ['move-node-to-workspace S --focus-follows-window', 'mode main']
+t = ['workspace T', 'mode main']
+shift-t = ['move-node-to-workspace T --focus-follows-window', 'mode main']
+u = ['workspace U', 'mode main']
+shift-u = ['move-node-to-workspace U --focus-follows-window', 'mode main']
+v = ['workspace V', 'mode main']
+shift-v = ['move-node-to-workspace V --focus-follows-window', 'mode main']
+w = ['workspace W', 'mode main']
+shift-w = ['move-node-to-workspace W --focus-follows-window', 'mode main']
+x = ['workspace X', 'mode main']
+shift-x = ['move-node-to-workspace X --focus-follows-window', 'mode main']
+y = ['workspace Y', 'mode main']
+shift-y = ['move-node-to-workspace Y --focus-follows-window', 'mode main']
+z = ['workspace Z', 'mode main']
+shift-z = ['move-node-to-workspace Z --focus-follows-window', 'mode main']
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+m = ['fullscreen --no-outer-gaps', 'mode main']
+cmd-alt-ctrl-shift-h = ['join-with left', 'mode main']
+cmd-alt-ctrl-shift-j = ['join-with down', 'mode main']
+cmd-alt-ctrl-shift-k = ['join-with up', 'mode main']
+cmd-alt-ctrl-shift-l = ['join-with right', 'mode main']
+
+down = 'volume down'
+up = 'volume up'
+shift-down = ['volume set 0', 'mode main']
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'zen'
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'firefox'
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = "move-node-to-workspace B"
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = "move-node-to-workspace C"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = "move-node-to-workspace C"
+
+[[on-window-detected]]
+if.app-id = 'com.figma.Desktop'
+run = "move-node-to-workspace F"
+
+# === TEXT EDITORS ===
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run = "move-node-to-workspace X"
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = "move-node-to-workspace D"
+
+[[on-window-detected]]
+if.app-id = 'com.cmuxterm.app'
+run = "move-node-to-workspace D"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'vscode'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'zed'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-id = 'com.google.android.studio'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-id = 'com.google.android.studio-EAP'
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-id = 'com.google.antigravity'
+run = "move-node-to-workspace I"
+
+# === PRODUCTIVITY ===
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = "move-node-to-workspace G"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = "move-node-to-workspace M"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = "move-node-to-workspace N"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'
+run = "move-node-to-workspace R"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'telegram'
+run = "move-node-to-workspace T"
+
+# === MUSIC ===
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = "move-node-to-workspace S"
+
+# === FLOATING ===
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'NULL-APP-BUNDLE-ID'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.lbjlaq.antigravity-tools'
+run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'vibeproxy'
+run = 'layout floating'
