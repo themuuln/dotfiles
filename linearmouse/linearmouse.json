@@ -1,79 +1,98 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.2",
   "schemes" : [
     {
+      "buttons" : {
+        "universalBackForward" : false
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc539",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
       "pointer" : {
         "acceleration" : 1,
         "disableAcceleration" : true,
         "speed" : 0.1704
       },
       "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
         "distance" : {
           "vertical" : 3
         },
         "reverse" : {
           "vertical" : true
         },
-        "acceleration" : {
-          "vertical" : 1
-        },
         "speed" : {
           "vertical" : 0
         }
-      },
-      "if" : {
-        "device" : {
-          "category" : "mouse",
-          "vendorID" : "0x46d",
-          "productName" : "USB Receiver",
-          "productID" : "0xc539"
-        }
-      },
-      "buttons" : {
-        "universalBackForward" : false
       }
     },
     {
-      "scrolling" : {
-        "distance" : 3,
-        "speed" : 0,
-        "reverse" : true,
-        "acceleration" : 1
-      },
       "if" : {
         "device" : {
-          "productName" : "Razer Basilisk V3",
-          "vendorID" : "0x1532",
+          "category" : "mouse",
           "productID" : "0x99",
-          "category" : "mouse"
+          "productName" : "Razer Basilisk V3",
+          "vendorID" : "0x1532"
         }
       },
       "pointer" : {
         "acceleration" : 1,
-        "speed" : 0.4,
-        "disableAcceleration" : true
+        "disableAcceleration" : true,
+        "speed" : 0.4
+      },
+      "scrolling" : {
+        "acceleration" : 1,
+        "distance" : 3,
+        "reverse" : true,
+        "speed" : 0
       }
     },
     {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xb7",
+          "productName" : "Razer DeathAdder V3 Pro",
+          "serialNumber" : "000000000000",
+          "vendorID" : "0x1532"
+        }
+      },
       "scrolling" : {
         "reverse" : {
           "vertical" : false
         }
+      }
+    },
+    {
+      "buttons" : {
+        "universalBackForward" : true
       },
       "if" : {
         "device" : {
-          "productID" : "0xb7",
-          "productName" : "Razer DeathAdder V3 Pro",
-          "vendorID" : "0x1532",
-          "serialNumber" : "000000000000",
-          "category" : "mouse"
+          "category" : "mouse",
+          "productID" : "0xb034",
+          "productName" : "MX Master 3S",
+          "serialNumber" : "34C326B3",
+          "vendorID" : "0x46d"
         }
-      }
-    },
-    {
+      },
+      "pointer" : {
+        "acceleration" : 0.8,
+        "disableAcceleration" : true
+      },
       "scrolling" : {
-        "reverse" : {
-          "vertical" : false
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "distance" : {
+          "vertical" : "auto"
         },
         "modifiers" : {
           "horizontal" : {
@@ -85,114 +104,126 @@
             }
           }
         },
-        "distance" : {
-          "vertical" : "auto"
-        },
-        "acceleration" : {
-          "vertical" : 1
+        "reverse" : {
+          "vertical" : false
         },
         "speed" : {
           "vertical" : 0
         }
-      },
-      "if" : {
-        "device" : {
-          "vendorID" : "0x46d",
-          "serialNumber" : "34C326B3",
-          "productName" : "MX Master 3S",
-          "category" : "mouse",
-          "productID" : "0xb034"
-        }
-      },
-      "buttons" : {
-        "universalBackForward" : true
-      },
-      "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 0.8
       }
     },
     {
+      "buttons" : {
+        "universalBackForward" : true
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xab",
+          "productName" : "Razer Basilisk V3 Pro",
+          "serialNumber" : "000000000000",
+          "vendorID" : "0x1532"
+        }
+      },
+      "pointer" : {
+        "acceleration" : "unset",
+        "disableAcceleration" : true,
+        "redirectsToScroll" : false,
+        "speed" : "unset"
+      },
       "scrolling" : {
         "acceleration" : {
           "vertical" : 1
         },
-        "speed" : {
-          "vertical" : 0
+        "distance" : {
+          "vertical" : 3
+        },
+        "modifiers" : {
+          "vertical" : {
+            "command" : {
+              "type" : "pinchZoom"
+            },
+            "control" : {
+              "scale" : 2,
+              "type" : "changeSpeed"
+            }
+          }
         },
         "reverse" : {
           "horizontal" : false,
           "vertical" : true
         },
-        "distance" : {
-          "vertical" : 3
+        "speed" : {
+          "vertical" : 0
         }
-      },
-      "if" : {
-        "device" : {
-          "serialNumber" : "000000000000",
-          "productID" : "0xab",
-          "category" : "mouse",
-          "vendorID" : "0x1532",
-          "productName" : "Razer Basilisk V3 Pro"
-        }
-      },
-      "pointer" : {
-        "speed" : 0.3,
-        "acceleration" : 1.5,
-        "disableAcceleration" : true
       }
     },
     {
-      "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        },
-        "distance" : 3,
-        "speed" : 0,
-        "acceleration" : 1
-      },
       "if" : {
         "device" : {
+          "category" : "mouse",
           "productID" : "0xac",
           "productName" : "BSK V3 PRO",
-          "vendorID" : "0x68e",
-          "category" : "mouse"
+          "vendorID" : "0x68e"
         }
       },
       "pointer" : {
         "acceleration" : 0.8,
-        "speed" : 0.12,
-        "disableAcceleration" : false
-      }
-    },
-    {
-      "pointer" : {
-        "disableAcceleration" : true,
-        "acceleration" : 1.5
+        "disableAcceleration" : false,
+        "speed" : 0.12
       },
       "scrolling" : {
+        "acceleration" : 1,
+        "distance" : 3,
         "reverse" : {
           "vertical" : true
         },
-        "speed" : {
-          "vertical" : 0
-        },
+        "speed" : 0
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xaa",
+          "productName" : "Razer Basilisk V3 Pro",
+          "serialNumber" : "000000000000",
+          "vendorID" : "0x1532"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1.5,
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
         "acceleration" : {
           "vertical" : 1
         },
         "distance" : {
           "vertical" : 3
+        },
+        "reverse" : {
+          "vertical" : true
+        },
+        "speed" : {
+          "vertical" : 0
         }
+      }
+    },
+    {
+      "buttons" : {
+        "universalBackForward" : false
       },
       "if" : {
         "device" : {
-          "vendorID" : "0x1532",
-          "productName" : "Razer Basilisk V3 Pro",
-          "category" : "mouse",
-          "productID" : "0xaa",
-          "serialNumber" : "000000000000"
+          "category" : "trackpad",
+          "productID" : "0x342",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "vendorID" : "0x5ac"
         }
+      },
+      "scrolling" : {
+        "acceleration" : 1
       }
     }
   ]
