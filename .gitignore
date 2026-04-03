@@ -20,8 +20,10 @@ gh
 chezmoi
 zed/prompts/prompts-library-db.0.mdb
 kitty/kitty-themes
+tmux/plugins/*
+!tmux/plugins/tmux-workspace-sidebar/
+!tmux/plugins/tmux-workspace-sidebar/**
 tmux/plugins/tmux-plugins
-tmux/plugins
 ghostty/shaders
 glab-cli/config.yml
 configstore
@@ -36,3 +38,8 @@ tokscale
 mole
 atuin/config.toml
 nchat
+/opencode.back
+/gcloud
+/moltis
+/_sesh
+/git
