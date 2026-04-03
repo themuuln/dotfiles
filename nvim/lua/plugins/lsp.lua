@@ -66,9 +66,52 @@ return {
       { "<leader>dd", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App" },
       { "<leader>dr", "<cmd>FlutterLogToggle<cr>", desc = "Toggle Log" },
       { "<leader>FC", "<cmd>FlutterDebug<cr>", desc = "Debug Flutter App" },
+      {
+        "<leader>FS",
+        function()
+          require("config.flutter_remote").run()
+        end,
+        desc = "Run Flutter App on iMac",
+      },
+      {
+        "<leader>FW",
+        function()
+          require("config.flutter_remote").watch()
+        end,
+        desc = "Watch Flutter Sync on iMac",
+      },
+      {
+        "<leader>Fq",
+        function()
+          require("config.flutter_remote").stop()
+        end,
+        desc = "Stop Remote Flutter",
+      },
       { "<leader>Fs", "<cmd>FlutterRun<cr>", desc = "Run Flutter App" },
-      { "<leader>Fr", "<cmd>FlutterRestart<cr>", desc = "Restart Flutter App" },
-      { "<leader>r", "<cmd>FlutterReload<cr>", desc = "Reload Flutter App" },
+      {
+        "<leader>Fr",
+        function()
+          local remote = require("config.flutter_remote")
+          if remote.is_running() then
+            remote.restart()
+          else
+            vim.cmd("FlutterRestart")
+          end
+        end,
+        desc = "Restart Flutter App",
+      },
+      {
+        "<leader>r",
+        function()
+          local remote = require("config.flutter_remote")
+          if remote.is_running() then
+            remote.reload()
+          else
+            vim.cmd("FlutterReload")
+          end
+        end,
+        desc = "Reload Flutter App",
+      },
     },
     ft = { "dart" },
     config = function()
@@ -100,6 +143,7 @@ return {
           },
         },
       })
+      require("config.flutter_remote").setup()
     end,
   },
 

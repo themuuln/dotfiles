@@ -3,3 +3,4 @@ if vim.env.VSCODE then
 end
 
 require("config.lazy")
+require("config.flutter_remote").setup()
