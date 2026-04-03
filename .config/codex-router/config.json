@@ -1,0 +1,37 @@
+{
+  "codex_bin": "codex",
+  "rotation": {
+    "strategy": "hybrid",
+    "pid_offset_enabled": true,
+    "sticky_ttl_ms": 1800000
+  },
+  "token_bucket": {
+    "capacity": 60,
+    "refill_tokens_per_sec": 1
+  },
+  "retry": {
+    "max_attempts_per_request": 3,
+    "cooldown_ms": 60000
+  },
+  "rate_limit_patterns": [
+    "rate limit",
+    "429",
+    "too many requests",
+    "quota exceeded",
+    "insufficient_quota"
+  ],
+  "accounts": [
+    {
+      "name": "account-1",
+      "env": {
+        "OPENAI_API_KEY": "sk-..."
+      }
+    },
+    {
+      "name": "account-2",
+      "env": {
+        "OPENAI_API_KEY": "sk-..."
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "globalCounter": 0,
+  "accountStats": {
+    "account-1": {
+      "rateLimitCount": 0,
+      "successCount": 0,
+      "lastRateLimitAt": 0,
+      "lastSuccessAt": 0,
+      "cooldownUntil": 0,
+      "lastUsedAt": 1772183200612,
+      "healthScore": 1,
+      "bucketTokens": 59,
+      "bucketLastRefillAt": 1772183200612,
+      "bucketConsumed": 2
+    },
+    "account-2": {
+      "rateLimitCount": 0,
+      "successCount": 0,
+      "lastRateLimitAt": 0,
+      "lastSuccessAt": 0,
+      "cooldownUntil": 0,
+      "lastUsedAt": 1772183190612,
+      "healthScore": 1,
+      "bucketTokens": 60,
+      "bucketLastRefillAt": 1772183200612,
+      "bucketConsumed": 1
+    }
+  },
+  "stickyByWorkspace": {
+    ".config-2546775ef9de5281": {
+      "accountName": "account-1",
+      "at": 1772183200613
+    }
+  }
+}
