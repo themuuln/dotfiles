@@ -43,6 +43,20 @@ assert_pane_session() {
 	}
 }
 
+assert_client_session() {
+	local socket_path="$1"
+	local client_name="$2"
+	local expected_session="$3"
+	local current_session
+
+	current_session="$(tmux -S "$socket_path" display-message -p -t "$client_name" '#{session_name}')"
+
+	[ "$current_session" = "$expected_session" ] || {
+		printf 'expected client %s session %s, got %s\n' "$client_name" "$expected_session" "$current_session" >&2
+		exit 1
+	}
+}
+
 run_expect_fail() {
 	if "$@"; then
 		printf 'expected command to fail: %s\n' "$*" >&2
@@ -119,6 +133,55 @@ assert_session_exists "$socket_path" "popup_fallback_ws"
 "$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "popup_fallback_ws" "YES"
 assert_session_missing "$socket_path" "popup_fallback_ws"
 
+quoted_workspace="quote'workspace"
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" create-input "$quoted_workspace"
+assert_session_exists "$socket_path" "$quoted_workspace"
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "$quoted_workspace" "YES"
+assert_session_missing "$socket_path" "$quoted_workspace"
+
+control_fifo_one="/tmp/workspace-agent-c1-$$.fifo"
+control_fifo_two="/tmp/workspace-agent-c2-$$.fifo"
+control_log_one="/tmp/workspace-agent-c1-$$.log"
+control_log_two="/tmp/workspace-agent-c2-$$.log"
+rm -f "$control_fifo_one" "$control_fifo_two" "$control_log_one" "$control_log_two"
+mkfifo "$control_fifo_one" "$control_fifo_two"
+
+cat "$control_fifo_one" | tmux -S "$socket_path" -C attach-session -t wsbase >"$control_log_one" 2>&1 &
+control_cat_pid_one=$!
+exec 3>"$control_fifo_one"
+cat "$control_fifo_two" | tmux -S "$socket_path" -C attach-session -t wsbase >"$control_log_two" 2>&1 &
+control_cat_pid_two=$!
+exec 4>"$control_fifo_two"
+
+sleep 0.5
+
+client_names=()
+while IFS= read -r client_name; do
+	[ -n "$client_name" ] || continue
+	client_names+=("$client_name")
+done < <(tmux -S "$socket_path" list-clients -F '#{client_name}')
+
+[ "${#client_names[@]}" -ge 2 ] || {
+	printf 'expected at least two attached clients, got %s\n' "${#client_names[@]}" >&2
+	exit 1
+}
+
+invoking_client="${client_names[1]}"
+other_client="${client_names[0]}"
+
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" create-input "client_target_ws"
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" switch-input "client_target_ws" "" "$invoking_client"
+assert_client_session "$socket_path" "$invoking_client" "client_target_ws"
+assert_client_session "$socket_path" "$other_client" "wsbase"
+
+printf 'detach-client\n' >&3
+printf 'detach-client\n' >&4
+exec 3>&-
+exec 4>&-
+kill "$control_cat_pid_one" "$control_cat_pid_two" 2>/dev/null || true
+rm -f "$control_fifo_one" "$control_fifo_two" "$control_log_one" "$control_log_two"
+
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "client_target_ws" "YES"
 "$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "sibling" "YES"
 "$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "existing" "YES"
 assert_session_exists "$socket_path" "wsbase"

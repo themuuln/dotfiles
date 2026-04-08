@@ -51,7 +51,7 @@ set_key_bindings() {
 	fi
 
 	tmux bind-key -T prefix "$namespace_key" switch-client -T workspace_agent
-	tmux bind-key -T workspace_agent "$menu_key" run-shell "$SCRIPTS_DIR/launch-menu.sh '#{socket_path}' '#{pane_id}' '#{pane_current_path}'"
+	tmux bind-key -T workspace_agent "$menu_key" run-shell "$SCRIPTS_DIR/launch-menu.sh '#{socket_path}' '#{pane_id}' '#{pane_current_path}' menu '' '' '#{client_name}'"
 	tmux bind-key -T workspace_agent "$quick_key" run-shell "$SCRIPTS_DIR/quick-relaunch.sh '#{socket_path}' '#{pane_id}' '#{pane_current_path}'"
 	tmux bind-key -T workspace_agent q switch-client -T prefix
 	tmux bind-key -T workspace_agent Escape switch-client -T prefix

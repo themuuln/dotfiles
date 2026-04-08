@@ -7,6 +7,7 @@ pane_current_path="${3:-}"
 action="${4:-menu}"
 arg1="${5:-}"
 arg2="${6:-}"
+invoking_client_name="${7:-}"
 
 if [ -z "$socket_path" ] || [ -z "$pane_id" ]; then
 	echo "workspace-agent: launcher context is missing" >&2
@@ -16,6 +17,10 @@ fi
 tmux_cmd() {
 	tmux -S "$socket_path" "$@"
 }
+
+if [ -z "$invoking_client_name" ]; then
+	invoking_client_name="$(tmux_cmd display-message -p -t "$pane_id" '#{client_name}' 2>/dev/null || true)"
+fi
 
 display_feedback() {
 	local message="$1"
@@ -54,6 +59,32 @@ sorted_sessions() {
 deterministic_fallback_workspace() {
 	local target_workspace="$1"
 	sorted_sessions | awk -v target_workspace="$target_workspace" '$0 != target_workspace { print; exit }'
+}
+
+single_quote_escape() {
+	local value="$1"
+	printf "%s" "$value" | sed "s/'/'\"'\"'/g"
+}
+
+shell_quote() {
+	local value="$1"
+	printf "'%s'" "$(single_quote_escape "$value")"
+}
+
+build_self_command() {
+	local next_action="$1"
+	local first_arg="${2:-}"
+	local second_arg="${3:-}"
+
+	printf '%s %s %s %s %s %s %s %s' \
+		"$(shell_quote "$0")" \
+		"$(shell_quote "$socket_path")" \
+		"$(shell_quote "$pane_id")" \
+		"$(shell_quote "$pane_current_path")" \
+		"$(shell_quote "$next_action")" \
+		"$(shell_quote "$first_arg")" \
+		"$(shell_quote "$second_arg")" \
+		"$(shell_quote "$invoking_client_name")"
 }
 
 first_client_for_session() {
@@ -95,7 +126,7 @@ switch_workspace() {
 	local raw_target="$1"
 	local target_workspace
 	local current_workspace
-	local client_tty
+	local target_client
 
 	target_workspace="$(trim "$raw_target")"
 	if [ -z "$target_workspace" ]; then
@@ -114,12 +145,17 @@ switch_workspace() {
 		return 0
 	fi
 
-	client_tty="$(first_client_for_session "$current_workspace")"
-	if [ -z "$client_tty" ]; then
+	target_client="$invoking_client_name"
+	if [ -z "$target_client" ]; then
+		target_client="$(first_client_for_session "$current_workspace")"
+	fi
+
+	if [ -z "$target_client" ]; then
 		display_feedback "workspace-agent: switch rejected (no active client for workspace '$current_workspace')"
 		return 1
 	fi
-	tmux_cmd switch-client -c "$client_tty" -t "$target_workspace"
+
+	tmux_cmd switch-client -c "$target_client" -t "$target_workspace"
 
 	display_feedback "workspace-agent: switched to workspace '$target_workspace'"
 }
@@ -164,7 +200,7 @@ prompt_kill_workspace() {
 	local source_workspace
 	source_workspace="$(current_session)"
 	tmux_cmd command-prompt -I "$source_workspace" -p "Kill workspace name:" \
-		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-confirm-prompt \"%%\"'"
+		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-confirm-prompt \"%%\" \"\" \"$invoking_client_name\"'"
 }
 
 prompt_kill_confirmation() {
@@ -193,8 +229,11 @@ prompt_kill_confirmation() {
 		return 1
 	fi
 
+	local kill_confirm_cmd
+	kill_confirm_cmd="$(build_self_command "kill-confirm" "$target_workspace" "%%")"
+
 	tmux_cmd command-prompt -p "Type YES to kill '$target_workspace' (fallback: '$fallback_workspace'):" \
-		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-confirm \"$target_workspace\" \"%%\"'"
+		"run-shell \"$kill_confirm_cmd\""
 }
 
 kill_workspace() {
@@ -251,27 +290,27 @@ kill_workspace() {
 
 prompt_create() {
 	tmux_cmd command-prompt -p "Create workspace name:" \
-		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" create-input \"%%\"'"
+		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" create-input \"%%\" \"\" \"$invoking_client_name\"'"
 }
 
 prompt_switch() {
 	tmux_cmd command-prompt -p "Switch to workspace:" \
-		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" switch-input \"%%\"'"
+		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" switch-input \"%%\" \"\" \"$invoking_client_name\"'"
 }
 
 prompt_rename() {
 	local source_workspace
 	source_workspace="$(current_session)"
 	tmux_cmd command-prompt -I "$source_workspace" -p "Rename workspace (${source_workspace} ->):" \
-		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" rename-input \"$source_workspace\" \"%%\"'"
+		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" rename-input \"$source_workspace\" \"%%\" \"$invoking_client_name\"'"
 }
 
 show_menu_launcher() {
 	tmux_cmd display-menu -t "$pane_id" -T "workspace-agent launcher" \
-		"Create workspace" c "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" create-prompt'" \
-		"Switch workspace" s "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" switch-prompt'" \
-		"Rename workspace" r "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" rename-prompt'" \
-		"Kill workspace" x "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-prompt'" \
+		"Create workspace" c "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" create-prompt \"\" \"\" \"$invoking_client_name\"'" \
+		"Switch workspace" s "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" switch-prompt \"\" \"\" \"$invoking_client_name\"'" \
+		"Rename workspace" r "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" rename-prompt \"\" \"\" \"$invoking_client_name\"'" \
+		"Kill workspace" x "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-prompt \"\" \"\" \"$invoking_client_name\"'" \
 		"" "" "" \
 		"Exit launcher" q ""
 }
