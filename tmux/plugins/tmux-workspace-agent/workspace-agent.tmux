@@ -20,6 +20,7 @@ set_default_options() {
 	set_if_unset "@workspace_agent_quick_key" "A"
 	set_if_unset "@workspace_agent_clis" "opencode,codex,droid,pi"
 	set_if_unset "@workspace_agent_bridge" "0"
+	set_if_unset "@workspace_agent_popup_mode" "1"
 }
 
 set_key_bindings() {

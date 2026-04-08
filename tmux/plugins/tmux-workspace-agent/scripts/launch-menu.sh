@@ -23,6 +23,8 @@ display_feedback() {
 	if ! tmux_cmd display-message -t "$pane_id" "$message" 2>/dev/null; then
 		tmux_cmd display-message "$message" 2>/dev/null || true
 	fi
+
+	return 0
 }
 
 trim() {
@@ -41,10 +43,29 @@ current_session() {
 	tmux_cmd display-message -p -t "$pane_id" '#{session_name}'
 }
 
+session_count() {
+	tmux_cmd list-sessions -F '#{session_name}' | wc -l | tr -d ' '
+}
+
+sorted_sessions() {
+	tmux_cmd list-sessions -F '#{session_name}' | LC_ALL=C sort
+}
+
+deterministic_fallback_workspace() {
+	local target_workspace="$1"
+	sorted_sessions | awk -v target_workspace="$target_workspace" '$0 != target_workspace { print; exit }'
+}
+
 first_client_for_session() {
 	local session_name="$1"
 	tmux_cmd list-clients -F '#{client_tty}|#{session_name}' |
 		awk -F '|' -v session_name="$session_name" '$2 == session_name { print $1; exit }'
+}
+
+all_clients_for_session() {
+	local session_name="$1"
+	tmux_cmd list-clients -F '#{client_tty}|#{session_name}' |
+		awk -F '|' -v session_name="$session_name" '$2 == session_name { print $1 }'
 }
 
 list_actions() {
@@ -139,31 +160,167 @@ rename_workspace() {
 	display_feedback "workspace-agent: renamed '$source_workspace' -> '$target_workspace'"
 }
 
+prompt_kill_workspace() {
+	local source_workspace
+	source_workspace="$(current_session)"
+	tmux_cmd command-prompt -I "$source_workspace" -p "Kill workspace name:" \
+		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-confirm-prompt \"%%\"'"
+}
+
+prompt_kill_confirmation() {
+	local target_workspace="$1"
+	local fallback_workspace
+
+	target_workspace="$(trim "$target_workspace")"
+	if [ -z "$target_workspace" ]; then
+		display_feedback "workspace-agent: kill rejected (blank workspace name)"
+		return 1
+	fi
+
+	if ! session_exists "$target_workspace"; then
+		display_feedback "workspace-agent: kill rejected (workspace '$target_workspace' is missing)"
+		return 1
+	fi
+
+	if [ "$(session_count)" -le 1 ]; then
+		display_feedback "workspace-agent: kill rejected (cannot kill the last remaining workspace)"
+		return 1
+	fi
+
+	fallback_workspace="$(deterministic_fallback_workspace "$target_workspace")"
+	if [ -z "$fallback_workspace" ]; then
+		display_feedback "workspace-agent: kill rejected (no fallback workspace available)"
+		return 1
+	fi
+
+	tmux_cmd command-prompt -p "Type YES to kill '$target_workspace' (fallback: '$fallback_workspace'):" \
+		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-confirm \"$target_workspace\" \"%%\"'"
+}
+
+kill_workspace() {
+	local raw_target="$1"
+	local confirmation="$2"
+	local target_workspace
+	local current_workspace
+	local fallback_workspace
+	local client_tty
+
+	target_workspace="$(trim "$raw_target")"
+	confirmation="$(trim "$confirmation")"
+
+	if [ -z "$target_workspace" ]; then
+		display_feedback "workspace-agent: kill rejected (blank workspace name)"
+		return 1
+	fi
+
+	if ! session_exists "$target_workspace"; then
+		display_feedback "workspace-agent: kill rejected (workspace '$target_workspace' is missing)"
+		return 1
+	fi
+
+	if [ "$confirmation" != "YES" ]; then
+		display_feedback "workspace-agent: kill canceled for '$target_workspace'"
+		return 0
+	fi
+
+	if [ "$(session_count)" -le 1 ]; then
+		display_feedback "workspace-agent: kill rejected (cannot kill the last remaining workspace)"
+		return 1
+	fi
+
+	current_workspace="$(current_session)"
+	fallback_workspace="$(deterministic_fallback_workspace "$target_workspace")"
+	if [ -z "$fallback_workspace" ]; then
+		display_feedback "workspace-agent: kill rejected (no fallback workspace available)"
+		return 1
+	fi
+
+	while IFS= read -r client_tty; do
+		[ -n "$client_tty" ] || continue
+		tmux_cmd switch-client -c "$client_tty" -t "$fallback_workspace"
+	done < <(all_clients_for_session "$target_workspace")
+
+	tmux_cmd kill-session -t "$target_workspace"
+
+	if [ "$target_workspace" = "$current_workspace" ]; then
+		display_feedback "workspace-agent: killed '$target_workspace' and switched clients to '$fallback_workspace'"
+	else
+		display_feedback "workspace-agent: killed '$target_workspace' (fallback target: '$fallback_workspace')"
+	fi
+}
+
 prompt_create() {
-	tmux_cmd command-prompt -t "$pane_id" -p "Create workspace name:" \
+	tmux_cmd command-prompt -p "Create workspace name:" \
 		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" create-input \"%%\"'"
 }
 
 prompt_switch() {
-	tmux_cmd command-prompt -t "$pane_id" -p "Switch to workspace:" \
+	tmux_cmd command-prompt -p "Switch to workspace:" \
 		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" switch-input \"%%\"'"
 }
 
 prompt_rename() {
 	local source_workspace
 	source_workspace="$(current_session)"
-	tmux_cmd command-prompt -t "$pane_id" -I "$source_workspace" -p "Rename workspace (${source_workspace} ->):" \
+	tmux_cmd command-prompt -I "$source_workspace" -p "Rename workspace (${source_workspace} ->):" \
 		"run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" rename-input \"$source_workspace\" \"%%\"'"
 }
 
-show_launcher() {
+show_menu_launcher() {
 	tmux_cmd display-menu -t "$pane_id" -T "workspace-agent launcher" \
 		"Create workspace" c "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" create-prompt'" \
 		"Switch workspace" s "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" switch-prompt'" \
 		"Rename workspace" r "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" rename-prompt'" \
-		"Kill workspace (coming soon)" x "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-info'" \
+		"Kill workspace" x "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" kill-prompt'" \
 		"" "" "" \
 		"Exit launcher" q ""
+}
+
+popup_ui_launcher() {
+	local selected_action
+
+	if ! command -v fzf >/dev/null 2>&1; then
+		display_feedback "workspace-agent: popup launcher unavailable (missing fzf), using menu fallback"
+		return 1
+	fi
+
+	selected_action="$(list_actions | fzf --prompt='workspace action> ' --height=100% --layout=reverse --border --exit-0 || true)"
+
+	case "$selected_action" in
+	create)
+		prompt_create
+		;;
+	switch)
+		prompt_switch
+		;;
+	rename)
+		prompt_rename
+		;;
+	kill)
+		prompt_kill_workspace
+		;;
+	exit | "")
+		:
+		;;
+	*)
+		display_feedback "workspace-agent: popup selection '$selected_action' is unsupported"
+		return 1
+		;;
+	esac
+}
+
+show_launcher() {
+	local popup_mode
+
+	popup_mode="$(tmux_cmd show-option -gqv '@workspace_agent_popup_mode')"
+
+	if [ "$popup_mode" != "0" ]; then
+		if tmux_cmd display-popup -t "$pane_id" -E "$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" popup-ui"; then
+			return 0
+		fi
+	fi
+
+	show_menu_launcher
 }
 
 case "$action" in
@@ -194,8 +351,20 @@ rename)
 rename-input)
 	rename_workspace "$arg1" "$arg2"
 	;;
-kill-info)
-	display_feedback "workspace-agent: kill flow is available from launcher (implementation follows in kill milestone)"
+popup-ui)
+	popup_ui_launcher
+	;;
+kill-prompt)
+	prompt_kill_workspace
+	;;
+kill-confirm-prompt)
+	prompt_kill_confirmation "$arg1"
+	;;
+kill | kill-input | kill-confirm)
+	kill_workspace "$arg1" "$arg2"
+	;;
+kill-fallback)
+	deterministic_fallback_workspace "$arg1"
 	;;
 *)
 	echo "workspace-agent: unknown launcher action '$action'" >&2

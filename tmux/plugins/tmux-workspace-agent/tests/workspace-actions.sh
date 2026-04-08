@@ -99,4 +99,30 @@ run_expect_fail "$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" rename "ren
 assert_session_exists "$socket_path" "renamed"
 assert_session_exists "$socket_path" "existing"
 
+fallback_target="$("$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-fallback "wsbase")"
+[ "$fallback_target" = "existing" ] || {
+	printf 'expected deterministic fallback existing, got %s\n' "$fallback_target" >&2
+	exit 1
+}
+
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "renamed" "NO"
+assert_session_exists "$socket_path" "renamed"
+
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "renamed" "YES"
+assert_session_missing "$socket_path" "renamed"
+
+run_expect_fail "$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "missing-workspace" "YES"
+
+tmux -S "$socket_path" set-option -gq "@workspace_agent_popup_mode" "0"
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" create-input "popup_fallback_ws"
+assert_session_exists "$socket_path" "popup_fallback_ws"
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "popup_fallback_ws" "YES"
+assert_session_missing "$socket_path" "popup_fallback_ws"
+
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "sibling" "YES"
+"$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "existing" "YES"
+assert_session_exists "$socket_path" "wsbase"
+run_expect_fail "$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" kill-input "wsbase" "YES"
+assert_session_exists "$socket_path" "wsbase"
+
 printf 'workspace actions test passed\n'
