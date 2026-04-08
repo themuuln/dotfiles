@@ -23,6 +23,8 @@ kitty/kitty-themes
 tmux/plugins/*
 !tmux/plugins/tmux-workspace-sidebar/
 !tmux/plugins/tmux-workspace-sidebar/**
+!tmux/plugins/tmux-workspace-agent/
+!tmux/plugins/tmux-workspace-agent/**
 tmux/plugins/tmux-plugins
 ghostty/shaders
 glab-cli/config.yml
