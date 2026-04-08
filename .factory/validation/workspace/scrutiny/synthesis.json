@@ -1,0 +1,46 @@
+{
+  "milestone": "workspace",
+  "round": 1,
+  "status": "pass",
+  "validatorsRun": {
+    "test": {
+      "passed": true,
+      "command": "tmux -L svc_test kill-server 2>/dev/null || true && tmux -L svc_test -f /Users/ict/.config/tmux/tmux.conf new-session -d -s svc_test && tmux -L svc_test source-file /Users/ict/.config/tmux/tmux.conf && tmux -L svc_test list-keys -T prefix >/dev/null && tmux -L svc_test list-keys -T workspace_agent >/dev/null && tmux -L svc_test kill-server 2>/dev/null || true",
+      "exitCode": 0
+    },
+    "typecheck": {
+      "passed": true,
+      "command": "printf 'No language typecheck step defined for shell/tmux mission\\n'",
+      "exitCode": 0
+    },
+    "lint": {
+      "passed": true,
+      "command": "bash -n /Users/ict/.config/tmux/tmux.conf /Users/ict/.config/tmux/tmux.reset.conf && bash -n /Users/ict/.config/tmux/plugins/tmux-workspace-agent/workspace-agent.tmux && bash -n /Users/ict/.config/tmux/plugins/tmux-workspace-agent/scripts/*.sh",
+      "exitCode": 0
+    }
+  },
+  "reviewsSummary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "failedFeatures": []
+  },
+  "blockingIssues": [],
+  "appliedUpdates": [
+    {
+      "target": "services.yaml",
+      "description": "Added commands.test_workspace_actions to run tmux-workspace-agent/tests/workspace-actions.sh so workers have a dedicated command for deterministic workspace action coverage (including kill/fallback branches).",
+      "sourceFeature": "workspace-kill-confirmation-fallback"
+    }
+  ],
+  "suggestedGuidanceUpdates": [
+    {
+      "target": "skill:tmux-plugin-worker",
+      "suggestion": "Add explicit TERM compatibility guidance for interactive tmux validation (e.g., set TERM=screen-256color when driving tmux via tuistory) to reduce terminal-type failures.",
+      "evidence": "workspace-launcher-create-switch-rename review observed this guidance requested in worker handoff while already documented in .factory/library/user-testing.md but absent from the tmux-plugin-worker skill instructions.",
+      "isSystemic": false
+    }
+  ],
+  "rejectedObservations": [],
+  "previousRound": null
+}

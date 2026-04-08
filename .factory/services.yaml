@@ -25,4 +25,7 @@ commands:
     tmux -L svc_test list-keys -T workspace_agent >/dev/null
     tmux -L svc_test kill-server 2>/dev/null || true
 
+  test_workspace_actions: |
+    bash /Users/ict/.config/tmux/plugins/tmux-workspace-agent/tests/workspace-actions.sh
+
 services: {}

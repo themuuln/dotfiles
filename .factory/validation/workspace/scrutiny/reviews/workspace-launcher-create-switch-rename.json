@@ -1,0 +1,28 @@
+{
+  "featureId": "workspace-launcher-create-switch-rename",
+  "reviewedAt": "2026-04-08T04:47:50Z",
+  "commitId": "c1bc818",
+  "transcriptSkeletonReviewed": true,
+  "diffReviewed": true,
+  "status": "pass",
+  "codeReview": {
+    "summary": "Feature implementation covers the requested launcher flows (create/switch/rename), expected negative boundaries for blank/whitespace/duplicate/missing/same-name branches, and discoverability/no-dead-end behavior evidence. One non-blocking multi-client reliability issue was found in switch targeting logic.",
+    "issues": [
+      {
+        "file": "tmux/plugins/tmux-workspace-agent/scripts/launch-menu.sh",
+        "line": 44,
+        "severity": "non_blocking",
+        "description": "Switch flow picks the first client attached to the current session (`first_client_for_session`) and then calls `switch-client -c <tty>`, which can switch the wrong client when multiple clients are attached to the same workspace. The invoking client's tty should be targeted instead."
+      }
+    ]
+  },
+  "sharedStateObservations": [
+    {
+      "area": "skills",
+      "observation": "The `tmux-plugin-worker` skill lacks explicit TERM compatibility guidance for tuistory/tmux interactive verification, even though workers can hit terminal-type failures in practice.",
+      "evidence": "Handoff `skillFeedback.suggestedChanges` requests documenting `TERM=screen-256color` for tuistory+tmux, while this guidance currently exists in `.factory/library/user-testing.md` but not in `.factory/skills/tmux-plugin-worker/SKILL.md`."
+    }
+  ],
+  "addressesFailureFrom": null,
+  "summary": "Reviewed mission artifacts, handoff, transcript skeleton, and commit c1bc818 diff for workspace-launcher-create-switch-rename. Result is PASS with one non-blocking reliability issue (multi-client switch targeting) and one shared-state skill-documentation observation."
+}

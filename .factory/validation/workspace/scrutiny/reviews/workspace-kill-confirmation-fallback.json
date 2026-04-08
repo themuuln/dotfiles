@@ -1,0 +1,28 @@
+{
+  "featureId": "workspace-kill-confirmation-fallback",
+  "reviewedAt": "2026-04-08T04:47:35Z",
+  "commitId": "b332cf0a92281b926c197360e18c1cb4094401bb",
+  "transcriptSkeletonReviewed": true,
+  "diffReviewed": true,
+  "status": "pass",
+  "codeReview": {
+    "summary": "The feature implementation meets the requested behavior: kill now requires explicit YES confirmation, cancel is non-destructive, confirmed kill routes clients to a deterministic fallback workspace, last-session kill is blocked, and launcher/menu fallback parity includes kill. One robustness issue remains around unescaped workspace names in command-prompt/run-shell command construction.",
+    "issues": [
+      {
+        "file": "tmux/plugins/tmux-workspace-agent/scripts/launch-menu.sh",
+        "line": 197,
+        "severity": "non_blocking",
+        "description": "Workspace names are interpolated into a single-quoted run-shell command without escaping (also in line 167 with %% substitution). Names containing a single quote can break the confirmation command string, making the kill-confirm prompt path unreliable for valid tmux session names such as ab'cd."
+      }
+    ]
+  },
+  "sharedStateObservations": [
+    {
+      "area": "services",
+      "observation": "Mission-level `test` command does not run `tests/workspace-actions.sh`, so kill/fallback regressions are only caught if workers remember to run targeted tests manually.",
+      "evidence": ".factory/services.yaml:20-26 only checks socket/config/key-table smoke; tmux/plugins/tmux-workspace-agent/tests/workspace-actions.sh:102-126 contains the deterministic kill/fallback and last-session safety assertions."
+    }
+  ],
+  "addressesFailureFrom": null,
+  "summary": "Reviewed feature workspace-kill-confirmation-fallback at commit b332cf0. Implementation satisfies core contract and is acceptable to pass, with one non-blocking quoting robustness gap in the kill confirmation prompt path and one shared-state observation about baseline test coverage in services.yaml."
+}
