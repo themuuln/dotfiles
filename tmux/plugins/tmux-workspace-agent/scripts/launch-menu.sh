@@ -12,6 +12,7 @@ action="${4:-menu}"
 arg1="${5:-}"
 arg2="${6:-}"
 invoking_client_name="${7:-}"
+arg3="${8:-}"
 
 if [ -z "$socket_path" ] || [ -z "$pane_id" ]; then
 	echo "workspace-agent: launcher context is missing" >&2
@@ -446,6 +447,12 @@ show_launcher() {
 case "$action" in
 menu | show-menu | "")
 	show_launcher
+	;;
+__build-self-command)
+	build_self_command "$arg1" "$arg2" "$arg3"
+	;;
+__build-run-shell-command)
+	build_run_shell_command "$arg1" "$arg2" "$arg3"
 	;;
 list-actions)
 	list_actions

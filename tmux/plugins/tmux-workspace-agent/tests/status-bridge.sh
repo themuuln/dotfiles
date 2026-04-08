@@ -146,13 +146,7 @@ PATH="$BIN_DIR:$PATH" XDG_STATE_HOME="$STATE_HOME" \
 segment_after_launch="$(tmux -S "$socket_path" show-option -gqv '@workspace_agent_status_segment')"
 assert_contains "statusws" "$segment_after_launch" "segment should include workspace identity after launch"
 assert_contains "codex" "$segment_after_launch" "segment should include launched agent identity"
-case "$segment_after_launch" in
-	*"running"* | *"launched"*) ;;
-	*)
-		printf 'segment should include launch status label, got [%s]\n' "$segment_after_launch" >&2
-		exit 1
-		;;
-esac
+assert_contains "running" "$segment_after_launch" "segment should include canonical running status label after launch"
 
 "$LAUNCHER_SCRIPT" "$socket_path" "$pane_id" "$HOME" create-input "statusws_alt"
 segment_after_create="$(tmux -S "$socket_path" show-option -gqv '@workspace_agent_status_segment')"
