@@ -2,6 +2,8 @@
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPTS_DIR="$CURRENT_DIR/scripts"
+STATUS_SYNC_SCRIPT="$SCRIPTS_DIR/status-sync.sh"
+ENSURE_STATUS_RIGHT_SCRIPT="$SCRIPTS_DIR/ensure-status-right.sh"
 
 set_if_unset() {
 	local key="$1"
@@ -21,6 +23,67 @@ set_default_options() {
 	set_if_unset "@workspace_agent_clis" "opencode,codex,droid,pi"
 	set_if_unset "@workspace_agent_bridge" "0"
 	set_if_unset "@workspace_agent_popup_mode" "1"
+	set_if_unset "@workspace_agent_last_agent" ""
+	set_if_unset "@workspace_agent_last_workspace" ""
+	set_if_unset "@workspace_agent_last_status" "idle"
+	set_if_unset "@workspace_agent_last_path" ""
+	set_if_unset "@workspace_agent_status_segment" "[wa:idle]"
+	set_if_unset "@workspace_agent_bridge_state" "standalone"
+}
+
+set_status_segment_binding() {
+	local status_right
+	local segment_token
+
+	status_right="$(tmux show-option -gqv status-right)"
+	segment_token='#{@workspace_agent_status_segment}'
+
+	case "$status_right" in
+	*"$segment_token"*)
+		return 0
+		;;
+	esac
+
+	if [ -n "$status_right" ]; then
+		tmux set-option -gq status-right "${status_right} ${segment_token}"
+	else
+		tmux set-option -gq status-right "$segment_token"
+	fi
+}
+
+append_hook_command_if_missing() {
+	local hook_name="$1"
+	local hook_command="$2"
+	local match_token="$3"
+	local existing_hooks
+
+	existing_hooks="$(tmux show-hooks -g "$hook_name" 2>/dev/null || true)"
+
+	case "$existing_hooks" in
+	*"$match_token"*)
+		return 0
+		;;
+	esac
+
+	tmux set-hook -ag "$hook_name" "$hook_command"
+}
+
+set_status_hooks() {
+	local sync_hook_cmd
+	local ensure_status_right_cmd
+
+	sync_hook_cmd="run-shell -b '$STATUS_SYNC_SCRIPT \"#{socket_path}\" \"#{pane_id}\" \"#{pane_current_path}\" \"\" \"\" \"\"'"
+	ensure_status_right_cmd="run-shell -b '$ENSURE_STATUS_RIGHT_SCRIPT \"#{socket_path}\"'"
+
+	append_hook_command_if_missing "after-select-pane" "$sync_hook_cmd" "$STATUS_SYNC_SCRIPT"
+	append_hook_command_if_missing "after-select-window" "$sync_hook_cmd" "$STATUS_SYNC_SCRIPT"
+	append_hook_command_if_missing "client-session-changed" "$sync_hook_cmd" "$STATUS_SYNC_SCRIPT"
+	append_hook_command_if_missing "after-new-session" "$sync_hook_cmd" "$STATUS_SYNC_SCRIPT"
+	append_hook_command_if_missing "after-new-window" "$sync_hook_cmd" "$STATUS_SYNC_SCRIPT"
+	append_hook_command_if_missing "after-split-window" "$sync_hook_cmd" "$STATUS_SYNC_SCRIPT"
+	append_hook_command_if_missing "after-set-option" "$ensure_status_right_cmd" "$ENSURE_STATUS_RIGHT_SCRIPT"
+	append_hook_command_if_missing "session-renamed" "$sync_hook_cmd" "$STATUS_SYNC_SCRIPT"
+	append_hook_command_if_missing "window-renamed" "$sync_hook_cmd" "$STATUS_SYNC_SCRIPT"
 }
 
 set_key_bindings() {
@@ -64,7 +127,11 @@ set_key_bindings() {
 
 main() {
 	set_default_options
+	set_status_segment_binding
+	set_status_hooks
 	set_key_bindings
+	tmux run-shell "$STATUS_SYNC_SCRIPT '#{socket_path}' '#{pane_id}' '#{pane_current_path}' '' '' ''"
+	tmux run-shell -b "sleep 0.2; $STATUS_SYNC_SCRIPT '#{socket_path}' '#{pane_id}' '#{pane_current_path}' '' '' ''"
 }
 
 main
