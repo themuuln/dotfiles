@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+AGENT_LAUNCH_SCRIPT="$CURRENT_DIR/agent-launch.sh"
+
 socket_path="${1:-}"
 pane_id="${2:-}"
 pane_current_path="${3:-}"
@@ -101,6 +104,37 @@ all_clients_for_session() {
 
 list_actions() {
 	printf 'create\nswitch\nrename\nkill\nexit\n'
+}
+
+list_agents() {
+	local configured
+	local entry
+
+	configured="$(tmux_cmd show-option -gqv '@workspace_agent_clis' 2>/dev/null || true)"
+	if [ -z "$configured" ]; then
+		configured="opencode,codex,droid,pi"
+	fi
+
+	IFS=',' read -r -a entries <<<"$configured"
+	for entry in "${entries[@]}"; do
+		entry="$(trim "$entry")"
+		[ -n "$entry" ] || continue
+		printf '%s\n' "$entry"
+	done
+}
+
+list_picker_entries() {
+	local agent
+	while IFS= read -r agent; do
+		[ -n "$agent" ] || continue
+		printf 'agent:%s\n' "$agent"
+	done < <(list_agents)
+
+	printf 'create\nswitch\nrename\nkill\nexit\n'
+}
+
+launch_agent() {
+	"$AGENT_LAUNCH_SCRIPT" "$socket_path" "$pane_id" "$pane_current_path" "${1:-}"
 }
 
 create_workspace() {
@@ -307,6 +341,11 @@ prompt_rename() {
 
 show_menu_launcher() {
 	tmux_cmd display-menu -t "$pane_id" -T "workspace-agent launcher" \
+		"Launch opencode" o "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" launch-agent \"opencode\" \"\" \"$invoking_client_name\"'" \
+		"Launch codex" d "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" launch-agent \"codex\" \"\" \"$invoking_client_name\"'" \
+		"Launch droid" i "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" launch-agent \"droid\" \"\" \"$invoking_client_name\"'" \
+		"Launch pi" p "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" launch-agent \"pi\" \"\" \"$invoking_client_name\"'" \
+		"" "" "" \
 		"Create workspace" c "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" create-prompt \"\" \"\" \"$invoking_client_name\"'" \
 		"Switch workspace" s "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" switch-prompt \"\" \"\" \"$invoking_client_name\"'" \
 		"Rename workspace" r "run-shell '$0 \"$socket_path\" \"$pane_id\" \"$pane_current_path\" rename-prompt \"\" \"\" \"$invoking_client_name\"'" \
@@ -323,9 +362,12 @@ popup_ui_launcher() {
 		return 1
 	fi
 
-	selected_action="$(list_actions | fzf --prompt='workspace action> ' --height=100% --layout=reverse --border --exit-0 || true)"
+	selected_action="$(list_picker_entries | fzf --prompt='workspace action> ' --height=100% --layout=reverse --border --exit-0 || true)"
 
 	case "$selected_action" in
+	agent:*)
+		launch_agent "${selected_action#agent:}"
+		;;
 	create)
 		prompt_create
 		;;
@@ -339,7 +381,7 @@ popup_ui_launcher() {
 		prompt_kill_workspace
 		;;
 	exit | "")
-		:
+		display_feedback "workspace-agent: picker canceled"
 		;;
 	*)
 		display_feedback "workspace-agent: popup selection '$selected_action' is unsupported"
@@ -368,6 +410,12 @@ menu | show-menu | "")
 	;;
 list-actions)
 	list_actions
+	;;
+list-agents)
+	list_agents
+	;;
+launch-agent)
+	launch_agent "$arg1"
 	;;
 create-prompt)
 	prompt_create
