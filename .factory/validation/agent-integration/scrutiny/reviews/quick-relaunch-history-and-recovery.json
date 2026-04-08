@@ -1,0 +1,21 @@
+{
+  "featureId": "quick-relaunch-history-and-recovery",
+  "reviewedAt": "2026-04-08T06:54:26Z",
+  "commitId": "2ce8b3a",
+  "transcriptSkeletonReviewed": true,
+  "diffReviewed": true,
+  "status": "pass",
+  "codeReview": {
+    "summary": "Reviewed commit `2ce8b3a` against feature requirements and expected behavior. `scripts/quick-relaunch.sh` now provides explicit non-destructive handling for no-history (`quick-relaunch.sh:74-77`), no-longer-configured history (`79-82`), PATH-unavailable history (`84-87`), and launch failure recovery messaging (`89-91`), while still relaunching via `agent-launch.sh` with the caller pane path argument. `tests/quick-relaunch.sh` adds deterministic coverage for current-path semantics, no-history and stale-history no-launch branches, failure-to-recovery continuity, and cross-workspace relaunch context/state updates.",
+    "issues": []
+  },
+  "sharedStateObservations": [
+    {
+      "area": "services",
+      "observation": "Feature-level regression scripts are still run ad hoc and are not captured as named commands in `.factory/services.yaml`, reducing discoverability and repeatability for future workers/validators.",
+      "evidence": "Handoff `/Users/ict/.factory/missions/b2de725d-ce67-46e3-a527-846396302b9f/handoffs/2026-04-08T05-56-12-324Z__quick-relaunch-history-and-recovery__a36cf3bb-b924-4fb1-b2c9-974ae1ccd51d.json` records direct runs of `tests/quick-relaunch.sh` and `tests/agent-picker.sh`, while `/Users/ict/.config/.factory/services.yaml` currently defines only `test` and `test_workspace_actions` under commands."
+    }
+  ],
+  "addressesFailureFrom": null,
+  "summary": "Pass: implementation and test coverage match the quick-relaunch history/recovery contract, with no actionable code defects found in the reviewed diff."
+}

@@ -28,4 +28,14 @@ commands:
   test_workspace_actions: |
     bash /Users/ict/.config/tmux/plugins/tmux-workspace-agent/tests/workspace-actions.sh
 
+  test_agent_picker: |
+    bash /Users/ict/.config/tmux/plugins/tmux-workspace-agent/tests/agent-picker.sh
+
+  test_quick_relaunch: |
+    bash /Users/ict/.config/tmux/plugins/tmux-workspace-agent/tests/quick-relaunch.sh
+
+  test_agent_integration: |
+    bash /Users/ict/.config/tmux/plugins/tmux-workspace-agent/tests/agent-picker.sh
+    bash /Users/ict/.config/tmux/plugins/tmux-workspace-agent/tests/quick-relaunch.sh
+
 services: {}

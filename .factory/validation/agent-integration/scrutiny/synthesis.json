@@ -1,0 +1,49 @@
+{
+  "milestone": "agent-integration",
+  "round": 1,
+  "status": "pass",
+  "validatorsRun": {
+    "test": {
+      "passed": true,
+      "command": "tmux -L svc_test kill-server 2>/dev/null || true && tmux -L svc_test -f /Users/ict/.config/tmux/tmux.conf new-session -d -s svc_test && tmux -L svc_test source-file /Users/ict/.config/tmux/tmux.conf && tmux -L svc_test list-keys -T prefix >/dev/null && tmux -L svc_test list-keys -T workspace_agent >/dev/null && tmux -L svc_test kill-server 2>/dev/null || true",
+      "exitCode": 0
+    },
+    "typecheck": {
+      "passed": true,
+      "command": "printf 'No language typecheck step defined for shell/tmux mission\\n'",
+      "exitCode": 0
+    },
+    "lint": {
+      "passed": true,
+      "command": "bash -n /Users/ict/.config/tmux/tmux.conf /Users/ict/.config/tmux/tmux.reset.conf && bash -n /Users/ict/.config/tmux/plugins/tmux-workspace-agent/workspace-agent.tmux && for f in /Users/ict/.config/tmux/plugins/tmux-workspace-agent/scripts/*.sh; do [ -e \"$f\" ] || continue; bash -n \"$f\"; done",
+      "exitCode": 0
+    }
+  },
+  "reviewsSummary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "failedFeatures": []
+  },
+  "blockingIssues": [],
+  "appliedUpdates": [
+    {
+      "target": "services.yaml",
+      "description": "Added named commands `test_agent_picker` and `test_quick_relaunch` so agent-integration regression scripts are discoverable and repeatable via shared mission services.",
+      "sourceFeature": "agent-picker-launch-and-state-contract"
+    },
+    {
+      "target": "services.yaml",
+      "description": "Added `test_agent_integration` command to run both agent-integration regression scripts from a single reusable validator entrypoint.",
+      "sourceFeature": "quick-relaunch-history-and-recovery"
+    }
+  ],
+  "suggestedGuidanceUpdates": [],
+  "rejectedObservations": [
+    {
+      "observation": "Feature-level regression scripts are not represented as named shared service commands.",
+      "reason": "duplicate"
+    }
+  ],
+  "previousRound": null
+}

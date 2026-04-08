@@ -1,0 +1,28 @@
+{
+  "featureId": "agent-picker-launch-and-state-contract",
+  "reviewedAt": "2026-04-08T06:56:10Z",
+  "commitId": "71ed3b1",
+  "transcriptSkeletonReviewed": true,
+  "diffReviewed": true,
+  "status": "pass",
+  "codeReview": {
+    "summary": "Core feature behavior matches the contract: picker launches supported agents through a shared adapter in caller-path context, unavailable/cancel paths avoid process and state mutation, and successful launches persist last-agent state in tmux option plus atomic state.env writes. One non-blocking shell-quoting edge case remains in fallback menu command construction.",
+    "issues": [
+      {
+        "file": "tmux/plugins/tmux-workspace-agent/scripts/launch-menu.sh",
+        "line": 344,
+        "severity": "non_blocking",
+        "description": "Fallback display-menu run-shell entries interpolate pane_current_path/invoking_client_name inside a single-quoted command without escaping single quotes. Paths containing apostrophes can break command parsing and fail agent launch from menu fallback."
+      }
+    ]
+  },
+  "sharedStateObservations": [
+    {
+      "area": "services",
+      "observation": "The feature adds a deterministic agent-picker regression test, but shared validator commands are not updated to run it by default.",
+      "evidence": "Commit 71ed3b1 adds tmux/plugins/tmux-workspace-agent/tests/agent-picker.sh, while .factory/services.yaml only defines lint, test (socket smoke), and test_workspace_actions commands."
+    }
+  ],
+  "addressesFailureFrom": null,
+  "summary": "PASS. Reviewed handoff, transcript skeleton, skill procedure, and commit diff for feature agent-picker-launch-and-state-contract. Implementation satisfies expected behavior with no blocking defects; one non-blocking fallback menu quoting edge case and one services-state observation were recorded."
+}
