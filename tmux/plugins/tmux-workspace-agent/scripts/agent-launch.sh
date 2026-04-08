@@ -5,6 +5,8 @@ socket_path="${1:-}"
 pane_id="${2:-}"
 pane_current_path="${3:-}"
 requested_agent="${4:-}"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+STATUS_SYNC_SCRIPT="$CURRENT_DIR/status-sync.sh"
 
 if [ -z "$socket_path" ] || [ -z "$pane_id" ]; then
 	echo "workspace-agent: agent launch context is missing" >&2
@@ -145,6 +147,9 @@ launch_agent() {
 
 	tmux_cmd set-option -gq '@workspace_agent_last_agent' "$agent_name"
 	persist_launch_state "$agent_name" "$launch_path"
+	if [ -x "$STATUS_SYNC_SCRIPT" ]; then
+		"$STATUS_SYNC_SCRIPT" "$socket_path" "$pane_id" "$launch_path" "launched" "$agent_name" "" >/dev/null 2>&1 || true
+	fi
 	display_feedback "workspace-agent: launched '$agent_name' from '$launch_path'"
 }
 
