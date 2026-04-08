@@ -1,0 +1,129 @@
+{
+  "groupId": "quick-relaunch-group",
+  "testedAt": "2026-04-08T07:07:12Z",
+  "isolation": {
+    "surface": "tmux-cli",
+    "socketPolicy": "isolated tmux sockets only (-L/-S); default/live socket not used",
+    "script": "bash /Users/ict/.config/tmux/plugins/tmux-workspace-agent/tests/quick-relaunch.sh",
+    "evidenceDir": "/Users/ict/.factory/missions/b2de725d-ce67-46e3-a527-846396302b9f/evidence/agent-integration/quick-relaunch-group/",
+    "tempArtifactsScope": "mission evidence dir and ephemeral /tmp paths only"
+  },
+  "toolsUsed": ["tmux-cli", "bash"],
+  "assertions": [
+    {
+      "id": "VAL-AGENT-008",
+      "title": "Quick relaunch uses last-agent and current caller path",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Launch opencode in W1 via launch-menu with w1-initial path",
+          "expected": "Initial launch records opencode from W1 initial path",
+          "observed": "assert_equals passed for initial launch path (commands.log lines 65-69)"
+        },
+        {
+          "action": "Run quick-relaunch in W1 with changed caller path w1-relaunch",
+          "expected": "Relaunch uses last-agent opencode from new caller path without picker",
+          "observed": "assert_equals passed for opencode|w1-relaunch (commands.log lines 95-99)"
+        }
+      ],
+      "evidence": {
+        "terminalSnapshots": [
+          "agent-integration/quick-relaunch-group/commands.log"
+        ],
+        "commandLog": "agent-integration/quick-relaunch-group/commands.log",
+        "checks": "initial launch + quick relaunch path assertions succeeded"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-AGENT-009",
+      "title": "Quick relaunch without usable history is non-destructive",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Clear @workspace_agent_last_agent and remove state file, then run quick-relaunch",
+          "expected": "No process launched when no history exists",
+          "observed": "line count unchanged (2 -> 2), assertion passed (commands.log lines 111-115)"
+        },
+        {
+          "action": "Set stale last-agent ghostagent with unavailable PATH, then run quick-relaunch",
+          "expected": "No process launched and last-agent state preserved",
+          "observed": "no launch count change and last-agent remained ghostagent, both assertions passed (commands.log lines 127-136)"
+        }
+      ],
+      "evidence": {
+        "terminalSnapshots": [
+          "agent-integration/quick-relaunch-group/commands.log"
+        ],
+        "commandLog": "agent-integration/quick-relaunch-group/commands.log",
+        "checks": "no-history and stale-history non-launch assertions + state preservation assertion succeeded"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-CROSS-005",
+      "title": "Multi-workspace handoff respects last-agent contract",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Launch in W1 then quick-relaunch from W2 pane with W2 path",
+          "expected": "Relaunch uses same agent type from W2 current path, not stale W1 path",
+          "observed": "assert_equals passed for opencode|w2-relaunch (commands.log lines 223-227)"
+        },
+        {
+          "action": "Read persisted state after W2 relaunch",
+          "expected": "State reflects active workspace W2 and relaunch path",
+          "observed": "assert_equals passed for opencode|quickw2|launched|w2-relaunch path (commands.log lines 231-235)"
+        }
+      ],
+      "evidence": {
+        "terminalSnapshots": [
+          "agent-integration/quick-relaunch-group/commands.log"
+        ],
+        "commandLog": "agent-integration/quick-relaunch-group/commands.log",
+        "checks": "cross-workspace relaunch path + state workspace assertions succeeded"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-CROSS-006",
+      "title": "Failure-to-recovery path remains reachable",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Run stale-history quick-relaunch attempt with unavailable command",
+          "expected": "Failure path does not launch process",
+          "observed": "stale-history non-launch assertion passed (commands.log lines 127-130)"
+        },
+        {
+          "action": "Without restarting tmux, run launch-menu opencode and then quick-relaunch",
+          "expected": "Subsequent launch/relaunch succeeds from same namespace",
+          "observed": "recovery launch and recovery quick-relaunch assertions passed (commands.log lines 163-166, 193-196)"
+        },
+        {
+          "action": "Check resulting state after recovery sequence",
+          "expected": "State reaches launched/running condition",
+          "observed": "final state assertion includes last_status=launched (commands.log lines 231-235)"
+        }
+      ],
+      "evidence": {
+        "terminalSnapshots": [
+          "agent-integration/quick-relaunch-group/commands.log"
+        ],
+        "commandLog": "agent-integration/quick-relaunch-group/commands.log",
+        "checks": "failure branch non-launch + recovery launch/relaunch + final launched state assertions succeeded"
+      },
+      "issues": null
+    }
+  ],
+  "frictions": [
+    {
+      "description": "tmux display-message feedback strings are ephemeral and not directly persisted by this test script; validation relied on scripted non-launch/state assertions captured in xtrace.",
+      "resolved": true,
+      "resolution": "Captured full bash -x trace to commands.log and mapped assertion outcomes from explicit assert checks.",
+      "affectedAssertions": ["VAL-AGENT-009", "VAL-CROSS-006"]
+    }
+  ],
+  "blockers": [],
+  "summary": "Tested 4 assigned assertions via isolated tmux socket quick-relaunch script: 4 passed, 0 failed, 0 blocked."
+}

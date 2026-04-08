@@ -1,0 +1,255 @@
+{
+  "groupId": "agent-picker-group",
+  "testedAt": "2026-04-08T07:11:04.140181+00:00",
+  "isolation": {
+    "surface": "tmux-cli",
+    "socketNamespacePrefix": "utv_ai_g1_*",
+    "repoRoot": "/Users/ict/.config",
+    "missionDir": "/Users/ict/.factory/missions/b2de725d-ce67-46e3-a527-846396302b9f"
+  },
+  "toolsUsed": [
+    "tmux-cli"
+  ],
+  "assertions": [
+    {
+      "id": "VAL-AGENT-001",
+      "title": "Picker launches `opencode` in caller context",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Set invoking pane directory",
+          "expected": "pane_current_path points at assertion-specific path",
+          "observed": "pane_current_path=/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/opencode"
+        },
+        {
+          "action": "Run launcher action launch-agent opencode",
+          "expected": "Agent command starts in invoking pane path",
+          "observed": "launch_log=opencode|/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/opencode"
+        },
+        {
+          "action": "Read last-agent state",
+          "expected": "last-agent persisted to launched agent",
+          "observed": "tmux_option=opencode, state_env=opencode"
+        }
+      ],
+      "evidence": {
+        "commandLog": "agent-integration/agent-picker-group/commands.log",
+        "terminalSnapshots": [
+          "agent-integration/agent-picker-group/VAL-AGENT-001-pane-snapshot.txt"
+        ],
+        "artifacts": [
+          "agent-integration/agent-picker-group/agent-launch.log",
+          "agent-integration/agent-picker-group/VAL-AGENT-001-details.json"
+        ],
+        "feedback": "workspace-agent launch confirmation captured via command/state artifacts"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-AGENT-002",
+      "title": "Picker launches `codex` in caller context",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Set invoking pane directory",
+          "expected": "pane_current_path points at assertion-specific path",
+          "observed": "pane_current_path=/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/codex"
+        },
+        {
+          "action": "Run launcher action launch-agent codex",
+          "expected": "Agent command starts in invoking pane path",
+          "observed": "launch_log=codex|/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/codex"
+        },
+        {
+          "action": "Read last-agent state",
+          "expected": "last-agent persisted to launched agent",
+          "observed": "tmux_option=codex, state_env=codex"
+        }
+      ],
+      "evidence": {
+        "commandLog": "agent-integration/agent-picker-group/commands.log",
+        "terminalSnapshots": [
+          "agent-integration/agent-picker-group/VAL-AGENT-002-pane-snapshot.txt"
+        ],
+        "artifacts": [
+          "agent-integration/agent-picker-group/agent-launch.log",
+          "agent-integration/agent-picker-group/VAL-AGENT-002-details.json"
+        ],
+        "feedback": "workspace-agent launch confirmation captured via command/state artifacts"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-AGENT-003",
+      "title": "Picker launches `droid` in caller context",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Set invoking pane directory",
+          "expected": "pane_current_path points at assertion-specific path",
+          "observed": "pane_current_path=/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/droid"
+        },
+        {
+          "action": "Run launcher action launch-agent droid",
+          "expected": "Agent command starts in invoking pane path",
+          "observed": "launch_log=droid|/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/droid"
+        },
+        {
+          "action": "Read last-agent state",
+          "expected": "last-agent persisted to launched agent",
+          "observed": "tmux_option=droid, state_env=droid"
+        }
+      ],
+      "evidence": {
+        "commandLog": "agent-integration/agent-picker-group/commands.log",
+        "terminalSnapshots": [
+          "agent-integration/agent-picker-group/VAL-AGENT-003-pane-snapshot.txt"
+        ],
+        "artifacts": [
+          "agent-integration/agent-picker-group/agent-launch.log",
+          "agent-integration/agent-picker-group/VAL-AGENT-003-details.json"
+        ],
+        "feedback": "workspace-agent launch confirmation captured via command/state artifacts"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-AGENT-004",
+      "title": "Picker launches `pi` in caller context",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Set invoking pane directory",
+          "expected": "pane_current_path points at assertion-specific path",
+          "observed": "pane_current_path=/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/pi"
+        },
+        {
+          "action": "Run launcher action launch-agent pi",
+          "expected": "Agent command starts in invoking pane path",
+          "observed": "launch_log=pi|/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/pi"
+        },
+        {
+          "action": "Read last-agent state",
+          "expected": "last-agent persisted to launched agent",
+          "observed": "tmux_option=pi, state_env=pi"
+        }
+      ],
+      "evidence": {
+        "commandLog": "agent-integration/agent-picker-group/commands.log",
+        "terminalSnapshots": [
+          "agent-integration/agent-picker-group/VAL-AGENT-004-pane-snapshot.txt"
+        ],
+        "artifacts": [
+          "agent-integration/agent-picker-group/agent-launch.log",
+          "agent-integration/agent-picker-group/VAL-AGENT-004-details.json"
+        ],
+        "feedback": "workspace-agent launch confirmation captured via command/state artifacts"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-AGENT-005",
+      "title": "Unavailable command path is safe and non-mutating",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Select unavailable agent ghostagent",
+          "expected": "Launcher returns non-zero and clear failure feedback",
+          "observed": "exit=1, feedback_matches=1"
+        },
+        {
+          "action": "Check launch log",
+          "expected": "No new process launch entry is added",
+          "observed": "before=4, after=4"
+        },
+        {
+          "action": "Compare last-agent state",
+          "expected": "last-agent remains unchanged",
+          "observed": "pre=pi/pi, post=pi/pi"
+        }
+      ],
+      "evidence": {
+        "commandLog": "agent-integration/agent-picker-group/commands.log",
+        "terminalSnapshots": [
+          "agent-integration/agent-picker-group/VAL-AGENT-005-pane-snapshot.txt"
+        ],
+        "artifacts": [
+          "agent-integration/agent-picker-group/agent-launch.log",
+          "agent-integration/agent-picker-group/VAL-AGENT-005-feedback-lines.txt",
+          "agent-integration/agent-picker-group/VAL-AGENT-005-details.json"
+        ],
+        "feedback": "15:11: client-51675 command: display-message -t \"%0\" \"workspace-agent: 'ghostagent' is unavailable in PATH\""
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-AGENT-006",
+      "title": "Successful launches persist last-agent state",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Launch each configured agent from picker action",
+          "expected": "Each successful launch updates last-agent to launched type",
+          "observed": "opencode=>opt:opencode,state:opencode; codex=>opt:codex,state:codex; droid=>opt:droid,state:droid; pi=>opt:pi,state:pi"
+        },
+        {
+          "action": "Verify state file path persistence",
+          "expected": "state.env stores caller path for each launch",
+          "observed": "opencode path=/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/opencode; codex path=/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/codex; droid path=/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/droid; pi path=/private/tmp/utv_ai_g1_agent_picker_zjzicone/panes/pi"
+        }
+      ],
+      "evidence": {
+        "commandLog": "agent-integration/agent-picker-group/commands.log",
+        "terminalSnapshots": [
+          "agent-integration/agent-picker-group/VAL-AGENT-001-pane-snapshot.txt",
+          "agent-integration/agent-picker-group/VAL-AGENT-002-pane-snapshot.txt",
+          "agent-integration/agent-picker-group/VAL-AGENT-003-pane-snapshot.txt",
+          "agent-integration/agent-picker-group/VAL-AGENT-004-pane-snapshot.txt"
+        ],
+        "artifacts": [
+          "agent-integration/agent-picker-group/VAL-AGENT-006-sequence.json"
+        ],
+        "feedback": "last-agent/state snapshots captured per launch"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-AGENT-007",
+      "title": "Picker cancel path is non-destructive",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Open picker flow and cancel selection",
+          "expected": "No agent command is launched and cancel feedback is emitted",
+          "observed": "exit=0, feedback_matches=1"
+        },
+        {
+          "action": "Compare launch log counts",
+          "expected": "No additional launch log entries",
+          "observed": "before=4, after=4"
+        },
+        {
+          "action": "Compare context and last-agent state",
+          "expected": "Workspace context and last-agent remain unchanged",
+          "observed": "context agentpicker:1.0 -> agentpicker:1.0; last-agent pi -> pi"
+        }
+      ],
+      "evidence": {
+        "commandLog": "agent-integration/agent-picker-group/commands.log",
+        "terminalSnapshots": [
+          "agent-integration/agent-picker-group/VAL-AGENT-007-pane-snapshot.txt"
+        ],
+        "artifacts": [
+          "agent-integration/agent-picker-group/agent-launch.log",
+          "agent-integration/agent-picker-group/VAL-AGENT-007-feedback-lines.txt",
+          "agent-integration/agent-picker-group/VAL-AGENT-007-details.json"
+        ],
+        "feedback": "15:11: client-51770 command: display-message -t \"%0\" \"workspace-agent: picker canceled\""
+      },
+      "issues": null
+    }
+  ],
+  "frictions": [],
+  "blockers": [],
+  "summary": "Tested 7 assertions: 7 passed, 0 failed, 0 blocked."
+}

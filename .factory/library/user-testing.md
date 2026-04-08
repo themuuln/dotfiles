@@ -43,6 +43,7 @@ Guidance for user-testing validators on this mission.
 
 - Use only isolated sockets with explicit names (for example `tmux -L utv_foundation_key ...`).
 - Never run mutating commands without `-L <socket>`.
+- In detached tmux runs, `#{message_text}` can be empty; validate feedback via `tmux -S <socket_path> show-messages | rg "workspace-agent:"`.
 - Keep all validation actions scoped to:
   - `/Users/ict/.config/tmux/plugins/tmux-workspace-agent/**`
   - `/Users/ict/.config/tmux/tmux.conf`

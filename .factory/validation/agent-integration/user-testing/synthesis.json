@@ -1,0 +1,34 @@
+{
+  "milestone": "agent-integration",
+  "round": 1,
+  "status": "pass",
+  "assertionsSummary": {
+    "total": 11,
+    "passed": 11,
+    "failed": 0,
+    "blocked": 0
+  },
+  "passedAssertions": [
+    "VAL-AGENT-001",
+    "VAL-AGENT-002",
+    "VAL-AGENT-003",
+    "VAL-AGENT-004",
+    "VAL-AGENT-005",
+    "VAL-AGENT-006",
+    "VAL-AGENT-007",
+    "VAL-AGENT-008",
+    "VAL-AGENT-009",
+    "VAL-CROSS-005",
+    "VAL-CROSS-006"
+  ],
+  "failedAssertions": [],
+  "blockedAssertions": [],
+  "appliedUpdates": [
+    {
+      "target": "user-testing.md",
+      "description": "Added tmux detached-session feedback capture guidance using show-messages + rg for workspace-agent message assertions.",
+      "source": "flow-report"
+    }
+  ],
+  "previousRound": null
+}
