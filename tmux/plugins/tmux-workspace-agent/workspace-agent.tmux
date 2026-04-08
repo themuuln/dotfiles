@@ -54,7 +54,7 @@ set_key_bindings() {
 	tmux bind-key -T workspace_agent "$quick_key" run-shell "$SCRIPTS_DIR/quick-relaunch.sh '#{socket_path}' '#{pane_id}' '#{pane_current_path}'"
 	tmux bind-key -T workspace_agent q switch-client -T prefix
 	tmux bind-key -T workspace_agent Escape switch-client -T prefix
-	tmux bind-key -T workspace_agent '?' display-message "workspace-agent: a=launcher A=quick-relaunch q/Escape=exit"
+	tmux bind-key -T workspace_agent '?' display-message "workspace-agent: a=launcher(create/switch/rename/kill) A=quick-relaunch q/Escape=exit"
 
 	tmux set-option -gq "@workspace_agent_bound_namespace_key" "$namespace_key"
 	tmux set-option -gq "@workspace_agent_bound_menu_key" "$menu_key"
