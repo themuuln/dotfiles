@@ -99,7 +99,7 @@ for agent in opencode codex droid pi; do
 	wait_for_log_lines "$line_count"
 	assert_equals "$agent|$agent_path" "$(latest_log_line)" "agent launch path mismatch for $agent"
 	assert_equals "$agent" "$(tmux -S "$socket_path" show-option -gqv '@workspace_agent_last_agent')" "last-agent tmux option mismatch for $agent"
-	assert_equals "$agent|agentpicker|launched|$agent_path" "$(read_state_env "$state_file")" "state file mismatch for $agent"
+	assert_equals "$agent|agentpicker|running|$agent_path" "$(read_state_env "$state_file")" "state file mismatch for $agent"
 done
 
 pane_context_before_cancel="$(tmux -S "$socket_path" display-message -p -t "$pane_id" '#{session_name}:#{window_index}.#{pane_index}')"

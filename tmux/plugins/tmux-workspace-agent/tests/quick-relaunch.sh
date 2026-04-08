@@ -141,6 +141,6 @@ PATH="$BIN_DIR:$PATH" XDG_STATE_HOME="$STATE_HOME" \
 line_count=$((line_count + 1))
 wait_for_log_lines "$line_count"
 assert_equals "opencode|$w2_relaunch_path" "$(latest_log_line)" "cross-workspace quick relaunch should use active workspace path"
-assert_equals "opencode|quickw2|launched|$w2_relaunch_path" "$(read_state_env "$state_file")" "state should follow active workspace after cross-workspace relaunch"
+assert_equals "opencode|quickw2|running|$w2_relaunch_path" "$(read_state_env "$state_file")" "state should follow active workspace after cross-workspace relaunch"
 
 printf 'quick relaunch test passed\n'

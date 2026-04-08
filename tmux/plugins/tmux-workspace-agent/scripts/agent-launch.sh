@@ -104,7 +104,7 @@ persist_launch_state() {
 	{
 		printf 'last_agent=%q\n' "$agent"
 		printf 'last_workspace=%q\n' "${last_workspace:-}"
-		printf 'last_status=%q\n' "launched"
+		printf 'last_status=%q\n' "running"
 		printf 'last_path=%q\n' "$current_path"
 	} >"$temp_file"
 
@@ -148,7 +148,7 @@ launch_agent() {
 	tmux_cmd set-option -gq '@workspace_agent_last_agent' "$agent_name"
 	persist_launch_state "$agent_name" "$launch_path"
 	if [ -x "$STATUS_SYNC_SCRIPT" ]; then
-		"$STATUS_SYNC_SCRIPT" "$socket_path" "$pane_id" "$launch_path" "launched" "$agent_name" "" >/dev/null 2>&1 || true
+		"$STATUS_SYNC_SCRIPT" "$socket_path" "$pane_id" "$launch_path" "running" "$agent_name" "" >/dev/null 2>&1 || true
 	fi
 	display_feedback "workspace-agent: launched '$agent_name' from '$launch_path'"
 }
