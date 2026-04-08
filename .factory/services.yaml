@@ -1,0 +1,27 @@
+commands:
+  install: |
+    printf 'No install step required for tmux workspace-agent mission\n'
+
+  typecheck: |
+    printf 'No language typecheck step defined for shell/tmux mission\n'
+
+  lint: |
+    bash -n /Users/ict/.config/tmux/tmux.conf /Users/ict/.config/tmux/tmux.reset.conf
+    if [ -f /Users/ict/.config/tmux/plugins/tmux-workspace-agent/workspace-agent.tmux ]; then
+      bash -n /Users/ict/.config/tmux/plugins/tmux-workspace-agent/workspace-agent.tmux
+    fi
+    if [ -d /Users/ict/.config/tmux/plugins/tmux-workspace-agent/scripts ]; then
+      for f in /Users/ict/.config/tmux/plugins/tmux-workspace-agent/scripts/*.sh; do
+        [ -e "$f" ] || continue
+        bash -n "$f"
+      done
+    fi
+
+  test: |
+    tmux -L svc_test kill-server 2>/dev/null || true
+    tmux -L svc_test -f /Users/ict/.config/tmux/tmux.conf new-session -d -s svc_test
+    tmux -L svc_test source-file /Users/ict/.config/tmux/tmux.conf
+    tmux -L svc_test list-keys -T prefix >/dev/null
+    tmux -L svc_test kill-server 2>/dev/null || true
+
+services: {}
