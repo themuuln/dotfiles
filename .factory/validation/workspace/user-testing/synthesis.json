@@ -1,0 +1,39 @@
+{
+  "milestone": "workspace",
+  "round": 1,
+  "status": "pass",
+  "assertionsSummary": {
+    "total": 11,
+    "passed": 11,
+    "failed": 0,
+    "blocked": 0
+  },
+  "passedAssertions": [
+    "VAL-WS-001",
+    "VAL-WS-002",
+    "VAL-WS-003",
+    "VAL-WS-004",
+    "VAL-WS-005",
+    "VAL-WS-006",
+    "VAL-WS-007",
+    "VAL-WS-008",
+    "VAL-WS-009",
+    "VAL-CROSS-001",
+    "VAL-CROSS-002"
+  ],
+  "failedAssertions": [],
+  "blockedAssertions": [],
+  "appliedUpdates": [
+    {
+      "target": "user-testing.md",
+      "description": "Added Flow Validator Guidance: tuistory section with isolated-socket and evidence capture rules.",
+      "source": "setup"
+    },
+    {
+      "target": "user-testing.md",
+      "description": "Added friction guidance for popup_mode=0 deterministic captures and filtering unrelated tmux message noise.",
+      "source": "flow-report"
+    }
+  ],
+  "previousRound": null
+}

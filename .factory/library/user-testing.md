@@ -50,6 +50,16 @@ Guidance for user-testing validators on this mission.
 - Do not read/write unrelated config trees or live tmux socket state.
 - Cleanup every created test socket with `tmux -L <socket> kill-server`.
 
+## Flow Validator Guidance: tuistory
+
+- Run interactive tmux validation on dedicated sockets only (for example `tmux -L utv_ws_tui ...`).
+- Keep one tuistory flow per socket to avoid key-event interference.
+- If interactive rendering is unstable, run with `TERM=screen-256color`.
+- For deterministic evidence on menu flows, set `@workspace_agent_popup_mode=0` and use menu-key routes (`c/s/r/x`) during capture.
+- If tmux message logs include unrelated theme/plugin noise, filter evidence to workspace-agent lines plus session/context snapshots.
+- Save snapshots/traces under the assigned evidence directory only.
+- Always close the socket after each scenario (`tmux -L <socket> kill-server`).
+
 ## Terminal Compatibility Guidance
 
 - If tuistory interactive attach fails under truecolor TERM values, launch the interactive validation shell with `TERM=screen-256color` before attaching/running tmux flows.

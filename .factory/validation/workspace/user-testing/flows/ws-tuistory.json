@@ -1,0 +1,206 @@
+{
+  "groupId": "ws-tuistory",
+  "testedAt": "2026-04-08T13:23:00Z",
+  "isolation": {
+    "missionDir": "/Users/ict/.factory/missions/b2de725d-ce67-46e3-a527-846396302b9f",
+    "repoRoot": "/Users/ict/.config",
+    "socketPrefix": "utv_ws_tui_*",
+    "socketsUsed": [
+      "utv_ws_tui_cross",
+      "utv_ws_tui_ws006"
+    ],
+    "term": "screen-256color",
+    "tmuxConfig": "/Users/ict/.config/tmux/tmux.conf",
+    "liveSocketTouched": false
+  },
+  "toolsUsed": [
+    "tuistory",
+    "tmux"
+  ],
+  "assertions": [
+    {
+      "id": "VAL-WS-001",
+      "title": "Launcher lists workspace orchestration actions",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Launch isolated tmux session on utv_ws_tui_cross",
+          "expected": "Workspace-agent keymap active",
+          "observed": "workspace_agent table present and bound"
+        },
+        {
+          "action": "Press Prefix+g then a",
+          "expected": "Launcher surface lists create/switch/rename/kill and exit",
+          "observed": "Launcher displayed create, switch, rename, kill, exit"
+        }
+      ],
+      "evidence": {
+        "screenshots": [
+          "workspace/ws-tuistory/VAL-WS-001-launcher-open.png"
+        ],
+        "terminalSnapshots": [
+          "workspace/ws-tuistory/VAL-WS-001-launcher-open.txt"
+        ],
+        "tmuxMessages": "workspace/ws-tuistory/VAL-CROSS-message-log.txt",
+        "network": "not_applicable",
+        "consoleErrors": "not_applicable (TUI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-WS-006",
+      "title": "Kill action requires confirmation and keeps client in valid context",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Create ws_kill_target via Prefix+g -> a -> c",
+          "expected": "Secondary workspace created",
+          "observed": "Session list includes ws_kill_target"
+        },
+        {
+          "action": "Switch to ws_kill_target via Prefix+g -> a -> s",
+          "expected": "Client context moves to target workspace",
+          "observed": "Context became ws_kill_target:1.0"
+        },
+        {
+          "action": "Run kill flow and enter NO at YES prompt",
+          "expected": "Kill canceled; target workspace preserved",
+          "observed": "Kill canceled message emitted; ws_kill_target still attached"
+        },
+        {
+          "action": "Run kill flow and enter YES",
+          "expected": "Target workspace killed and client moved to deterministic fallback",
+          "observed": "ws_kill_target removed; context moved to ws006_main:1.0"
+        },
+        {
+          "action": "Attempt kill when only one workspace remains",
+          "expected": "Safe rejection without orphaning client context",
+          "observed": "Kill rejected with 'cannot kill the last remaining workspace'; ws006_main preserved"
+        }
+      ],
+      "evidence": {
+        "screenshots": [
+          "workspace/ws-tuistory/VAL-WS-006-v2-create-prompt.png",
+          "workspace/ws-tuistory/VAL-WS-006-v2-kill-confirm-prompt.png",
+          "workspace/ws-tuistory/VAL-WS-006-v2-after-kill-cancel.png",
+          "workspace/ws-tuistory/VAL-WS-006-v2-after-kill-confirm.png",
+          "workspace/ws-tuistory/VAL-WS-006-v2-last-session-reject.png"
+        ],
+        "terminalSnapshots": [
+          "workspace/ws-tuistory/VAL-WS-006-v2-create-prompt.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-kill-confirm-prompt.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-after-kill-cancel.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-after-kill-confirm.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-last-session-reject.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-sessions-after-create.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-sessions-after-cancel.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-sessions-after-confirm.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-context-after-switch.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-context-after-cancel.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-context-after-confirm.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-sessions-final.txt",
+          "workspace/ws-tuistory/VAL-WS-006-v2-context-final.txt"
+        ],
+        "tmuxMessages": "workspace/ws-tuistory/VAL-WS-006-v2-message-log.txt",
+        "network": "not_applicable",
+        "consoleErrors": "not_applicable (TUI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-CROSS-001",
+      "title": "First-visit flow is discoverable end-to-end",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Start fresh isolated socket with no prior @workspace_agent_last_agent",
+          "expected": "Namespace and affordances discoverable",
+          "observed": "Prefix table maps g to workspace_agent and workspace_agent table includes a/A"
+        },
+        {
+          "action": "Press Prefix+g then ? and Prefix+g then a",
+          "expected": "Help and launcher expose a/A and workspace routes",
+          "observed": "Help message shows a/A affordances; launcher opens with workspace actions"
+        }
+      ],
+      "evidence": {
+        "screenshots": [
+          "workspace/ws-tuistory/VAL-CROSS-001-help-affordance.png",
+          "workspace/ws-tuistory/VAL-WS-001-launcher-open.png"
+        ],
+        "terminalSnapshots": [
+          "workspace/ws-tuistory/VAL-CROSS-001-help-affordance.txt",
+          "workspace/ws-tuistory/VAL-CROSS-001-prefix-keys.txt",
+          "workspace/ws-tuistory/VAL-CROSS-001-workspace-agent-keys.txt"
+        ],
+        "tmuxMessages": "workspace/ws-tuistory/VAL-CROSS-message-log.txt",
+        "network": "not_applicable",
+        "consoleErrors": "not_applicable (TUI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-CROSS-002",
+      "title": "No dead-end navigation across launcher routes",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Run Prefix+g -> a -> Escape",
+          "expected": "Launcher can be exited without breaking client context",
+          "observed": "Returned to prompt in same session context"
+        },
+        {
+          "action": "Run Prefix+g -> A immediately after cancel",
+          "expected": "Quick relaunch route reachable and non-destructive",
+          "observed": "No-history message shown; flow stayed interactive"
+        },
+        {
+          "action": "Type and execute echo ROUTE_OK",
+          "expected": "Client remains usable after route sequence",
+          "observed": "ROUTE_OK executed successfully"
+        }
+      ],
+      "evidence": {
+        "screenshots": [
+          "workspace/ws-tuistory/VAL-CROSS-002-after-cancel.png",
+          "workspace/ws-tuistory/VAL-CROSS-002-quick-relaunch.png",
+          "workspace/ws-tuistory/VAL-CROSS-002-route-usable.png"
+        ],
+        "terminalSnapshots": [
+          "workspace/ws-tuistory/VAL-CROSS-002-after-cancel.txt",
+          "workspace/ws-tuistory/VAL-CROSS-002-quick-relaunch.txt",
+          "workspace/ws-tuistory/VAL-CROSS-002-route-usable.txt",
+          "workspace/ws-tuistory/VAL-CROSS-002-context-before.txt",
+          "workspace/ws-tuistory/VAL-CROSS-002-context-after.txt"
+        ],
+        "tmuxMessages": "workspace/ws-tuistory/VAL-CROSS-message-log.txt",
+        "network": "not_applicable",
+        "consoleErrors": "not_applicable (TUI flow)"
+      },
+      "issues": null
+    }
+  ],
+  "frictions": [
+    {
+      "description": "Popup/fzf launcher mode made prompt/result capture less deterministic for proof artifacts.",
+      "resolved": true,
+      "resolution": "For VAL-WS-006 validation socket only, set @workspace_agent_popup_mode=0 and validated through menu-key routes (c/s/x).",
+      "affectedAssertions": [
+        "VAL-WS-006"
+      ]
+    },
+    {
+      "description": "tmux status plugin logs frequent tokyo-night invalid-option messages that add noise to message logs.",
+      "resolved": true,
+      "resolution": "Filtered validation evidence to explicit workspace-agent command/message lines and session/context snapshots.",
+      "affectedAssertions": [
+        "VAL-WS-001",
+        "VAL-WS-006",
+        "VAL-CROSS-001",
+        "VAL-CROSS-002"
+      ]
+    }
+  ],
+  "blockers": [],
+  "summary": "Tested 4 assertions: 4 passed, 0 failed, 0 blocked. Interactive flows verified on isolated tmux sockets with tuistory artifacts and message/session/context evidence."
+}

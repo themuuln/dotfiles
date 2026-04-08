@@ -1,0 +1,251 @@
+{
+  "groupId": "ws-tmux-cli",
+  "testedAt": "2026-04-08T05:20:03.911939+00:00",
+  "isolation": {
+    "missionDir": "/Users/ict/.factory/missions/b2de725d-ce67-46e3-a527-846396302b9f",
+    "config": "/Users/ict/.config/tmux/tmux.conf",
+    "socketPrefix": "utv_ws_cli_*",
+    "allowedMutationScope": [
+      "/Users/ict/.config/tmux/plugins/tmux-workspace-agent/**",
+      "/Users/ict/.config/tmux/tmux.conf",
+      "/Users/ict/.config/.factory/** validation outputs",
+      "/Users/ict/.factory/missions/b2de725d-ce67-46e3-a527-846396302b9f/evidence/workspace/ws-tmux-cli/**"
+    ]
+  },
+  "toolsUsed": [
+    "tmux-cli",
+    "python3"
+  ],
+  "commandsRun": [
+    "tmux -L <socket> -f /Users/ict/.config/tmux/tmux.conf new-session -d -s wsbase",
+    "tmux -L <socket> source-file /Users/ict/.config/tmux/tmux.conf",
+    "/Users/ict/.config/tmux/plugins/tmux-workspace-agent/scripts/launch-menu.sh <socket_path> <pane_id> <cwd> <action> [args...]",
+    "tmux -S <socket_path> list-sessions -F '#{session_name}'",
+    "tmux -S <socket_path> display-message -p -t <target> '#{session_name}:#{window_index}.#{pane_index}'",
+    "tmux -S <socket_path> list-clients -F '#{client_name}|#{session_name}'",
+    "tmux -S <socket_path> show-messages",
+    "tmux -L <socket> kill-server"
+  ],
+  "assertions": [
+    {
+      "id": "VAL-WS-002",
+      "title": "Create action provisions a new workspace/session",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Run create action via launch-menu.sh create-input 'ws_created_002'",
+          "expected": "New session 'ws_created_002' appears in list-sessions",
+          "observed": "exit=0; created_present=True"
+        }
+      ],
+      "evidence": {
+        "artifacts": [
+          "workspace/ws-tmux-cli/VAL-WS-002-sessions-before.txt",
+          "workspace/ws-tmux-cli/VAL-WS-002-sessions-after.txt",
+          "workspace/ws-tmux-cli/VAL-WS-002-feedback.txt",
+          "workspace/ws-tmux-cli/VAL-WS-002-command-trace.txt"
+        ],
+        "network": "n/a (tmux CLI flow)",
+        "consoleErrors": "n/a (tmux CLI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-WS-003",
+      "title": "Create boundary handling is safe",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Run duplicate/blank/whitespace create-input branches",
+          "expected": "All invalid branches reject and keep session inventory unchanged",
+          "observed": "duplicate_rc=1, blank_rc=1, whitespace_rc=1, inventory_unchanged=True"
+        },
+        {
+          "action": "Run create-input with leading/trailing spaces: '  trimmed_ws  '",
+          "expected": "Deterministic trim-or-reject behavior; here trim to 'trimmed_ws'",
+          "observed": "trimmed_rc=0, trimmed_session_present=True"
+        },
+        {
+          "action": "Cancel-equivalent empty input branch checked via create-input \"\"",
+          "expected": "No workspace creation and explicit rejection feedback",
+          "observed": "empty_input_rc=1 (no new session created)"
+        }
+      ],
+      "evidence": {
+        "artifacts": [
+          "workspace/ws-tmux-cli/VAL-WS-003-sessions-before-negative.txt",
+          "workspace/ws-tmux-cli/VAL-WS-003-sessions-after-negative.txt",
+          "workspace/ws-tmux-cli/VAL-WS-003-feedback.txt",
+          "workspace/ws-tmux-cli/VAL-WS-003-command-trace.txt"
+        ],
+        "network": "n/a (tmux CLI flow)",
+        "consoleErrors": "n/a (tmux CLI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-WS-004",
+      "title": "Switch action moves to selected target and handles no-op safely",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Switch invoking client to 'switch_target'",
+          "expected": "Active context changes to switch_target",
+          "observed": "switch_rc=0; before=wsbase:1.0; after=switch_target:1.0"
+        },
+        {
+          "action": "Switch again to current workspace (no-op branch)",
+          "expected": "Safe no-op with unchanged context",
+          "observed": "noop_rc=0; context_after_noop_missing=switch_target:1.0"
+        },
+        {
+          "action": "Switch to missing workspace 'missing_workspace'",
+          "expected": "Rejected safely with no context drift",
+          "observed": "missing_rc=1; context_after_missing=switch_target:1.0"
+        }
+      ],
+      "evidence": {
+        "artifacts": [
+          "workspace/ws-tmux-cli/VAL-WS-004-context-snapshots.txt",
+          "workspace/ws-tmux-cli/VAL-WS-004-feedback.txt",
+          "workspace/ws-tmux-cli/VAL-WS-004-command-trace.txt",
+          "workspace/ws-tmux-cli/VAL-WS-004-control-client-1.log"
+        ],
+        "network": "n/a (tmux CLI flow)",
+        "consoleErrors": "n/a (tmux CLI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-WS-005",
+      "title": "Rename action applies valid names and rejects invalid branches",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Rename 'rename_src' -> 'renamed_ok'",
+          "expected": "Source renamed immediately and old name removed",
+          "observed": "valid_rc=0; has_renamed=True; has_old_name=False"
+        },
+        {
+          "action": "Run same-name, duplicate-target, and blank-target rename branches",
+          "expected": "All invalid branches rejected with no partial rename",
+          "observed": "same_rc=1, duplicate_rc=1, blank_rc=1"
+        }
+      ],
+      "evidence": {
+        "artifacts": [
+          "workspace/ws-tmux-cli/VAL-WS-005-sessions-before.txt",
+          "workspace/ws-tmux-cli/VAL-WS-005-sessions-after.txt",
+          "workspace/ws-tmux-cli/VAL-WS-005-feedback.txt",
+          "workspace/ws-tmux-cli/VAL-WS-005-command-trace.txt"
+        ],
+        "network": "n/a (tmux CLI flow)",
+        "consoleErrors": "n/a (tmux CLI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-WS-007",
+      "title": "Popup-unavailable fallback preserves action parity",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Disable popup mode and run fallback-mode action traces",
+          "expected": "Fallback mode keeps workspace action capabilities",
+          "observed": "set_popup_mode_rc=0"
+        },
+        {
+          "action": "Verify list-actions parity contains create/switch/rename/kill",
+          "expected": "Action parity preserved in fallback mode",
+          "observed": "actions=['create', 'switch', 'rename', 'kill', 'exit']"
+        },
+        {
+          "action": "Execute create/switch/rename/kill successfully with popup mode disabled",
+          "expected": "Fallback mode supports all required actions",
+          "observed": "create_rc=0, switch_rc=0, rename_rc=0, kill_rc=0"
+        }
+      ],
+      "evidence": {
+        "artifacts": [
+          "workspace/ws-tmux-cli/VAL-WS-007-action-parity.txt",
+          "workspace/ws-tmux-cli/VAL-WS-007-feedback.txt",
+          "workspace/ws-tmux-cli/VAL-WS-007-command-trace.txt",
+          "workspace/ws-tmux-cli/VAL-WS-007-control-client-1.log"
+        ],
+        "network": "n/a (tmux CLI flow)",
+        "consoleErrors": "n/a (tmux CLI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-WS-008",
+      "title": "Switch action targets invoking client in multi-client sessions",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Attach two control-mode clients to wsbase and create client_target_ws",
+          "expected": "Two independently addressable clients are available",
+          "observed": "attached_clients=2"
+        },
+        {
+          "action": "Run switch-input for invoking client only",
+          "expected": "Invoking client moves to target workspace, other client remains on original workspace",
+          "observed": "switch_rc=0; see before/after client context artifacts"
+        }
+      ],
+      "evidence": {
+        "artifacts": [
+          "workspace/ws-tmux-cli/VAL-WS-008-client-context-before.txt",
+          "workspace/ws-tmux-cli/VAL-WS-008-client-context-after.txt",
+          "workspace/ws-tmux-cli/VAL-WS-008-feedback.txt",
+          "workspace/ws-tmux-cli/VAL-WS-008-command-trace.txt",
+          "workspace/ws-tmux-cli/VAL-WS-008-control-client-1.log",
+          "workspace/ws-tmux-cli/VAL-WS-008-control-client-2.log"
+        ],
+        "network": "n/a (tmux CLI flow)",
+        "consoleErrors": "n/a (tmux CLI flow)"
+      },
+      "issues": null
+    },
+    {
+      "id": "VAL-WS-009",
+      "title": "Kill flow safely handles workspace names with shell-special characters",
+      "status": "pass",
+      "steps": [
+        {
+          "action": "Create workspace with quoted name quote'workspace",
+          "expected": "Workspace is created without shell parsing errors",
+          "observed": "create_rc=0; exists_after_create=True"
+        },
+        {
+          "action": "Run kill-input YES for quoted workspace",
+          "expected": "Workspace is removed cleanly without malformed command execution",
+          "observed": "kill_rc=0; exists_after_kill=False"
+        }
+      ],
+      "evidence": {
+        "artifacts": [
+          "workspace/ws-tmux-cli/VAL-WS-009-sessions-before.txt",
+          "workspace/ws-tmux-cli/VAL-WS-009-sessions-after.txt",
+          "workspace/ws-tmux-cli/VAL-WS-009-feedback.txt",
+          "workspace/ws-tmux-cli/VAL-WS-009-command-trace.txt"
+        ],
+        "network": "n/a (tmux CLI flow)",
+        "consoleErrors": "n/a (tmux CLI flow)"
+      },
+      "issues": null
+    }
+  ],
+  "frictions": [
+    {
+      "description": "menu action is interactive/blocking under tmux-cli-only automation, so fallback was validated via popup_mode=0 plus deterministic action command traces.",
+      "resolved": true,
+      "resolution": "Used list-actions parity artifact and successful create/switch/rename/kill action executions with popup disabled.",
+      "affectedAssertions": [
+        "VAL-WS-007"
+      ]
+    }
+  ],
+  "blockers": [],
+  "summary": "Tested 7 assertions: 7 passed, 0 failed, 0 blocked."
+}
