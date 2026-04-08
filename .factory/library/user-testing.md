@@ -49,3 +49,7 @@ Guidance for user-testing validators on this mission.
   - mission evidence/report paths
 - Do not read/write unrelated config trees or live tmux socket state.
 - Cleanup every created test socket with `tmux -L <socket> kill-server`.
+
+## Terminal Compatibility Guidance
+
+- If tuistory interactive attach fails under truecolor TERM values, launch the interactive validation shell with `TERM=screen-256color` before attaching/running tmux flows.
