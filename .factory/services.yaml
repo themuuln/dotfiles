@@ -22,6 +22,7 @@ commands:
     tmux -L svc_test -f /Users/ict/.config/tmux/tmux.conf new-session -d -s svc_test
     tmux -L svc_test source-file /Users/ict/.config/tmux/tmux.conf
     tmux -L svc_test list-keys -T prefix >/dev/null
+    tmux -L svc_test list-keys -T workspace_agent >/dev/null
     tmux -L svc_test kill-server 2>/dev/null || true
 
 services: {}

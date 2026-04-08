@@ -1,0 +1,48 @@
+{
+  "featureId": "workspace-agent-foundation-key-architecture",
+  "milestone": "foundation",
+  "reviewedAt": "2026-04-08T03:58:35.740506Z",
+  "commitId": "cc97fbf",
+  "transcriptSkeletonReviewed": true,
+  "diffReviewed": true,
+  "status": "pass",
+  "issues": [
+    {
+      "severity": "suggestion",
+      "description": "Launcher scripts validate socket_path but do not use it when invoking tmux, so socket targeting depends on inherited TMUX environment. Using explicit '-S \"$socket_path\"' would make isolated-socket behavior deterministic.",
+      "fileReferences": [
+        "tmux/plugins/tmux-workspace-agent/scripts/launch-menu.sh:4",
+        "tmux/plugins/tmux-workspace-agent/scripts/launch-menu.sh:13",
+        "tmux/plugins/tmux-workspace-agent/scripts/quick-relaunch.sh:4",
+        "tmux/plugins/tmux-workspace-agent/scripts/quick-relaunch.sh:7",
+        "tmux/plugins/tmux-workspace-agent/scripts/quick-relaunch.sh:15"
+      ]
+    }
+  ],
+  "codeReview": {
+    "summary": "Foundation requirements are implemented correctly: scaffold exists, Prefix+g namespace is wired, required @workspace_agent_* defaults are set idempotently, user overrides are preserved, and no unintended global -n key remaps were introduced.",
+    "issues": [
+      {
+        "file": "tmux/plugins/tmux-workspace-agent/scripts/launch-menu.sh",
+        "line": 13,
+        "severity": "non_blocking",
+        "description": "Use explicit tmux socket targeting via the passed socket_path to avoid relying on inherited TMUX context."
+      },
+      {
+        "file": "tmux/plugins/tmux-workspace-agent/scripts/quick-relaunch.sh",
+        "line": 7,
+        "severity": "non_blocking",
+        "description": "Read/show operations currently rely on default tmux context; prefer '-S \"$socket_path\"' for deterministic isolated-socket scoping."
+      }
+    ]
+  },
+  "sharedStateObservations": [
+    {
+      "area": "services",
+      "observation": "Mission baseline guidance requires asserting both prefix and workspace_agent key tables, but services.yaml test currently asserts only prefix table availability.",
+      "evidence": "/Users/ict/.factory/missions/b2de725d-ce67-46e3-a527-846396302b9f/AGENTS.md:31-37 vs /Users/ict/.config/.factory/services.yaml:20-25"
+    }
+  ],
+  "addressesFailureFrom": null,
+  "summary": "Review PASS for foundation scope. The implementation satisfies the feature contract and expected behavior with low regression risk; only non-blocking hardening suggestions were identified around explicit socket targeting and shared validation coverage alignment."
+}
