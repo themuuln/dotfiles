@@ -1,0 +1,89 @@
+{
+  "groupId": "key-foundation",
+  "surface": "tmux-cli",
+  "testedAt": "2026-04-08T04:08:57.699045+00:00",
+  "assertionsTested": [
+    {
+      "id": "VAL-KEY-001",
+      "status": "pass",
+      "reason": "Isolated tmux startup and config source-file both returned exit_code 0 with no parse/runtime error text.",
+      "evidence": [
+        "foundation/key-foundation/VAL-KEY-001-bootstrap.txt",
+        "foundation/key-foundation/command-trace.log"
+      ]
+    },
+    {
+      "id": "VAL-KEY-002",
+      "status": "pass",
+      "reason": "Observed option values: ['a', 'A', 'opencode,codex,droid,pi', '0']",
+      "evidence": [
+        "foundation/key-foundation/VAL-KEY-002-options.txt"
+      ]
+    },
+    {
+      "id": "VAL-KEY-003",
+      "status": "pass",
+      "reason": "Prefix table gained g -> workspace_agent and root table shows no workspace_agent/global remap entries.",
+      "evidence": [
+        "foundation/key-foundation/VAL-KEY-003-before.txt",
+        "foundation/key-foundation/VAL-KEY-003-after.txt"
+      ]
+    },
+    {
+      "id": "VAL-KEY-004",
+      "status": "pass",
+      "reason": "a=True, A=True, q=True, Escape=True",
+      "evidence": [
+        "foundation/key-foundation/VAL-KEY-004-workspace-agent-table.txt"
+      ]
+    },
+    {
+      "id": "VAL-KEY-005",
+      "status": "pass",
+      "reason": "Reload cycles 1-3 yielded identical prefix/workspace_agent bindings and hook lists.",
+      "evidence": [
+        "foundation/key-foundation/VAL-KEY-005-cycle1.txt",
+        "foundation/key-foundation/VAL-KEY-005-cycle2.txt",
+        "foundation/key-foundation/VAL-KEY-005-cycle3.txt"
+      ]
+    },
+    {
+      "id": "VAL-KEY-006",
+      "status": "pass",
+      "reason": "before=['x', 'm', 'Q', 'codex,pi', '1'], after_init=['x', 'm', 'Q', 'codex,pi', '1'], after_reload=['x', 'm', 'Q', 'codex,pi', '1']",
+      "evidence": [
+        "foundation/key-foundation/VAL-KEY-006-before.txt",
+        "foundation/key-foundation/VAL-KEY-006-after-init.txt",
+        "foundation/key-foundation/VAL-KEY-006-after-reload.txt"
+      ]
+    },
+    {
+      "id": "VAL-KEY-007",
+      "status": "pass",
+      "reason": "Default socket snapshots before/after are identical and all mutating tmux commands in trace used explicit -L sockets.",
+      "evidence": [
+        "foundation/key-foundation/VAL-KEY-007-default-before.txt",
+        "foundation/key-foundation/VAL-KEY-007-default-after.txt",
+        "foundation/key-foundation/VAL-KEY-007-default-diff.txt",
+        "foundation/key-foundation/command-trace.log"
+      ]
+    }
+  ],
+  "passedAssertions": [
+    "VAL-KEY-001",
+    "VAL-KEY-002",
+    "VAL-KEY-003",
+    "VAL-KEY-004",
+    "VAL-KEY-005",
+    "VAL-KEY-006",
+    "VAL-KEY-007"
+  ],
+  "failedAssertions": [],
+  "blockedAssertions": [],
+  "frictions": [],
+  "blockers": [],
+  "toolsUsed": [
+    "tmux-cli"
+  ],
+  "summary": "Tested 7 assertions: 7 passed, 0 failed, 0 blocked."
+}

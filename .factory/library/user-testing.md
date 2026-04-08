@@ -38,3 +38,14 @@ Guidance for user-testing validators on this mission.
 - Action trace (exact command/key sequence)
 - Post-state snapshot
 - Failure/cancel branch feedback artifact where applicable
+
+## Flow Validator Guidance: tmux-cli
+
+- Use only isolated sockets with explicit names (for example `tmux -L utv_foundation_key ...`).
+- Never run mutating commands without `-L <socket>`.
+- Keep all validation actions scoped to:
+  - `/Users/ict/.config/tmux/plugins/tmux-workspace-agent/**`
+  - `/Users/ict/.config/tmux/tmux.conf`
+  - mission evidence/report paths
+- Do not read/write unrelated config trees or live tmux socket state.
+- Cleanup every created test socket with `tmux -L <socket> kill-server`.
