@@ -1,10 +1,10 @@
 vim.keymap.set("n", "<C-m>", "<C-i>", { desc = "Jump to older position in jump list" })
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 vim.keymap.set("n", "U", ":redo<CR>", { desc = "Redo", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Netrw file explorer" })
+vim.keymap.set("n", "<leader>pv", function()
+  require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+end, { desc = "Open mini.files" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines keeping cursor position" })
-
-require("config.flutter_remote").setup()
 
 local function format_line_ref(start_line, end_line)
   if start_line > end_line then

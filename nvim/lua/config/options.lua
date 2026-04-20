@@ -10,7 +10,20 @@ vim.g.maplocalleader = "\\"
 -- Root dir detection
 vim.g.root_spec = {
   "lsp",
-  { ".git", "lua", ".obsidian", "package.json", "Makefile", "go.mod", "cargo.toml", "pyproject.toml", "src" },
+  {
+    ".git",
+    ".obsidian",
+    "pubspec.yaml",
+    "package.json",
+    "pnpm-workspace.yaml",
+    "Makefile",
+    "justfile",
+    "go.work",
+    "go.mod",
+    "Cargo.toml",
+    "pyproject.toml",
+    "uv.lock",
+  },
   "cwd",
 }
 
@@ -38,3 +51,5 @@ vim.opt.cmdheight = 0
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.termguicolors = true
+vim.opt.exrc = true
+vim.opt.secure = true

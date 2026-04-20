@@ -143,7 +143,7 @@ return {
           },
         },
       })
-      require("config.flutter_remote").setup()
+      require("config.flutter_dtd").setup()
     end,
   },
 
